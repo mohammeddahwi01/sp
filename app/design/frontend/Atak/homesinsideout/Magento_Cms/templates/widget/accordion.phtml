@@ -1,0 +1,53 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+
+<?php //echo $block->getText(); ?>
+
+<script type="text/javascript">
+	require([
+			'jquery'
+		],
+		function($) {
+			$('.accordion .toggle').click( function(e) {
+				e.preventDefault();
+				
+				var $this = $(this);
+				var animationDelay = 350;
+				
+				if ($this.parent().hasClass('show')) {
+					$this.parent().removeClass('show');
+					$this.next().slideUp(animationDelay);
+				} else {
+					$this.parent().addClass('show');
+					$this.next().slideToggle(animationDelay);
+				}
+			});
+		}
+	);
+</script>
+
+<?php if ( false ): ?>
+
+<div data-mage-init='{"mage/tabs":{}}'>
+	<ul>
+		<li data-role="title"><a href="#tabs-1">Tab 1</a></li>
+		<li data-role="title"><a href="#tabs-2">Tab 2</a></li>
+		<li data-role="title"><a href="#tabs-3">Tab 3</a></li>
+	</ul>
+	<div id="tabs-1" data-role="content">
+		Tab 1 content ...
+	</div>
+	<div id="tabs-1" data-role="content">
+		Tab 2 content ...
+	</div>
+	<div id="tabs-1" data-role="content">
+		Tab 3 content ...
+	</div>
+</div>
+
+<?php endif; ?>

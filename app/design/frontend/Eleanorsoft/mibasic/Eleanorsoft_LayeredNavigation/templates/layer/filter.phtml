@@ -1,0 +1,33 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Template for filter items block
+ *
+ * @var $block \Eleanorsoft\LayeredNavigation\Block\Navigation\FilterRenderer
+ */
+?>
+
+<ol class="items filter-container" data-filter-code="<?php echo $block->getFilter()->getRequestVar(); ?>">
+    <?php foreach ($block->getFilter()->getItems() as $filterItem): ?>
+        <li class="item inline-item-filter">
+            <label class="checkbox-filter-options container">
+                <input
+                    <?php echo $block->isFilterItemActive($filterItem) ? 'checked' : null; ?>
+                    type="checkbox"
+                    id="filter-label-<?php /* @escapeNotVerified */ echo $filterItem->getLabel() ?>"
+                    data-filter-value="<?php echo $filterItem->getValue(); ?>"
+                />
+                <span class="checkmark"></span>
+            </label>
+            <?php /* @escapeNotVerified */ echo $filterItem->getLabel() ?>
+        </li>
+    <?php endforeach ?>
+</ol>

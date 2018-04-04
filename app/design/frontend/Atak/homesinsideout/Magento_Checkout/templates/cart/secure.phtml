@@ -1,0 +1,13 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$storeInformation = $objectManager->create('Magento\Store\Model\Information');
+$store = $objectManager->create('Magento\Store\Model\Store');
+$storeInfo = $storeInformation->getStoreInformationObject($store);
+$phone = $storeInfo->getPhone();
+?>
+<div class="cart-secure">
+	<span class="logo"></span>
+	<div class="title">NEED HELP?</div>
+	<a href="tel:866.597.2742" class="phone">Call Us <?php echo $phone; ?></a>
+	<p><a href="">Shipping & Delivery</a>  /  <a href="">Returns</a>  /  <a href="">FAQs</a></p>
+</div>

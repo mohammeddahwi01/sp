@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="checkout_cart_item_renderers"/>
+    <body>
+        <referenceBlock name="page.main.title" htmlClass = "cart-title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">your cart</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="columns" htmlClass="columns container" />
+        <referenceContainer name="main.content" htmlClass="page-main custom-main" />
+    </body>
+</page>

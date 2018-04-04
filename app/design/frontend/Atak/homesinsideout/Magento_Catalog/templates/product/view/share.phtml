@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $_product = $block->getProduct() ?>
+
+<a href="<?php /* @escapeNotVerified */ echo $this->helper('Magento\Catalog\Helper\Product')->getProductUrl($_product) ?>"
+   class="action share facebook"><span class="icon-facebook"></span></a>
+
+<a href="<?php /* @escapeNotVerified */ echo $this->helper('Magento\Catalog\Helper\Product')->getProductUrl($_product) ?>"
+   class="action share twitter"><span class="icon-twitter"></span></a>

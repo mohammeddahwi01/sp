@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+
+<?php //echo $block->getText(); ?>
+
+<script type="text/javascript">
+	require([
+			'jquery'
+		],
+		function($){
+			// Mark current menu item
+			var current_url = '<?php echo $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]) ?>';
+			$('#customer_care_nav a[href^="' + current_url + '"]').parent().addClass('current');
+		}
+	);
+</script>

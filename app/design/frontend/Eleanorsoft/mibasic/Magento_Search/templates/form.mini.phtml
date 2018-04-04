@@ -1,0 +1,115 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper('Magento\Search\Helper\Data');
+?>
+<div class="block block-search hidden">
+    <div class="block block-title"><strong><?php /* @escapeNotVerified */ echo __('Search'); ?></strong></div>
+    <div class="block block-content">
+        <form class="form minisearch" id="search_mini_form" action="<?php /* @escapeNotVerified */ echo $helper->getResultUrl() ?>" method="get">
+            <div class="field search">
+                <div class="control">
+                  
+                    <input id="search"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mini_form",
+                                "url":"<?php /* @escapeNotVerified */ echo $block->getUrl('search/ajax/suggest', ['_secure' => $block->getRequest()->isSecure()]); ?>",
+                                "destinationSelector":"#search_autocomplete"}
+                           }'
+                           type="text"
+                           name="<?php /* @escapeNotVerified */ echo $helper->getQueryParamName() ?>"
+                           value="<?php /* @escapeNotVerified */ echo $helper->getEscapedQueryText() ?>"
+                           placeholder="<?php /* @escapeNotVerified */ echo __('search for products...'); ?>"
+                           class="input-text my-inp"
+                           maxlength="<?php /* @escapeNotVerified */ echo $helper->getMaxQueryLength();?>"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           autocomplete="off"/>
+                    <button type="submit"
+                            title="<?php echo $block->escapeHtml(__('Search')) ?>"
+                            class="action search">
+                    </button>
+                    <span class="my-image-close">x</span>
+
+                    <div id="search_autocomplete" class="search-autocomplete"></div>
+                    <?php echo $block->getChildHtml() ?>
+                </div>
+            </div>
+            <div class="actions my-search-action">
+
+            </div>
+        </form>
+    </div>
+</div>
+<?php /*
+<script>
+requirejs(['jquery'], function ($) {
+    $(".control-hide").click(function() {
+      if($(window).width() < 767) { 
+          $(".my-search-action").css({
+            opacity:"1",
+          });
+        
+          $(this).removeClass('control-click');
+
+          $(".hide-input-miniform").show("slow");
+          // $(".sections,.right-top-menu").hide("slow");
+          $(".minicart-wrapper").css({
+            left: '0',
+              top: '0'
+          });
+            $(".action.search").css({
+             left:"50vw",
+             top:"-3px",
+          });
+      } else { 
+       
+             $(".my-search-action").css({
+            opacity:"1",
+          });
+          $(".action.search").css({
+             left:"59vw",
+             top:"-3px",
+          });
+          $(this).removeClass('control-hide');
+
+          $(".hide-input-miniform").show("slow");
+          $(".sections,.right-top-menu").hide("slow");
+          $(".minicart-wrapper").css({
+            left: '60vw',
+              top: '-3px'
+          });
+      }
+    });
+     $(".input-text.hide-input-miniform.my-inp").click(function(event) {
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+          });
+
+
+        $(".my-image-close").click(function (e) {
+            $(".hide-input-miniform").hide(); 
+                $(".my-search-action").css({
+                  opacity:"0",
+                });
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            $(".sections,.right-top-menu").show();
+            $(".minicart-wrapper").css({
+                left: '0',
+                top: '0'
+            });
+            $(".control-click").addClass('control-hide');
+        });
+});
+</script>
+*/ ?>

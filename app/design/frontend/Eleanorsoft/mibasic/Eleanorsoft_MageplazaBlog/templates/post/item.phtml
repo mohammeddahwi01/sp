@@ -1,0 +1,18 @@
+<?php /** @var \Eleanorsoft\MageplazaBlog\Block\Post\Item $block */ ?>
+<?php
+$post = $block->getPost();
+$postCategory = $block->getPostFirstCategory($post);
+?>
+
+<div class="post-list-item post-hidden" data-category="<?php echo $postCategory->getId(); ?>" data-post="<?php echo $block->getPostIndex(); ?>">
+    <a href="<?php echo $block->escapeHtml($post->getUrl()); ?>">
+        <div class="img-container-post-list">
+        <img src="<?php echo $block->escapeHtml($block->getPostImageUrl($post)); ?>" alt="<?php echo $block->escapeHtml($post->getName()); ?>">
+        </div>
+        <div class="post-list-item-description">
+            <span class = "post-category-name">in: <?php echo $block->escapeHtml($postCategory->getName()); ?>,</span>
+            <span class = "post-date">date :<?php echo $block->escapeHtml($post->getPublishDate()); ?></span>
+            <div class = "post-name"><?php echo $block->escapeHtml($post->getName()); ?></div>
+        </div>
+    </a>
+</div>

@@ -1,0 +1,46 @@
+<?php /** @var \Eleanorsoft\Sales\Block\Order\History $block */ ?>
+<div class="container order-history">
+    <div class="top-line">
+        <hr>
+    </div>
+    <?php $_orders = $block->getOrders(); ?>
+    <?php echo $block->getChildHtml('info');?>
+    <?php if ($_orders && count($_orders)): ?>
+        <div class="row orders-history">
+            <?php $i = 0; foreach ($_orders as $_order): $i++; /** @var \Magento\Sales\Model\Order $_order */  ?>
+                <?php $product = $block->getOrderFirstProduct($_order); ?>
+                <?php $productImage = $block->getProductImage($product); ?>
+                <div class="order-history-item col-md-4">
+                    <a href="<?php echo $block->getViewUrl($_order); ?>">
+                        <img src="<?php echo $productImage->getImageUrl(); ?>"
+                             alt="<?php echo $product->getName(); ?>"/>
+                    </a>
+                    <div class="status">
+                        <?= __('Status:'); ?>
+                        <div class="status-<?= $block->escapeHtml($_order->getStatus()); ?>">
+                            <?= __('Pending'); ?>
+                        </div>
+                    </div>
+                    <div class="order-number">
+                        <?= sprintf(__('ORDER: #%s'), $_order->getRealOrderId()); ?>
+                    </div>
+                    <div class="order-date">
+                        <?= sprintf(__('Date: %s'), $block->formatDate($_order->getCreatedAt())); ?>
+                    </div>
+                    <div class="order-total">
+                        <?= sprintf(__('Total: %s'), $_order->formatPrice($_order->getGrandTotal())); ?>
+                    </div>
+                </div>
+
+                <?php if ($i % 3 == 0) { ?>
+                    <div class="w-100"></div>
+                <?php } ?>
+            <?php endforeach; ?>
+        </div>
+        <?php if ($block->getPagerHtml()): ?>
+            <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+        <?php endif ?>
+    <?php else: ?>
+        <div class="message info empty"><span><?php /* @escapeNotVerified */ echo __('You have placed no orders.'); ?></span></div>
+    <?php endif ?>
+</div>

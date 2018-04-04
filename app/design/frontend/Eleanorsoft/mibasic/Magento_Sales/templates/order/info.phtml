@@ -1,0 +1,54 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Magento\Sales\Block\Order\Info */ ?>
+<?php $_order = $block->getOrder() ?>
+
+<?php if (!$_order->getIsVirtual()): ?>
+    <div class="row shipping">
+        <div class="col-4" id="shipping-address">
+            <?= __('SHIPPING ADDRESS'); ?>
+        </div>
+        <div class="col-4 offset-1" id="method-shipping">
+            <?= __('SHIPPING METHOD'); ?>
+        </div>
+    </div>
+    <div class="row user-address">
+        <div class="col-4" id="customer-address">
+            <?php /* @escapeNotVerified */ echo $block->getFormattedAddress($_order->getShippingAddress()); ?>
+        </div>
+        <div class="col-4 offset-1" id="description-shipping">
+            <?php if ($_order->getShippingDescription()): ?>
+                <?php echo $block->escapeHtml($_order->getShippingDescription()) ?>
+            <?php else: ?>
+                <?php /* @escapeNotVerified */ echo __('No shipping information available'); ?>
+            <?php endif; ?>
+        </div>
+    </div>
+    <div class="line-between">
+        <hr>
+    </div>
+<?php endif; ?>
+
+<div class="row payment">
+    <div class="col-4" id="billing-address">
+        <?= __('BILLING ADDRESS'); ?>
+    </div>
+    <div class="col-4 offset-md-1" id="payment-method">
+        <?= __('PAYMENT METHOD'); ?>
+    </div>
+</div>
+<div class="row user-address">
+    <div class="col-4" id="add-for-bills">
+        <?php /* @escapeNotVerified */ echo $block->getFormattedAddress($_order->getBillingAddress()); ?>
+    </div>
+    <div class="col-4 offset-md-1" id="cart-for-payment">
+        <?php echo $block->getPaymentInfoHtml() ?>
+    </div>
+</div>

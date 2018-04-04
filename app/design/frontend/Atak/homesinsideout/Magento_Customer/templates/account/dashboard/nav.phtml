@@ -1,0 +1,43 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Account\Dashboard\Info $block */
+?>
+<div class="block block-dashboard-nav">
+    <div class="block-title"><strong><?php echo $block->escapeHtml(__('Hello')) ?>, <?php echo $block->getName() ?></strong></div>
+    <div class="block-content">
+	    <p>View a snapshot of your recent account activity and update your account information through your Dashboard.<br>
+		    Select a link below to view or edit information.</p>
+	    <div class="dashboard-nav">
+	        <a class="nav-box box-information" href="<?php echo $this->getUrl('customer/account/edit'); ?>">
+	            <div class="nav-box-title">
+	                <?php echo $block->escapeHtml(__('Account Info')) ?>
+	            </div>
+	            <div class="box-content">
+	                <span class="icon icon-info"></span>
+	            </div>
+	        </a>
+		    <a class="nav-box box-information" href="<?php echo $this->getUrl('sales/order/history'); ?>">
+			    <div class="nav-box-title">
+				    <?php echo $block->escapeHtml(__('Order History')) ?>
+			    </div>
+			    <div class="box-content">
+				    <span class="icon icon-history"></span>
+			    </div>
+		    </a>
+		    <a class="nav-box box-information" href="<?php echo $this->getUrl('wishlist'); ?>">
+			    <div class="nav-box-title">
+				    <?php echo $block->escapeHtml(__('My Wishlist')) ?>
+			    </div>
+			    <div class="box-content">
+				    <span class="icon icon-heart"></span>
+			    </div>
+		    </a>
+	    </div>
+    </div>
+</div>

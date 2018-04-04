@@ -1,0 +1,50 @@
+<?php
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get('Magento\Customer\Model\Session');
+
+?>
+<ul class="quick-links">
+	
+	<?php if($customerSession->isLoggedIn()) : ?>
+		<li class="account-links"><a href="#">Account</a>
+			<ul class="dropdown">
+				<li><a href="<?php echo $this->getUrl('customer/account'); ?>">Dashboard</a></li>
+				<li><a href="<?php echo $this->getUrl('customer/account/edit'); ?>">Personal Data</a></li>
+				<li><a href="<?php echo $this->getUrl('sales/order/history'); ?>">Order History</a></li>
+				<li><a href="<?php echo $this->getUrl('wishlist'); ?>">Wishlist</a></li>
+				<li><a href="<?php echo $this->getUrl('customer/account/logout'); ?>">Logout</a></li>
+			</ul>
+		</li>
+	<?php else: ?>
+		<li class="account-links">
+			<a href="<?php echo $this->getUrl('customer/account/login'); ?>">SIGN IN</a>/<a href="<?php echo $this->getUrl('customer/account/create'); ?>">REGISTER</a>
+		</li>
+	<?php endif; ?>
+	
+	<li class="help">
+		<a href="javascript:;"> ? </a>
+		<ul class="dropdown">
+			<li><a href="<?php echo $this->getUrl('contact') ?>">Contact Us</a></li>
+			<li><a href="<?php echo $this->getUrl('returns') ?>">Returns</a></li>
+			<li><a href="<?php echo $this->getUrl('shipping') ?>">Shipping & Delivery</a></li>
+			<li><a href="<?php echo $this->getUrl('terms') ?>">Terms & Conditions</a></li>
+			<li><a href="<?php echo $this->getUrl('faqs') ?>">FAQs</a></li>
+		</ul>
+	</li>
+	
+</ul>
+
+<script type="text/javascript">
+	require([
+			'jquery'
+		],
+		function($) {
+			<?php if($customerSession->isLoggedIn()) : ?>
+			$('body').addClass('user-is-logged-in');
+			<?php else: ?>
+			$('body').addClass('user-guest');
+			<?php endif; ?>
+		}
+	);
+</script>

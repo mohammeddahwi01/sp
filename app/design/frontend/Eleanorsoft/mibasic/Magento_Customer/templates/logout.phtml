@@ -1,0 +1,36 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="error-page-header">
+                <?php echo $block->escapeHtml(__('You are signed out.')) ?>
+            </h1>
+            <h4 class="error-page-desc">
+                <?php echo $block->escapeHtml(__('You have signed out and will go to our homepage in 5 seconds.')) ?>
+            </h4>
+            <a href='<?php echo $block->getBaseUrl() ?>'>
+                <button class="btn my-btn btn-error"><?php echo $block->escapeHtml(__('Back to home.')) ?></button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+require([
+    "jquery",
+    "mage/mage"
+], function($){
+
+    $($.mage.redirect("<?php
+        echo $this->helper(\Magento\Framework\EscapeHelper::class)
+            ->escapeJs($block->escapeUrl($block->getUrl())) ?>", "assign", 5000));
+
+});
+</script>

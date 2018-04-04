@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Eleanorsoft\LayeredNavigation\Block\Navigation\Search" type="Eleanorsoft\LayeredNavigation\Block\Navigation">
+        <arguments>
+            <argument name="filterList" xsi:type="object">searchFilterList</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Eleanorsoft\LayeredNavigation\Block\Navigation\Category" type="Eleanorsoft\LayeredNavigation\Block\Navigation">
+        <arguments>
+            <argument name="filterList" xsi:type="object">categoryFilterList</argument>
+        </arguments>
+    </virtualType>
+    <preference for="Magento\Swatches\Helper\Data" type="Eleanorsoft\LayeredNavigation\Model\SwatchHelperData"/>
+    <preference for="Magento\LayeredNavigation\Block\Navigation\Search" type="Eleanorsoft\LayeredNavigation\Block\Navigation\Search"/>
+    <preference for="Magento\LayeredNavigation\Block\Navigation\Category" type="Eleanorsoft\LayeredNavigation\Block\Navigation\Category"/>
+    <preference for="Magento\Swatches\Block\LayeredNavigation\RenderLayered" type="Eleanorsoft\LayeredNavigation\Block\SwatchesRenderLayered"/>
+    <preference for="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" type="Eleanorsoft\LayeredNavigation\Block\Navigation\FilterRenderer"/>
+    <preference for="Magento\CatalogSearch\Model\Layer\Filter\Attribute" type="Eleanorsoft\LayeredNavigation\Model\CatalogSearchLayerFilterAttribute"/>
+    <preference for="Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection" type="Eleanorsoft\LayeredNavigation\Model\CatalogSearchFulltextCollection"/>
+    <preference for="Magento\Catalog\Model\Layer\Filter\Item" type="Eleanorsoft\LayeredNavigation\Model\CatalogSearchLayerFilterItem"/>
+</config>

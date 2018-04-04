@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="product.price.final" destination="product.info.addtocart.additional" />
+        <move element="product.info.options.wrapper" destination="product.info.addtocart.additional" />
+        <referenceBlock name="product.info.addtocart.additional">
+            <block class="Eleanorsoft\AddThis\Block\Widget" name="addthis.widget"/>
+        </referenceBlock>
+    </body>
+</page>

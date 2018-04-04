@@ -1,0 +1,281 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Temlate for \Eleanorsoft\AddressBook\Block\Address\Address block
+ * @var \Eleanorsoft\AddressBook\Block\Address\Address $block
+ */
+?>
+<?php
+/**
+ * @var \Magento\Directory\Helper\Data $dataHelper
+ * @var \Magento\Framework\EscapeHelper $escapeHelper
+ * @var \Magento\Customer\Helper\Address $addressHelper
+ */
+
+$dataHelper = $this->helper(\Magento\Directory\Helper\Data::class);
+$escapeHelper = $this->helper(\Magento\Framework\EscapeHelper::class);
+$addressHelper = $this->helper(\Magento\Customer\Helper\Address::class);
+?>
+
+<h3><?php echo $block->getFormHeadingText(); ?></h3>
+<div id="<?php echo $block->getAddressPrefix() ?>waiting" style="display: none;"><?php echo __('Please, wait...'); ?></div>
+<div class="ajax-form" data-bind="scope: '<?php echo $block->getAddressPrefix() ?>ajaxForm'">
+
+    <select id="<?php echo $block->getAddressPrefix() ?>addresses" title="<?php echo $block->getFormHeadingText(); ?>" data-bind="event: {change: addressChanged($element)}">
+        <?php foreach ($block->getCustomer()->getAddresses() as $address): ?>
+            <option value="<?php echo $address->getId(); ?>">
+                <?php
+                $optionText = '';
+                $optionText .= $address->getFirstname() . ' ';
+                $optionText .= $address->getLastname() . ', ';
+                $optionText .= $address->getStreet()[0];
+
+                if (isset($address->getStreet()[1])) {
+                    $optionText .= ' (' . $address->getStreet()[1] . ')';
+                }
+                ?>
+                <?php echo $optionText; ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+
+    <div class="actions">
+        <div>
+            <a href="javascript:void(0);"
+               id="<?php echo $block->getAddressPrefix() ?>edit-address"
+               data-bind="click: editAddress"><?php echo __('EDIT'); ?></a>
+        </div>
+        <div>
+            <a href="javascript:void(0);"
+               id="<?php echo $block->getAddressPrefix() ?>remove-address"
+               data-bind="click: removeAddress"><?php echo __('Remove Address'); ?></a>
+        </div>
+        <div>
+            <a href="javascript:void(0);"
+               id="<?php echo $block->getAddressPrefix() ?>set-as-default-address"
+               data-bind="click: setAsDefaultAddress"><?php echo __('Default'); ?></a>
+        </div>
+    </div>
+
+    <form
+        class="form-address-edit"
+        action="<?php echo $block->escapeUrl($block->getSaveUrl()) ?>"
+        id="<?php echo $block->getAddressPrefix() ?>form-validate"
+        method="post"
+        enctype="multipart/form-data"
+        data-bind="submit: submitForm"
+        style="display: none;"
+    >
+        <?php echo $block->getBlockHtml('formkey')?>
+        <input id="<?php echo $block->getAddressPrefix() ?>id" type="hidden" name="id" value="">
+        <input id="default_<?php echo $block->getAddressType() ?>" type="hidden" name="default_<?php echo $block->getAddressType() ?>" value="0">
+        <input type="hidden" id="<?php echo $block->getAddressPrefix() ?>is-js-component-active" value="">
+        <input type="hidden" name="success_url" value="<?php echo $block->escapeUrl($block->getSuccessUrl()) ?>">
+        <input type="hidden" name="error_url" value="<?php echo $block->escapeUrl($block->getErrorUrl()) ?>">
+        <!-- ko template: 'Eleanorsoft_Lib/ajax-form-messages.html' --><!-- /ko -->
+
+        <fieldset class="fieldset">
+            <?php echo $block->getNameBlockHtml() ?>
+            <div class="field company">
+                <label class="label" for="<?php echo $block->getAddressPrefix() ?>company">
+                    <span><?php echo $block->escapeHtml(__('Company')) ?></span>
+                </label>
+                <div class="control">
+                    <input
+                        type="text"
+                        name="company"
+                        id="<?php echo $block->getAddressPrefix() ?>company"
+                        title="<?php echo $escapeHelper->escapeHtmlAttr(__('Company')) ?>"
+                        value="<?php echo $escapeHelper->escapeHtmlAttr($block->getAddress()->getCompany()) ?>"
+                        class="input-text <?php echo $escapeHelper->escapeHtmlAttr($addressHelper->getAttributeValidationClass('company')) ?>"
+                    />
+                </div>
+            </div>
+            <div class="field telephone required">
+                <label class="label" for="<?php echo $block->getAddressPrefix() ?>telephone">
+                    <span><?php echo $block->escapeHtml(__('Phone Number')) ?></span>
+                </label>
+                <div class="control">
+                    <input
+                        type="text"
+                        name="telephone"
+                        value="<?php echo $escapeHelper->escapeHtmlAttr($block->getAddress()->getTelephone()) ?>"
+                        title="<?php echo $escapeHelper->escapeHtmlAttr(__('Phone Number')) ?>"
+                        class="input-text <?php echo $escapeHelper->escapeHtmlAttr($addressHelper->getAttributeValidationClass('telephone')) ?>"
+                        id="<?php echo $block->getAddressPrefix() ?>telephone"
+                    />
+                </div>
+            </div>
+            <?php $_streetValidationClass = $addressHelper->getAttributeValidationClass('street'); ?>
+            <div class="field street required">
+                <label for="<?php echo $block->getAddressPrefix() ?>street_1" class="label">
+                    <span><?php echo $block->escapeHtml(__('Street Address')) ?></span>
+                </label>
+                <div class="control">
+                    <input
+                        type="text"
+                        name="street[]"
+                        value="<?php echo $escapeHelper->escapeHtmlAttr($block->getStreetLine(1)) ?>"
+                        title="<?php echo $escapeHelper->escapeHtmlAttr(__('Street Address')) ?>"
+                        id="<?php echo $block->getAddressPrefix() ?>street_1"
+                        class="input-text <?php echo $escapeHelper->escapeHtmlAttr($_streetValidationClass) ?>"
+                    />
+                    <div class="nested">
+                        <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
+                        <?php for ($_i = 1, $_n = $addressHelper->getStreetLines(); $_i < $_n; $_i++): ?>
+                            <div class="field additional">
+                                <label class="label" for="<?php echo $block->getAddressPrefix() ?>street_<?php /* @escapeNotVerified */ echo $_i+1 ?>">
+                                    <span><?php echo $block->escapeHtml(__('Street Address %1', $_i + 1)) ?></span>
+                                </label>
+                                <div class="control">
+                                    <input
+                                        type="text"
+                                        name="street[]"
+                                        value="<?php echo $escapeHelper->escapeHtmlAttr($block->getStreetLine($_i+1)) ?>"
+                                        title="<?php echo $escapeHelper->escapeHtmlAttr(__('Street Address %1', $_i + 1)) ?>"
+                                        id="<?php echo $block->getAddressPrefix() ?>street_<?php /* @escapeNotVerified */ echo $_i+1 ?>"
+                                        class="input-text <?php echo $escapeHelper->escapeHtmlAttr($_streetValidationClass) ?>"
+                                    />
+                                </div>
+                            </div>
+                        <?php endfor; ?>
+                    </div>
+                </div>
+            </div>
+
+            <?php if ($addressHelper->isVatAttributeVisible()) : ?>
+                <div class="field taxvat">
+                    <label class="label" for="<?php echo $block->getAddressPrefix() ?>vat_id">
+                        <span><?php echo $block->escapeHtml(__('VAT Number')) ?></span>
+                    </label>
+                    <div class="control">
+                        <input
+                            type="text"
+                            name="vat_id"
+                            value="<?php echo $escapeHelper->escapeHtmlAttr($block->getAddress()->getVatId()) ?>"
+                            title="<?php echo $escapeHelper->escapeHtmlAttr(__('VAT Number')) ?>"
+                            class="input-text <?php echo $escapeHelper->escapeHtmlAttr($addressHelper->getAttributeValidationClass('vat_id')) ?>"
+                            id="<?php echo $block->getAddressPrefix() ?>vat_id"
+                        />
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="field city required">
+                <label class="label" for="<?php echo $block->getAddressPrefix() ?>city">
+                    <span><?php echo $block->escapeHtml(__('City')) ?></span>
+                </label>
+                <div class="control">
+                    <input
+                        type="text"
+                        name="city"
+                        value="<?php echo $escapeHelper->escapeHtmlAttr($block->getAddress()->getCity()) ?>"
+                        title="<?php echo $escapeHelper->escapeHtmlAttr(__('City')) ?>"
+                        class="input-text <?php echo $escapeHelper->escapeHtmlAttr($addressHelper->getAttributeValidationClass('city')) ?>"
+                        id="<?php echo $block->getAddressPrefix() ?>city"
+                    />
+                </div>
+            </div>
+            <div class="field zip required">
+                <label class="label" for="<?php echo $block->getAddressPrefix() ?>zip">
+                    <span><?php echo $block->escapeHtml(__('Zip Code')) ?></span>
+                </label>
+                <div class="control">
+                    <input
+                        type="text"
+                        name="postcode"
+                        value="<?php echo $escapeHelper->escapeHtmlAttr($block->getAddress()->getPostcode()) ?>"
+                        title="<?php echo $escapeHelper->escapeHtmlAttr(__('Zip/Postal Code')) ?>"
+                        id="<?php echo $block->getAddressPrefix() ?>zip"
+                        class="input-text validate-zip-international <?php echo $escapeHelper->escapeHtmlAttr($addressHelper->getAttributeValidationClass('postcode')) ?>"
+                    />
+                </div>
+            </div>
+            <div class="field region required">
+                <label class="label" for="<?php echo $block->getAddressPrefix() ?>region_id">
+                    <span><?php echo $block->escapeHtml(__('Province')) ?></span>
+                </label>
+                <div class="control">
+                    <select
+                        id="<?php echo $block->getAddressPrefix() ?>region_id"
+                        name="region_id"
+                        title="<?php echo $escapeHelper->escapeHtmlAttr(__('State/Province')) ?>"
+                        class="validate-select"
+                        <?php echo(!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : '';?>
+                    >
+                        <option value=""><?php echo $block->escapeHtml(__('Please select a region, state or province.')) ?></option>
+                    </select>
+                    <input
+                        type="text"
+                        id="<?php echo $block->getAddressPrefix() ?>region"
+                        name="region"
+                        value="<?php echo $escapeHelper->escapeHtmlAttr($block->getRegion()) ?>"
+                        title="<?php echo $escapeHelper->escapeHtmlAttr(__('State/Province')) ?>"
+                        class="input-text <?php echo $escapeHelper->escapeHtmlAttr($addressHelper->getAttributeValidationClass('region')) ?>"
+                        <?php echo(!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : '';?>
+                    />
+                </div>
+            </div>
+            <div class="field country required">
+                <label class="label" for="<?php echo $block->getAddressPrefix() ?>country">
+                    <span><?php echo $block->escapeHtml(__('Country')) ?></span>
+                </label>
+                <div class="control">
+                    <?php echo $block->getCountryHtmlSelect() ?>
+                </div>
+            </div>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button
+                    type="submit"
+                    class="action submit primary"
+                    data-action="save-address"
+                    title="<?php echo $escapeHelper->escapeHtmlAttr(__('Save Address')) ?>"
+                >
+                    <span><?php echo $block->escapeHtml(__('Save Changes')) ?></span>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div id="<?php echo $block->getAddressPrefix() ?>add-address"
+         class="add-link"
+         data-bind="click: addAddress"><span><?php echo __('+'); ?></span></div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+			"Magento_Ui/js/core/app": {
+				"components": {
+					"<?php echo $block->getAddressPrefix() ?>ajaxForm": {
+						"component": "Eleanorsoft_AddressBook/js/address-ajax-form",
+						"addressType": "<?php echo $block->getAddressType() ?>",
+						"addressPrefix": "<?php echo $block->getAddressPrefix() ?>",
+						"addressesDataJson": <?php echo $block->getAddressesDataJson(); ?>,
+						"onSendSuccess": "function () {location.reload()}"
+					}
+				}
+			}
+		},
+        "#<?php echo $block->getAddressPrefix() ?>country": {
+            "Eleanorsoft_AddressBook/js/region-updater-ajax-form": {
+                "optionalRegionAllowed": <?php /* @escapeNotVerified */ echo($block->getConfig('general/region/display_all') ? 'true' : 'false'); ?>,
+                "regionListId": "#<?php echo $block->getAddressPrefix() ?>region_id",
+                "regionInputId": "#<?php echo $block->getAddressPrefix() ?>region",
+                "postcodeId": "#<?php echo $block->getAddressPrefix() ?>zip",
+                "form": "#<?php echo $block->getAddressPrefix() ?>form-validate",
+                "regionJson": <?php /* @escapeNotVerified */ echo $dataHelper->getRegionJson() ?>,
+                "defaultRegion": "<?php echo (int) $block->getRegionId() ?>",
+                "countriesWithOptionalZip": <?php /* @escapeNotVerified */ echo $dataHelper->getCountriesWithOptionalZip(true) ?>
+            }
+        }
+    }
+</script>

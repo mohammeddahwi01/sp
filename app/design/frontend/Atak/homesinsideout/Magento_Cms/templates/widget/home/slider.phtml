@@ -1,0 +1,36 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+
+<?php //echo $block->getText(); ?>
+
+<script type="text/javascript">
+	require([
+			'jquery',
+			'owlcarousel'
+		],
+		function($){
+			var $test_images = $("#home-slider");
+			$test_images.addClass("owl-carousel").owlCarousel({
+				autoplay: true,
+				loop: true,
+				margin: 0,
+				responsiveClass: true,
+				//mouseDrag: false,
+				//touchDrag: false,
+				//nav: false,
+				navText: ['<i class="icon-left-dir"></i>', '<i class="icon-right-dir"></i>'],
+				responsive: {
+					0:{
+						items: 1,
+						nav: true
+					}
+				}
+			});
+		}
+	);
+</script>

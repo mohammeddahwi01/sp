@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="el_custom_form" translate="label" sortOrder="1">
+            <label>Custom Forms</label>
+        </tab>
+        <section id="el_default_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Default Settings</label>
+            <tab>el_custom_form</tab>
+            <resource>Eleanorsoft_CustomForm::custom_form_config</resource>
+            <group id="email" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Default Email Options</label>
+                <field id="recipient_email" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Send Emails To</label>
+                    <validate>validate-email</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

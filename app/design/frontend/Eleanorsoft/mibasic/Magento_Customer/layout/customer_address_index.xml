@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="columns">
+            <container htmlTag="div" class="" htmlClass="container mgt50">
+                <container name="account.wrapper" htmlTag="div" htmlClass="row">
+                    <container htmlTag="div" htmlClass="col-md-3 side-left-bord d-none d-md-block">
+                        <container name="left.sidebar" htmlTag="div" htmlClass="sidebar sidebar-left" />
+                    </container>
+                </container>
+            </container>
+        </referenceContainer>
+        <move element="customer_account_navigation" destination="left.sidebar" />
+        <referenceContainer name="main" htmlClass="column main col-md-9 col-sm-12" />
+        <move element="main" destination="account.wrapper" />
+    </body>
+</page>

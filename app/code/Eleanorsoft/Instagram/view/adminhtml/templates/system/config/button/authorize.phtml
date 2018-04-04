@@ -1,0 +1,72 @@
+<?php /** @var \Eleanorsoft\Instagram\Block\System\Config\Form\AuthorizeButton $block */ ?>
+<hr/>
+<p>
+    <?php echo __('Redirect uri option for your Instagram application.'); ?>
+</p>
+<p style="border: 1px solid; padding: 5px;"><?php echo $block->getApiCallbackUrl(); ?></p>
+<button
+    id="<?php echo $block->getButtonHtmlId(); ?>"
+    title="<?php echo __('Connect your Instagram account'); ?>"
+    class="action-default scalable"
+    style="float: right; margin-top: 20px;"
+>
+    <?php echo __('Save and connect your Instagram account'); ?>
+</button>
+<script type="text/javascript">
+    requirejs(['jquery'], function ($) {
+        var widgetButton = $('#<?php echo $block->getButtonHtmlId(); ?>'),
+            clientIdInput = $('#eleanorsoft_instagram_general_client_id'),
+            isEnabledInput = $('#eleanorsoft_instagram_general_is_enabled'),
+            clientSecretInput = $('#eleanorsoft_instagram_general_client_secret'),
+            action = '<?php echo $block->getApiConnectUrl(); ?>',
+            formKey = '<?php echo $block->getFormKey(); ?>',
+            submitPostForm = function (path, params, methodParam) {
+                var method = methodParam || 'post',
+                    form = document.createElement('form'),
+                    tempFormId = 'eleanorsoft-instagram-temp-form',
+                    oldForm = document.getElementById(tempFormId);
+
+                if (oldForm) {
+                    oldForm.remove();
+                }
+
+                form.setAttribute('method', method);
+                form.setAttribute('action', path);
+                form.setAttribute('id', tempFormId);
+
+                for(var key in params) {
+                    if(params.hasOwnProperty(key)) {
+                        var hiddenField = document.createElement('input');
+                        hiddenField.setAttribute('type', 'hidden');
+                        hiddenField.setAttribute('name', key);
+                        hiddenField.setAttribute('value', params[key]);
+                        form.appendChild(hiddenField);
+                    }
+                }
+
+                document.body.appendChild(form);
+                form.submit();
+            };
+
+        isEnabledInput.change(function () {
+            widgetButton.prop('disabled', this.value == false);
+        });
+
+        widgetButton.click(function (event) {
+            event.stopPropagation();
+
+            if (isEnabledInput.val() == true) {
+                submitPostForm(action, {
+                    form_key: formKey,
+                    is_enabled: isEnabledInput.val(),
+                    client_id: clientIdInput.val(),
+                    client_secret: clientSecretInput.val()
+                });
+            }
+
+            return false;
+        });
+
+        widgetButton.prop('disabled', isEnabledInput.val() == false);
+    });
+</script>

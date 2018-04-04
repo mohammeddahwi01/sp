@@ -1,0 +1,88 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+<div class="">
+
+	<a href="#"><div class="arrow">
+			<div id="circle">
+				<div id="triangle-up">
+				</div>
+			</div>
+		</div></a>
+
+	<div class="container resp-container">
+		<div class="row ">
+			<div class="col-md-6 col-xs-12">
+				<ul class="nav nav-pills float-flex-footer">
+					<a href="https://homesinsideout.com/"><li class="nav-item nav-footer"><img src="<?php echo $this->getViewFileUrl('images/footer/first-footer.png'); ?>"></li></a>
+					<a href="#"><li class="nav-item nav-footer"><img src="<?php echo $this->getViewFileUrl('images/footer/second-footer.png'); ?>"></li></a>
+					<a href="javascript:void(0);"><li class="nav-item nav-footer active-foot"><img src="<?php echo $this->getViewFileUrl('images/footer/third-footer.png'); ?>"></li></a>
+				</ul>
+			</div>
+
+			<div class="col-md-6 col-xs-12 bc-sm-white">
+				<ul class="nav nav-pills text-dec float-flex-footer float-md-right">
+					<div class="dropup my-dropup">
+						<li class="nav-item pd15 dropdown-toggle" type="button" data-toggle="dropdown">
+							<span class = "text-uppercase">customer care</span>
+							<span class = "plus"> +</span>
+						</li>
+						<ul class="dropdown-menu dropdown-menu-my">
+							<a href="<?= $block->getUrl('contact'); ?>"><li class = "dropup-field">Contact Us</li></a>
+							<a href="<?= $block->getUrl('returns'); ?>"><li class = "dropup-field">Returns</li></a>
+							<a href="<?= $block->getUrl('shipping'); ?>"><li class = "dropup-field">Shipping & Delivery</li></a>
+							<a href="<?= $block->getUrl('terms'); ?>"><li class = "dropup-field">Terms & Conditions</li></a>
+							<a href="<?= $block->getUrl('faqs'); ?>"><li class = "dropup-field">FAQs</li></a>
+						</ul>
+					</div>
+
+					<div class="dropup my-dropup">
+						<li class="nav-item pd15 dropdown-toggle" type="button" data-toggle="dropdown">
+							<span class = "text-uppercase">AT miBasics</span>
+							<span class = "plus"> +</span>
+						</li>
+						<ul class="dropdown-menu dropdown-menu-my">
+							<a href="<?= $block->getUrl('contact'); ?>"><li class = "dropup-field">Contact Us</li></a>
+							<a href="<?= $block->getUrl('returns'); ?>"><li class = "dropup-field">Returns</li></a>
+							<a href="<?= $block->getUrl('shipping'); ?>"><li class = "dropup-field">Shipping & Delivery</li></a>
+							<a href="<?= $block->getUrl('terms'); ?>"><li class = "dropup-field">Terms & Conditions</li></a>
+							<a href="<?= $block->getUrl('faqs'); ?>"><li class = "dropup-field">FAQs</li></a>
+						</ul>
+					</div>
+
+					<div class="dropup my-dropup">
+						<li class="nav-item pd15 dropdown-toggle" type="button" data-toggle="dropdown">
+							<span class = "text-uppercase">contact us</span>
+							<span class = "plus"> +</span>
+						</li>
+						<ul class="dropdown-menu dropdown-menu-my">
+							<a href="<?= $block->getUrl('contact'); ?>"><li class = "dropup-field">Contact Us</li></a>
+							<a href="<?= $block->getUrl('returns'); ?>"><li class = "dropup-field">Returns</li></a>
+							<a href="<?= $block->getUrl('shipping'); ?>"><li class = "dropup-field">Shipping & Delivery</li></a>
+							<a href="<?= $block->getUrl('terms'); ?>"><li class = "dropup-field">Terms & Conditions</li></a>
+							<a href="<?= $block->getUrl('faqs'); ?>"><li class = "dropup-field">FAQs</li></a>
+						</ul>
+					</div>
+
+				</ul>
+				<script>
+					require([
+						'Magento_Customer/js/customer-data'
+					], function (customerData) {
+						var sections = ['cart'];
+						customerData.invalidate(sections);
+					});
+
+					require(['jquery', 'jquery.bootstrap'], function ($) {
+						$(document).on('show.bs.modal', function () {
+							$('html').addClass('modal-open');
+						});
+						$(document).on('hide.bs.modal', function () {
+							$('html').removeClass('modal-open');
+						});
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+</div>

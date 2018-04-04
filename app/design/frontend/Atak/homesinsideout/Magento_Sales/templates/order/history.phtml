@@ -1,0 +1,58 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $_orders = $block->getOrders(); ?>
+
+<div class="page-title-wrapper">
+	<h1 class="page-title">
+		<span class="base" data-ui-id="page-title-wrapper">Order History (<?php echo count($_orders) ?>)</span>
+	</h1>
+</div>
+
+<?php echo $block->getChildHtml('info');?>
+<?php if ($_orders && count($_orders)): ?>
+    <div class="products-grid orders-history">
+        <ol class="product-items">
+	        <?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); ?>
+	        <?php foreach ($_orders as $_order): ?>
+            <?php
+	        // Get Image URL
+            $_items = $_order->getAllVisibleItems();
+            $_product_id = $_items[0]->getProductID();
+	        
+	        $_product = $objectManager->get('Magento\Catalog\Model\Product')->load($_product_id);
+	        $imageHelper  = $objectManager->get('\Magento\Catalog\Helper\Image');
+	        $image_url = $imageHelper->init($_product, 'product_page_image_small')->setImageFile($_product->getFile())->resize(288, 220)->getUrl();
+            ?>
+			<li class="product-item">
+		        <div class="product-item-info">
+			        <a class="product-item-photo" href="<?php /* @escapeNotVerified */ echo $block->getViewUrl($_order) ?>" title="<?php /* @escapeNotVerified */ echo __('View Order') ?>">
+						<span class="product-image-container" style="width: 288px;">
+						    <span class="product-image-wrapper" style="padding-bottom: 76.388888888889%;">
+						        <img class="product-image-photo" src="<?php echo $image_url; ?>" width="288" height="220" alt=""></span>
+							<span class="view-order"><?php /* @escapeNotVerified */ echo __('View Order') ?></span>
+						</span>
+			        </a>
+			        <div class="order-status">
+				        Status: <?php /* @escapeNotVerified */ echo $_order->getStatusLabel() ?>
+			        </div>
+			        <div class="order-number">ORDER #<?php /* @escapeNotVerified */ echo $_order->getRealOrderId(); ?></div>
+			        <div class="order-date">Date: <?php /* @escapeNotVerified */ echo $block->formatDate($_order->getCreatedAt()) ?></div>
+			        <div class="order-total">Total: <?php /* @escapeNotVerified */ echo $_order->formatPrice($_order->getGrandTotal()) ?></div>
+		        </div>
+			</li>
+            <?php endforeach; ?>
+        </ol>
+    </div>
+    <?php if (false && $block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty"><span><?php /* @escapeNotVerified */ echo __('You have placed no orders.'); ?></span></div>
+<?php endif ?>

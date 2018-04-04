@@ -1,0 +1,37 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+use \Eleanorsoft\AddressBook\Block\Address\Address as AddressBlock;
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Temlate for \Eleanorsoft\AddressBook\Block\Address\Book block
+ * @var \Eleanorsoft\AddressBook\Block\Address\Book $block
+ */
+?>
+<div class="account-content-wrapper">
+    <hr>
+<?php
+/** @var AddressBlock $addressBlock */
+$addressBlock = $block->getLayout()->createBlock(AddressBlock::class);
+?>
+    <?= $block->getChildHtml('personal_info'); ?>
+    <hr>
+    <?= $addressBlock
+        ->setAddressType(AddressBlock::TYPE_BILLING)
+        ->setFormHeadingText('Billing Addresses')
+        ->toHtml(); ?>
+    <hr>
+    <?= $block->getChildHtml('es_credit_cards'); ?>
+    <hr>
+    <?= $addressBlock
+        ->setAddressType(AddressBlock::TYPE_SHIPPING)
+        ->setFormHeadingText('Shipping Addresses')
+        ->toHtml(); ?>
+</div>

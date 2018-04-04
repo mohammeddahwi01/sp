@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceContainer name="header.container">
+        <block class="Magento\Framework\View\Element\Template"
+               name="mibasic.header"
+               before="-"
+               template="Magento_Theme::html/header_top.phtml">
+            <block class="Magento\Cms\Block\Block" name="header_top_banner">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header_top_banner</argument>
+                </arguments>
+            </block>
+        </block>
+    </referenceContainer>
+    <referenceContainer name="header.panel">
+        <container htmlTag="div" name="header.right.block" htmlClass="header-right-block">
+            <block class="Eleanorsoft\Authorize\Block\Menu"
+                   cacheable="false"
+                   name="service.links"
+                   template="Magento_Theme::html/service_links.phtml" />
+        </container>
+    </referenceContainer>
+     <referenceContainer name="page.top">
+            <block class="Magento\Framework\View\Element\Template" name="navigation.sections" before="-" template="Magento_Theme::html/sections.phtml">
+                <arguments>
+                    <argument name="group_name" xsi:type="string">navigation-sections</argument>
+                    <argument name="group_css" xsi:type="string">nav-sections-custom</argument>
+
+                </arguments>
+                <block class="Magento\Framework\View\Element\Template" name="store.menu" group="navigation-sections" template="Magento_Theme::html/container.phtml">
+                    <arguments>
+                        <argument name="title" translate="true" xsi:type="string">Menu</argument>
+                    </arguments>
+                    <block class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav" template="html/topmenu.phtml" ttl="3600" before="-"/>
+                </block>
+                <block class="Magento\Framework\View\Element\Template" name="store.settings" group="navigation-sections" template="Magento_Theme::html/container.phtml">
+                    <arguments>
+                        <argument name="title" translate="true" xsi:type="string">Settings</argument>
+                    </arguments>
+                    <block class="Magento\Store\Block\Switcher" name="store.settings.language" template="switch/languages.phtml">
+                        <arguments>
+                            <argument name="id_modifier" xsi:type="string">nav</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Directory\Block\Currency" name="store.settings.currency" template="currency.phtml">
+                        <arguments>
+                            <argument name="id_modifier" xsi:type="string">nav</argument>
+                        </arguments>
+                    </block>
+                </block>
+            </block>
+            <container name="top.container" as="topContainer" label="After Page Header Top" htmlTag="div" htmlClass="top-container"/>
+            <block class="Magento\Theme\Block\Html\Breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+        </referenceContainer>
+    <referenceBlock name="top.links" remove="true" />
+    <referenceBlock name="store_switcher" remove="true" />
+    <referenceBlock name="store_language" remove="true" />
+    <referenceBlock name="store.settings.language" remove="true" />
+    <referenceBlock name="footer_links" remove="true" />
+    <referenceBlock name="copyright" remove="true" />
+    <referenceBlock name="report.bugs" remove="true" />
+    <referenceBlock name="form.subscribe" remove="true" />
+    <referenceBlock name="sidebar.additional" remove="true" />
+    <referenceContainer name="footer">
+        <block class="Magento\Framework\View\Element\Template"
+               name="mibasic.footer"
+               template="Magento_Theme::html/footer.phtml" />
+    </referenceContainer>
+
+    <move element="logo" destination="header.panel" before="-" />
+    <move element="navigation.sections" destination="header.panel" after="logo" />
+    <move element="top.search" destination="header.panel" before="header.right.block" />
+    <move element="minicart" destination="header.right.block" before="service.links" />
+</page>

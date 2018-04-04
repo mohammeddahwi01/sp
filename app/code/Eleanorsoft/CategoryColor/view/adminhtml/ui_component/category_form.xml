@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author     Pisarenko Denis <denis.pisarenko@eleanorsoft.com>
+ * @package    Eleanorsoft\CompanyInAdminOrderGrid
+ * @copyright  Copyright (c) 2017 Eleanorsoft (https://www.eleanorsoft.com/
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="general" />
+    <fieldset name="display_settings"><!-- name="content" for Magento 2.2 -->
+        <field name="el_color_picker">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Eleanorsoft_CategoryColor/js/form/element/color-select</item>
+                    <item name="template" xsi:type="string">ui/form/field</item>
+                    <item name="elementTmpl" xsi:type="string">Eleanorsoft_CategoryColor/form/element/color-select</item>
+                    <item name="label" xsi:type="string">Color Picker</item>
+                    <item name="labelVisible" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">category_form</item>
+                </item>
+            </argument>
+            <!-- this is only for Magento 2.2 -->
+            <!--<settings>-->
+                <!--<addBefore>#</addBefore>-->
+            <!--</settings>-->
+        </field>
+    </fieldset>
+</form>

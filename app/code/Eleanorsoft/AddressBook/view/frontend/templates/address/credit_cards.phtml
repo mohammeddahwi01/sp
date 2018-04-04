@@ -1,0 +1,59 @@
+<?php
+/**
+ * @var Eleanorsoft\AddressBook\Block\CreditCards $block;
+ */
+$cards = $block->getCards();
+?>
+
+<h3><?php print __('Credit Cards');?></h3>
+<div id="credit-cart-waiting" style="display: none;"><?php echo __('Please, wait...'); ?></div>
+<div class="ajax-form" data-bind="scope: 'credit-cart-ajaxForm'">
+    <select id="credit-cart-select" title="<?php print __('Credit Cards');?>" data-bind="event: {change: cardChanged($element)}">
+        <?php if ($cards && $cards->getSize()){?>
+            <?php foreach ($cards as $card) { /** @var ParadoxLabs\TokenBase\Model\Card $card*/ ?>
+                <option value="<?php print $card->getHash()?>">
+                    <?php print $card->getLabel();?>
+                </option>
+            <?php }?>
+        <?php }else{?>
+            <option></option>
+        <?php }?>
+    </select>
+    <div class="actions">
+        <div>
+            <a href="javascript:void(0);"
+               id="credit-cart-edit"
+               data-bind="click: editCart"><?php echo __('Edit'); ?></a>
+        </div>
+        <div>
+            <a href="javascript:void(0);"
+               id="credit-cart-remove"
+               data-bind="click: removeCart"><?php echo __('Remove Credit Card'); ?></a>
+        </div>
+    </div>
+
+    <div id="creditcart">
+        <?php print $block->getChildHtml('es_credit_cards_form')?>
+    </div>
+
+    <div id="credit-cart-add"
+         class="add-link"
+         data-bind="click: addCart"><span><?php echo __('+'); ?></span></div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+			"Magento_Ui/js/core/app": {
+				"components": {
+					"credit-cart-ajaxForm": {
+						"component": "Eleanorsoft_AddressBook/js/cards-ajax-form",
+                        "cardDataJson": <?php print $block->getCardsDataJson();?>,
+						"onSendSuccess": "function () {location.reload()}"
+					}
+				}
+			}
+		}
+    }
+</script>
+
+

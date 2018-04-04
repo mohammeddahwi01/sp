@@ -1,0 +1,29 @@
+<?php /** @var \Mageplaza\BetterSlider\Block\Slider $block */ ?>
+<?php if ($block->getSliders()) :?>
+	<?php $sliderId = 'slider-' . $block->escapeHtml($block->getBannerId()); ?>
+	<div id="<?php echo $sliderId; ?>" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+			<?php $index = 0; ?>
+			<?php foreach ($block->getSliders() as $slider): ?>
+				<?php
+					$slideName = $block->escapeHtml($slider->getName());
+					$slideImageUrl = $block->escapeHtml($slider->getBannerUrl());
+					$slideUrl = $slider->getUrl() ? $block->getUrl($block->escapeHtml($slider->getUrl())) : 'javascript:void(0);';
+				?>
+				<div class="carousel-item <?php echo $index++ == 0 ? 'active' : ''; ?>">
+					<a href="<?php echo $slideUrl; ?>">
+						<img class="d-block w-100" src="<?php echo $slideImageUrl; ?>" alt="<?php echo $slideName; ?>">
+					</a>
+				</div>
+			<?php endforeach; ?>
+			<a class="carousel-control-prev" href="#<?php echo $sliderId; ?>" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only"><?php echo __('Previous'); ?></span>
+			</a>
+			<a class="carousel-control-next" href="#<?php echo $sliderId; ?>" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only"><?php echo __('Next'); ?></span>
+			</a>
+		</div>
+	</div>
+<?php endif; ?>

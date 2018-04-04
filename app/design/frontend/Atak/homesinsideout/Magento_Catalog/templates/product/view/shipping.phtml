@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php //$_product = $block->getProduct() ?>
+
+<div class="product-estimate">ESTIMATE DELIVERY DATE: 08/12/2017</div>
+
+<div class="product attribute shipping">
+	<a class="type" id="product-shipping-toggle">SHIPPING & RETURNS</a>
+	<div class="value"  id="product-shipping-content">Suspendisse eros sem, iaculis et volutpat quis, placerat vitae felis. Inte
+		sem, sed tincidunt neque. Vestibulum pulvina mattis massa non conse
+		Ut risus enim, dignissim pharetra nisi vitae, condimentum cons equat
+		Maecenas sed elit quis quam venenatis scelerisque. Nullam dictum, arc
+		amet vestib ulum congue, mi metus lobortis leo.</div>
+</div>
+
+<script type="text/javascript">
+	/* Simply invoke iffe of sidebarmodule */
+	require(['jquery'], function ($) {
+		$('#product-shipping-toggle').click(function () {
+			$(this).toggleClass('active');
+			$('#product-shipping-content').toggle();
+		});
+	});
+</script>

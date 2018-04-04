@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="eleanorsoft_partner_with_us_email_email_template" label="Eleanorsoft Partner With Us Form" file="eleanorsoft_partner_with_us.html" type="text" module="Eleanorsoft_PartnerWithUs" area="adminhtml"/>
+</config>

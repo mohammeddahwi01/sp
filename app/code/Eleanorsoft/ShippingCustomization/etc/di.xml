@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author     Konstantin Esin <hello@eleanorsoft.com>
+ * @package    Eleanorsoft_ShippingMethod
+ * @copyright  Copyright (c) 2018 Eleanorsoft (https://www.eleanorsoft.com/)
+ */
+-->
+<config>
+    <preference for="Magento\Fedex\Model\Carrier" type="Eleanorsoft\ShippingCustomization\Model\Carrier\Fedex"/>
+</config>

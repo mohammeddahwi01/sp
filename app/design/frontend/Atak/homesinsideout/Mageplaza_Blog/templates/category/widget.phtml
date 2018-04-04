@@ -1,0 +1,47 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Blog
+ * @copyright   Copyright (c) 2017 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+?>
+
+<div class="blog-title">READ OUR BLOG. GET INSPIRED.</div>
+
+<?php
+$tree = $block->getTree();
+if($tree):
+?>
+	<ul class="block-content blog-categories" id="blog-categories">
+		<li><a href=""><?php $this->getUrl('blog') ?>All</a></li>
+		<?php echo $block->getCategoryTreeHtml($tree) ?>
+	</ul>
+<script type="text/javascript">
+    //require(['Mageplaza_Blog/js/categorytree'], function () {});
+
+    require([
+		    'jquery'
+	    ],
+	    function($) {
+			// Mark current menu item
+		    var current_url = '<?php echo $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]) ?>';
+		    $('#blog-categories a[href="' + current_url + '"]').parent().addClass('current');
+	    }
+    );
+	
+</script>
+<?php endif; ?>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Mageplaza\Blog\Helper\Data" type="Eleanorsoft\MageplazaBlog\Helper\Data"/>
+    <preference for="Mageplaza\Blog\Block\Design" type="Eleanorsoft\MageplazaBlog\Block\Design"/>
+    <preference for="Mageplaza\Blog\Block\Frontend" type="Eleanorsoft\MageplazaBlog\Block\Frontend"/>
+    <preference for="Mageplaza\Blog\Block\Post\View" type="Eleanorsoft\MageplazaBlog\Block\Post\View"/>
+    <preference for="Mageplaza\Blog\Block\Category\Widget" type="Eleanorsoft\MageplazaBlog\Block\Category\Widget"/>
+</config>

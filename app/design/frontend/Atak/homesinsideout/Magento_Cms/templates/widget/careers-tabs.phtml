@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+
+<?php //echo $block->getText(); ?>
+
+<script type="text/javascript">
+	require([
+			'jquery'
+		],
+		function($) {
+			$('.careers-tabs .tab-headers a').click( function(e) {
+				e.preventDefault();
+				
+				var $this = $(this);
+				if ( $this.parent().hasClass('current') )
+					return;
+				
+				$('.careers-tabs .tab-headers .current').removeClass('current');
+				$this.parent().addClass('current');
+				
+				$('.careers-tabs .tab-content').hide();
+				$('.careers-tabs').find( $this.attr('href') ).show();
+			});
+		}
+	);
+</script>

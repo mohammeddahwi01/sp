@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+	<body>
+		
+		<!-- Remove parent theme blocks -->
+		<!--<referenceBlock name="top.links" remove="true" />-->
+		<referenceBlock name="copyright" remove="true" />
+		<referenceBlock name="report.bugs" remove="true" />
+		<referenceBlock name="footer_links" remove="true" />
+		
+		<!--<referenceBlock name="store.menu" remove="true" />-->
+		<!--<referenceBlock name="header.panel.wrapper" remove="true"/>
+		<referenceBlock name="top.search" remove="true" />
+		<referenceBlock name="breadcrumbs" remove="true" />-->
+		<!--<move element="top.links" destination="header-wrapper" />-->
+		
+		<!--<move element="store.menu" destination="header-wrapper" after="top.search" />-->
+		
+		<referenceBlock name="logo">
+			<arguments>
+				<argument name="logo_file" xsi:type="string">images/logo.png</argument>
+				<argument name="logo_img_width" xsi:type="number">277</argument>
+				<argument name="logo_img_height" xsi:type="number">82</argument>
+			</arguments>
+		</referenceBlock>
+		
+		<referenceContainer name="header.panel">
+			<block class="Magento\Framework\View\Element\Template" name="header.panel.switch" template="Magento_Theme::html/store-switch.phtml"/>
+			<block class="Magento\Cms\Block\Block" name="header.panel.promo">
+				<arguments>
+					<argument name="block_id" xsi:type="string">header-promo</argument>
+				</arguments>
+			</block>
+		</referenceContainer>
+		
+		<referenceContainer name="header-wrapper">
+			<block class="Magento\Framework\View\Element\Template" name="header.quick-links" template="Magento_Theme::html/header/quick-links.phtml" before="top.search" />
+			<!--<block class="Magento\Framework\View\Element\Template" name="header.nav" template="Magento_Theme::html/header/nav.phtml" before="top.nav" />-->
+		</referenceContainer>
+		
+		<referenceContainer name="catalog.topnav">
+			<block class="Magento\Framework\View\Element\Html\Link" name="about-link">
+				<arguments>
+					<argument name="label" xsi:type="string">About</argument>
+					<argument name="path" xsi:type="string">about-us</argument>
+					<argument name="class" xsi:type="string">level-top</argument>
+				</arguments>
+			</block>
+			<block class="Magento\Framework\View\Element\Html\Link" name="partner-link">
+				<arguments>
+					<argument name="label" xsi:type="string">Partner</argument>
+					<argument name="path" xsi:type="string">partner</argument>
+					<argument name="class" xsi:type="string">level-top</argument>
+				</arguments>
+			</block>
+		</referenceContainer>
+		
+		<referenceContainer name="footer-container">
+			<container name="footer-bottom" as="footer-bottom" label="Page Footer Bottom" htmlTag="div" htmlClass="footer-bottom" after="-">
+				<container name="footer-bottom-content" as="footer-bottom-content" label="Page Footer Bottom Content" htmlTag="div" htmlClass="container">
+					<block class="Magento\Framework\View\Element\Template" name="footer.bottom.switch" template="Magento_Theme::html/store-switch.phtml"/>
+				</container>
+				<block class="Magento\Framework\View\Element\Template" name="footer.bottom.gotop" template="Magento_Theme::html/footer/gotop.phtml"/>
+			</container>
+		</referenceContainer>
+
+		<referenceBlock name="store_switcher" remove="true" />
+		<referenceBlock name="store.settings.language" remove="true" />
+		
+	</body>
+	
+</page>

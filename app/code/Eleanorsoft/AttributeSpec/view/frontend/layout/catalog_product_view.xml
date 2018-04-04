@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author     Pisarenko Denis <denis.pisarenko@eleanorsoft.com>
+ * @package    Eleanorsoft_AttributeSpec
+ * @copyright  Copyright (c) 2018 Eleanorsoft (https://www.eleanorsoft.com/)
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <block class="Eleanorsoft\AttributeSpec\Block\Spec" after="product.info.overview" name="product.spec" template="Eleanorsoft_AttributeSpec::spec.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

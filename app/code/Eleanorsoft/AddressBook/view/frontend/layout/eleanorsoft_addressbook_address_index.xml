@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceBlock name="head.components">
+            <block class="Magento\Framework\View\Element\Js\Components" name="customer_address_head_components" template="Magento_Customer::js/components.phtml"/>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Eleanorsoft\AddressBook\Block\Address\Book" name="es_address_book" template="address/book.phtml" cacheable="false">
+                <block class="Eleanorsoft\AddressBook\Block\PersonalInfo" name="personal_info" template="personal_info.phtml" ifconfig="eleanorsoft_onepage_address_book/general/enabled" />
+                <block class="Eleanorsoft\AddressBook\Block\CreditCards" name="es_credit_cards" template="Eleanorsoft_AddressBook::address/credit_cards.phtml" ifconfig="eleanorsoft_onepage_address_book/general/enabled" >
+                    <block class="Eleanorsoft\AddressBook\Block\CreditCardForm" name="es_credit_cards_form" template="address/form/cc.phtml" />
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

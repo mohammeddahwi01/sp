@@ -1,0 +1,35 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<div class="actions">
+    <?php  $_order = $block->getOrder() ?>
+	
+	<?php if (false): ?>
+    <?php if ($this->helper('Magento\Sales\Helper\Reorder')->canReorder($_order->getEntityId())) : ?>
+        <a href="#" data-post='<?php /* @escapeNotVerified */ echo
+        $this->helper(\Magento\Framework\Data\Helper\PostHelper::class)
+            ->getPostData($block->getReorderUrl($_order))
+        ?>' class="action secondary order">
+            <span><?php /* @escapeNotVerified */ echo __('Reorder') ?></span>
+        </a>
+    <?php endif ?>
+    
+	<a class="action print"
+       href="<?php /* @escapeNotVerified */ echo $block->getPrintUrl($_order) ?>"
+       onclick="this.target='_blank';">
+        <span><?php /* @escapeNotVerified */ echo __('Print Order') ?></span>
+    </a>
+    <?php endif; ?>
+	
+	<a href="#" class="action secondary">Leave a Note</a>
+	<a href="#" class="action secondary">Cancel Order</a>
+	<a href="#" class="action secondary">Return</a>
+	
+	<?php echo $block->getChildHtml(); ?>
+</div>

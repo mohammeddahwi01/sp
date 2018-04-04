@@ -1,0 +1,105 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()): ?>
+<div class="box-tocart">
+    <div class="fieldset">
+        <?php echo $block->getChildHtml('', false); ?>
+        <?php /*foreach ($block->getChildNames() as $name): ?>
+            <?php if (!in_array($name, ['addthis.widget', 'addthis.widget.additional'])): ?>
+                <?php echo $block->getChildHtml($name); ?>
+            <?php endif; ?>
+        <?php endforeach;*/ ?>
+        <?php if ($block->shouldRenderQuantity()): ?>
+        <div class="field qty">
+            <label class="label" for="qty"><span><?php /* @escapeNotVerified */ echo __('Qty') ?></span></label>
+            <div class="control">
+                <select name="qty"
+                       id="qty"
+                       value="<?php /* @escapeNotVerified */ echo $block->getProductDefaultQty() * 1 ?>"
+                       title="<?php /* @escapeNotVerified */ echo __('Qty') ?>" class="qty"
+                       >
+                    <?php for ($i = 1; $i <= 10; $i++) { ?>
+                        <option value="<?= $i; ?>"
+                            <?php if ($i == $block->getProductDefaultQty()) { ?> selected="selected"<?php } ?>><?= $i; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+        </div>
+        <?php endif; ?>
+        <div style="clear:both;"></div>
+        <div class="actions">
+            <button type="submit"
+                    title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>"
+                    class="action primary tocart"
+                    id="product-addtocart-button">
+                <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
+            </button>
+        </div>
+        <?php
+        /** @var \Eleanorsoft\AddThis\Block\Widget $addThisWidget */
+        $addThisWidget = $block->getChildBlock('addthis.widget');
+        if ($addThisWidget) {
+            echo $addThisWidget->getWidgetHtml();
+        }
+        $addThisWidget = $block->getChildBlock('addthis.widget.additional');
+        if ($addThisWidget) {
+            echo $addThisWidget->getWidgetHtml();
+        }
+        ?>
+    </div>
+	
+	<?php
+	if($_product->getTypeId() != 'virtual' && $_product->getTypeId() != 'downloadable') { 
+		/* integrate calculate shipping */
+		$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		$helper = $objectManager->get('\Netbaseteam\Calculatorshipping\Helper\Data');
+		echo $helper->showShippingEstimate();
+	}
+	?>
+</div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/product/view/validation": {
+                "radioCheckboxClosest": ".nested"
+            }
+        }
+    }
+</script>
+<?php if (!$block->isRedirectToCartEnabled()) : ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "catalogAddToCart": {
+                "bindSubmit": false
+            }
+        }
+    }
+</script>
+<?php endif; ?>
+<script>
+    require([
+        'jquery',
+        'mage/mage',
+        'Magento_Catalog/product/view/validation',
+        'Magento_Catalog/js/catalog-add-to-cart',
+        'jquery.selectric'
+    ], function ($) {
+        'use strict';
+
+        $('#qty').selectric({inheritOriginalWidth: true});
+        $('.selectric button').attr('type', 'button');
+    });
+</script>

@@ -1,0 +1,53 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Template for filter items block
+ *
+ * @var $block \Eleanorsoft\LayeredNavigation\Block\Navigation\PriceFilterRenderer
+ */
+?>
+
+<ul class="control-group cb-rad filter-container" data-filter-code="<?php echo $block->getFilter()->getRequestVar(); ?>">
+    <li>
+        <label class="control control--checkbox">
+            <input type="radio" name="price" checked data-filter-value=""/>
+            <span class="price"><?php echo __('All Prices'); ?></span>
+            <span class="control__indicator"></span>
+        </label>
+    </li>
+    <?php foreach ($block->getPriceRanges() as $priceRange): ?>
+        <?php
+        $block->getPriceFilterItem()->setValue($priceRange);
+
+        list($lowerPrice, $upperPrice) = explode('-', $priceRange);
+
+        $lowerPriceText = $block->getCurrencySymbol().$lowerPrice;
+        $upperPriceText = $upperPrice ? $block->getCurrencySymbol().$upperPrice : __('And More');
+
+        $url = $block->escapeUrl($block->getPriceFilterItem()->getUrl());
+        $removeUrl = $block->escapeUrl($block->getPriceFilterItem()->getRemoveUrl());
+        ?>
+        <li>
+            <label class="control control--checkbox">
+                <input
+                    type="radio"
+                    name="price"
+                    <?php echo $block->isFilterItemActive($block->getPriceFilterItem()) ? 'checked' : null ; ?>
+                    data-filter-value="<?php echo $priceRange; ?>"
+                />
+                <span class="price"><?php echo $lowerPriceText; ?></span>
+                -
+                <span class="price"><?php echo $upperPriceText; ?></span>
+                <span class="control__indicator"></span>
+            </label>
+        </li>
+    <?php endforeach; ?>
+</ul>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author     Pisarenko Denis <denis.pisarenko@eleanorsoft.com>
+ * @package    Eleanorsoft\CompanyInAdminOrderGrid
+ * @copyright  Copyright (c) 2017 Eleanorsoft (https://www.eleanorsoft.com/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Eleanorsoft\TradeClients\Controller\Index\Index">
+        <arguments>
+            <argument name="customFormHelper" xsi:type="object">Eleanorsoft\TradeClients\Helper\Data</argument>
+        </arguments>
+    </type>
+    <type name="Eleanorsoft\TradeClients\Controller\Index\Post">
+        <arguments>
+            <argument name="customFormHelper" xsi:type="object">Eleanorsoft\TradeClients\Helper\Data</argument>
+        </arguments>
+    </type>
+</config>

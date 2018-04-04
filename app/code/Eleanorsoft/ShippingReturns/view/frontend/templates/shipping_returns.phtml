@@ -1,0 +1,12 @@
+
+<?php $shipping_returns =  $block->getLayout()->createBlock('Magento\Cms\Block\Block')
+    ->setBlockId('shipping_returns')->toHtml();?>
+<?php if ($shipping_returns) {?>
+<div class="container-item-help">
+    <span class="icon-link"></span>
+    <span class="text-container-help">Shipping & Returns</span>
+    <div class="hide-par-link">
+        <?php print $shipping_returns ?>
+    </div>
+</div>
+<?php } ?>

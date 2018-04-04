@@ -1,0 +1,4 @@
+это только локально
+1. удалить с таблицы setup_module модуль Eleanorsoft_AttributeSpec
+2. удалить с таблицы eav_attribute атрибут es_spec
+3. setup:upgrade & setup:di:compile

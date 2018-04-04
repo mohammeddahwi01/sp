@@ -1,0 +1,137 @@
+<?php
+/**
+ * form.phtml
+ * What is its purpose? What does it do?
+ *
+ * @package mibasic
+ * @author Pisarenko Denis <denis.pisarenko@eleanorsoft.com>
+ * @copyright Copyright (c) 2018 Eleanorsoft (https://www.eleanorsoft.com/)
+ */
+?>
+<?php /** @var \Eleanorsoft\CustomForm\Block\BlockForm $block */ ?>
+<div class="col-md-6 col-sm-12 left-img-cont">
+    <img src="<?php echo $this->getViewFileUrl('images/partner/partner.jpg'); ?>" class='partner-img-main' alt="partner-img">
+    <div class="partner-with-us-abs">
+        Trade Clients
+    </div>
+</div>
+<div class="col-md-6 col-sm-12" id="wholesale-form-container" data-bind="scope: 'customProject'">
+    <div class="page messages" style="display: none;">
+        <div>
+            <div class="messages">
+                <div class="message">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form class="form contact partner-with-us"
+          action="<?php /* @escapeNotVerified */ print $block->getFormAction(); ?>"
+          id="form-artist"
+          data-bind="submit: submitForm"
+          method="post"
+          data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>"
+          data-mage-init='{"validation":{}}'>
+        <fieldset class="fieldset">
+            <!--    <legend class="legend">
+                <span>Write Us</span>
+            </legend>
+            <br /> -->
+            <div class="field note no-label text-dec-no-label">
+                Please feel free to contact us by email, regular mail, phone or instant message.</div>
+            <div class="field name required">
+                <label class="label" for="name">
+                    <span>Full Name</span>
+                </label>
+                <div class="control-my">
+                    <input id="name" class="input-text" name="name" type="text" data-validate="{'required-entry':true}"/>
+                </div>
+            </div>
+            <div class="field email required">
+                <label class="label" for="email">
+                    <span>Email Address</span>
+                </label>
+                <div class="control-my">
+                    <input id="email" class="input-text" name="email" type="email" data-validate="{'required-entry':true, 'validate-email':true}"/>
+                </div>
+            </div>
+            <div class="field subject">
+                <label class="label" for="subject">
+                    <span>Message Subject</span>
+                </label>
+                <div class="control-my">
+                    <input id="subject" class="input-text" name="subject" type="text" data-validate="{required:true}"/>
+                </div>
+            </div>
+            <div class="field phone required">
+                <label class="label" for="phone">
+                    <span>Phone</span>
+                </label>
+                <div class="control-my">
+                    <input id="phone" class="input-text" name="phone" type="text" data-validate="{'required-entry':true}"/>
+                </div>
+            </div>
+            <div class="field comment required">
+                <label class="label" for="comment">
+                    <span>Message</span>
+                </label>
+                <div class="control-my">
+                    <textarea id="comment" class="input-text" name="comment" cols="5" rows="3" data-validate="{'required-entry':true}"></textarea>
+                </div>
+            </div>
+            <div class="field instagram">
+                <label class="label" for="instagram">
+                    <span>Instagram</span>
+                </label>
+                <div class="control-my">
+                    <input id="instagram" class="input-text" name="instagram" type="text"/>
+                </div>
+            </div>
+            <div class="field twitter">
+                <label class="label" for="twitter">
+                    <span>Twitter</span>
+                </label>
+                <div class="control-my">
+                    <input id="twitter" class="input-text" name="twitter" type="text"/>
+                </div>
+            </div>
+            <div class="field facebook">
+                <label class="label" for="facebook">
+                    <span>Facebook</span>
+                </label>
+                <div class="control-my">
+                    <input id="facebook" class="input-text" name="facebook" type="text"/>
+                </div>
+            </div>
+            <div class="actions-toolbar partner-action-toolbar">
+                <div class="primary">
+                    <button class="action submit-partner-with-us primary" type="submit" data-toggle="modal" id = "trade-clients-form-modal">
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<script src='<?php echo $block->getCaptchaScriptUrl(); ?>'></script>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "customProject": {
+                    "component": "Eleanorsoft_CustomForm/js/custom",
+                    "formSelector": "#form-artist",
+                    "captchaSiteKey": "<?php echo $block->getCaptchaSiteKey(); ?>",
+                    "captchaRenderSelectorId": "trade-clients-form-modal"
+                }
+            }
+        }
+    }
+}
+</script>
+<script>
+    requirejs(['jquery'], function ($) {
+        $(".page-title-wrapper").hide();
+    });
+</script>

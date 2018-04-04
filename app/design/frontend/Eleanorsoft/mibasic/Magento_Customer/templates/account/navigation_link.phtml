@@ -1,0 +1,8 @@
+<?php
+/** @var \Magento\Framework\View\Element\Html\Link\Current $block */
+
+$class = ($block->isCurrent() or $block->getIsHighlighted()) ? 'active-link' : '';
+?>
+<a href="<?= $block->escapeHtml($block->getHref()); ?>" class="left-link">
+    <div class="left-side-btn <?= $class; ?>"><?= $block->escapeHtml((string)new \Magento\Framework\Phrase($block->getLabel())); ?></div>
+</a>

@@ -1,0 +1,290 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Temlate for \Eleanorsoft\AddressBook\Block\PersonalInfo block
+ * @var \Eleanorsoft\AddressBook\Block\PersonalInfo $block
+ */
+?>
+
+<h3><?php echo __('Personal Info'); ?></h3>
+<div class="customer-personal-info tab">
+    <div class="info">
+        <p>
+            <span id="firstname-info"><?php echo $block->getCustomer()->getFirstname(); ?></span>
+            <span id="lastname-info"><?php echo $block->getCustomer()->getLastname(); ?></span>
+        </p>
+        <p>
+            <span id="email-info"><?php echo $block->getCustomer()->getEmail(); ?></span>
+        </p>
+    </div>
+
+    <div class="actions">
+        <div>
+            <a href="javascript:void(0);" id="edit-customer-personal-info-button"><?php echo __('EDIT'); ?></a>
+        </div>
+        <div>
+            <a href="javascript:void(0);" id="change-customer-password-button"><?php echo __('CHANGE PASSWORD'); ?></a>
+        </div>
+    </div>
+
+    <div class="ajax-form" data-bind="scope: 'ajaxForm'">
+        <form
+            id="change-customer-personal-info-form"
+            class="form"
+            style="display: none;"
+            action="<?php echo $block->getUrl('customer/account/editPost'); ?>"
+            method="post"
+            data-hasrequired="<?php echo __('* Required Fields') ?>"
+            data-mage-init='{"validation":{}}'
+            data-bind="submit: submitForm"
+        >
+            <?php echo $block->getBlockHtml('formkey'); ?>
+            <input type="hidden" name="change_email" value="1">
+            <!-- ko template: 'Eleanorsoft_Lib/ajax-form-messages.html' --><!-- /ko -->
+            <fieldset class="fieldset">
+                <div class="field firstname required">
+                    <label class="label" for="firstname">
+                        <span><?php echo __('First Name') ?></span>
+                    </label>
+                    <div class="control">
+                        <input
+                            id="firstname"
+                            class="input-text"
+                            name="firstname"
+                            type="text"
+                            title="<?php echo __('First Name') ?>"
+                            value="<?php echo $block->escapeHtml($block->getCustomer()->getFirstname()); ?>"
+                            data-validate="{required:true}"
+                        />
+                    </div>
+                </div>
+                <div class="field lastname required">
+                    <label class="label" for="lastname">
+                        <span><?php echo __('Last Name') ?></span>
+                    </label>
+                    <div class="control">
+                        <input
+                            id="lastname"
+                            class="input-text"
+                            name="lastname"
+                            type="text"
+                            title="<?php echo __('Last Name') ?>"
+                            value="<?php echo $block->escapeHtml($block->getCustomer()->getLastname()); ?>"
+                            data-validate="{required:true}"
+                        />
+                    </div>
+                </div>
+                <div class="field email required">
+                    <label class="label" for="email">
+                        <span><?php echo __('Email') ?></span>
+                    </label>
+                    <div class="control">
+                        <input
+                            id="email"
+                            class="input-text"
+                            name="email"
+                            type="email"
+                            title="<?php echo __('Email') ?>"
+                            value="<?php echo $block->escapeHtml($block->getCustomer()->getEmail()); ?>"
+                            data-validate="{required:true, 'validate-email':true}"
+                        />
+                    </div>
+                </div>
+                <div class="field current-password required">
+                    <label class="label" for="current-password">
+                        <span><?php echo __('Current Password') ?></span>
+                    </label>
+                    <div class="control">
+                        <input
+                            id="current-password"
+                            class="input-text"
+                            name="current_password"
+                            type="password"
+                            title="<?php echo __('Current Password') ?>"
+                            value=""
+                            data-validate="{required:true}"
+                        />
+                    </div>
+                </div>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" title="<?php echo __('Save Changes') ?>" class="action submit primary">
+                        <span><?php echo __('Save Changes') ?></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="ajax-form" data-bind="scope: 'ajaxForm'">
+        <form
+            id="change-customer-password"
+            class="form"
+            style="display: none;"
+            action="<?php echo $block->getUrl('customer/account/editPost'); ?>"
+            method="post"
+            data-hasrequired="<?php echo __('* Required Fields') ?>"
+            data-mage-init='{"validation":{}}'
+            data-bind="submit: submitForm"
+        >
+            <?php echo $block->getBlockHtml('formkey'); ?>
+            <input type="hidden" name="firstname" value="<?php echo $block->getCustomer()->getFirstname(); ?>">
+            <input type="hidden" name="lastname" value="<?php echo $block->getCustomer()->getLastname(); ?>">
+            <input type="hidden" name="change_password" value="1">
+            <!-- ko template: 'Eleanorsoft_Lib/ajax-form-messages.html' --><!-- /ko -->
+            <fieldset class="fieldset">
+                <div class="field current-password required">
+                    <label class="label" for="current-password-change">
+                        <span><?php echo __('Current Password') ?></span>
+                    </label>
+                    <div class="control">
+                        <input
+                            id="current-password-change"
+                            class="input-text"
+                            name="current_password"
+                            type="password"
+                            title="<?php echo __('Current Password') ?>"
+                            value=""
+                            data-validate="{required:true}"
+                        />
+                    </div>
+                </div>
+                <div class="field password required">
+                    <label class="label" for="password">
+                        <span><?php echo __('New Password') ?></span>
+                    </label>
+                    <div class="control">
+                        <input
+                            id="password"
+                            class="input-text"
+                            name="password"
+                            type="password"
+                            title="<?php echo __('New Password') ?>"
+                            value=""
+                            data-validate="{required:true}"
+                            data-input="new-password"
+                        />
+                    </div>
+                </div>
+                <div class="field password-confirmation required">
+                    <label class="label" for="password-confirmation">
+                        <span><?php echo __('Confirm New Password') ?></span>
+                    </label>
+                    <div class="control">
+                        <input
+                            id="password-confirmation"
+                            class="input-text"
+                            name="password_confirmation"
+                            type="password"
+                            title="<?php echo __('Confirm New Password') ?>"
+                            value=""
+                            data-validate="{required:true, equalTo:'[data-input=new-password]'}"
+                        />
+                    </div>
+                </div>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" title="<?php echo __('Save Changes') ?>" class="action submit primary">
+                        <span><?php echo __('Save Changes') ?></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var emailInput = document.getElementById('email'),
+        emailSpan = document.getElementById('email-info'),
+        lastNameInput = document.getElementById('lastname'),
+        lastNameSpan = document.getElementById('lastname-info'),
+        firstNameInput = document.getElementById('firstname'),
+        firstNameSpan = document.getElementById('firstname-info');
+
+    emailInput.onchange = function () {
+        emailSpan.innerText = this.value;
+    };
+
+    lastNameInput.onchange = function () {
+        lastNameSpan.innerText = this.value;
+    };
+
+    firstNameInput.onchange = function () {
+        firstNameSpan.innerText = this.value;
+    };
+</script>
+<script type="text/javascript">
+    requirejs(['jquery'], function ($) {
+        var allForms = $('.form'),
+            isCustomerInfoEdit = false,
+            isCustomerInfoChangePasswordEdit = false,
+            customerInfoEditButton = $('#edit-customer-personal-info-button'),
+            customerChangePasswordButton = $('#change-customer-password-button'),
+            customerInfoEditForm = $('#change-customer-personal-info-form'),
+            customerInfoChangePasswordForm = $('#change-customer-password'),
+            firstNameGeneralInput = customerInfoEditForm.find('[name=firstname]'),
+            lastNameGeneralInput = customerInfoEditForm.find('[name=lastname]'),
+            changePasswordFirstnameInput = customerInfoChangePasswordForm.find('[name=firstname]'),
+            changePasswordLasttnameInput = customerInfoChangePasswordForm.find('[name=lastname]'),
+            beforeButtonAction = function () {
+                allForms.hide();
+            };
+
+        customerInfoEditButton.click(function () {
+            isCustomerInfoChangePasswordEdit = false;
+
+            beforeButtonAction();
+
+            if (isCustomerInfoEdit) {
+                isCustomerInfoEdit = false;
+
+                customerInfoEditForm.hide();
+            } else {
+                isCustomerInfoEdit = true;
+
+                customerInfoEditForm.show();
+            }
+        });
+
+        customerChangePasswordButton.click(function () {
+            isCustomerInfoEdit = false;
+
+            beforeButtonAction();
+            changePasswordFirstnameInput.val(firstNameGeneralInput.val());
+            changePasswordLasttnameInput.val(lastNameGeneralInput.val());
+
+            if (isCustomerInfoChangePasswordEdit) {
+                isCustomerInfoChangePasswordEdit = false;
+
+                customerInfoChangePasswordForm.hide();
+            } else {
+                isCustomerInfoChangePasswordEdit = true;
+
+                customerInfoChangePasswordForm.show();
+            }
+        });
+    });
+</script>
+<script type="text/x-magento-init">
+	{
+		"*": {
+			"Magento_Ui/js/core/app": {
+				"components": {
+					"ajaxForm": {
+						"component": "Eleanorsoft_Lib/js/ajax-form"
+					}
+				}
+			}
+		}
+	}
+</script>

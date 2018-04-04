@@ -1,0 +1,122 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var  $block \Magento\Sales\Block\Order\View*/?>
+<div class="line-between">
+    <hr>
+</div>
+
+<div class="order-details-items ordered">
+    <?php $_order = $block->getOrder(); ?>
+
+    <ul class="nav nav-tabs">
+        <li>
+            <a data-toggle="tab" href="#order-note-container"><?php echo __('Leave A Note'); ?></a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#"><?php echo __('Cancel Order'); ?></a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#order-return-container"><?php echo __('Return'); ?></a>
+        </li>
+    </ul>
+
+    <div class="tab-content additional-information">
+        <div id="order-note-container" class="tab-pane fade" data-bind="scope: 'orderNote'">
+            <?php $orderNote = __('Order Note'); ?>
+            <form id="order-note-form" action="<?php echo $block->getUrl('eleanorsoft_orderNote/index/save'); ?>" data-bind="submit: submitForm">
+                <?php echo $block->getBlockHtml('formkey'); ?>
+                <!-- ko template: 'Eleanorsoft_OrderNote/form-messages.html' --><!-- /ko -->
+                <input type="hidden" name="order_id" value="<?php echo $_order->getId(); ?>">
+                <textarea
+                    id="order-note"
+                    title="<?php echo $orderNote; ?>"
+                    name="order_note"
+                    placeholder="<?php echo $orderNote; ?>..."
+                    data-validate='{"required":true}'
+                ><?php echo $_order->getNote(); ?></textarea>
+                <button class="submit-btn" type="submit"><?php echo __('Submit'); ?></button>
+            </form>
+            <div class="line-between">
+                <hr>
+            </div>
+        </div>
+        <div id="order-return-container" class="tab-pane fade" data-bind="scope: 'orderReturn'">
+            <?php $returnNote = __('Return Note'); ?>
+            <form id="order-return-form" action="<?php echo $block->getUrl('eleanorsoft_orderReturn/index/save'); ?>" data-bind="submit: submitForm">
+                <?php echo $block->getBlockHtml('formkey'); ?>
+                <!-- ko template: 'Eleanorsoft_OrderNote/form-messages.html' --><!-- /ko -->
+                <input type="hidden" name="order_id" value="<?php echo $_order->getId(); ?>">
+                <textarea
+                    id="order-return"
+                    title="<?php echo $returnNote; ?>"
+                    name="order_return"
+                    placeholder="<?php echo $returnNote; ?>..."
+                    data-validate='{"required":true}'
+                ><?php echo $_order->getReturn(); ?></textarea>
+                <button class="submit-btn" type="submit"><?php echo __('Submit'); ?></button>
+            </form>
+            <div class="line-between">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="order-review">
+        <?php /* @escapeNotVerified */ echo __('ORDER REVIEW') ?>
+    </div>
+    <div class="line-between">
+        <hr>
+    </div>
+    <?php if ($_order->getTracksCollection()->count()) : ?>
+        <?php echo $block->getChildHtml('tracking-info-link') ?>
+    <?php endif; ?>
+
+    <?php echo $block->getChildHtml('order_items') ?>
+
+    <?php if ($this->helper('Magento\GiftMessage\Helper\Message')->isMessagesAllowed('order', $_order) && $_order->getGiftMessageId()): ?>
+    <div class="block block-order-details-gift-message">
+        <div class="block-title"><strong><?php /* @escapeNotVerified */ echo __('Gift Message for This Order') ?></strong></div>
+        <?php $_giftMessage = $this->helper('Magento\GiftMessage\Helper\Message')->getGiftMessageForEntity($_order); ?>
+        <div class="block-content">
+            <dl class="item-options">
+                <dt class="item-sender"><strong class="label"><?php /* @escapeNotVerified */ echo __('From') ?></strong><?php echo $block->escapeHtml($_giftMessage->getSender()) ?></dt>
+                <dt class="item-recipient"><strong class="label"><?php /* @escapeNotVerified */ echo __('To') ?></strong><?php echo $block->escapeHtml($_giftMessage->getRecipient()) ?></dt>
+                <dd class="item-message"><?php /* @escapeNotVerified */ echo $this->helper('Magento\GiftMessage\Helper\Message')->getEscapedGiftMessage($_order) ?></dd>
+            </dl>
+        </div>
+    </div>
+    <?php endif; ?>
+</div>
+<script type="text/x-magento-init">
+	{
+		"*": {
+			"Magento_Ui/js/core/app": {
+				"components": {
+					"orderNote": {
+						"component": "Eleanorsoft_OrderNote/js/form"
+					}
+				}
+			}
+		}
+	}
+</script>
+<script type="text/x-magento-init">
+	{
+		"*": {
+			"Magento_Ui/js/core/app": {
+				"components": {
+					"orderReturn": {
+						"component": "Eleanorsoft_OrderReturn/js/form"
+					}
+				}
+			}
+		}
+	}
+</script>

@@ -1,0 +1,236 @@
+<?php
+/** @var Eleanorsoft\Authorize\Block\Menu $block */
+?>
+<div class="right-top-menu float-sm-right flex-right-top-menu">
+	<?php if (!$block->isCustomerLoggedIn()) { ?>
+		<div class="right-top-field">
+			<a href="#">
+				<span data-toggle="modal" data-target="#SingInModal" id = "sign-in-modal">Sign in </span>
+
+				<!-- Modal -->
+				<div class="modal fade my-fade" id="SingInModal" tabindex="-1" role="dialog"  aria-hidden="true" data-bind="scope: 'reloadFormPopUp'">
+					<div class="modal-dialog modal-sign" role="document">
+						<div class="modal-content">
+							<button type="button" class="close my-modal-close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">x</span>
+							</button>
+							<div class="modal-body mg-my-modal">
+								<h1 class = "header-modal-field">sign in</h1>
+
+								<form id="login-form-popup" action="<?= $block->getUrl('customer/account/loginPost'); ?>" data-bind="submit: submitForm">
+									<?= $block->getBlockHtml('formkey'); ?>
+									<div class="page messages" style="display: none;">
+										<div>
+											<div class="messages">
+												<div class="message">
+													<div></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="InputEmail1" class = "label-form-my">Email</label>
+										<span class = "forgot"><a data-dismiss="modal" class ="forgot-link" href="#" data-toggle="modal" data-target="#ChangePassword" id ="change-password-modal">forgot password?</a></span>
+										<input data-validate='{"required":true}' name="login[username]" type="email" class="form-control input-form-my" id="exampleInputEmail2" aria-describedby="emailHelp">
+									</div>
+									<div class="form-group">
+										<label for="InputPassword1" class = "label-form-my">Password</label>
+										<input data-validate='{"required":true}' name="login[password]" type="password" class="form-control input-form-my" id="InputPassword1" aria-describedby="emailHelp">
+									</div>
+
+									<button type="submit" class="btn my-btn my-btn-login">Submit</button>
+									<button type="button" class="btn my-btn my-btn-facebook" id="facebook-login">Login with facebook</button>
+									<div class = "forgot text-center" data-dismiss="modal" data-toggle="modal" data-target="#RegisterModal"><a href="#">not a member yet? register</a></div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal end -->
+			</a>
+			<span>/</span>
+			<a href="#">
+				<span data-toggle="modal" data-target="#RegisterModal" id="register-modal">Register</span>
+				<!-- Modal -->
+				<div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 9999;" data-bind="scope: 'reloadFormPopUp'">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<button type="button" class="close my-modal-close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">x</span>
+							</button>
+							<div class="modal-body mg-my-modal">
+								<h1 class = "header-modal-field">register</h1>
+
+								<form id="register-form-popup" action="<?= $block->getUrl('customer/account/createPost'); ?>" data-bind="submit: submitForm">
+									<?= $block->getBlockHtml('formkey'); ?>
+									<div class="page messages" style="display: none;">
+										<div>
+											<div class="messages">
+												<div class="message">
+													<div></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="InputFirst1" class = "label-form-my">First Name</label>
+										<a href="#"></a>
+										<input name="firstname" data-validate='{"required":true}' type="text" class="form-control input-form-my" id="InputFirst1" aria-describedby="emailHelp">
+									</div>
+									<div class="form-group">
+										<label for="InputLast1" class = "label-form-my">Last Name</label>
+										<input name="lastname" class="form-control input-form-my" id="InputLast1" type="text" aria-describedby="emailHelp">
+									</div>
+									<div class="form-group">
+										<label for="InputEmail2" class = "label-form-my">Email</label>
+										<input name="email" type="email" class="form-control input-form-my" id="InputEmail2" aria-describedby="emailHelp">
+									</div>
+									<div class="form-group">
+										<label for="InputPassword2" class = "label-form-my">Password</label>
+										<input name="password" type="password" class="form-control input-form-my" id="InputPassword2" aria-describedby="emailHelp">
+									</div>
+									<div class="form-group">
+										<label for="InputConfirmPassword2" class = "label-form-my">Confirm Password</label>
+										<input name="password_confirmation" type="password" class="form-control input-form-my" id="InputConfirmPassword2" aria-describedby="emailHelp">
+									</div>
+
+									<button type="submit" class="btn my-btn my-btn-login">Register</button>
+									<div class = "forgot text-center" data-dismiss="modal" data-toggle="modal" data-target="#SingInModal"><a href="#">back to login</a></div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal end -->
+				<!-- Modal -->
+				<div class="modal fade my-fade" id="ChangePassword" tabindex="-1" role="dialog" aria-hidden="true" data-bind="scope: 'formPopUp'">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<button type="button" class="close my-modal-close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">x</span>
+							</button>
+							<div class="modal-body mg-my-modal">
+								<h1 class = "header-modal-field">reestablish</h1>
+
+								<form id="forgot-password-form-popup" action="<?= $block->getUrl('customer/account/forgotPasswordPost'); ?>" data-bind="submit: submitForm">
+									<?= $block->getBlockHtml('formkey'); ?>
+									<div class="page messages" style="display: none;">
+										<div>
+											<div class="messages">
+												<div class="message">
+													<div></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="InputEmail1" class = "label-form-my">Email</label>
+										<a></a>
+										<input type="email" name="email" class="form-control input-form-my" id="exampleInputEmail1" aria-describedby="emailHelp">
+									</div>
+
+									<button type="submit" class="btn my-btn my-btn-login">Submit</button>
+									<div class = "forgot text-center" data-dismiss="modal" data-toggle="modal" data-target="#SingInModal"><a href="#">back to login</a></div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal end -->
+			</a>
+		</div>
+	<?php } else { ?>
+		<div class="right-top-field">
+			<div class="dropdown my-dropdown">
+				<li class="nav-item pd2 dropdown-toggle" type="button" data-toggle="dropdown">
+					<span class="dropdown-list-field">My Account</span>
+				</li>
+				<ul class="dropdown-menu dropdown-menu-my">
+					<a href="<?= $block->getUrl('customer/account'); ?>"><li class = "dropdown-field">Dashboard</li></a>
+					<a href="<?= $block->getUrl('addressbook/address'); ?>"><li class="dropdown-field">Personal Data</li></a>
+					<a href="<?= $block->getUrl('sales/order/history'); ?>"><li class="dropdown-field">Order History</li></a>
+					<a href="<?= $block->getUrl('wishlist'); ?>"><li class="dropdown-field">Wishlist</li></a>
+					<a href="<?= $block->getUrl('customer/account/logout'); ?>"><li class="dropdown-field">Logout</li></a>
+				</ul>
+			</div>
+		</div>
+	<?php } ?>
+	<div class="right-top-field help-dd">
+		<div class="dropdown my-dropdown">
+			<li class="nav-item pd2 dropdown-toggle" type="button" data-toggle="dropdown">
+				<span class="dropdown-list-field">Help</span>
+			</li>
+			<ul class="dropdown-menu dropdown-menu-my">
+				<a href="<?= $block->getUrl('contact'); ?>"><li class = "dropdown-field">Contact Us</li></a>
+				<a href="<?= $block->getUrl('faqs'); ?>"><li class = "dropdown-field">FAQs</li></a>
+				<a href="<?= $block->getUrl('shipping'); ?>"><li class = "dropdown-field">Shipping</li></a>
+				<a href="<?= $block->getUrl('returns'); ?>"><li class = "dropdown-field">Returns</li></a>
+				<a href="<?= $block->getUrl('blog'); ?>"><li class = "dropdown-field">Blog</li></a>
+				<a href="<?= $block->getUrl('custom_project'); ?>"><li class = "dropdown-field">Custom Project</li></a>
+				<a href="<?= $block->getUrl('partner_with_us'); ?>"><li class = "dropdown-field">Partner With Us</li></a>
+				<a href="<?= $block->getUrl('tradeclients'); ?>"><li class = "dropdown-field">Trade Clients</li></a>
+				<a href="<?= $block->getUrl('about-us'); ?>"><li class = "dropdown-field">About Us</li></a>
+			</ul>
+		</div>
+	</div>
+	<div class="search-btn">
+		<a href="javascript:void(0);" id="open-search-btn"></a>
+	</div>
+</div>
+<script type="text/x-magento-init">
+	{
+		"*": {
+			"Magento_Ui/js/core/app": {
+				"components": {
+					"formPopUp": {
+						"component": "Eleanorsoft_Authorize/js/form"
+					}
+				}
+			}
+		}
+	}
+</script>
+<script type="text/x-magento-init">
+	{
+		"*": {
+			"Magento_Ui/js/core/app": {
+				"components": {
+					"reloadFormPopUp": {
+						"component": "Eleanorsoft_Authorize/js/form",
+						"onSendSuccess": "function (jForm) { jForm.find('div, button').hide(); location.reload(true); }"
+					}
+				}
+			}
+		}
+	}
+</script>
+<script type="text/javascript">
+	requirejs(['jquery'], function ($) {
+		var registerModal = $('#RegisterModal');
+
+		registerModal.bind('DOMSubtreeModified', function () {
+			$('a[href*="forgotpassword"]').click(function (event) {
+				event.stopPropagation();
+
+				var changePasswordModal = $('#change-password-modal');
+
+				registerModal.find('.close').click();
+				changePasswordModal.click();
+
+				return false;
+			});
+		});
+
+		$(document).on('click', '#facebook-login', function () {
+			$('.btn-facebook').click();
+
+			return false;
+		});
+		$('#open-search-btn').click(function () {
+			$('.block-search').removeClass('hidden');
+		});
+		$('.my-image-close').click(function () {
+			$('.block-search').addClass('hidden');
+		});
+	});
+</script>

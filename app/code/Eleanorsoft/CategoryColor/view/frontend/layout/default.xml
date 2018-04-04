@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Render color styles
+ * @author     Konstantin Esin <hello@eleanorsoft.com>
+ * @package    Eleanorsoft_CategoryColor
+ * @copyright  Copyright (c) 2018 Eleanorsoft (https://www.eleanorsoft.com/)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.components">
+            <block class="Eleanorsoft\CategoryColor\Block\Styles" name="styles_category" template="Eleanorsoft_CategoryColor::js/components.phtml"/>
+        </referenceBlock>
+    </body>
+</page>

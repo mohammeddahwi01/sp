@@ -1,0 +1,17 @@
+<?php
+
+
+namespace VladimirPopov\WebForms\Controller\Adminhtml\Quickresponse;
+
+class Grid extends Index
+{
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('VladimirPopov_WebForms::quickresponse');
+    }
+
+    public function execute()
+    {
+        return $this->resultPageFactory->create();
+    }
+}

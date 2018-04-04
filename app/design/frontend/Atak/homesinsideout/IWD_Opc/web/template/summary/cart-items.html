@@ -1,0 +1,13 @@
+<div class="iwd_opc_review_item iwd_opc_review_item_header">
+	<div class="iwd_opc_review_item_cell">product name</div>
+	<div class="iwd_opc_review_item_cell">quantity</div>
+	<div class="iwd_opc_review_item_cell">sub-total</div>
+</div>
+
+<!-- ko foreach: getItems() -->
+<div class="iwd_opc_review_item">
+    <!-- ko foreach: $parent.elems() -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <!-- /ko -->
+</div>
+<!-- /ko -->

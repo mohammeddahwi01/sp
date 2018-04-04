@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="checkout.success">
+            <block class="Eleanorsoft\AddThis\Block\Widget" name="addthis.widget"/>
+            <block class="Eleanorsoft\ShopOtherCategories\Block\Order\UpSellProduct" name="up_sell.products" template="up_sell_products.phtml" after="-" />
+        </referenceBlock>
+        <move element="checkout.registration" destination="checkout.success" before="up_sell.products" />
+    </body>
+</page>

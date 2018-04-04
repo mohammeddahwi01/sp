@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author     Pisarenko Denis <denis.pisarenko@eleanorsoft.com>
+ * @package    Eleanorsoft\CompanyInAdminOrderGrid
+ * @copyright  Copyright (c) 2017 Eleanorsoft (https://www.eleanorsoft.com/
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Trade Clients</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block cacheable="false" class="Eleanorsoft\CustomForm\Block\BlockForm" name="trade_clients" template="Eleanorsoft_TradeClients::form.phtml">
+                <arguments>
+                    <argument name="custom_form_action" xsi:type="string">eleanorsoft_clients/index/post</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="columns" htmlClass="columns container" />
+        <referenceContainer name="main" htmlClass="column main row pd-lr-20" />
+    </body>
+</page>

@@ -1,0 +1,27 @@
+<?php
+
+/** @var \Magento\Framework\View\Element\Template $block */
+
+?>
+<div class="rel">
+	<div class = "container resp-container">
+		<div class="row ">
+			<div class="col-md-6 col-xs-12">
+				<ul class="nav nav-pills">
+					<a href="https://homesinsideout.com/"><li class="nav-item pd"><img src="<?php echo $this->getViewFileUrl('images/footer/first-footer.png'); ?>"></li></a>
+					<a href="#"><li class="nav-item pd"><img src="<?php echo $this->getViewFileUrl('images/footer/second-footer.png'); ?>"></li></a>
+					<a href="javascript:void(0);"><li class="nav-item pd active-foot"><img src="<?php echo $this->getViewFileUrl('images/footer/third-footer.png'); ?>"></li></a>
+				</ul>
+			</div>
+			<div class="col-md-6 col-xs-12 pd55 ">
+				<ul class="nav nav-pills text-dec float-md-right">
+					<a href="#">
+						<li class="nav-item lh-top d-none d-md-block">
+							<?= $block->getChildHtml('header_top_banner'); ?>
+						</li>
+					</a>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

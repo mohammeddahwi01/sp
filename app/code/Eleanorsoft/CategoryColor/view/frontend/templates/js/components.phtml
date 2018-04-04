@@ -1,0 +1,12 @@
+<?php $colors_category = $this->getCollection();?>
+<style type="text/css">
+    <?php
+    foreach ($colors_category as $category) {
+        echo 'li.level0:hover a[href*="' . $category->getData('request_path') . '"] {';
+        echo 'box-shadow: inset 0px -10px 0px 0px #' .  $category->getData('el_color_picker');
+        echo '}';
+    }
+    ?>
+</style>
+
+

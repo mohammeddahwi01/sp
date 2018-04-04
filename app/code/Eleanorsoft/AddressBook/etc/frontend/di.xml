@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--<preference for="Magento\Customer\Block\Address\Book" type="Eleanorsoft\AddressBook\Block\Address\Book"/>-->
+    <type name="Magento\Customer\Controller\Account\EditPost">
+        <plugin name="customerEditAjaxFormPostPlugin" type="Eleanorsoft\Lib\Plugin\AjaxFormPostPlugin" sortOrder="1"/>
+    </type>
+    <type name="Magento\Customer\Controller\Address\FormPost">
+        <plugin name="customerEditAddressAjaxFormPostPlugin" type="Eleanorsoft\Lib\Plugin\AjaxFormPostPlugin" sortOrder="1"/>
+    </type>
+    <type name="ParadoxLabs\TokenBase\Controller\Paymentinfo\Save">
+        <plugin name="paradoxLabsTokenBaseControllerPaymentinfoSave" type="Eleanorsoft\Lib\Plugin\AjaxFormPostPlugin" sortOrder="1"/>
+    </type>
+    <type name="ParadoxLabs\TokenBase\Controller\Delete">
+        <plugin name="paradoxLabsTokenBaseControllerDelete" type="Eleanorsoft\Lib\Plugin\AjaxFormPostPlugin" sortOrder="1"/>
+    </type>
+    <type name="ParadoxLabs\TokenBase\Controller\Delete">
+        <plugin name="paradoxLabsTokenBaseControllerDeleteRedirect" type="Eleanorsoft\AddressBook\Plugin\RedirectFormPostPlugin" sortOrder="2"/>
+    </type>
+    <type name="ParadoxLabs\TokenBase\Controller\Paymentinfo\Save">
+        <plugin name="paradoxLabsTokenBaseControllerSaveRedirect" type="Eleanorsoft\AddressBook\Plugin\RedirectFormPostPlugin" sortOrder="2"/>
+    </type>
+    <!--<preference for="Magento\Customer\Controller\Address\Index" type="Eleanorsoft\AddressBook\Controller\Customer\Address\Index"/>-->
+</config>

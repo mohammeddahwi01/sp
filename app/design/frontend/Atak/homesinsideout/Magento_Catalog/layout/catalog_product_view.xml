@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<css src="assets/owl.carousel/owl.carousel.min.css" />
+	</head>
+	<body>
+     
+	    <move element="page.main.title" destination="product.info.main" before="-" />
+	    <move element="product.info.stock.sku" destination="product.info.main" after="page.main.title" />
+	    <move element="product.info.overview" destination="product.info.main" after="product.info.stock.sku" />
+	    <move element="product.info.price" destination="product.info.form.options" before="product.info.options.wrapper.bottom" />
+	    <move element="product.info.extrahint" destination="product.info.media" after="product.info.media.image" />
+	    <move element="product.info.mailto" destination="product.info.social" after="product.info.print" />
+	    <move element="product.info.upsell" destination="content.aside" before="catalog.product.related" />
+	
+	    <referenceBlock name="view.addto.compare" remove="true" />
+	    <referenceBlock name="product.info.details" remove="true" />
+	    <referenceBlock name="upsell.product.addto.compare" remove="true" />
+		
+	    <referenceContainer name="product.info.main">
+		    <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.description.specs" template="product/view/attribute-specs.phtml" before="product.info">
+			    <arguments>
+				    <argument name="at_call" xsi:type="string">getDescription</argument>
+				    <argument name="at_code" xsi:type="string">description</argument>
+				    <argument name="css_class" xsi:type="string">description specs</argument>
+				    <argument name="at_label" xsi:type="string">Specs</argument>
+				    <argument name="title" translate="true" xsi:type="string">Specs</argument>
+			    </arguments>
+		    </block>
+		    <block class="Magento\Catalog\Block\Product\View" name="product.info.shipping" template="product/view/shipping.phtml" after="-"/>
+	    </referenceContainer>
+	
+	    <referenceContainer name="product.info.social">
+		    <block class="Magento\Catalog\Block\Product\View" name="product.info.share" template="product/view/share.phtml" before="-"/>
+		    <block class="Magento\Catalog\Block\Product\View" name="product.info.print" template="product/view/print.phtml" after="product.info.share"/>
+	    </referenceContainer>
+		
+		<referenceBlock name="product.info.upsell">
+			<block class="Magento\Framework\View\Element\RendererList" name="upsell.product.type.details.renderers" as="details.renderers">
+				<block class="Magento\Framework\View\Element\Template" as="default"/>
+			</block>
+		</referenceBlock>
+	    
+    </body>
+</page>

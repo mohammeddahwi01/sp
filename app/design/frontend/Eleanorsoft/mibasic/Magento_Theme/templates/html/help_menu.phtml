@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+/** @var Eleanorsoft\HelpMenu\Block\Menu $block */
+
+$activeItem = $block->getActiveItem();
+
+?>
+<a href="<?= $block->getUrl('contact'); ?>" class="left-link">
+	<div class="left-side-btn<?php if ($activeItem == 'contact') { ?> active-link<?php } ?>">Contact us</div>
+</a>
+<a href="<?= $block->getUrl('returns'); ?>" class = "left-link">
+	<div class="left-side-btn<?php if ($activeItem == 'returns') { ?> active-link<?php } ?>">Returns</div>
+</a>
+<a href="<?= $block->getUrl('shipping'); ?>" class = "left-link">
+	<div class="left-side-btn<?php if ($activeItem == 'shipping') { ?> active-link<?php } ?>">Shipping &amp; Delivery</div>
+</a>
+<a href="<?= $block->getUrl('terms'); ?>" class = "left-link">
+	<div class="left-side-btn<?php if ($activeItem == 'terms') { ?> active-link<?php } ?>">Terms &amp; Conditions</div>
+</a>
+<a href="<?= $block->getUrl('faqs'); ?>" class = "left-link">
+	<div class="left-side-btn<?php if ($activeItem == 'faqs') { ?> active-link<?php } ?>">Faqs</div>
+</a>
+

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    
+    <body>
+	
+	    <move element="cart.summary" destination="checkout.cart.items" after="checkout.cart.crosssell" />
+	
+	    <referenceBlock name="checkout.cart.summary.title" remove="true" />
+      <referenceBlock name="checkout.cart.crosssell" remove="true" />
+	
+	    <referenceContainer name="cart.summary">
+		    <block class="Magento\Checkout\Block\Cart" name="checkout.cart.summary.secure" as="cart-secure" template="cart/secure.phtml" before="checkout.cart.methods.bottom" />
+	    </referenceContainer>
+	    
+	    <referenceBlock name="checkout.cart.shipping">
+		    <arguments>
+			    <argument name="jsLayout" xsi:type="array">
+				    <item name="components" xsi:type="array">
+					    <item name="block-summary" xsi:type="array">
+						    <item name="config" xsi:type="array">
+							    <item name="componentDisabled" xsi:type="boolean">true</item>
+						    </item>
+					    </item>
+				    </item>
+			    </argument>
+		    </arguments>
+	    </referenceBlock>
+	
+	    <referenceBlock name="checkout.cart.totals">
+		    <arguments>
+			    <argument name="jsLayout" xsi:type="array">
+				    <!-- UI component customizations -->
+				    <item name="components" xsi:type="array">
+					    <item name="block-totals" xsi:type="array">
+						    <item name="children" xsi:type="array">
+							    <item name="grand-total" xsi:type="array">
+								    <item name="config" xsi:type="array">
+									    <item name="title" xsi:type="string" translate="true">Grand Total</item>
+								    </item>
+							    </item>
+						    </item>
+					    </item>
+				    </item>
+			    </argument>
+		    </arguments>
+	    </referenceBlock>
+	    
+    </body>
+    
+</page>

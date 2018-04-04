@@ -1,0 +1,15 @@
+<?php /** @var \Eleanorsoft\ProductBlock\Block\ProductList $block */ ?>
+<?php $productCollection = $block->getProductCollection(); ?>
+<?php if ($productCollection && $productCollection->getSize()) : ?>
+    <?php /** @var \Magento\Catalog\Model\Product $product */ ?>
+    <?php foreach ($productCollection as $product) : ?>
+    <div class="col-md-2 col-sm-3 col-xs-3 sect4-inner-2 no-pd">
+        <a href="<?= $block->escapeHtml($block->getProductUrl($product)); ?>">
+            <img
+                src="<?php echo $block->getImage($product, 'category_page_grid')->getImageUrl(); ?>"
+                alt="<?php echo $block->escapeHtml($product->getName()); ?>"
+            >
+        </a>
+    </div>
+    <?php endforeach; ?>
+<?php endif; ?>

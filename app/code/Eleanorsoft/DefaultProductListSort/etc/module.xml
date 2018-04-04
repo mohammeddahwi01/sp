@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * module.xml
+ *
+ * @author     Konstantin Esin <hello@eleanorsoft.com>
+ * @package    Eleanorsoft_DefaultProductListSort
+ * @copyright  Copyright (c) 2017 Eleanorsoft (https://www.eleanorsoft.com/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Eleanorsoft_DefaultProductListSort" setup_version="1.0.0">
+        <sequence>
+            <module name="Magento_Catalog" />
+            <module name="SpringImport_CatalogDropdownSort" />
+        </sequence>
+    </module>
+</config>

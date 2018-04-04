@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var  $block \Magento\Sales\Block\Order\View*/?>
+
+<?php $_order = $block->getOrder() ?>
+
+<a class="action primary back" href="<?php /* @escapeNotVerified */ echo $block->getBackUrl() ?>">
+	<span><?php /* @escapeNotVerified */ echo __('Back to Orders') ?></span>
+</a>

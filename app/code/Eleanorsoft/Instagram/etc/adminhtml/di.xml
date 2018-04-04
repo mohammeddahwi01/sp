@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Backend\Block\Page\Notices">
+        <plugin name="eleanorsoftInstagramNoticesPlugin" type="Eleanorsoft\Instagram\Plugin\NoticesPlugin" sortOrder="1"/>
+    </type>
+    <type name="Eleanorsoft\Instagram\Block\System\Config\Form\AuthorizeButton">
+        <arguments>
+            <argument name="frontUrlModel" xsi:type="object" shared="false">Magento\Framework\Url</argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * di.xml
+ * Describe plugins
+ *
+ * @author     Konstantin Esin <hello@eleanorsoft.com>
+ * @package    Eleanorsoft\Magento2Utility
+ * @copyright  Copyright (c) 2017 Eleanorsoft (https://www.eleanorsoft.com/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Helper\Product\ProductList">
+        <plugin name="default_order" type="Eleanorsoft\DefaultProductListSort\Plugin\Catalog\Helper\Product\ProductListPlugin" sortOrder="1" />
+    </type>
+	<type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
+        <plugin name="default_order" type="Eleanorsoft\DefaultProductListSort\Plugin\Catalog\Block\Product\ProductList\ToolbarPlugin" sortOrder="1" />
+    </type>
+	<type name="SpringImport\CatalogDropdownSort\Block\Product\ProductList\Toolbar">
+        <plugin name="default_order" type="Eleanorsoft\DefaultProductListSort\Plugin\Catalog\Block\Product\ProductList\SpringImportToolbarPlugin" sortOrder="1" />
+    </type>
+</config>

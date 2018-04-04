@@ -1,0 +1,99 @@
+<?php
+$objectManagerr = \Magento\Framework\App\ObjectManager::getInstance();
+$categoryFactory = $objectManagerr->create('Magento\Catalog\Model\ResourceModel\Category\CollectionFactory');
+$categoryy = $categoryFactory->create()
+        ->addAttributeToSelect('*')
+		->addAttributeToFilter('is_active', 1)
+		->addAttributeToFilter('include_in_menu', 1)
+		//->addAttributeToFilter('is_anchor',1);
+		->addAttributeToSort('position', 'asc');
+		
+$excludedCategory = array(0);
+
+?>
+
+<ul class="sitemap-list">
+	
+	<li class="col">
+		<a href="javascript:;">NAVIGATION</a>
+		<ul>
+			<li><a href="">AT ioHOMES</a>
+				<ul>
+					<li><a href="">About Us</a></li>
+					<li><a href="">Partner With Us</a></li>
+					<li><a href="">Careers</a></li>
+					<li><a href="">Blog</a></li>
+				</ul>
+			</li>
+			<li><a href="">MY ACCOUNT</a>
+				<ul>
+					<li><a href="">Sign In</a></li>
+					<li><a href="">Register</a></li>
+					<li><a href="">Dashboard</a></li>
+					<li><a href="">Personal Data</a></li>
+					<li><a href="">Order History</a></li>
+					<li><a href="">Wishlist</a></li>
+				</ul>
+			</li>
+			<li><a href="">CUSTOMER CARE</a>
+				<ul>
+					<li><a href="">Contact Us</a></li>
+					<li><a href="">Returns</a></li>
+					<li><a href="">Shipping & Delivery</a></li>
+					<li><a href="">Terms & Conditions</a></li>
+					<li><a href="">FAQs</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	
+<?php foreach ($categoryy as $cc): ?>
+    <?php if(!in_array($cc->getId(), $excludedCategory)):?>
+        <?php if ($cc->getLevel()==2):?>
+            <li class="col">
+                <a href="<?php echo $cc->getUrl(); ?>"><?php echo $cc->getName(); ?></a>
+                <?php
+                    if($cc->getChildren())
+                    {
+                        $sub = explode(",", $cc->getChildren());
+                        $categoryFactorysub = $objectManagerr->create('Magento\Catalog\Model\ResourceModel\Category\CollectionFactory');
+                        $categoryysub = $categoryFactorysub->create()
+                        ->addAttributeToSelect('*');
+                        $subcat=$categoryysub->addFieldToFilter('entity_id', array('in' =>$sub));
+
+                        //$subcat->printlogquery(true);exit;
+                        ?>
+	                    <ul>
+                        <?php foreach ($subcat as $subcategories){ ?>
+                            <?php if ($subcategories->getLevel()==3):?>
+		                        <li>
+			                        <a href="<?php echo $subcategories->getUrl(); ?>"><?php echo $subcategories->getName(); ?></a>
+			                        <?php
+			                        if($subcategories->getChildren())
+			                        {
+				                        $subSubCat = explode(",", $subcategories->getChildren());
+				                        $subsubCatFactory = $objectManagerr->create('Magento\Catalog\Model\ResourceModel\Category\CollectionFactory');
+				                        $subSubCatCollection = $subsubCatFactory->create()
+				                                                                ->addAttributeToSelect('*');
+				                        $subSubCollection=$subSubCatCollection->addFieldToFilter('entity_id', array('in' =>$subSubCat));
+				                        ?>
+				                        <ul>
+					                        <?php foreach ($subSubCollection as $subSubcategories){ ?>
+						                        <li>
+							                        <a href="<?php echo $subSubcategories->getUrl(); ?>"><?php echo $subSubcategories->getName()?></a>
+						                        </li>
+					                        <?php } ?>
+				                        </ul>
+			                        <?php   } ?>
+		
+		                        </li>
+                            <?php endif;?>
+                        <?php } ?>
+                        </ul>
+                <?php } ?>
+            </li>
+        <?php endif;?>
+    <?php endif;?>
+    <?php endforeach; ?>
+</ul>
+

@@ -1,0 +1,9 @@
+<?php $order = $block->getOrder(); ?>
+<section class="admin__page-section return-tab-content">
+    <div class="admin__page-section-title">
+        <span class="title"><?php echo __('Return Note From Customer'); ?></span>
+    </div>
+    <div class="admin__page-section-content">
+        <p><?php echo $order->getReturn() ?: __('There is no return note for this order yet.'); ?></p>
+    </div>
+</section>
