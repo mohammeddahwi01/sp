@@ -1,1 +1,1 @@
-Homesinsideout, mibasics, sun&pine
+Homesinsideout, mibasics, sun&pine.
