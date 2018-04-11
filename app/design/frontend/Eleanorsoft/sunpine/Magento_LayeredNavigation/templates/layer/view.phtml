@@ -1,0 +1,75 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+?>
+
+<?php if ($block->canShowBlock()): ?>
+    <div class="subcategory-btn-cont-close">
+    <button class = "subcategory-filter-btn-close">Filter results<span class="sub-filter-arrow-close">
+        <img class = "sub-arrow-img-close" src="<?php echo $this->getViewFileUrl('images/subcategory/sub-arrow.png'); ?>"></span>
+    </button>
+    </div>
+    <div class="block filter">
+        <div class="block-title filter-title">
+            <strong><?php /* @escapeNotVerified */ echo __('Shop By') ?></strong>
+        </div>
+
+        <div class="block-content filter-content">
+            <?php echo $block->getChildHtml('state') ?>
+
+            <?php if ($block->getLayer()->getState()->getFilters()): ?>
+                <div class="block-actions filter-actions">
+                    <a href="<?php /* @escapeNotVerified */ echo $block->getClearUrl() ?>" class="action clear filter-clear"><span><?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
+                </div>
+            <?php endif; ?>
+            <?php $wrapOptions = false; ?>
+            <?php foreach ($block->getFilters() as $filter): ?>
+                <?php if (!$wrapOptions): ?>
+                    <strong role="heading" aria-level="2" class="block-subtitle filter-subtitle"><?php /* @escapeNotVerified */ echo __('Shopping Options') ?></strong>
+                    <dl class="filter-options" id="narrow-by-list">
+                <?php $wrapOptions = true; endif; ?>
+                    <?php if ($filter->getItemsCount()): ?>
+                        <dt role="heading" aria-level="3" class="filter-options-title"><?php echo $block->escapeHtml(__($filter->getName())) ?></dt>
+                        <dd class="filter-options-content"><?php /* @escapeNotVerified */ echo $block->getChildBlock('renderer')->render($filter); ?></dd>
+                    <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if ($wrapOptions): ?>
+                </dl>
+            <?php endif; ?>
+        </div>
+    </div>
+    <div class="subcategory-btn-apply">
+        <button class="sub-apply">apply</button>
+    </div>
+<?php endif; ?>
+<div class="subcategory-btn-cont">
+    <button class = "subcategory-filter-btn">Filter results<span class="sub-filter-arrow"><img class = "sub-arrow-img" src="<?php echo $this->getViewFileUrl('images/subcategory/sub-arrow.png'); ?>"></span></button>
+</div>
+<script>
+requirejs(['jquery'], function ($) {
+   $(".subcategory-btn-cont").click(function(event) {
+    $(this).hide(100);
+    $(".page-layout-2columns-left .sidebar-main").animate({
+    left: "0%"
+  }, 500);
+   });
+   $(".subcategory-btn-cont-close").click(function(event) {
+      $(".page-layout-2columns-left .sidebar-main").animate({
+    left: "-35%"
+  }, 500);
+       $(".subcategory-btn-cont").show(1000);
+   });
+});
+</script>

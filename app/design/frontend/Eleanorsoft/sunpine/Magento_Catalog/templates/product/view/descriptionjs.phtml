@@ -1,0 +1,19 @@
+<script type="text/javascript" xml="space">//
+    requirejs(['jquery'], function ($){
+        jQuery(document).ready(function($) {
+            $('.text-container-help').click(function(e){
+                $(this).siblings('.hide-par-link').toggle('slow',function(event){
+                    if($(this).is(':visible')){
+                        $(this).parent().find('.icon-link').addClass('icon-link-active');
+                        $(this).parent().find('.icon-link').removeClass('icon-link');
+                    }
+                    else{
+                        $(this).parent().find('.icon-link-active').addClass('icon-link');
+                        $(this).parent().find('.icon-link-active').removeClass('icon-link-active');
+                    }
+                });
+                return false;
+            });
+        });
+    });
+    // </script>

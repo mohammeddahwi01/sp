@@ -1,0 +1,56 @@
+<?php /** @var \Eleanorsoft\ProductBlock\Block\ProductList $block */ ?>
+<?php $productCollection = $block->getProductCollection(); ?>
+<?php if ($productCollection && $productCollection->getSize()) : ?>
+    <?php $iterator = $productCollection->getIterator(); ?>
+    <?php /** @var \Magento\Catalog\Model\Product $product */ ?>
+    <?php for ($i = 0; $i < $iterator->count();) : ?>
+        <?php
+        $product1 = $product2 = null;
+        try {
+            $iterator->seek($i++);
+            $product1 = $iterator->current();
+            $iterator->seek($i++);
+            $product2 = $iterator->current();
+        } catch (\Exception $ex) {
+        }
+        ?>
+        <div class="col-md-2 col-xs-6  sect2-inner-2 no-pd ">
+            <?php if ($product1) { ?>
+                <div class="sect2-text  sect-2-hide" style="display: none;">
+                    <a href="<?= $block->escapeHtml($block->getProductUrl($product1)); ?>">
+                        <?php echo $block->escapeHtml($product1->getName()); ?>
+                    </a>
+                </div>
+            <?php } ?>
+            <?php if ($product2) { ?>
+                <div class="sect2-text  sect-2-2-hide" style="display: none;">
+                    <a href="<?= $block->escapeHtml($block->getProductUrl($product2)); ?>">
+                        <?php echo $block->escapeHtml($product2->getName()); ?>
+                    </a>
+                </div>
+            <?php } ?>
+
+            <?php if ($product1) { ?>
+            <a href="<?= $block->escapeHtml($block->getProductUrl($product1)); ?>">
+                <div class="opacite-block-home" style="display: none;"></div>
+                <img
+                    class="sect-2-cursor"
+                    src="<?php echo $block->getImage($product1, 'category_page_grid')->getImageUrl(); ?>"
+                    alt="<?php echo $block->escapeHtml($product1->getName()); ?>"
+                >
+            </a>
+            <?php } ?>
+
+            <?php if ($product2) { ?>
+            <a href="<?= $block->escapeHtml($block->getProductUrl($product2)); ?>">
+                <div class="opacite-block-home-2" style="display: none;"></div>
+                <img
+                    class="sect-2-2-cursor"
+                    src="<?php echo $block->getImage($product2, 'category_page_grid')->getImageUrl(); ?>"
+                    alt="<?php echo $block->escapeHtml($product2->getName()); ?>"
+                >
+            </a>
+            <?php } ?>
+        </div>
+    <?php endfor; ?>
+<?php endif; ?>

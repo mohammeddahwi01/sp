@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="mpblog.post.view">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Eleanorsoft_MageplazaBlog::post/view.phtml</argument>
+            </action>
+            <container name="es.blog.sidebar.main" as="es_sidebar_main" label="Sidebar Main">
+                <block class="Magento\Newsletter\Block\Subscribe" name="es.form.subscribe" template="subscribe.phtml"/>
+            </container>
+        </referenceBlock>
+        <referenceBlock name="mpblog.sidebar.category" remove="true"/>
+    </body>
+</page>

@@ -1,0 +1,139 @@
+<div id="contact-form-container"  data-bind="scope: 'contactForm'">
+    <div class="page messages" style="display: none;">
+        <div>
+            <div class="messages">
+                <div class="message">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr size="2">
+    <div class="col-md-7 col-sm-12">
+    <form id="form-contact" class="form contact" action="<?= $block->getFormAction(); ?>" data-bind="submit: submitContactForm">
+        <fieldset class="fieldset">
+            <div class="field name required">
+                <label class="label" for="name">
+                    <span>Full Name</span>
+                </label>
+                <div class="control-my">
+                    <input id="name" class="input-text" name="name" type="text" data-validate="{'required-entry':true}"/>
+                </div>
+            </div>
+            <div class="field email required">
+                <label class="label" for="email">
+                    <span>Email Address</span>
+                </label>
+                <div class="control-my">
+                    <input id="email" class="input-text" name="email" type="email" data-validate="{'required-entry':true, 'validate-email':true}"/>
+                </div>
+            </div>
+            <div class="field order">
+                <label class="label" for="order">
+                    <span>Order Number</span>
+                </label>
+                <div class="control-my">
+                    <input id="order" class="input-text" name="order" type="text"/>
+                </div>
+            </div>
+            <div class="field subject required">
+                <label class="label" for="subject">
+                    <span>Subject</span>
+                </label>
+                <div class="control-my">
+                    <select id="subject" class="select" name="subject"
+                            data-validate="{'required-entry':true}"
+                            data-bind="options: subjects, optionsValue: 'value', optionsText: 'label', optionsCaption: '...'">
+                    </select>
+                </div>
+            </div>
+            <div class="field comment">
+                <label class="label" for="comment">
+                    <span>Message</span>
+                </label>
+                <div class="control-my">
+                    <textarea id="comment" class="input-text" name="comment" cols="1000" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <a id="contact-form-modal-link" href="#" style="display:none;" data-toggle="modal" data-target="#FormContactModal"></a>
+                    <button class="action submit-contact primary" type="submit" id = "contact-form-modal">
+                        <span >Submit</span>
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    </div>
+    <div class="col-md-5 float-right my-sidebar-right-contactus">
+        <div class="col-md-12 wrapper-right">
+            <h3 class = "right-side-head">Customer care</h3>
+            <p class = "wrapper-right-group"> Phone 866.597.2742 </p>
+            <p class = "wrapper-right-group"> info@enitiallab.com </p>
+        </div>
+         <div class="col-md-12 wrapper-right">
+            <h3 class = "right-side-head">hours</h3>
+            <p class = "wrapper-right-group"> Monday to Friday: 7 am to 5:30 pm </p>
+            <p class = "wrapper-right-group"> Saturday to Sunday: 8 am to 4 pm </p>
+        </div>
+         <div class="col-md-12 wrapper-right">
+            <h3 class = "right-side-head">30 DAYS HASSLE - FREE RETURNS</h3>
+            <p class = "wrapper-right-group"> Check out our FAQs for details. </p>
+        </div>
+         <div class="col-md-12 wrapper-right">
+            <h3 class = "right-side-head">TRADE INQUIRIES</h3>
+            <p class = "wrapper-right-group"> trade@enitiallab.com </p>
+        </div>
+         <div class="col-md-12 wrapper-right">
+            <h3 class = "right-side-head">MEDIA PRESS</h3>
+            <p class = "wrapper-right-group"> media@enitiallab.com </p>
+        </div>
+         <div class="col-md-12 wrapper-right">
+            <h3 class = "right-side-head">CAREERS</h3>
+            <p class = "wrapper-right-group"> careers@enitiallab.com </p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade my-fade" id="FormContactModal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog modal-message" role="document">
+    <div class="modal-content">
+      <div class="modal-body mg-my-modal message-modal-body">
+        <h1 class = "header-message-sent">message sent!</h1>
+            <p class = 'message-sent-par'>
+                miBasics team will respond to your request promptly.<br />
+                Should you not hear from Us in 24 hours - please check your spam folder.
+            </p>
+
+              <button type="submit" class="btn my-btn my-btn-message-sent" data-dismiss="modal">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal end -->
+<?php
+/** @var \Eleanorsoft\Lib\Helper\Captcha $captchaHelper */
+$captchaHelper = $block->getData(\Eleanorsoft\Lib\Helper\Captcha::HELPER_FIELD_NAME);
+?>
+<script src='<?php echo $captchaHelper->getCaptchaScriptUrl(); ?>'></script>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "contactForm": {
+                    "component": "Eleanorsoft_Contact/js/contact",
+                    "beforeSend": "function () { return true; /* return false to prevent default action */ }",
+                    "onSendError": "function () { return true; /* return false to prevent default action */ }",
+                    "onSendSuccess": "function () { $('#contact-form-modal-link').click(); }",
+                    "formSelector": "#form-contact",
+                    "captchaSiteKey": "<?php echo $captchaHelper->getCaptchaSiteKey(); ?>",
+                    "captchaRenderSelectorId": "contact-form-modal"
+                }
+            }
+        }
+    }
+}
+</script>

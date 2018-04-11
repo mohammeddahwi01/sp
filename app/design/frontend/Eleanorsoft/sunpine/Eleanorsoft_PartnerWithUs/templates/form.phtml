@@ -1,0 +1,118 @@
+<?php /** @va */?>
+<div class="col-md-6 col-sm-12 left-img-cont">
+    <img src="<?php echo $this->getViewFileUrl('images/partner/partner.jpg'); ?>" class='partner-img-main' alt="partner-img">
+    <div class="partner-with-us-abs">
+        partner with <br />
+        us
+    </div>
+</div>
+<div id="partner-with-us-form-container" class = "col-md-6 col-sm-12" data-bind="scope: 'partnerWithUsForm'">
+    <div class="page messages" style="display: none;">
+        <div>
+            <div class="messages">
+                <div class="message">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form id="form-partner-with-us" class="form contact partner-with-us" action="<?= $block->getFormAction(); ?>" data-bind="submit: submitPartnerWithUsForm">
+        <fieldset class="fieldset">
+         <!--    <legend class="legend">
+             <span>Write Us</span>
+         </legend>
+         <br /> -->
+            <div class="field note no-label text-dec-no-label">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elited id.
+                Maecenas vel turpis aliquet, mollis mauris vitae, pulvinar.</div>
+            <div class="field name required">
+                <label class="label" for="name">
+                    <span>Full Name</span>
+                </label>
+                <div class="control-my">
+                    <input id="name" class="input-text" name="name" type="text" data-validate="{'required-entry':true}"/>
+                </div>
+            </div>
+            <div class="field email required">
+                <label class="label" for="email">
+                    <span>Email Address</span>
+                </label>
+                <div class="control-my">
+                    <input id="email" class="input-text" name="email" type="email" data-validate="{'required-entry':true, 'validate-email':true}"/>
+                </div>
+            </div>
+            <div class="field company">
+                <label class="label" for="company">
+                    <span>Company</span>
+                </label>
+                <div class="control-my">
+                    <input id="company" class="input-text" name="company" type="text"/>
+                </div>
+            </div>
+            <div class="field phone required">
+                <label class="label" for="phone">
+                    <span>Phone</span>
+                </label>
+                <div class="control-my">
+                    <input id="phone" class="input-text" name="phone" type="text" data-validate="{'required-entry':true}"/>
+                </div>
+            </div>
+            <div class="field comment required">
+                <label class="label" for="comment">
+                    <span>Message</span>
+                </label>
+                <div class="control-my">
+                    <textarea id="comment" class="input-text" name="comment" cols="5" rows="3" data-validate="{'required-entry':true}"></textarea>
+                </div>
+            </div>
+            <div class="actions-toolbar partner-action-toolbar">
+                <div class="primary">
+                    <a id="partner-form-modal-link" href="#" style="display:none;" data-toggle="modal" data-target="#FormPartnertModal"></a>
+                    <button class="action submit-partner-with-us primary" type="submit" id = "partner-form-modal">
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<!-- Modal -->
+<div class="modal fade my-fade" id="FormPartnertModal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog modal-message" role="document">
+    <div class="modal-content">
+      <div class="modal-body mg-my-modal message-modal-body">
+        <h1 class = "header-message-sent">message sent!</h1>
+            <p class = 'message-sent-par'>
+                miBasics team will respond to your request promptly.<br />
+                Should you not hear from Us in 24 hours - please check your spam folder.
+            </p>
+
+              <button type="submit" class="btn my-btn my-btn-message-sent" data-dismiss="modal">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal end -->
+<script src='<?php echo $block->getCaptchaHelper()->getCaptchaScriptUrl(); ?>'></script>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "partnerWithUsForm": {
+                    "component": "Eleanorsoft_PartnerWithUs/js/partner-with-us",
+                    "onSendSuccess": "function () { $('#partner-form-modal-link').click(); }",
+                    "formSelector": "#form-partner-with-us",
+                    "captchaSiteKey": "<?php echo $block->getCaptchaHelper()->getCaptchaSiteKey(); ?>",
+                    "captchaRenderSelectorId": "partner-form-modal"
+                }
+            }
+        }
+    }
+}
+</script>
+<script>
+    requirejs(['jquery'], function ($) {
+        $(".page-title-wrapper").hide();
+    });
+</script>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.wrapper">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="layered.navigation.opener"
+                   before="-"
+                   template="Eleanorsoft_LayeredNavigation::layer/opener.phtml" />
+            <container name="layered.filters.custom" htmlTag="div" htmlClass="sidebar-main" />
+        </referenceContainer>
+        <move element="catalog.leftnav" destination="layered.filters.custom" />
+    </body>
+</page>

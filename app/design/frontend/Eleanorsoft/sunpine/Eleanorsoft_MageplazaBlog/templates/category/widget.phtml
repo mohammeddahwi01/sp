@@ -1,0 +1,18 @@
+<?php /** @var \Eleanorsoft\MageplazaBlog\Block\Category\Widget $block */ ?>
+<?php $tree = $block->getTree(); ?>
+<?php if ($tree): ?>
+<div class="mp-sidebar mpcss">
+    <div class="row">
+       <!-- <div class="block-title col-xs-12 sidebar-categories">
+            <p class="block-mp-sidebar-heading" role="heading" aria-label="2">
+                <?php /*echo __('Categories') */?>
+            </p>
+        </div>-->
+        <div class="col-xs-12">
+            <ul class="block-content menu-categories">
+                <?php echo $block->getCategoryTreeHtml($tree) ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
