@@ -1,0 +1,8 @@
+<div class="container error-404-container">
+<div class="row">
+<div class="col-12 text-center">
+<h1 class="error-page-header">ooops...page not found.</h1>
+<h4 class="error-page-desc">Sorry! The page you are looking for cannot be found.</h4>
+<a href="#"><button class="btn my-btn btn-error">back to home</button></a></div>
+</div>
+</div>

@@ -1,0 +1,22 @@
+<div class="about-info cms-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12 pd-rl">
+                    <h3 class="about-us-header">About us</h3>
+                    <p class="about-us-par">We believe that the formula for a happy home is different for everyone. It&rsquo;s not about subscribing to one look or following a set of rules. It&rsquo;s about trusting your instincts and making it up as you go. Discovering your personal style and expressing it with confidence. Creating a world that&rsquo;s more colorful, more comfortable, more meaningful more true. A beautiful backdrop for the life well-lived.</p>
+                </div>
+                <div class="col-md-12 mg-img-left pd-rl-2">
+                    <p class="proud-par">what we are proud of</p>
+                    <h3 class="proud-header">unique experience.</h3>
+                    <ul class="ul-container-about">
+                        <li class="li-container-about-field">Original collections, always.</li>
+                        <li class="li-container-about-field">Brand new pieces delivered to stores daily.</li>
+                        <li class="li-container-about-field">Honest pricing, above all else.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6"><img  class="about-main-image" src="{{media url="wysiwyg/first.jpg"}}" alt="interior" /></div>
+        </div>
+    </div>
+    {{widget type="Magento\Cms\Block\Widget\Block" template="widget/link/link_block.phtml" block_id="21" anchor_text="" title="" page_id=""}}

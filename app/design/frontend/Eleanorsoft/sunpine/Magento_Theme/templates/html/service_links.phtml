@@ -3,7 +3,7 @@
 ?>
 <div class="right-top-menu float-sm-right flex-right-top-menu">
 	<?php if (!$block->isCustomerLoggedIn()) { ?>
-		<div class="right-top-field">
+		<div class="right-top-field authorization-header-field">
 			<a href="#">
 				<span data-toggle="modal" data-target="#SingInModal" id = "sign-in-modal">Sign in </span>
 
@@ -165,7 +165,7 @@
 			<li class="nav-item pd2 dropdown-toggle header-help-btn" type="button" data-toggle="dropdown">
 				<span class="dropdown-list-field " id = "header-help-icon">?</span>
 			</li>
-			<ul class="dropdown-menu dropdown-menu-my">
+			<ul class="dropdown-menu dropdown-menu-my dropdown-menu-help-top">
 				<a href="<?= $block->getUrl('contact'); ?>"><li class = "dropdown-field">Contact Us</li></a>
 				<a href="<?= $block->getUrl('faqs'); ?>"><li class = "dropdown-field">FAQs</li></a>
 				<a href="<?= $block->getUrl('shipping'); ?>"><li class = "dropdown-field">Shipping</li></a>
@@ -235,6 +235,7 @@
 
 		$('#open-search-btn').click(function () {
 			$('.block-search').removeClass('hidden');
+			$('#search-btn-header-top').fadeOut();
 			// $('#search-btn-header-top').hide();
 		});
         $(document).mouseup(function (e){ // событие клика по веб-документу
@@ -243,6 +244,7 @@
                 if (!div.is(e.target) // если клик был не по нашему блоку
                     && div.has(e.target).length === 0) { // и не по его дочерним элементам
                     $('.block-search').addClass('hidden');
+                    $('#search-btn-header-top').fadeIn();
                 }
             }
         });
