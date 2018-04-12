@@ -3818,3 +3818,9 @@ body {
 .li_estimate_country_id { /* hide country in shipping calculator */
   display:none;
 }
+#shipping-input-form ul {
+  padding:0;
+}
+.column.main .est-description p {
+  margin-bottom:0;
+}
