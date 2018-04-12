@@ -3815,3 +3815,6 @@ body {
   margin-top:0;
   background: rgba(255,255,255,.8) url('../images/mfploader.gif') no-repeat center center !important;
 }
+.li_estimate_country_id { /* hide country in shipping calculator */
+  display:none;
+}
