@@ -1,0 +1,10 @@
+<?php
+/**@var Eleanorsoft\Category\Block\Category $block*/
+$categories = $block->getCategories();
+?>
+<div>
+<?php foreach ($categories as $category) { ?>
+   <li> <img src="<?= $category->getImageUrl();?>" alt="<?= $category->getName();?>"></li>
+<?php } ?>
+</div>
+
