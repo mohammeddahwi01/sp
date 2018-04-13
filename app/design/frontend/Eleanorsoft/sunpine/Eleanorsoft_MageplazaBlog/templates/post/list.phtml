@@ -11,6 +11,7 @@ $canUsePostCollection = $postCollection && $postCollection->getSize();
             <div class="clearfix"></div>
         </div>
         <img id="ajax-loader" src="<?php echo $block->getViewFileUrl('images/loader-2.gif'); ?>" alt="ajax loader" style="visibility: hidden;">
+        <button class="load-post-btn">load more</button>
     <?php else: ?>
         <?php echo __('There are no posts at this moment'); ?>
     <?php endif; ?>
@@ -40,6 +41,22 @@ $canUsePostCollection = $postCollection && $postCollection->getSize();
         };
     });
 </script>
+<!--btn post-loader on blog-->
+<script>
+    requirejs(['jquery'], function ($) {
+        $(".load-post-btn").click(function () {
+            if($(this).hasClass("active")){
+                $(this).removeClass("active");
+                $(this).removeAttr("disabled");
+            }
+            else{
+                $(this).addClass("active");
+                $(this).attr("disabled",true);
+            }
+        });
+    });
+</script>
+<!--end -->
 <script>
     requirejs(['jquery', 'mage/loader'], function ($, loader) {
         var jWindow = $(window),

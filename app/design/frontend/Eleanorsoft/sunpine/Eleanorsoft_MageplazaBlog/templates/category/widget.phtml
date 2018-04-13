@@ -9,9 +9,14 @@
             </p>
         </div>-->
         <div class="col-xs-12">
-            <ul class="block-content menu-categories">
-                <?php echo $block->getCategoryTreeHtml($tree) ?>
-            </ul>
+            <div class="dropdown dropdown-blog-categories">
+                <div class="dropdown-toggle dropdown-toggle-categories" data-toggle="dropdown">
+                    <span>Categories</span>
+                </div>
+                <ul class="block-content dropdown-blog-categories-menu dropdown-menu">
+                    <?php echo $block->getCategoryTreeHtml($tree) ?>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
