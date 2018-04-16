@@ -1,0 +1,4 @@
+<!-- Необходимо сделать layout update   --> 
+<!-- <referenceContainer name="main.content" htmlClass="page-main custom-full-container" />   --> 
+{{block class="Eleanorsoft\Category\Block\Category" template="Eleanorsoft_Category::category.phtml"}}
+
