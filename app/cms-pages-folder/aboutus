@@ -19,4 +19,5 @@
             <div class="col-md-6"><img  class="about-main-image" src="{{media url="wysiwyg/first.jpg"}}" alt="interior" /></div>
         </div>
     </div>
+</div>
     {{widget type="Magento\Cms\Block\Widget\Block" template="widget/link/link_block.phtml" block_id="21" anchor_text="" title="" page_id=""}}

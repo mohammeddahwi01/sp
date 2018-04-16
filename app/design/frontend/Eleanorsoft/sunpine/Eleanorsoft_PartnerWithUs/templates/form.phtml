@@ -1,11 +1,5 @@
 <?php /** @va */?>
-<div class="col-md-6 col-sm-12 left-img-cont">
-    <img src="<?php echo $this->getViewFileUrl('images/partner/partner.jpg'); ?>" class='partner-img-main' alt="partner-img">
-    <div class="partner-with-us-abs">
-        partner with <br />
-        us
-    </div>
-</div>
+
 <div id="partner-with-us-form-container" class = "col-md-6 col-sm-12" data-bind="scope: 'partnerWithUsForm'">
     <div class="page messages" style="display: none;">
         <div>
@@ -22,6 +16,7 @@
              <span>Write Us</span>
          </legend>
          <br /> -->
+            <div id="header-partner-title">Partner with us</div>
             <div class="field note no-label text-dec-no-label">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elited id.
                 Maecenas vel turpis aliquet, mollis mauris vitae, pulvinar.</div>
@@ -75,6 +70,9 @@
             </div>
         </fieldset>
     </form>
+</div>
+<div class="col-md-6 col-sm-12 left-img-cont">
+    <img src="<?php echo $this->getViewFileUrl('images/partner/partner.jpg'); ?>" class='partner-img-main' alt="partner-img">
 </div>
 <!-- Modal -->
 <div class="modal fade my-fade" id="FormPartnertModal" tabindex="-1" role="dialog"  aria-hidden="true">

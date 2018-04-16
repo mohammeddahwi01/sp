@@ -10,9 +10,9 @@ $postCategory = $block->getPostFirstCategory($post);
         <img src="<?php echo $block->escapeHtml($block->getPostImageUrl($post)); ?>" alt="<?php echo $block->escapeHtml($post->getName()); ?>">
         </div>
         <div class="post-list-item-description">
-            <span class = "post-category-name">in: <?php echo $block->escapeHtml($postCategory->getName()); ?>,</span>
-            <span class = "post-date">date :<?php echo $block->escapeHtml($post->getPublishDate()); ?></span>
             <div class = "post-name"><?php echo $block->escapeHtml($post->getName()); ?></div>
+            <span class = "post-category-name">in: <?php echo $block->escapeHtml($postCategory->getName()); ?>,</span>
+            <span class = "post-date"><?php echo $block->escapeHtml($post->getPublishDate()); ?></span>
         </div>
     </a>
 </div>
