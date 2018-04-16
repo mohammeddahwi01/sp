@@ -3,8 +3,10 @@
 $categories = $block->getCategories();
 ?>
 <div>
+    <ul>
 <?php foreach ($categories as $category) { ?>
-   <li> <img src="<?= $category->getImageUrl();?>" alt="<?= $category->getName();?>"></li>
+   <li> <img src="<?= htmlspecialchars($category->getImageUrl());?>" alt="<?= htmlspecialchars($category->getName());?>"></li>
 <?php } ?>
+    </ul>
 </div>
 
