@@ -1,25 +1,26 @@
 @font-face {
     font-family: SourceSansPro-SemiBold; /* Имя шрифта */
     src: url('../fonts/SourceSansPro-SemiBold.ttf');
+    src: url('../fonts/SourceSansPro-SemiBold.eot');
+    src: url('../fonts/SourceSansPro-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/SourceSansPro-SemiBold.woff2') format('woff2'),
+    url('../fonts/SourceSansPro-SemiBold.woff') format('woff'),
+    url('../fonts/SourceSansPro-SemiBold.svg#SourceSansPro-SemiBold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: SourceSansPro-Regular; /* Имя шрифта */
     src: url('../fonts/SourceSansPro-Regular.ttf');
+    src: url('../fonts/SourceSansPro-Regular.eot');
+    src: url('../fonts/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/SourceSansPro-Regular.woff2') format('woff2'),
+    url('../fonts/SourceSansPro-Regular.woff') format('woff'),
+    url('../fonts/SourceSansPro-Regular.svg#SourceSansPro_Regular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
-@font-face {
-    font-family: NeutraText-LightAlt; /* Имя шрифта */
-    src: url('../fonts/neutratext-lightalt-webfont.eot');
-    src: url('../fonts/neutratext-lightalt-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/neutratext-lightalt-webfont.woff2') format('woff2'),
-    url('../fonts/neutratext-lightalt-webfont.woff') format('woff'),
-    url('../fonts/neutratext-lightalt-webfont.svg#neutra_textlight_alt') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+
 html{
     overflow-x: hidden;
 }
@@ -279,7 +280,7 @@ li.level0:last-child{
     margin-top: 30px;
     font-family: NeutraText-BookAlt, serif !important;
     cursor: pointer;
-    width:38vw !important;
+    width:66%!important;
     position:absolute !important;
     float:none !important;
     right:107px !important;
@@ -311,8 +312,7 @@ li.level0:last-child{
     font-family: SourceSansPro-Regular!important;
     font-size: 16px;
     color:#fff;
-    /*left:5vw;*/
-    /*position: absolute !important;*/
+    padding-left: 20px;
     width: 58vw !important;
     height: 40px !important;
     margin-top: 0px !important;
@@ -416,15 +416,15 @@ li.level0:last-child{
     font-family: NeutraText-LightAlt, serif;
     font-size: 40px;
     color: #444446 !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 30px !important;
     text-transform: uppercase;
 }
 /*end page title*/
 form.contact{
     float:left !important;
     width: 100% !important;
-    padding: 20px 0px;
-    margin-top: 10px;
+    /*padding: 20px 0px;*/
+    /*margin-top: 10px;*/
     font-family: NeutraText-LightAlt, serif;
     font-size: 14px;
 }
@@ -480,7 +480,12 @@ label.label span{
 .control-my>.input-text:focus,.control-my>.input-text:active{
     box-shadow: none!important;
     border: 2px solid #c7c7c7;
-    cursor: pointer;
+    cursor: auto;
+}
+.control-my>#comment:focus,.control-my>#comment:active{
+    box-shadow: none!important;
+    border: 1px solid #c7c7c7;
+    cursor: auto;
 }
 .control-my>textarea{
     font-size: 1.3em;
@@ -508,13 +513,18 @@ label.label span{
     color: #fff;
 }
 .wrapper-right{
-    padding-top: 15px;
+    padding-top: 20px;
     padding-left: 0!important;
     padding-right: 0!important;
 }
 .my-sidebar-right-contactus{
-    margin-top: 20px;
     padding-top: 10px;
+}
+.my-sidebar-right-contactus a:hover,
+.my-sidebar-right-contactus a:visited,
+.my-sidebar-right-contactus a{
+    text-decoration: none;
+    color: #333333;
 }
 h3.right-side-head{
     font-family: SourceSansPro-SemiBold, serif;
@@ -1071,7 +1081,8 @@ label.label{
 }
 .header-message-sent{
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
+    text-transform: uppercase;
     font-family: SourceSansPro-Regular, serif;
 }
 .message-sent-par{
@@ -1086,9 +1097,10 @@ label.label{
 .my-btn-message-sent{
     height: 50px!important;
     width: 50%;
-    font-size: 24px!important;
-    font-family: SourceSansPro-Regular;
+    font-size: 15px!important;
+    font-family: SourceSansPro-SemiBold,serif;
     background: #fcd566!important;
+    margin: 40px!important;
 }
 .my-btn-message-sent:hover{
     background: #f2a825!important;
@@ -2127,10 +2139,10 @@ select.select-qty-quickview{
     margin-bottom: 12px;
     cursor: auto;
     font-size: 22px;
-    -webkit-user-select: none;
+/*    -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
+    user-select: none;*/
 }
 
 
@@ -3919,7 +3931,7 @@ body{
     align-self: center;
     margin-top: 10px;
     margin-left: 20px;
-    z-index: 999;
+    z-index: 2;
 }
 .navigation .level0 .submenu{
     display: none!important;
@@ -3948,6 +3960,10 @@ body{
 }
 .load-post-btn.active{
 
+}
+.contact-index-index .control-my .mage-error{
+    font-size: 16px;
+    font-family: SourceSansPro-Regular;
 }
 /*media start*/
 @media (max-width: 1050px){
@@ -3981,7 +3997,7 @@ body{
         margin-left:20px!important;
     }
     .block-search{
-        width: 57vw!important;
+        width: 57%!important;
     }
     .block-search .action.search{
         /*left: 58vw!important;*/
@@ -4034,6 +4050,9 @@ body{
         margin-bottom:20px;
         font-family: SourceSansPro-Regular;
     }
+    #signin-header-popup{
+        text-align: center;
+    }
     .label-form-my,.forgot-link{
         font-size: 14px;
     }
@@ -4077,17 +4096,23 @@ body{
         font-size: 1.2em;
     }
 }
+
 @media (max-width: 655.00px) {
     .block-search{
-        width: 50vw!important;
+        width: 50%!important;
     }
 }
 @media (max-width: 570.00px){
     .block-search{
-        width: 40vw!important;
+        width: 40%!important;
     }
     .block-search input{
         font-size: 12px;
+    }
+}
+@media (max-width: 470px){
+    .block-search{
+        width: 30%!important;
     }
 }
 /*media phone*/
@@ -4100,6 +4125,8 @@ body{
     }
     #maincontent{
         margin-bottom: 50px;
+        min-height: 50vh;
+        height: auto!important;
     }
     .page-wrapper{
         overflow-x:hidden;
@@ -4133,6 +4160,11 @@ body{
         width: 230px!important;
         border: none!important;
         padding: 0!important;
+/*        -webkit-transform: translate3d(0,0,0)!important;
+        -moz-transform: translate3d(0,0,0)!important;
+        -ms-transform: translate3d(0,0,0)!important;
+        -o-transform: translate3d(0,0,0)!important;
+        transform: translate3d(0,0,0)!important;*/
     }
     .navigation .parent .level-top:after{
         display: none!important;
@@ -4737,7 +4769,7 @@ body{
     }
 
     li.level0 > a > span:hover {
-        box-shadow: inset 0px -10px 0px 0px #efe5eb;
+        color: #f0ad4e;
     }
 
     .header-right-block {
