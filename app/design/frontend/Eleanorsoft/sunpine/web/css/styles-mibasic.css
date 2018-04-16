@@ -475,7 +475,12 @@ label.label span{
 }
 .control-my>input,.control-my>select{
     height: 40px!important;
-    font-family: SourceSansPro-Regular;
+    font-family: SourceSansPro-Regular,serif;
+    color: #333;
+}
+.eleanorsoft-partner-with-us-index-index .control-my .mage-error{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 16px;
 }
 .control-my>.input-text:focus,.control-my>.input-text:active{
     box-shadow: none!important;
@@ -814,6 +819,7 @@ a.forgot-link:hover,a.forgot-link:active{
 #maincontent{
     margin-top: 20px;
     padding-right: 0;
+    margin-bottom: 50px;
 }
 
 .items-total.her{
@@ -919,7 +925,8 @@ label.label{
 }
 .fieldset > .field > .label, .fieldset > .fields > .field > .label{
     font-weight: 100!important;
-    font-family: SourceSansPro-SemiBold;
+    font-family: SourceSansPro-SemiBold,serif;
+    color: #333;
 }
 .about-main-image{
     max-width: 150%!important;
@@ -927,10 +934,9 @@ label.label{
 .about-us-header{
     text-transform: uppercase;
     margin-bottom: 20px;
-    font-family: SourceSansPro-Regular;
+    font-family: SourceSansPro-Regular,serif;
     font-size: 40px;
     color:#999999;
-    text-transform: uppercase;
 }
 .about-us-par{
     font-family: SourceSansPro-Regular;
@@ -1066,6 +1072,7 @@ label.label{
     font-size: 15px;
     text-align: justify;
     font-family: SourceSansPro-Regular, serif;
+    color: #333;
 }
 .partner-img-main{
     max-width: 125%!important;
