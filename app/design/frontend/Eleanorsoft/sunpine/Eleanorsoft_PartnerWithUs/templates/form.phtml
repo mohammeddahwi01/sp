@@ -99,7 +99,7 @@
             "components": {
                 "partnerWithUsForm": {
                     "component": "Eleanorsoft_PartnerWithUs/js/partner-with-us",
-                    "onSendSuccess": "function () { $('#partner-form-modal-link').click(); }",
+                    "onSendSuccess": "function () { $('#partner-form-modal-link').click(); return false; }",
                     "formSelector": "#form-partner-with-us",
                     "captchaSiteKey": "<?php echo $block->getCaptchaHelper()->getCaptchaSiteKey(); ?>",
                     "captchaRenderSelectorId": "partner-form-modal"
@@ -108,9 +108,4 @@
         }
     }
 }
-</script>
-<script>
-    requirejs(['jquery'], function ($) {
-        $(".page-title-wrapper").hide();
-    });
 </script>

@@ -475,7 +475,68 @@ label.label span{
 }
 .control-my>input,.control-my>select{
     height: 40px!important;
-    font-family: SourceSansPro-Regular;
+    font-family: SourceSansPro-Regular,serif;
+    color: #333;
+}
+.mpblog-post-view .list-post-tabs .post-left .img-responsive{
+    width: 100%;
+}
+.mpblog-post-view .list-post-tabs {
+    padding: 0px 0px 10px 0;
+    border: 1px solid #ececec;
+    margin-bottom: 15px;
+}
+.mpblog-post-view .list-post-tabs .post-right span{
+    white-space: normal;
+    font-family: SourceSansPro-Regular,serif;
+    color: #999;
+    padding: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.block.newsletter .title{
+    display: block;
+    margin-top: 20px;
+    text-align: left;
+    font-weight: 100;
+    font-size: 20px;
+    font-family: SourceSansPro-Regular,serif;
+    color: #999;
+}
+.block.newsletter .newsletter-description{
+    color: #333;
+    margin-top: 10px;
+    font-family: SourceSansPro-Regular,serif;
+    text-align: justify;
+    font-size: 15px;
+}
+.mpblog-post-view .list-post-tabs .post-right {
+    width: 100%;
+    padding-left: 0;
+}
+.mpblog-post-view .list-post-tabs .post-left{
+    width: 100%;
+}
+.mpblog-post-view .data.switch,.mpblog-post-view #tab-content-mostview{
+    border: none!important;
+    font-family: SourceSansPro-Regular,serif!important;
+    color: #999!important;
+    font-size: 20px!important;
+    font-weight: 100!important;
+}
+.mp-sidebar .item-title-width {
+    width: 100%!important;
+    background: #fff;
+}
+.item-title-width.active>a.data.switch>div{
+    text-align: left;
+}
+.product.data.items > .item.title > .switch{
+    background: #fff!important;
+}
+.eleanorsoft-partner-with-us-index-index .control-my .mage-error{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 16px;
 }
 .control-my>.input-text:focus,.control-my>.input-text:active{
     box-shadow: none!important;
@@ -814,6 +875,7 @@ a.forgot-link:hover,a.forgot-link:active{
 #maincontent{
     margin-top: 20px;
     padding-right: 0;
+    margin-bottom: 50px;
 }
 
 .items-total.her{
@@ -919,7 +981,8 @@ label.label{
 }
 .fieldset > .field > .label, .fieldset > .fields > .field > .label{
     font-weight: 100!important;
-    font-family: SourceSansPro-SemiBold;
+    font-family: SourceSansPro-SemiBold,serif;
+    color: #333;
 }
 .about-main-image{
     max-width: 150%!important;
@@ -927,10 +990,9 @@ label.label{
 .about-us-header{
     text-transform: uppercase;
     margin-bottom: 20px;
-    font-family: SourceSansPro-Regular;
+    font-family: SourceSansPro-Regular,serif;
     font-size: 40px;
     color:#999999;
-    text-transform: uppercase;
 }
 .about-us-par{
     font-family: SourceSansPro-Regular;
@@ -1066,6 +1128,7 @@ label.label{
     font-size: 15px;
     text-align: justify;
     font-family: SourceSansPro-Regular, serif;
+    color: #333;
 }
 .partner-img-main{
     max-width: 125%!important;
@@ -1327,8 +1390,8 @@ label.label{
     display: table-cell;
 }
 .product-item-details>.product-item-name>a{
-    font-size: 16px;
-    font-family: NeutraText-BookAlt, serif;
+    font-size: 15px;
+    font-family: SourceSansPro-Regular, serif;
 }
 .page-products .toolbar .limiter{
     display: block;
@@ -3075,18 +3138,23 @@ li#payment{
 }
 .mpcss>#sharing{
     background: #fff;
+    margin-top:0;
+    padding: 0;
 }
 .mpcss>#sharing>.post-view-image{
-    padding: 0 30px 0 15px;
+    width: 101vw;
+    margin-left: -18vw;
     margin-bottom: 30px;
     height: 70vh;
+    overflow: hidden;
 }
 .mpcss>#sharing>.post-view-image>img{
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 .mpcss>#sharing>.share-col-left{
-    margin-left: 15%;
+    margin-left: 13%;
+    margin-right: 2%;
 }
 .mpcss>#sharing>.share-col-right{
     width: 20%;
@@ -3101,20 +3169,22 @@ li#payment{
     margin:30px 0;
 }
 .mpcss>#sharing>.share-col-left>.mp-blog-view>#mpblog-list-container>.post-list-content>.post-post_content .mp-post-info{
-    font-family: NeutraText-BookAlt;
-    font-size: 16px;
+    font-family: SourceSansPro-Regular;
+    font-size: 15px;
     font-weight:100;
     margin-bottom:30px;
+    text-transform: uppercase;
 }
 .mpcss>#sharing>.share-col-left>.mp-blog-view>#mpblog-list-container>.post-list-content>.post-post_content .mp-post-info>span{
-    color: #3c3c3c;
+    color: #333;
 }
 .mpcss>#sharing>.share-col-left>.mp-blog-view>#mpblog-list-container>.post-list-content>.post-post_content .mp-post-info>span>a{
-    color: #3c3c3c!important;
+    color: #333!important;
 }
 .mpcss>#sharing>.share-col-left>.mp-blog-view>#mpblog-list-container>.post-list-content>.post-post_content>p{
-    font-family: NeutraText-BookAlt;
-    font-size: 16px;
+    font-family: SourceSansPro-Regular,serif!important;
+    font-size: 15px;
+    color: #333;
     font-weight:100;
     text-align: justify;
 }
@@ -3122,7 +3192,7 @@ li#payment{
     float:left;
 }
 .share-col-right .post-sharing-button .block.newsletter{
-    width:100%;
+    width:96%;
 }
 .share-col-right .post-sharing-button .block.newsletter .content .field.newsletter{
     width:100%;
@@ -3134,7 +3204,7 @@ li#payment{
 }
 .share-col-right .post-sharing-button .block.newsletter .content .field.newsletter .control>input{
     height:50px;
-    font-family:NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     padding-left: 5px;
 }
 .block.newsletter .field .control:before{
@@ -3149,20 +3219,33 @@ li#payment{
     -webkit-border-radius:0;
     -moz-border-radius:0;
     border-radius:0;
-    font-family: NeutraText-BookAlt, serif;
+    font-family: SourceSansPro-SemiBold, serif;
     font-weight:100;
-    font-size:18px;
+    font-size:15px;
     text-transform: uppercase;
-    background: #d3ecdb;
+    background: #ececec;
     border:none;
-    height: 45px;
+    height: 40px;
     color: #3c3c3c;
 }
+.share-col-right .post-sharing-button .block.newsletter .content .actions .action.subscribe.primary:hover,
+.share-col-right .post-sharing-button .block.newsletter .content .actions .action.subscribe.primary:active,
+.share-col-right .post-sharing-button .block.newsletter .content .actions .action.subscribe.primary:focus{
+    background: #d3d3d3;
+}
 .share-col-left .block-blog-related.products-same-post.page-products.mpcss{
-    margin-top: 0;
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-family: SourceSansPro-Regular;
     width: 100%!important;
+    border-top: 1px solid #ececec;
     border-bottom: 1px solid #ececec;
 }
+.mp-sidebar .data.item.title .data.switch div{
+    margin: 0!important;
+}
+
 .share-col-left .block-blog-related.products-same-post.page-products.mpcss .related-content-container{
     padding: 5px 0;
 }
@@ -3183,7 +3266,7 @@ li#payment{
 }
 .share-col-left .block-blog-related.products-same-post.page-products.mpcss>h2{
     text-align: center;
-    font-family:NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight:100;
     text-transform: uppercase;
 }
@@ -3868,7 +3951,36 @@ body{
     bottom: -3%;
 }
 .addthis_inline_share_toolbox{
-    margin-top: 90px;
+    margin-top: 20px;
+}
+.post-post_content.col-xs-12 h1{
+    font-family: SourceSansPro-Regular,serif;
+    font-size: 40px;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+.post-post_content .post-navigation{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.post-post_content .post-navigation>a{
+    font-family: SourceSansPro-SemiBold,serif;
+    font-size: 15px;
+    font-weight: 100;
+    padding:10px 20px;
+    text-transform: uppercase;
+    color: #333;
+    border: 1px solid #ececec;
+    background: #fff;
+    margin:10px!important;
+}
+.post-post_content .post-navigation>a:hover,
+.post-post_content .post-navigation>a:active,
+.post-post_content .post-navigation>a:focus{
+    text-decoration: none;
+    color: #333;
+    background: #ececec;
 }
 #shipping-step{
     float: left;
@@ -4119,6 +4231,17 @@ body{
 @media (max-width: 767.98px) {
     #shopping-cart-table > thead > tr > .col:first-child {
         display: none;
+    }
+    .mp-sidebar.product.info.detailed .product.data.items{
+        width: 96%;
+    }
+    .mpcss>#sharing>.post-view-image{
+        width: 90vw;
+        margin-left: auto;
+        margin-right: 20px;
+        margin-bottom: 30px;
+        height: 70vh;
+        overflow: hidden;
     }
     .page-footer{
         margin-bottom: -40px;
