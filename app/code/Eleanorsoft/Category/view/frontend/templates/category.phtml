@@ -1,11 +1,18 @@
 <?php
 /**@var Eleanorsoft\Category\Block\Category $block*/
-$categories = $block->getCategories();
+
+$id = $block->getCurrentCategoryId();
+$categories = $block->getCategories($id);
+
 ?>
 <div>
     <ul>
-<?php foreach ($categories as $category) { ?>
-   <li> <img src="<?= htmlspecialchars($category->getImageUrl());?>" alt="<?= htmlspecialchars($category->getName());?>"></li>
+<?php foreach ($categories as $category) { /** @var $category Magento\Catalog\Model\Category */?>
+   <li>
+       <a href="<?= $category->getUrl()?>">
+           <img src="<?= htmlspecialchars($category->getImageUrl());?>" alt="<?= htmlspecialchars($category->getName());?>">
+       </a>
+   </li>
 <?php } ?>
     </ul>
 </div>

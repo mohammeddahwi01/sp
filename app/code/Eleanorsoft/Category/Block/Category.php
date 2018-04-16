@@ -9,6 +9,7 @@
 namespace Eleanorsoft\Category\Block;
 
 use Magento\Catalog\Model\ResourceModel\Category\Collection;
+use Magento\Framework\Registry;
 use Magento\Framework\View\Element\Template;
 use Magento\Store\Model\StoreManagerInterface;
 
@@ -36,6 +37,8 @@ class Category extends Template
      */
     protected $storeManager;
 
+    protected $registry;
+
     /**
      * Category constructor.
      * @param Template\Context $context
@@ -48,12 +51,14 @@ class Category extends Template
         Template\Context $context,
         Collection $collectionCategory,
         StoreManagerInterface $storeManager,
+        Registry $registry,
         array $data = []
     )
     {
         parent::__construct($context, $data);
         $this->collectionCategory = $collectionCategory;
         $this->storeManager = $storeManager;
+        $this->registry = $registry;
     }
 
     /**
@@ -62,15 +67,32 @@ class Category extends Template
      * @return Collection
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function getCategories()
+    public function getCategories($root_category_id = null)
     {
         $collection = $this->collectionCategory;
-        $root_category_id = (int)$this->storeManager->getStore()->getRootCategoryId();
+        if (is_null($root_category_id)) {
+            $root_category_id = (int)$this->storeManager->getStore()->getRootCategoryId();
+        }
         $collection
             ->addAttributeToSelect('*')
             ->addAttributeToFilter('parent_id', $root_category_id)
             ->addIsActiveFilter();
 
         return $collection;
+    }
+
+    /**
+     * Return current category id
+     *
+     * @return null | integer
+     */
+    public function getCurrentCategoryId()
+    {
+        $current_category = $this->registry->registry('current_category');
+
+        if (is_null($current_category)) {
+            return null;
+        }
+        return $current_category->getData('entity_id');
     }
 }
