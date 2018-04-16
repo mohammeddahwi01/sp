@@ -27,37 +27,37 @@ $postsRecent = $block->getRecentPost();
 ?>
 <div class="mp-sidebar product info detailed">
     <div class="product data items" data-mage-init='{"tabs":{"openedState":"active"}}'>
-        <div class="data item title" data-role="collapsible" id="tab-label-popular">
+        <!--<div class="data item title" data-role="collapsible" id="tab-label-popular">
             <a class="data switch" tabindex="-1" data-toggle="switch" id="tab-label-popular-title">
-                <div><?php echo __('Popular') ?></div>
+                <div><?php /*echo __('Popular') */?></div>
             </a>
         </div>
         <div class="data item content" id="tab-content-popular" data-role="content">
-            <?php if ($posts->getSize()): ?>
-                <?php foreach ($posts as $post): ?>
+            <?php /*if ($posts->getSize()): */?>
+                <?php /*foreach ($posts as $post): */?>
                     <div class="list-post-tabs">
                         <div class="post-left">
-                            <a href="<?php echo $post->getUrl() ?>">
-                                <img class="img-responsive" src="<?php echo $block->resizeImage($post->getImage(), 100); ?>">
+                            <a href="<?php /*echo $post->getUrl() */?>">
+                                <img class="img-responsive" src="<?php /*echo $block->resizeImage($post->getImage(), 100); */?>">
                             </a>
                         </div>
                         <div class="post-right">
-                            <a href="<?php echo $post->getUrl() ?>"><span><?php echo $post->getName() ?></span></a>
+                            <a href="<?php /*echo $post->getUrl() */?>"><span><?php /*echo $post->getName() */?></span></a>
                             <span class="create-at">
-                                <?php echo $post->getPublishDate() ? $block->getDateFormat($post->getPublishDate()) : ''; ?>
+                                <?php /*echo $post->getPublishDate() ? $block->getDateFormat($post->getPublishDate()) : ''; */?>
                             </span>
                         </div>
                         <div class="mp-clear"></div>
                     </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <div class="mostview-nopost"><?php echo __('No Posts'); ?></div>
-            <?php endif; ?>
-        </div>
+                <?php /*endforeach; */?>
+            <?php /*else: */?>
+                <div class="mostview-nopost"><?php /*echo __('No Posts'); */?></div>
+            <?php /*endif; */?>
+        </div>-->
 
-        <div class="data item title" data-role="collapsible" id="tab-label-mostview">
+        <div class="item-title-width" data-role="collapsible" id="tab-label-mostview">
             <a class="data switch" tabindex="-1" data-toggle="switch" id="tab-label-mostview-title">
-                <div><?php echo __('Latest') ?></div>
+                <div><?php echo __('RECENT POSTS') ?></div>
             </a>
         </div>
         <div class="data item content" id="tab-content-mostview" data-role="content">
@@ -66,14 +66,14 @@ $postsRecent = $block->getRecentPost();
                     <div class="list-post-tabs" href="<?php echo $post->getUrl() ?>">
                         <div class="post-left">
                             <a href="<?php echo $post->getUrl() ?>">
-                                <img class="img-responsive" src="<?php echo $block->resizeImage($post->getImage(), 100) ?>">
+                                <img class="img-responsive" src="<?php echo $block->resizeImage($post->getImage(), 300) ?>">
                             </a>
                         </div>
                         <div class="post-right">
                             <a href="<?php echo $post->getUrl() ?>"><span><?php echo $post->getName() ?></span></a>
-                            <span class="create-at">
-                                <?php echo $post->getPublishDate() ? $block->getDateFormat($post->getPublishDate()) : ''; ?>
-                            </span>
+<!--                            <span class="create-at">-->
+<!--                                --><?php //echo $post->getPublishDate() ? $block->getDateFormat($post->getPublishDate()) : ''; ?>
+<!--                            </span>-->
                         </div>
                         <div class="mp-clear"></div>
                     </div>
