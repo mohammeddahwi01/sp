@@ -1,0 +1,12 @@
+<?php
+/**@var Eleanorsoft\Category\Block\Category $block*/
+$categories = $block->getCategories();
+?>
+<div class = "homepage-container">
+    <ul class = "homepage-list">
+<?php foreach ($categories as $category) { ?>
+   <li class = "homepage-list-field" style=" background: url(<?= htmlspecialchars($category->getImageUrl());?>) no-repeat center center; background-size: cover; "></li>
+<?php } ?>
+    </ul>
+</div>
+
