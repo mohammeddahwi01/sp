@@ -29,17 +29,17 @@ endif;
 
 <div class="estimaste-body">
 	<div class="est-description">
-		<p><strong><?php echo __("Calculator Shipping") ?></strong></p>
+		<p><strong><?php echo __("CALCULATE SHIPPING") ?></strong></p>
 		<p><?php echo __("Enter destination to get a shipping cost.") ?></p>
 	</div>
 	
 	<div id="shipping-input-form" class="detail-form-fields">
 		<ul>
-			<li class="item li_estimate_country_id">
+            <?php  $country_code = 'US';?>
+			<li class="item li_estimate_country_id" style="display: none">
 				<label class="label" for="country">
 					<span><?php echo __("Country") ?><span class="my-require">*</span></span>
 				</label>
-
 				<div class="control">
 					<select name="estimate[country_id]" id="estimate_country" class="js-country-placeholder-single" title="<?php echo __("Country") ?>">
 						<option value=""><?php echo __("Please select country") ?></option>
