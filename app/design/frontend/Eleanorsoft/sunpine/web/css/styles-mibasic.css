@@ -1565,7 +1565,7 @@ label.label{
     width: 220px;
     z-index: 9;
     transform: rotate(-90deg);
-    top: 30%;
+    top: 40vh;
 }
 .page-products.page-layout-2columns-left .sidebar-main{
     display: none;
@@ -4164,8 +4164,42 @@ body{
     height: 100%;
     flex-basis: 100vw;
 }
-
 /*homepage design end*/
+/*product list subcategory*/
+.subcategory-container{
+    margin-bottom: 50px;
+}
+.subcategory-container .subcategory-ul-container{
+    text-align: center;
+    list-style: none;
+    margin-top: 40px;
+}
+.subcategory-container .subcategory-ul-container .subcategory-list-field{
+    display: inline-block;
+    margin: 5px;
+}
+.subcategory-container .subcategory-ul-container .subcategory-list-field:hover,
+.subcategory-container .subcategory-ul-container .subcategory-list-field:focus,
+.subcategory-container .subcategory-ul-container .subcategory-list-field:active{
+background: #ececec;
+}
+.subcategory-container .subcategory-ul-container .subcategory-list-field>a.btn.btn-subcategory-field{
+    color: #333;
+    border: 1px solid #ececec;
+    padding: 5px 40px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: SourceSansPro-SemiBold,serif;
+    border-radius: 0;
+    font-size: 15px;
+}
+.subcategory-container .subcategory-ul-container .subcategory-list-field>a.btn.btn-subcategory-field:hover,
+.subcategory-container .subcategory-ul-container .subcategory-list-field>a.btn.btn-subcategory-field:actrive,
+.subcategory-container .subcategory-ul-container .subcategory-list-field>a.btn.btn-subcategory-field:focus{
+    text-decoration: none;
+    color: #333;
+}
+/*product list subcategory end*/
 /*media start*/
 @media (max-width: 1050px){
     .nav-sections-custom, .sections{
@@ -4501,9 +4535,15 @@ body{
     .custom-sub-container {
         padding-right: 0;
     }
-
+    .subcategory-btn-cont{
+        right: calc(100% - 95px);
+        width: 160px;
+    }
+    .subcategory-filter-btn{
+        font-size: 11px;
+    }
     .toolbar.toolbar-products .field.limiter.limiter-lowercase, .toolbar.toolbar-products .toolbar-sorter.sorter {
-        display: inline-block;
+        display: none;
     }
 
     .subcategory-btn-cont {
