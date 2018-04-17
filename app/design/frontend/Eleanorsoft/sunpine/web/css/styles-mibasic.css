@@ -1643,14 +1643,15 @@ label.label{
     width: 99%;
 }
 .sub-apply,.sub-apply:hover,.sub-apply:focus{
-    background: #eef2f5!important;
-    font-weight: 600;
+    background: #fcd566!important;
+    font-weight: 100;
     width: 100%;
     border: none;
     text-transform: uppercase;
     margin-bottom: 30px;
-    font-family: NeutraText-LightAlt, serif!important;
-    font-size: 16px;
+    color: #fff;
+    font-family: SourceSansPro-SemiBold, serif!important;
+    font-size: 15px;
 }
 .sub-filter-arrow-close{
     padding-left: 35px;
@@ -3207,6 +3208,9 @@ li#payment{
     height: 70vh;
     overflow: hidden;
 }
+.fotorama{
+    overflow: auto!important;
+}
 .mpcss>#sharing>.post-view-image>img{
     width: 100%;
     height: auto;
@@ -3555,7 +3559,7 @@ li#payment{
     display:none;
 }
 .product-options-bottom .swatch-option {
-    display:none;
+    display:block;
 }
 .product-options-bottom select {
     width:200px;
@@ -3606,7 +3610,8 @@ li#payment{
     display:none;
 }
 .page-layout-1column.weltpixel-quickview-catalog-product-view.catalog-product-view .fotorama__nav-wrap--horizontal {
-    float: none;
+    float: left;
+    margin-left: 25%;
     width: 100%;
 }
 .page-layout-1column.weltpixel-quickview-catalog-product-view.catalog-product-view .fotorama__nav {
