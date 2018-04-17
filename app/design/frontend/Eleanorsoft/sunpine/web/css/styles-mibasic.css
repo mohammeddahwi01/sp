@@ -4262,6 +4262,14 @@ body{
     #shopping-cart-table > thead > tr > .col:first-child {
         display: none;
     }
+    .custom-full-container .homepage-container,.custom-full-container .homepage-container .homepage-list{
+        height: auto;
+        display: block;
+    }
+    .custom-full-container .homepage-container .homepage-list .homepage-list-field{
+        height: 100vh;
+        margin-bottom: 0;
+    }
     .mp-sidebar.product.info.detailed .product.data.items{
         width: 96%;
     }
