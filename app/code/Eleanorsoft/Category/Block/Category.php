@@ -82,17 +82,19 @@ class Category extends Template
     }
 
     /**
-     * Return current category id
+     * Return current category
      *
-     * @return null | integer
+     * @return mixed|null
      */
-    public function getCurrentCategoryId()
+    public function getCurrentCategory()
     {
         $current_category = $this->registry->registry('current_category');
 
         if (is_null($current_category)) {
             return null;
         }
-        return $current_category->getData('entity_id');
+
+        return $current_category;
     }
+
 }
