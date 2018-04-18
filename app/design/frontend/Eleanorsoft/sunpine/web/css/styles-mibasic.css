@@ -1654,7 +1654,7 @@ label.label{
     font-size: 15px;
 }
 .sub-filter-arrow-close{
-    padding-left: 35px;
+    padding-left: 30px;
 }
 .sub-arrow-img-close{
     margin-bottom: -5px;
@@ -3056,21 +3056,24 @@ li#payment{
 .mpblog-post-index #maincontent{
     padding-left:0;
 }
-.mpblog-post-index .blog-page-wrapper #maincontent .page-title-wrapper{
-    margin-left: -17vw;
-    padding: 30px 0 30px 17vw;
+.mpblog-post-index .blog-page-wrapper .page-title-wrapper{
+    padding: 30px 0 30px 0;
     max-width: none;
     width: 100vw;
     display: inline-block;
     background: #ececec;
 }
-
+.mpblog-post-index .blog-page-wrapper .page-title-wrapper .page-title {
+    margin-bottom: 0!important;
+    max-width: 1140px;
+    margin: 0 auto;
+}
 #mpblog-list-container .post-list-item {
     border:1px solid #ececec;
     height: auto;
     width: 30%;
     float: left;
-    margin: 20px;
+    margin: 15px;
 }
 #mpblog-list-container .post-list-item .img-container-post-list{
     width: 100%;
@@ -3140,7 +3143,7 @@ li#payment{
 .dropdown.dropdown-blog-categories{
     border: 1px solid #c7c7c7;
     background: #fff;
-    margin-top: -150px;
+    margin-top: -125px;
     width: 11vw;
     padding: 10px 20px;
     font-size: 15px;
@@ -3617,6 +3620,7 @@ li#payment{
 .page-layout-1column.weltpixel-quickview-catalog-product-view.catalog-product-view .fotorama__nav {
     float:none;
 }
+
 .page-layout-1column.weltpixel-quickview-catalog-product-view.catalog-product-view .product-info-main {
     margin-top:0;
 }

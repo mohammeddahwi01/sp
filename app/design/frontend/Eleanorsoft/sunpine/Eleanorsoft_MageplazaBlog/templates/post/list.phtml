@@ -4,7 +4,7 @@ $postCollection = $block->getPostCollection();
 $canUsePostCollection = $postCollection && $postCollection->getSize();
 ?>
 
-<div class="post-list-content" id="mpblog-list-container">
+<div class="post-list-content container" id="mpblog-list-container">
     <?php if ($canUsePostCollection) : ?>
         <div class="post-list-body">
             <?php echo $block->getPostItemsHtml($postCollection); ?>
@@ -41,6 +41,22 @@ $canUsePostCollection = $postCollection && $postCollection->getSize();
         };
     });
 </script>
+<!--btn post-loader on blog-->
+<script>
+    requirejs(['jquery'], function ($) {
+        $(".load-post-btn").click(function () {
+            if($(this).hasClass("active")){
+                $(this).removeClass("active");
+                $(this).removeAttr("disabled");
+            }
+            else{
+                $(this).addClass("active");
+                $(this).attr("disabled",true);
+            }
+        });
+    });
+</script>
+<!--end -->
 <script>
     requirejs(['jquery', 'mage/loader'], function ($, loader) {
         var jWindow = $(window),
@@ -155,27 +171,11 @@ $canUsePostCollection = $postCollection && $postCollection->getSize();
             });
         });
 
-        // jWindow.scroll(function() {
-        //     if (makeRequest && !isMakeRequestNow && jWindow.scrollTop() === (jDocument.height() - jWindow.height())) {
-        //         getNewPosts(addNewPostsToDom);
-        //     }
-        // });
-
-        $(".load-post-btn").click(function () {
-            if (makeRequest && !isMakeRequestNow) {
-                $(this).addClass("active");
-                $(this).attr("disabled",true);
-                getNewPosts(function (html) {
-                    addNewPostsToDom(html);
-                    if (!makeRequest) {
-                        $('.load-post-btn').css("display","none");
-                    }
-                    $('.load-post-btn').removeClass("active");
-                    $('.load-post-btn').removeAttr("disabled");
-                });
+        jWindow.scroll(function() {
+            if (makeRequest && !isMakeRequestNow && jWindow.scrollTop() === (jDocument.height() - jWindow.height())) {
+                getNewPosts(addNewPostsToDom);
             }
         });
-
 
         $('[data-category-id]').click(function () {
             currentCategoryId = $(this).data('category-id');
