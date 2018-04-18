@@ -8,5 +8,6 @@
                 <argument name="postPerPageCount" xsi:type="string">6</argument>
             </action>
         </referenceBlock>
+        <move element="page.main.title" destination="page.wrapper" as="page.title.blog" after="header.container" />
     </body>
 </page>

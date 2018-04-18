@@ -143,16 +143,17 @@
 
         $(".subcategory-btn-cont").click(function(event) {
             $(".subcategory-btn-cont").hide();
-            $(".sidebar-main").show();
-            $('body').height(Math.max($(".page-layout-2columns-left .sidebar-main").height()+450, $('body').height()+450));
+            $(".sidebar-main").show(400, function () {
+                $('body').height(Math.max($(".page-layout-2columns-left .sidebar-main").height()+450,$("body").height()+450));
+            });
             $("html, body").animate(
-                { scrollTop: "100px" }
+                { scrollTop: "150px" }
             );
         });
         $(".subcategory-btn-cont-close").click(function(event) {
             $(".sidebar-main").hide();
             $("body").height('auto');
-            $(".subcategory-btn-cont").show();
+            $(".subcategory-btn-cont").show("fast");
         });
     });
 </script>
