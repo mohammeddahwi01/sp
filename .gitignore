@@ -51,7 +51,8 @@ atlassian*
 !/vendor/.htaccess
 
 /*.*
-!/.htaccess
+!/.htaccess.dev
+!/.htaccess.live
 !/.gitignore
 !/.esconfigs
 !/composer.json
