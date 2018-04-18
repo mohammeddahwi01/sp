@@ -6,6 +6,7 @@
         <referenceContainer name="main.content" htmlClass="page-main catalog-category-view" />
         <referenceBlock name="category.image" remove="true" />
         <referenceBlock name="category.description" remove="true" />
+        <referenceBlock name="sidebar.main" remove="true" />
         <!--<referenceBlock name="page.main.title" remove="true" />-->
     </body>
 </page>

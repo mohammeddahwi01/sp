@@ -5,7 +5,7 @@
         <referenceBlock name="mpblog.post.list">
             <block class="Eleanorsoft\MageplazaBlog\Block\Post\Item" name="mpblog_post_item" template="post/item.phtml"/>
             <action method="setPostPerPageCount">
-                <argument name="postPerPageCount" xsi:type="string">6</argument>
+                <argument name="postPerPageCount" xsi:type="string">1</argument>
             </action>
         </referenceBlock>
     </body>

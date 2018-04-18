@@ -143,8 +143,9 @@
 
         $(".subcategory-btn-cont").click(function(event) {
             $(".subcategory-btn-cont").hide();
-            $(".sidebar-main").show();
-            $('body').height(Math.max($(".page-layout-2columns-left .sidebar-main").height()+450),$("body").height()+450);
+            $(".sidebar-main").show(400, function () {
+                $('body').height(Math.max($(".page-layout-2columns-left .sidebar-main").height()+450,$("body").height()+450));
+            });
             $("html, body").animate(
                 { scrollTop: "150px" }
             );
