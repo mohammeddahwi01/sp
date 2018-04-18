@@ -524,7 +524,12 @@ label.label span{
     font-size: 20px!important;
     font-weight: 100!important;
 }
+.mpblog-post-view #tab-content-mostview{
+    padding-left: 0!important;
+}
 .mp-sidebar .item-title-width {
+    padding-top: 20px;
+    border-top: 1px solid #ececec;
     width: 100%!important;
     background: #fff;
 }
@@ -3259,6 +3264,7 @@ li#payment{
 }
 .share-col-right .post-sharing-button .block.newsletter{
     width:96%;
+    margin-bottom: 20px;
 }
 .share-col-right .post-sharing-button .block.newsletter .content .field.newsletter{
     width:100%;
