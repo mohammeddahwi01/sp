@@ -15,13 +15,13 @@ use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Class Category
- * todo: What is its purpose? What does it do?
+ * Return Categories
  *
  * Usage example:
  *      <block class="Eleanorsoft\Category\Block\Category" name="es_category" template="Eleanorsoft_Category::category.phtml"/> - layout
  *      {{block class="Eleanorsoft\Category\Block\Category" template="Eleanorsoft_Category::category.phtml"}}                   - CMS page
  *
- * @package Eleanorsoft_
+ * @package Eleanorsoft_Category
  * @author Pisarenko Denis <denis.pisarenko@eleanorsoft.com>
  * @copyright Copyright (c) 2018 Eleanorsoft (https://www.eleanorsoft.com/)
  */
@@ -84,7 +84,7 @@ class Category extends Template
     /**
      * Return current category
      *
-     * @return mixed|null
+     * @return Category|null
      */
     public function getCurrentCategory()
     {

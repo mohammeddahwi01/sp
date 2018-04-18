@@ -8,7 +8,7 @@ $categories = $block->getCategories();
 <?php foreach ($categories as $category) { /** @var $category Magento\Catalog\Model\Category */?>
    <li>
        <a href="<?= $category->getUrl()?>">
-           <img src="<?= htmlspecialchars($category->getImageUrl());?>" alt="<?= htmlspecialchars($category->getName());?>">
+           <img src="<?= $block->escapeHtml($category->getImageUrl());?>" alt="<?= $block->escapeHtml($category->getName());?>">
        </a>
    </li>
 <?php } ?>
