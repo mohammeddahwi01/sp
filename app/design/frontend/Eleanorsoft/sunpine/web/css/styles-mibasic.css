@@ -847,7 +847,7 @@ a.forgot-link:hover,a.forgot-link:active{
     margin-top: 10px!important;
     width: 100%;
     height: 50px;
-    color:#fff !important;
+    color:#fff;
     box-shadow: none!important;
     border: none!important;
     font-family: SourceSansPro-SemiBold, serif;
@@ -865,13 +865,15 @@ a.forgot-link:hover,a.forgot-link:active{
 }
 .my-btn-login{
     background: #fcd566!important;
-    color: #fff!important;
+    color: #fff;
 }
 .my-btn-login:hover{
     background: #fcb72a !important;
+    color: #fff;
 }
 .my-btn-facebook{
     background: #ececec!important;
+    color: #333;
 }
 .my-btn-facebook:hover{
     background: #d6d6d6 !important;
@@ -1594,6 +1596,7 @@ label.label{
 .price-box.price-final_price>.special-price{
     display: inline-block;
     margin-right: 10px;
+    margin-top: 25px;
 }
 .catalog-category-view .sidebar.sidebar-main{
     display: block;
@@ -1641,7 +1644,7 @@ label.label{
 }
 .product-info-main .product.attribute.overview{
     display: inline-block;
-    width: 50%;
+    width: 57%;
     font-size: 16px;
     font-family: NeutraText-BookAlt, serif!important;
     text-align:justify;
@@ -2003,7 +2006,7 @@ label.label{
     text-align: center;
 }
 .product-info-main>.page-title-wrapper.product{
-    width: 50%!important;
+    width: 57%!important;
     margin: 0!important;
     margin-bottom: 10px!important;
     display: inline-block!important;
@@ -2012,8 +2015,8 @@ label.label{
     display: inline;
 }
 .product-info-main>.page-title-wrapper.product>.page-title>span{
-    font-family: NeutraText-BookAlt, serif;
-    font-size: 25px;
+    font-family: SourceSansPro-Regular, serif;
+    font-size: 40px;
 }
 .product-info-main>.product-info-price{
     display: inline-block;
@@ -2075,8 +2078,8 @@ label.label{
     width: 100%;
 }
 .product-info-main .price-box .price-wrapper .price, .product-options-bottom .price-box .price-wrapper .price{
-    font-size: 30px;
-    font-family: NeutraText-LightAlt, serif;
+    font-size: 50px;
+    font-family: SourceSansPro-Regular, serif;
 }
 .product-info-main .box-tocart .actions, .product-options-bottom .box-tocart .actions{
     display: block!important;
@@ -2223,23 +2226,24 @@ display: none!important;
     width: 100%;
     margin-top: 20px;
 }
+
 #product_addtocart_form .box-tocart .actions .action.primary.tocart{
-    background: #d3ecdb;
+    background: #fcd566;
     border: none;
-    color: #3c3c3e;
+    color: #fff;
     text-transform: uppercase;
-    font-family: NeutraText-BookAlt, serif;
+    font-family: SourceSansPro-SemiBold, serif;
+    font-size: 20px;
     font-weight: 100;
-    margin-top:50px;
+    margin-top:80px;
 }
 
-.catalog-product-view #product_addtocart_form .box-tocart .actions:after{
-    content: '';
-    width: 100%;
-    margin-top: -80px;
-    display: block;
-    border-bottom: 1px solid #ececec;
+#product_addtocart_form .box-tocart .actions .action.primary.tocart:hover,
+#product_addtocart_form .box-tocart .actions .action.primary.tocart:active,
+#product_addtocart_form .box-tocart .actions .action.primary.tocart:focus{
+    background: #fcbd26;
 }
+
 select.select-qty-quickview{
     border: none;
     font-size: 16px;
@@ -2995,7 +2999,10 @@ li#payment{
     border-bottom:1px solid #E8E8E8;
 }
 .catalog-product-view .product-info-main > .product-add-form {
-    margin-top:0;
+    margin-top:15px;
+}
+.weltpixel-quickview-catalog-product-view .fotorama__nav-wrap{
+    height: auto!important;
 }
 .catalog-product-view .product.attribute.overview {
     margin-top:-50px;
@@ -3003,6 +3010,8 @@ li#payment{
 .catalog-product-view .product.attribute.overview .value {
     margin-bottom:30px;
     padding-bottom:30px;
+    font-family: SourceSansPro-Regular;
+    font-size: 15px;
 }
 .page-with-filter.page-products.catalog-category-view.page-layout-2columns-left .catalog-product-view .product.attribute.overview{
     margin-top:0;
@@ -3023,12 +3032,12 @@ li#payment{
 .catalog-product-view .box-tocart .price-box {
     height: 40px;
     padding-top:3px;
-    width:60%;
+    width:100%;
     float:left;
     margin-top:0;
 }
 .catalog-product-view .box-tocart .product-options-wrapper {
-    width:40%;
+    width:60%;
     display:inline-block;
     float:right;
     margin-top:0;
@@ -3040,13 +3049,14 @@ li#payment{
     margin-top:0;
 }
 .catalog-product-view .column.main.container #product_addtocart_form .box-tocart .actions{
-    margin-top:0;
+    margin-top:25px;
     padding-top:0;
 }
 .catalog-product-view .box-tocart .field.qty {
-    width:40%;
+    width:38%;
     display:inline-block;
     float:right;
+    margin-left: 1%;
     text-align:left;
     clear:right;
 }
@@ -3255,6 +3265,9 @@ li#payment{
 }
 .fotorama{
     overflow: auto!important;
+}
+.product-options-bottom .box-gotoproduct{
+    display: none;
 }
 .mpcss>#sharing>.post-view-image>img{
     width: 100%;
@@ -3651,14 +3664,16 @@ li#payment{
 }
 .page-layout-1column.weltpixel-quickview-catalog-product-view.catalog-product-view .product-info-stock-sku .stock.available span {
     text-transform: uppercase;
+    font-family: SourceSansPro-Regular;
 }
 .page-layout-1column.weltpixel-quickview-catalog-product-view.catalog-product-view .product.media .product-name-wrapper {
     display:none;
 }
 .page-layout-1column.weltpixel-quickview-catalog-product-view.catalog-product-view .fotorama__nav-wrap--horizontal {
-    float: left;
-    margin-left: 25%;
+    float: none;
     width: 100%;
+    margin: -115px 0 0 0;
+    padding-bottom: 25px;
 }
 .page-layout-1column.weltpixel-quickview-catalog-product-view.catalog-product-view .fotorama__nav {
     float:none;
@@ -3689,8 +3704,11 @@ li#payment{
     margin-top: -10px;
 }
 #product_addtocart_form>.product-options-bottom .price-box.price-final_price{
-    margin-top:50px;
+    margin-top: 40px;
+    border-top: 1px solid #ececec;
+    padding: 20px 10px;
 }
+
 .iwd_opc_column.iwd_opc_address_column{
     padding: 2%;
     border: 1px solid #ececec;
@@ -4062,7 +4080,7 @@ body{
     bottom: -3%;
 }
 .addthis_inline_share_toolbox{
-    margin-top: 20px;
+    margin-top: 120px;
 }
 .post-post_content.col-xs-12 h1{
     font-family: SourceSansPro-Regular,serif;
