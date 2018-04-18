@@ -1,5 +1,5 @@
 <?php if($this->_EnableModule()) : ?>
-<?php 
+<?php
 $country_code = ""; $region_name = ""; 
 $region_code = ""; $region_id = ""; $zip_code = "";
 
@@ -35,7 +35,8 @@ endif;
 	
 	<div id="shipping-input-form" class="detail-form-fields">
 		<ul>
-			<li class="item li_estimate_country_id">
+            <?php  $country_code = 'US';?>
+			<li class="item li_estimate_country_id" style="display: none">
 				<label class="label" for="country">
 					<span><?php echo __("Country") ?><span class="my-require">*</span></span>
 				</label>

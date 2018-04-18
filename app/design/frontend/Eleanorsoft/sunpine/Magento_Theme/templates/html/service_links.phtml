@@ -15,7 +15,7 @@
 								<span aria-hidden="true">x</span>
 							</button>
 							<div class="modal-body mg-my-modal">
-								<h1 class = "header-modal-field"><img src="<?php echo $this->getViewFileUrl('images/pop-up/login.png'); ?>"></h1>
+								<h1 class = "header-modal-field" id = "signin-header-popup"><img src="<?php echo $this->getViewFileUrl('images/pop-up/login.png'); ?>"></h1>
 
 								<form id="login-form-popup" action="<?= $block->getUrl('customer/account/loginPost'); ?>" data-bind="submit: submitForm">
 									<?= $block->getBlockHtml('formkey'); ?>
@@ -59,7 +59,7 @@
 								<span aria-hidden="true">x</span>
 							</button>
 							<div class="modal-body mg-my-modal">
-								<h1 class = "header-modal-field">register</h1>
+								<h1 class = "header-modal-field" id = "register_header_popup">register</h1>
 
 								<form id="register-form-popup" action="<?= $block->getUrl('customer/account/createPost'); ?>" data-bind="submit: submitForm">
 									<?= $block->getBlockHtml('formkey'); ?>

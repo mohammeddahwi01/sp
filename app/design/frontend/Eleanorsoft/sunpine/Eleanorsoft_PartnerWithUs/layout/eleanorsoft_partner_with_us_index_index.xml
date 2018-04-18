@@ -10,6 +10,7 @@
         <title>Partner With Us</title>
     </head>
     <body>
+        <referenceBlock name="page.main.title" remove="true" />
         <referenceContainer name="content">
             <block cacheable="false" class="Eleanorsoft\PartnerWithUs\Block\PartnerWithUsForm" name="partnerWithUsForm" template="Eleanorsoft_PartnerWithUs::form.phtml"/>
         </referenceContainer>
