@@ -517,6 +517,43 @@ label.label span{
 .mpblog-post-view .list-post-tabs .post-left{
     width: 100%;
 }
+.modal-popup.confirm{
+    width: 600px;
+    margin: auto;
+}
+.modal-popup.confirm .modal-inner-wrap .modal-header{
+    border: none;
+}
+.modal-popup.confirm .modal-inner-wrap .modal-footer{
+    border: none;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.modal-popup.confirm .modal-inner-wrap .modal-footer .action-primary.action-accept,
+.modal-popup.confirm .modal-inner-wrap .modal-footer .action-secondary.action-dismiss{
+    background: #fcd566;
+    color: #fff;
+    padding: 10px 40px;
+    outline: none;
+    box-shadow: none;
+}
+.modal-popup.confirm .modal-inner-wrap .modal-footer .action-primary.action-accept:hover,
+.modal-popup.confirm .modal-inner-wrap .modal-footer .action-primary.action-accept:active,
+.modal-popup.confirm .modal-inner-wrap .modal-footer .action-primary.action-accept:focus,
+.modal-popup.confirm .modal-inner-wrap .modal-footer .action-secondary.action-dismiss:hover,
+.modal-popup.confirm .modal-inner-wrap .modal-footer .action-secondary.action-dismiss:active,
+.modal-popup.confirm .modal-inner-wrap .modal-footer .action-secondary.action-dismiss:focus{
+    background: #fcb72a;
+    color: #fff;
+}
+.modal-popup.confirm .modal-inner-wrap .modal-content{
+    font-family: SourceSansPro-Regular,serif;
+    text-align: center;
+    border: none;
+    font-size: 15px;
+    margin: 20px 0;
+}
 .mpblog-post-view .data.switch,.mpblog-post-view #tab-content-mostview{
     border: none!important;
     font-family: SourceSansPro-Regular,serif!important;
@@ -4238,7 +4275,7 @@ background: #ececec;
         align-self: center;
         margin-top: 10px;
         margin-left: 20px;
-        z-index: 999;
+        z-index: 9;
     }
 .authorization-header-field{
     margin-right: 10px;
@@ -4369,6 +4406,9 @@ background: #ececec;
 @media (max-width: 767.98px) {
     #shopping-cart-table > thead > tr > .col:first-child {
         display: none;
+    }
+    .modal-popup.confirm{
+        width: 100%;
     }
     .column.main .product-items{
         margin-right: -20px;
