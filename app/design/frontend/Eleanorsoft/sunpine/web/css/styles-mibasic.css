@@ -2078,7 +2078,7 @@ label.label{
     width: 100%;
 }
 .product-info-main .price-box .price-wrapper .price, .product-options-bottom .price-box .price-wrapper .price{
-    font-size: 50px;
+    font-size: 40px;
     font-family: SourceSansPro-Regular, serif;
 }
 .product-info-main .box-tocart .actions, .product-options-bottom .box-tocart .actions{
@@ -2150,6 +2150,7 @@ label.label{
 #product-options-wrapper .swatch-opt{
     margin: 0;
     cursor: pointer;
+    margin-top: -5px;
 }
 
 .product-options-bottom .price-box .price-final_price{
@@ -3618,18 +3619,61 @@ li#payment{
     display:none;
 }
 .product-options-bottom .swatch-option {
-    display:block;
+    display:block!important;
+    border-radius: 50%!important;
+    padding: 13px 9px!important;
+    margin: 3px!important;
 }
 .product-options-bottom select {
     width:200px;
 }
+.swatch-option.color:hover{
+    outline: none!important;
+    border: 1px solid #c7c7c7!important;
+}
+.swatch-option.selected{
+    position: relative;
+    border: 1px solid #c7c7c7!important;
+    outline: none!important;
+}
+.swatch-option.selected::after{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 10px!important;
+    top: 6px!important;
+    width: 7px;
+    height: 13px;
+    margin-bottom: 43px!important;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.swatch-option.selected[option-label="White"]::after{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 10px!important;
+    top: 6px!important;
+    width: 7px;
+    height: 13px;
+    margin-bottom: 43px!important;
+    border: solid #000;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
 .product-options-bottom .selectric {
     background: none;
     border: none;
-    border-bottom: 1px solid #ededed;
+    border: 1px solid #c7c7c7;
 }
 .field.qty .selectric-qty .selectric > .selectric-label::before {
-    content: "Quantity: "
+    content: "Qty: "
 }
 .page-layout-1column.weltpixel-quickview-catalog-product-view .column.main {
     max-width:100%;
@@ -4080,7 +4124,8 @@ body{
     bottom: -3%;
 }
 .addthis_inline_share_toolbox{
-    margin-top: 120px;
+    margin-top: 20px;
+    text-align:center;
 }
 .post-post_content.col-xs-12 h1{
     font-family: SourceSansPro-Regular,serif;
