@@ -245,9 +245,13 @@ define(
                 jQuery('input[name="transition_rotation"]').change(function () {
                     jQuery('.slide-trans-cur-ul li.selected').data('rotation', jQuery(this).val());
                 });
-                jQuery('input[name="transition_duration"]').change(function () {
+                jQuery('#transition_duration').change(function(){            
                     jQuery('.slide-trans-cur-ul li.selected').data('duration', jQuery(this).val());
                     setSlideTransitionTimerBar();
+                });
+                jQuery('#delay').change(function(){
+                    t.mainMaxTimeLeft = this.value / 10;
+                    t.setSlideTransitionTimerBar();
                 });
                 jQuery('select[name="transition_ease_in"]').change(function () {
                     jQuery('.slide-trans-cur-ul li.selected').data('ease_in', jQuery(this).val());

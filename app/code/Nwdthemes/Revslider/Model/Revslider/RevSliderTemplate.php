@@ -678,7 +678,7 @@ class RevSliderTemplate {
 		$latestVersion = $this->_framework->get_option('revslider-latest-version', RevSliderGlobals::SLIDER_REVISION);
 		$availableVersion = version_compare($latestVersion, RevSliderGlobals::SLIDER_REVISION, '>') ? $latestVersion : RevSliderGlobals::SLIDER_REVISION;
 		$availablePlugins = array();
-		foreach ((array) $this->_framework->get_option('revslider-addons') as $plugin) {
+		foreach ((array) $this->_framework->get_option('revslider-addons', array()) as $plugin) {
 		    $availablePlugins[] = "{$plugin->slug}/{$plugin->slug}.php";
 		}
 

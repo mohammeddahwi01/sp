@@ -606,9 +606,19 @@ class Framework extends \Magento\Framework\App\Helper\AbstractHelper {
             }
         });
         foreach ($filtersToApply as $filter) {
+
             $args = array_slice(func_get_args(), 1, $filter['accepted_args']);
             $args[ 0] = $value;
-            $value = call_user_func_array($filter['function'], $args);
+
+			if (is_array($filter['function']) && count($filter['function']) && is_string($filter['function'][0])) {
+				$reflectionMethod = new \ReflectionMethod($filter['function'][0], $filter['function'][1]);
+				if (!$reflectionMethod->isStatic()) {
+					$reflectionClass = new \ReflectionClass($filter['function'][0]);
+					$filter['function'][0] = $reflectionClass->newInstanceWithoutConstructor();
+				}
+			}
+
+			$value = call_user_func_array($filter['function'], $args);
         }
 
         if ($this->_registerHelper->getFromRegister('actions', $handle)) {

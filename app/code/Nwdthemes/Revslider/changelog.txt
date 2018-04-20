@@ -5,6 +5,40 @@ NWDthemes.com - Slider Revolution Responsive Magento 2 Extension
 
 
 
+6 April 2017
+---------------
+Version 5.4.7.2
+
+Changes:
+
+ * Removed not applicable troubleshoot options from slider settings
+ * Removed depricated 'revslider' shortcode functionality and replaced existent occurrences with Nwdthemes\Revslider\Block\Revslider block
+
+Bugfixes:
+
+ * Fixed a Bug where a change of Slide Length in Slide General Settings negative influences Default Transition Time
+ * Added ";" to  Slider Initialisation to avoid issues by minimising files
+ * Fixed ForceRewind Video option, which will now reset Video Position before the Layer shown to avoid Frame jumps
+ * Fixed and adapted to new Instagram API result format
+ * Fix for error with sanitizing data containing object
+ * Fixed bug with importing template package
+ * Fixed possible problem with extra whitespace output and image insertion
+ * Fixed compatibility with PHP 5.6
+ * Fixed empty thumbnail source when no thumbnail image available
+ * Fixed incompatibility of media gallery with Magento 2.3.0
+ * Fixed shape background image url
+ * Fixed line breaks in depricated static css
+ * Fixed view static css dialog
+ * Fixed mysterious Add-Ons deactivation issue
+ * Fixed getting tempaltes when Add-Ons list is empty
+ * Fixed possible errors in Bundle & Merge JS mode
+ * Fixed Data helper Logger argument compilation error
+ * Fixed Vimeo error in minify JS production mode
+ * Added missed revslider_exportSlider_usedMedia filter application 
+ * Fixed non static methods calling in apply_action
+
+
+
 20 February 2017
 ---------------
 Version 5.4.7.1

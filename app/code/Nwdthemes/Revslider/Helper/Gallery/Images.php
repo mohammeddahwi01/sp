@@ -17,9 +17,16 @@ class Images extends \Magento\Cms\Helper\Wysiwyg\Images {
         \Magento\Framework\App\Helper\Context $context,
         \Magento\Backend\Helper\Data $backendData,
         \Magento\Framework\Filesystem $filesystem,
-        \Magento\Store\Model\StoreManagerInterface $storeManager
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
+        \Magento\Framework\App\ProductMetadataInterface $productMetadataInterface,
+        \Magento\Framework\Escaper $escaper = null
     ) {
-        parent::__construct($context, $backendData, $filesystem, $storeManager);
+        if (version_compare(strstr($productMetadataInterface->getVersion(), '-', TRUE), '2.3.0', '<')) {
+            parent::__construct($context, $backendData, $filesystem, $storeManager);
+        } else {
+            $escaper = $escaper ?: \Magento\Framework\App\ObjectManager::getInstance()->get(\Magento\Framework\Escaper::class);
+            parent::__construct($context, $backendData, $filesystem, $storeManager, $escaper);
+        }
         
         $this->_directory = $filesystem->getDirectoryWrite(DirectoryList::MEDIA);
         $this->_directory->create(\Nwdthemes\Revslider\Helper\Images::IMAGE_DIR);

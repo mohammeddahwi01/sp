@@ -69,37 +69,36 @@ class RevSliderInstagram {
             if ($this->transient_sec > 0 && false !== ($data = $this->_framework->get_transient( $transient_name)))
                 return ($data);
 
-            $rsp = json_decode($this->_framework->wp_remote_fopen($url));
-
+            $rsp = $this->_framework->wp_remote_fopen($url);
+            $rsp = str_replace('"gating_info":null', '"user_info":"'.$search_user_id.'"', $rsp);
+            $rsp = json_decode($rsp);
+    
             for($i=0;$i<$count;$i++) {
-                if(isset($rsp->user->media->nodes[$i])){
-                  $rsp->user->media->nodes[$i]->owner->id = $search_user_id;
-                      $return[] = $rsp->user->media->nodes[$i];
+                if(isset($rsp->graphql->user->edge_owner_to_timeline_media->edges[$i])){
+                    $return[] = $rsp->graphql->user->edge_owner_to_timeline_media->edges[$i];
                 }
-              }
+            }
   
           $count = $count - 12;
   
           if($count){
             $pages = ceil($count/12);
-            while($pages-- && !empty($rsp->user->media->page_info->end_cursor)){
-                $url = 'https://www.instagram.com/'.$search_user_id.'/?__a=1&max_id='.$rsp->user->media->page_info->end_cursor;
+            while($pages-- && !empty($rsp->graphql->user->edge_owner_to_timeline_media->page_info->end_cursor)){
+                $url = 'https://www.instagram.com/'.$search_user_id.'/?__a=1&max_id='.$rsp->graphql->user->edge_owner_to_timeline_media->page_info->end_cursor;
                 $rsp = json_decode($this->_framework->wp_remote_fopen($url));
                 for($i=0;$i<$count;$i++){
-                      if(isset($rsp->user->media->nodes[$i])){
-                        $rsp->user->media->nodes[$i]->owner->id = $search_user_id;
-                        $return[] = $rsp->user->media->nodes[$i];
-                      }
+                    if(isset($rsp->graphql->user->edge_owner_to_timeline_media->edges[$i])){
+                        $return[] = $rsp->graphql->user->edge_owner_to_timeline_media->edges[$i];
+                    }
                 }
                 $count =- 12;
             }
           }
   
-          if(isset($return)){
-                  $rsp->user->media = $return;
-                  $this->_framework->set_transient( $transient_name, $return, $this->transient_sec );
-                  return $return;
-              } else {
+            if(isset($return)){
+                $this->_framework->set_transient( $transient_name, $return, $this->transient_sec );
+                return $return;
+            } else {
                 return '';
             }
         } else {

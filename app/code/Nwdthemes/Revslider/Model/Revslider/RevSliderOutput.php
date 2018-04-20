@@ -686,6 +686,8 @@ class RevSliderOutput {
 					if(empty($urlThumb))
 						$urlThumb = $slide->getImageUrl();
 				}
+
+				$urlThumb = $urlThumb ? : Framework::$RS_PLUGIN_URL.'public/assets/images/transparent.png';
 				
 				$htmlThumb = ' data-thumb="'.$this->_images->imageUrl($urlThumb).'" ';
 				
@@ -1771,6 +1773,8 @@ class RevSliderOutput {
 
 					$def_val = (array) RevSliderFunctions::getVal($layer, 'deformation', array());
 					$bg_trans = RevSliderFunctions::getVal($def_val, 'background-transparency', '1');
+
+					$urlImage = $this->_images->imageUrl($urlImage);
 
 					$bg_info = " background: url('".$urlImage."') ".$layer_bg_repeat." ".$layer_bg_position."; background-size: ".$layer_bg_size.";"; // opacity: ".$bg_trans.";
 					switch($type){
@@ -4412,9 +4416,7 @@ class RevSliderOutput {
 		$use_spinner = $this->slider->getParam('use_spinner', '0');
 		$spinner_color = $this->slider->getParam('spinner_color', '#FFFFFF');
 
-		$noConflict = $this->slider->getParam("jquery_noconflict","on");
 		$debugmode = ($this->slider->getParam("jquery_debugmode","off")=='on') ? 'true' : 'false';
-		
 
 		//set thumb amount
 		$numSlides = $this->slider->getNumSlides(true);
@@ -4612,16 +4614,9 @@ class RevSliderOutput {
                 var revapi<?php echo $sliderID; ?>,
 					tpj;    
 				(function() {            
-					if (!/loaded|interactive|complete/.test(document.readyState)) document.addEventListener("DOMContentLoaded",onLoad)
-						else
-					onLoad();
-					
+					if (!/loaded|interactive|complete/.test(document.readyState)) document.addEventListener("DOMContentLoaded",onLoad); else onLoad();    
 					function onLoad() {                
-						if (tpj===undefined) {
-							tpj = typeof nwdjQuery != 'undefined' ? nwdjQuery : jQuery;
-				
-							if("<?php echo $noConflict; ?>" == "on") tpj.noConflict();        
-						}
+						if (tpj===undefined) { tpj = typeof nwdjQuery != 'undefined' ? nwdjQuery : jQuery; }
 				<?php        
 
 			echo '				if(tpj("#'.$this->sliderHtmlID.'").revolution !== undefined){'."\n";

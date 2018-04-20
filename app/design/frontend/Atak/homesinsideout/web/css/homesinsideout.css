@@ -3824,3 +3824,7 @@ body {
 .column.main .est-description p {
   margin-bottom:0;
 }
+
+.product-options-bottom .product-addto-links, .product-info-main .product-addto-links {
+  margin: 0;
+}

@@ -8,30 +8,13 @@ var config = {
         CSSPlugin:              'Nwdthemes_Revslider/public/assets/js/tools/CSSPlugin',
         SplitText:              'Nwdthemes_Revslider/public/assets/js/tools/SplitText',
         waitForImages:          'Nwdthemes_Revslider/public/assets/js/tools/waitForImages',
-        themepunchTools:        'Nwdthemes_Revslider/public/assets/js/jquery.themepunch.tools',
-        themepunchRevolution:   'Nwdthemes_Revslider/public/assets/js/jquery.themepunch.revolution.min'
+        themepunchTools:        'Nwdthemes_Revslider/public/assets/js/jquery.themepunch.tools.min',
+        themepunchRevolution:   'Nwdthemes_Revslider/public/assets/js/jquery.themepunch.revolution.min',
+        vimeoPlayer:            'Nwdthemes_Revslider/public/assets/js/vimeo.player.min'
     },
     shim: {
-        themepunchGS: {
-            exports: 'punchgsSandbox'
-        },
-        TweenLite: {
-            deps: ['themepunchGS']
-        },
-        TimelineLite: {
-            deps: ['themepunchGS']
-        },
-        EasePack: {
-            deps: ['themepunchGS']
-        },
-        CSSPlugin: {
-            deps: ['themepunchGS']
-        },
-        SplitText: {
-            deps: ['themepunchGS']
-        },
         themepunchTools: {
-            deps: ['TweenLite', 'TimelineLite', 'EasePack', 'CSSPlugin', 'SplitText', 'waitForImages', 'touchSwipe'],
+            deps: ['themepunchGS', 'TweenLite', 'TimelineLite', 'EasePack', 'CSSPlugin', 'SplitText', 'waitForImages', 'touchSwipe'],
             exports: 'punchgs'
         },
         themepunchRevolution: {
