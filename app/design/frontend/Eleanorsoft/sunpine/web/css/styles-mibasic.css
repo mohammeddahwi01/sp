@@ -480,6 +480,7 @@ label.label span{
 }
 .mpblog-post-view .list-post-tabs .post-left .img-responsive{
     width: 100%;
+    border-right: 1px solid #ececec;
 }
 .mpblog-post-view .list-post-tabs {
     padding: 0px 0px 10px 0;
@@ -4488,9 +4489,23 @@ background: #ececec;
     color: #999999;
     text-transform: uppercase;
 }
+
 #block-summary #shipping-zip-form{
     margin-top: 20px;
 }
+.wrapper-post-column #maincontent{
+    max-width: none;
+    padding-left: 0;
+}
+.wrapper-post-column #maincontent .post-view-image{
+    width: 100vw;
+    height: 70vh;
+}
+.wrapper-post-column #maincontent .mpcss{
+    max-width: 1200px;
+    margin: auto;
+}
+
 /*media start*/
 @media (max-width: 1200px) {
     #shopping-cart-table>thead>tr>.col{
@@ -4690,6 +4705,12 @@ background: #ececec;
 }
 /*media phone*/
 @media (max-width: 767.98px) {
+    .wrapper-post-column .page-header{
+        margin-bottom: 0;
+    }
+    .mpcss>#sharing>.share-col-left{
+        margin-right: 0;
+    }
     .col.item > .product-item-details .item-options{
         display: flex;
         justify-content: center;
