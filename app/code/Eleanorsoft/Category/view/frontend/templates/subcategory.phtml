@@ -11,12 +11,12 @@ $categories = $block->getCategories($id);
     <ul>
         <?php if ($categories->getSize()) {?>
             <li>
-                <a class="btn btn-primary" href="<?= $root_url?>"><?= $block->escapeHtml(__('ALL'));?></a>
+                <a class="btn btn-primary" href="<?= $block->escapeHtml($root_url); ?>"><?= $block->escapeHtml(__('ALL'));?></a>
             </li>
         <?php } ?>
         <?php foreach ($categories as $category) { /** @var $category Magento\Catalog\Model\Category */?>
             <li>
-                <a class="btn btn-primary" href="<?= $category->getUrl()?>"><?= $block->escapeHtml($category->getName());?></a>
+                <a class="btn btn-primary" href="<?= $block->escapeHtml($category->getUrl()); ?>"><?= $block->escapeHtml($category->getName());?></a>
             </li>
         <?php } ?>
     </ul>

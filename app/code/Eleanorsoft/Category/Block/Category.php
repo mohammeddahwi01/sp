@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: denis
- * Date: 13.04.18
- * Time: 15:51
- */
 
 namespace Eleanorsoft\Category\Block;
 
@@ -15,7 +9,7 @@ use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Class Category
- * Return Categories
+ * Render different category lists
  *
  * Usage example:
  *      <block class="Eleanorsoft\Category\Block\Category" name="es_category" template="Eleanorsoft_Category::category.phtml"/> - layout
