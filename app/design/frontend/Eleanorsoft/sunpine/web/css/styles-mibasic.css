@@ -131,7 +131,7 @@ html{
     font-weight: 100;
     font-size: 14px;
     color: #fff;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
 }
 .text-dec>a{
     text-decoration: none;
@@ -204,7 +204,7 @@ html{
     position:relative; /* for header-right-block */
 }
 .header{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -264,7 +264,7 @@ li.level0:last-child{
 .right-top-field>a{
     text-decoration: none;
     color: #fff;
-    font-family: NeutraText-BookAlt, serif;
+    font-family: SourceSansPro-Regular, serif;
     font-size: 16px;
 }
 .right-top-field>a:hover{
@@ -278,7 +278,7 @@ li.level0:last-child{
     /*width: 25px !important;*/
     height: 40px !important;
     margin-top: 30px;
-    font-family: NeutraText-BookAlt, serif !important;
+    font-family:SourceSansPro-Regular, serif !important;
     cursor: pointer;
     width:66%!important;
     position:absolute !important;
@@ -413,7 +413,7 @@ li.level0:last-child{
 .page-title{
     padding-left: 15px;
     font-weight: 100;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 40px;
     color: #444446 !important;
     margin-bottom: 30px !important;
@@ -425,7 +425,7 @@ form.contact{
     width: 100% !important;
     /*padding: 20px 0px;*/
     /*margin-top: 10px;*/
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 14px;
 }
 
@@ -480,6 +480,7 @@ label.label span{
 }
 .mpblog-post-view .list-post-tabs .post-left .img-responsive{
     width: 100%;
+    border-right: 1px solid #ececec;
 }
 .mpblog-post-view .list-post-tabs {
     padding: 0px 0px 10px 0;
@@ -602,7 +603,7 @@ label.label span{
     background: #fcd566!important;
     border: none;
     color: #fff;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-transform: uppercase;
     padding: 10px;
 
@@ -611,7 +612,7 @@ label.label span{
 .primary>.submit-partner-with-us:hover,.primary>.submit-partner-with-us:active,.primary>.submit-partner-with-us:focus{
     background: #fcbd2a !important;
     border: none;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-transform: uppercase;
     color: #fff;
 }
@@ -926,15 +927,19 @@ a.forgot-link:hover,a.forgot-link:active{
     display: none;
 }
 .cart-summary>.cart-totals{
-    width: 33%;
+    width: 100%;
     float:right;
     border:none;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
 }
 
 .totals.sub>.mark{
-    background-color: #fff;
+    background-color: #f0f0f0;
     border: none;
-    font-size: 18px;
+    font-size: 15px;
     text-transform: uppercase;
 }
 .totals-tax>th,.totals>th{
@@ -945,18 +950,51 @@ a.forgot-link:hover,a.forgot-link:active{
 }
 .grand{
     margin-top: 10px;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
+}
+.grand.totals{
+    font-size: 25px;
+}
+.grand.mark{
+    font-size: 25px;
+    padding-top: 10px;
+}
+.grand.amount{
+    font-size: 25px;
+    padding-top: 10px;
 }
 .grand>.mark>strong,.grand>.amount>strong{
     font-size: 30px!important;
     text-transform: uppercase;
 }
 .data.table.totals{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 16px;
 }
 .data.table.totals>tbody>tr>th,.data.table.totals>tbody>tr>td{
     border: none!important;
+    background: #f0f0f0;
+    text-transform: none;
+}
+.cart.main.actions .action.continue,
+.cart.main.actions .action.clear{
+    display: none;
+}
+.cart.main.actions .action.update{
+    background: #999;
+    color: #fff;
+    font-family: SourceSansPro-SemiBold, serif;
+    padding: 10px 25px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.cart.main.actions .action.update:hover,
+.cart.main.actions .action.update:focus,
+.cart.main.actions .action.update:active{
+    background: #7b7b7b;
+}
+.cart.main.actions .action.update:before{
+    display: none;
 }
 .amount.price-container{
     text-align: center!important;
@@ -1008,7 +1046,7 @@ label.label{
 .product-item-name>a{
     color:#3c3c3e!important;
     text-decoration: none;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 16px;
 }
 .product-item-name>a:hover,.product-item-name>a:active{
@@ -1063,7 +1101,7 @@ label.label{
     max-width: 125%!important
 }
 .proud-par{
-    font-family: NeutraText-BookAlt;
+    font-family:SourceSansPro-Regular;
     font-size: 18px;
 }
 .proud-header{
@@ -1072,7 +1110,7 @@ label.label{
     text-transform: uppercase;
 }
 .ul-container-about{
-    font-family: NeutraText-BookAlt;
+    font-family:SourceSansPro-Regular;
     padding: 0!important;
     text-decoration: none;
     list-style: none;
@@ -1137,6 +1175,7 @@ label.label{
 }
 .container-item-help{
     margin-bottom: 30px;
+    margin-top: 30px;
 }
 .hide-par-link{
     font-size: 16px;
@@ -1157,7 +1196,7 @@ label.label{
     right: 50px;
     top: 30px;
     color: #fff;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     padding: 20px 40px;
     font-size: 40px;
     border: 5px solid #fff;
@@ -1321,11 +1360,9 @@ label.label{
 .cart-container{
     cursor:auto;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: row;
 }
-.form.form-cart{
-    width: 100%!important;
-}
+
 .cart.item{
     border-top:none!important;
 }
@@ -1343,18 +1380,23 @@ label.label{
 .cart.item>.item-actions>td{
     border: none;
 }
-.form.form-cart>.cart.main.actions{
-    display: none;
-}
+
 #shopping-cart-table>thead>tr>.col{
     line-height: 40px;
-    padding: 20px 60px;
-    font-size: 16px;
-    font-family: NeutraText-BookAlt, serif;
+    padding: 5px 50px!important;
+    font-size: 15px;
+    font-family: SourceSansPro-Regular, serif;
+    color: #333;
     font-weight: 100;
     border-bottom: none;
     text-transform: uppercase;
     margin-top:0;
+}
+#shopping-cart-table>thead>tr>.col.item{
+    padding-left: 0!important;
+}
+.checkout-cart-index .product-image-container{
+    width: 150px!important;
 }
 .page.messages{
     max-width: 1140px;
@@ -1370,10 +1412,12 @@ label.label{
 }
 .price-excluding-tax,.field.qty{
     text-align:center;
+    font-family: SourceSansPro-Regular,serif;
 }
 .cart-price>.price{
     font-weight: 100!important;
-    font-family: NeutraText-BookAlt, serif;
+    font-family: SourceSansPro-SemiBold, serif;
+    color: #333333;
     font-size: 20px;
 }
 .amount>strong>.price{
@@ -1382,8 +1426,30 @@ label.label{
 #shopping-cart-table>thead>tr>.col.price,#shopping-cart-table>thead>tr>.col.qty,#shopping-cart-table>thead>tr>.col.subtotal{
     text-align: center;
 }
+#shopping-cart-table>thead>tr>.col.subtotal,.cart.table-wrapper .col.subtotal,.cart.table-wrapper .col.subtotal .price-excluding-tax{
+    text-align: right;
+    padding-right: 0!important;
+}
 #block-discount{
     float:left;
+    width: 40%;
+    margin-top: -40px;
+    position: relative;
+}
+.actions-toolbar.toolbar-apply-code,
+.actions-toolbar.toolbar-apply-code .action.apply.primary.apply-code-btn{
+    margin-top: 0!important;
+}
+
+.actions-toolbar.toolbar-apply-code .action.apply.primary.apply-code-btn{
+    background: #ececec;
+    color: #333;
+    font-family: SourceSansPro-SemiBold,serif;
+}
+.actions-toolbar.toolbar-apply-code:hover .action.apply.primary.apply-code-btn,
+.actions-toolbar.toolbar-apply-code:focus .action.apply.primary.apply-code-btn,
+.actions-toolbar.toolbar-apply-code:active .action.apply.primary.apply-code-btn{
+    background: #a3a3a3!important;
 }
 .cart-summary .block > .title{
     border-top: none;
@@ -1392,13 +1458,14 @@ label.label{
 #block-shipping>.title{
     text-transform: uppercase;
     font-weight: 100;
-    font-family: NeutraText-BookAlt, serif;
+    font-family: SourceSansPro-Regular, serif;
     font-size: 22px;
 }
 .cart-summary .block .fieldset .field.note{
     font-size: 14px;
+    display: none;
     font-weight: 100;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
 }
 .abs-discount-block > .title:after, .cart-summary .block > .title:after, .paypal-review-discount .block > .title:after{
     content: none;
@@ -1408,9 +1475,7 @@ label.label{
 }
 #block-summary{
     display: block;
-}
-.block.discount{
-    width: 33%;
+    margin-bottom: 20px;
 }
 .block.discount>.content{
     display: block!important;
@@ -1421,7 +1486,8 @@ label.label{
 /*estimate shipping*/
 .block.shipping{
     display: inline-block;
-    width: 30%;
+    width: 100%;
+    padding: 2%;
 }
 .cart-summary .block .fieldset{
     margin: 0!important;
@@ -1429,9 +1495,37 @@ label.label{
 .action.multicheckout,.block.discount>.title,.summary.title{
     display: none;
 }
+.cart-summary .summary.title{
+    display: block;
+    font-family: SourceSansPro-Regular,serif;
+    font-size: 25px;
+    color: #333;
+    text-transform: uppercase;
+}
+.cart-summary .block.shipping .title{
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+.cart-summary #block-shipping.active>.title::after{
+    content: "";
+    width: 40px;
+    height: 40px;
+    display: block;
+    background: url(../images/help/icon-arrow-active.png) no-repeat center;
+    margin-top: 10px;
+}
+.cart-summary #block-shipping>.title::after{
+    content: "";
+    width: 40px;
+    height: 40px;
+    display: block;
+    background: url(../images/help/icon-arrow.png) no-repeat center;
+    margin-top: 10px;
+}
 .item-info>.col.price{
     text-align: center!important;
     display: table-cell;
+    width: 20%;
 }
 .product-item-details>.product-item-name>a{
     font-size: 15px;
@@ -1451,7 +1545,7 @@ label.label{
 .limiter-options,#sorter{
     border: none;
     font-size: 16px;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     border-bottom: 2px solid #ececec;
 }
 .pages .action{
@@ -1471,7 +1565,7 @@ label.label{
 }
 .sorter-label{
     font-size: 16px;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-transform: lowercase;
 }
 .toolbar-sorter.sorter{
@@ -1511,26 +1605,37 @@ label.label{
 .item-info>.col{
     vertical-align: middle;
     display: table-cell;
+    width: 17%;
 }
 .col.item{
-    padding: 20px 0px!important;
+    padding: 20px 0!important;
+    width: 100%;
 }
 .cart-summary{
+    width: 32%!important;
     position: static!important;
-    background-color: #fff;
-    width: 100%!important;
-    margin-top: 20px;
+    background-color: #f0f0f0;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
 }
 .control-promo-code{
     width: 65%!important;
     display: inline-block;
 }
 .cart-container .checkout-methods-items{
-    width:35%;
+    width:100%;
     float:right;
 }
 .cart-container .checkout-methods-items>.item>.checkout{
     text-transform: uppercase;
+}
+.cart-container #form-validate{
+    width: 65%;
+}
+.cart-container.container #form-validate #shopping-cart-table,
+.cart-container.container #form-validate #shopping-cart-table thead{
+    display: block;
 }
 .authorize-secure{
     width: 100%;
@@ -1540,21 +1645,16 @@ label.label{
 .custom-main>.page-title-wrapper{
     text-align: center;
 }
-.custom-main>.page-title-wrapper>h1.page-title{
-    padding: 20px 0 40px 10px!important;
-    margin: 0!important;
-    font-family: NeutraText-LightAlt, serif!important;
-    font-size: 50px!important;
-    text-transform: lowercase!important;
-}
 .authorize-secure-field{
     width: auto;
     display: inline-block;
     font-size: 16px;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
 }
 .control-promo-code>#coupon_code{
     height: 40px;
+    border: 1px solid #ddd;
+    border-right: 0px;
 }
 .toolbar-apply-code{
     height: 40px;
@@ -1565,14 +1665,14 @@ label.label{
     height: 40px;
     margin-top: 15px!important;
     background-color: #eef2f5!important;
-    font-family: NeutraText-BookAlt, serif!important;
+    font-family:SourceSansPro-Regular, serif!important;
     border: none!important;
 }
 .cart-summary .block > .content, .paypal-review-discount .block > .content{
     display: block;
 }
 .control-promo-code input::-webkit-input-placeholder{ color: #3c3c3e!important;
-    font-family: NeutraText-BookAlt, serif; }
+    font-family:SourceSansPro-Regular, serif; }
 
 .products.wrapper.grid.products-grid>.products.list.items.product-items>.item.product.product-item{
     width: 31.6%;
@@ -1631,7 +1731,7 @@ label.label{
     width: 200px;
     margin-left: -50px;
     text-align: justify;
-    font-family: NeutraText-LightAlt, serif!important;
+    font-family:SourceSansPro-Regular, serif!important;
     font-size: 18px;
 }
 .swatch-attribute-options>a>.swatch-option.color{
@@ -1654,7 +1754,7 @@ label.label{
     position: absolute;
     bottom: 10%;
     left: 10%;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     color: #fff;
     font-size: 40px;
     width: 30%;
@@ -1746,7 +1846,7 @@ label.label{
     padding: 20px 20px 0 20px;
     max-width: 1140px;
     margin: 0 auto;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
 }
 .product.details.product-item-details{
     font-family: SourceSansPro-Regular, serif;
@@ -1805,7 +1905,7 @@ label.label{
     left: 10%;
     color: #fff;
     font-size: 40px;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     border: 5px solid #fff;
     padding: 1%;
 }
@@ -1815,7 +1915,7 @@ label.label{
     bottom: 35%;
     right: 1%;
     font-size: 16px;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: right;
 }
 .livebox1-title,.livebox2-title{
@@ -1823,7 +1923,7 @@ label.label{
     top: 5%;
     left:5%;
     font-size: 16px;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
 }
 .livebox2-title{
     color: #fff;
@@ -1834,11 +1934,11 @@ label.label{
     right: 9%;
     font-size: 16px;
     text-align: right;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
 }
 .text-more-live{
     font-size: 40px;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
 }
 .container-options{
     max-width: 94vw!important;
@@ -1859,7 +1959,7 @@ label.label{
 }
 .sect2-inner-text{
     align-self: center;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 47px;
     padding-left: 45px!important;
 }
@@ -1870,7 +1970,7 @@ label.label{
     transform: translateX(-50%);
     cursor: pointer;
     font-size: 2rem;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
 }
 .sect-2-hide{
     z-index: 9;
@@ -1906,22 +2006,22 @@ label.label{
     color: #fff;
     text-align: right;
     font-size: 16px;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
 }
 .sect3-bigger-text{
     font-size: 40px;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
 }
 .sect3-inner-2-text{
     font-size: 30px;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     align-self: center;
 }
 .sect3-description{
     position: absolute;
     font-size: 20px;
     text-align: center;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     cursor: pointer;
     left: 50%;
     transform: translateX(-50%);
@@ -1938,13 +2038,13 @@ label.label{
     margin: 0 15px;
 }
 .sect4-inner-text{
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 30px;
     align-self: center;
 }
 .sect4-little-text{
     font-size: 12px;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     margin-top: 20px;
 }
 .last-box{
@@ -1960,7 +2060,7 @@ label.label{
     bottom: 15%;
     left: 15%;
     padding: 3%;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 30px;
     border: 5px solid #fff;
 }
@@ -2026,7 +2126,7 @@ label.label{
     display: none;
 }
 .product-info-main>.product-info-price>.product-info-stock-sku>.stock.available{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 18px;
     font-weight: 100;
 }
@@ -2047,7 +2147,7 @@ label.label{
     margin-top: -50px;
 }
 .product-info-main>.product-add-form>form#product_addtocart_form>#product-options-wrapper{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 18px;
 }
 .product-info-main>.product-add-form>form#product_addtocart_form>#product-options-wrapper>
@@ -2094,7 +2194,7 @@ label.label{
     border: none;
     color: #3c3c3e;
     text-transform: uppercase;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
 }
 .container-home{
@@ -2126,7 +2226,7 @@ label.label{
     color: #3c3c3e;
     font-size: 40px;
     text-decoration: none;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
     padding: 10px!important;
 }
@@ -2158,7 +2258,7 @@ label.label{
     line-height: 100px;
 }
 #product-options-wrapper .swatch-attribute-label.dropdown-toggle{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 16px;
     font-weight: 100;
 }
@@ -2168,7 +2268,7 @@ label.label{
     font-size: 17px;
     margin-right: 5px;
     font-weight: 600;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
@@ -2248,7 +2348,7 @@ display: none!important;
 select.select-qty-quickview{
     border: none;
     font-size: 16px;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     border-bottom: 2px solid #ececec;
 }
 
@@ -2379,30 +2479,45 @@ select.select-qty-quickview{
     height: 50px;
     border: 1px solid #c7c7c7;
     font-size: 16px;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     color: #3c3c3e;
     margin-bottom: 5px;
 }
 .shipping-button{
     margin-top: 10px;
 }
-.estimate-shipping-btn,.estimate-shipping-btn:hover{
-    background: #eef2f5;
+.estimate-shipping-btn{
+    background: #999;
     text-transform: uppercase;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-SemiBold, serif;
     font-weight: 100;
-    font-size: 18px;
-    padding: 10px 20px;
+    font-size: 15px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #fff;
     border: none;
 }
-
+.estimate-shipping-btn:active,
+.estimate-shipping-btn:focus,
+.estimate-shipping-btn:hover{
+    background: #7b7b7b;
+    color: #fff;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
 #shipping.checkout-shipping-address{
     border: 1px solid #ececec;
     padding: 4% 5% 0 5%;;
 }
 #shipping.checkout-shipping-address>.step-title{
     border: none;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
     font-size: 30px;
 }
@@ -2436,7 +2551,7 @@ select.select-qty-quickview{
     height: 18px;
 }
 .table-checkout-shipping-method>tbody>.row>.col>span,.table-checkout-shipping-method>tbody>.row>.col{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
     font-size: 16px;
 }
@@ -2490,7 +2605,7 @@ select.select-qty-quickview{
     margin: 0 auto;
 }
 #shipping-new-address-form>.field>.label{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
     font-size: 16px;
     text-transform: uppercase;
@@ -2498,7 +2613,7 @@ select.select-qty-quickview{
 #shipping-new-address-form>.field .control input,#shipping-new-address-form>.field .control select{
     float:right;
     height: 40px;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
     font-size: 16px;
     -webkit-border-radius:0;
@@ -2510,7 +2625,7 @@ fieldset.field.street>legend.label{
     margin-top: 5px;
 }
 .checkout-shipping-method>.step-title{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
     font-size: 30px;
     border: none;
@@ -2526,7 +2641,7 @@ li#payment{
     padding: 1% 5% 0 5%;
 }
 #checkout-payment-method-load .step-title{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
     font-size: 30px;
     padding-bottom: 0;
@@ -2536,7 +2651,7 @@ li#payment{
 }
 .checkout-payment-method .payment-method-content{
     padding-left: 0;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
     font-size: 16px;
 }
@@ -2555,7 +2670,7 @@ li#payment{
 }
 #discount-form>.actions-toolbar .action.action-apply,#discount-form>.payment-option-inner #discount-code{
     height: 40px;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
     font-size: 16px;
 }
@@ -2590,7 +2705,7 @@ li#payment{
     display: none;
 }
 #opc-sidebar>.opc-block-summary>span.title{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
     font-size: 30px;
     border:none;
@@ -2603,7 +2718,7 @@ li#payment{
     border:1px solid #c7c7c7;
 }
 #billing-new-address-form>.street>.label{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
     font-size: 16px;
 }
@@ -2633,7 +2748,7 @@ li#payment{
 .checkout-success>p:first-child{
     text-align: center;
     font-size: 50px;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
     text-transform: lowercase;
     color:#3c3c3e;
@@ -2641,7 +2756,7 @@ li#payment{
 .checkout-success>p{
     text-align: center;
     font-size: 16px;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
     text-transform: lowercase;
     color: #3c3c3e;
@@ -2656,7 +2771,7 @@ li#payment{
     border:none;
     font-size: 18px;
     color:#3c3c3e;
-    font-family: NeutraText-LightAlt;
+    font-family:SourceSansPro-Regular;
 }
 .checkout-success #registration{
     border-top: 1px solid #ececec;
@@ -2665,7 +2780,7 @@ li#payment{
     margin: 1% 0;
     text-transform: uppercase;
     font-size: 16px;
-    font-family: NeutraText-BookAlt;
+    font-family:SourceSansPro-Regular;
     text-align: center;
     display: inline-block;
 }
@@ -2677,12 +2792,12 @@ li#payment{
 }
 .block.upsell>.block-title.title{
     text-align: center;
-    font-family: NeutraText-LightAlt;
+    font-family:SourceSansPro-Regular;
     text-transform: lowercase;
 }
 .block.upsell>.block-title.title>#block-upsell-heading{
     font-weight: 100;
-    font-family: NeutraText-LightAlt;
+    font-family:SourceSansPro-Regular;
     text-transform: lowercase;
     font-size: 40px;
 }
@@ -2703,7 +2818,7 @@ li#payment{
     background: #fff;
     border: none;
     color: #3c3c3c;
-    font-family: NeutraText-BookAlt;
+    font-family:SourceSansPro-Regular;
     font-size: 16px;
     font-weight: 100;
     text-transform: uppercase;
@@ -2775,7 +2890,7 @@ li#payment{
 .categories-container>a>.main-category>.category-name{
     position: absolute;
     font-size: 9rem;
-    font-family: NeutraText-LightAlt;
+    font-family:SourceSansPro-Regular;
     color: #444446;
     font-weight: 100;
     text-transform: lowercase;
@@ -2786,7 +2901,7 @@ li#payment{
 .categories-container>a>.main-category>.category-description{
     position: absolute;
     font-size: 2rem;
-    font-family: NeutraText-BookAlt;
+    font-family:SourceSansPro-Regular;
     color: #444446;
     font-weight: 100;
     text-transform: lowercase;
@@ -2892,7 +3007,7 @@ li#payment{
     background: #d3ecdb !important;
     border: none;
     color: #3c3c3e;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-transform: uppercase;
     width: auto !important;
     font-size: 1.75rem;
@@ -2941,18 +3056,30 @@ li#payment{
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.catalog-product-view .box-tocart .product-options-wrapper {
+    width:60%;
+    display:inline-block;
+    float:left;
+    margin-top:0px;
+}
+.page-product-configurable.catalog-product-view .box-tocart .product-options-wrapper{
+    margin-top: 150px;
+}
 .catalog-product-view #product_addtocart_form>.product-options-bottom{
     margin-top: -75px;
+}
+.weltpixel-quickview-catalog-product-view #product_addtocart_form>.product-options-bottom{
+    margin-top: 50px;
 }
 .catalog-product-view .product-info-main{
     margin-top: 0;
 }
 .iwd_opc_alternative_column>.iwd_opc_universal_wrapper.iwd_opc_column_name{
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     color: #3c3c3c;
 }
 .iwd_opc_alternative_column>.iwd_opc_universal_wrapper.iwd_opc_column_name>.iwd_opc_column_content>.iwd_opc_universal_wrapper.iwd_opc_empty_cart_info{
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     color: #3c3c3c;
     text-align: justify!important;
 }
@@ -2965,13 +3092,13 @@ li#payment{
 .catalog-product-view .product-name-wrapper {
     width:50%;
     margin-top:60px;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
 }
 .page-product-configurable.catalog-product-view .product-name-wrapper {
     margin-top: 0;
 }
 .catalog-product-view .product-name-wrapper .product-info-stock-sku>.stock.available{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 18px;
     font-weight: 100;
 }
@@ -3009,7 +3136,7 @@ li#payment{
     border-bottom:1px solid #E8E8E8;
 }
 .catalog-product-view .product-info-main > .product-add-form {
-    margin-top:15px;
+    margin-top:-60px;
 }
 .weltpixel-quickview-catalog-product-view .fotorama__nav-wrap{
     height: auto!important;
@@ -3030,34 +3157,56 @@ li#payment{
     padding-bottom:30px;
     margin-bottom:30px;
 }*/
-#product-options-wrapper .swatch-opt>.swatch-attribute.size,#product-options-wrapper .swatch-opt>.swatch-attribute.color{
+/*#product-options-wrapper .swatch-opt>.swatch-attribute.size,#product-options-wrapper .swatch-opt>.swatch-attribute.color{
     height: 40px;
-}
+}*/
 .product-options-bottom .field.qty>.control{
     height: 40px;
 }
 .catalog-product-view .box-tocart {
     margin-top:0;
 }
-.catalog-product-view .box-tocart .price-box {
+.catalog-product-view .box-tocart .price-box{
+    height: 40px;
+    padding-top:3px;
+    width:auto;
+    float:left;
+    margin-top:0;
+}
+.catalog-product-view .configurable-product-quickview .box-tocart .price-box,.catalog-product-view .box-tocart .price-box{
     height: 40px;
     padding-top:3px;
     width:100%;
     float:left;
     margin-top:0;
 }
-.catalog-product-view .box-tocart .product-options-wrapper {
-    width:60%;
-    display:inline-block;
+.catalog-product-view .simple-product-quickview .box-tocart .price-box{
+    height: 40px;
+    padding-top:0px;
+    width: auto;
     float:left;
     margin-top:0;
 }
+.catalog-product-view .simple-product-quickview .box-tocart .field.qty{
+    margin-top: -25px;
+}
+.mfp-iframe-holder .mfp-content[style]{
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 8px!important;
+}
+.mfp-iframe-scaler iframe,.mfp-iframe-scaler iframe{
+    box-shadow: none!important;
+}
+
 .catalog-product-view .column.main.container #product_addtocart_form .field.qty>.label{
     display: none;
 }
 .catalog-product-view .column.main.container #product_addtocart_form .field.qty{
-    margin-top:-125px;
+    margin-top:-40px;
 }
+.page-product-configurable.catalog-product-view .column.main.container #product_addtocart_form .field.qty{
+    margin-top: -125px;
+}
+
 .weltpixel-quickview-catalog-product-view .column.main.container #product_addtocart_form .field.qty{
     margin-top: 0;
 }
@@ -3352,7 +3501,7 @@ li#payment{
     float:left;
 }
 .share-col-right .post-sharing-button .block.newsletter{
-    width:96%;
+    width:100%;
     margin-bottom: 20px;
 }
 .share-col-right .post-sharing-button .block.newsletter .content .field.newsletter{
@@ -3436,7 +3585,7 @@ li#payment{
     padding-bottom: 35px;
 }
 .share-col-left .block-blog-related.products-same-post.page-products.mpcss + .post-navigation>a{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 16px;
     font-weight: 100;
     color: #3c3c3c;
@@ -3467,7 +3616,7 @@ li#payment{
 /*color checkbox*/
 .items.filter-container.swatch-attribute-options .control--checkbox{
     text-decoration: none;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     color: #000;
     font-size: 16px;
     font-weight: 100;
@@ -3525,7 +3674,7 @@ li#payment{
 
 .items.filter-container.swatch-attribute-options #filter-label-White{
     text-decoration: none;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     color: #000;
     font-size: 16px;
     font-weight: 100;
@@ -3619,7 +3768,7 @@ li#payment{
 }
 .filter-options-content>.control-group.cb-rad.filter-container>li>label.control.control--checkbox>.price{
     text-decoration: none;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     color: #000;
     font-size: 16px;
     font-weight: 100;
@@ -3651,12 +3800,14 @@ li#payment{
 }
 /*price checkbox end*/
 .product-options-bottom .swatch-attribute-label {
-    display:none;
+    display:block;
+    font-family: SourceSansPro-Regular,serif;
+    font-size: 15px;
 }
 .product-options-bottom .swatch-attribute-selected-option {
     display:none;
 }
-.product-options-bottom .swatch-option {
+.product-options-bottom .swatch-option.color {
     display:block!important;
     border-radius: 50%!important;
     padding: 13px 9px!important;
@@ -3722,7 +3873,7 @@ li#payment{
     text-transform: none;
 }
 .page-layout-1column.weltpixel-quickview-catalog-product-view.catalog-product-view .product-info-stock-sku>.stock.available{
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 18px;
     font-weight: 100;
 }
@@ -3798,21 +3949,21 @@ li#payment{
 }
 .iwd_opc_column.iwd_opc_address_column>.iwd_opc_alternative_column>.iwd_opc_universal_wrapper.iwd_opc_column_name{
     text-align: left;
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     font-weight: 100;
     font-size: 25px;
 }
 #co-shipping-form>#shipping-new-address-form>.field>.control>.input-text{
     border-radius: 0;
     height: 40px;
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     color: #3e3e3e!important;
     border: 1px solid #c7c7c7;
 }
 #iwd_opc_login .iwd_opc_universal_wrapper>input{
     border-radius: 0;
     height: 40px;
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     color: #3e3e3e!important;
     border: 1px solid #c7c7c7;
     box-shadow: none;
@@ -3877,7 +4028,7 @@ li#payment{
     font-size: 25px!important;
     text-align: left!important;
     font-weight: 100!important;
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
 }
 #authnetcim-form-cc>legend.legend{
     width: 100%;
@@ -3886,7 +4037,7 @@ li#payment{
 .iwd_opc_universal_wrapper>.iwd_opc_button.active,.iwd_opc_universal_wrapper>.iwd_opc_button{
     border-radius: 0!important;
     color: #3c3c3c!important;
-    font-family: NeutraText-BookAlt;
+    font-family:SourceSansPro-Regular;
     text-transform: uppercase;
     border: none!important;
     font-size: 18px!important;
@@ -3928,14 +4079,14 @@ li#payment{
 }
 #iwd_opc_discount>.iwd_opc_universal_wrapper>.iwd_opc_button.with_angle.active{
     color: #3c3c3c;
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     border-radius: 0;
     border-color: #c7c7c7;
 }
 #iwd_opc_discount>.iwd_opc_universal_wrapper>.iwd_opc_button.with_angle.active:hover,
 #iwd_opc_discount>.iwd_opc_universal_wrapper>.iwd_opc_button.with_angle.active:focus{
     color: #121212;
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     border-radius: 0;
     border-color: #707070;
 }
@@ -3948,7 +4099,7 @@ li#payment{
 #discount-form>.iwd_opc_universal_wrapper.iwd_opc_small_button_container>.iwd_opc_small_button.active{
     background: #eef2f5;
     font-weight: 600;
-    font-family: NeutraText-LightAlt, serif!important;
+    font-family:SourceSansPro-Regular, serif!important;
     color: #3c3c3c;
     border:none;
 }
@@ -3970,7 +4121,7 @@ li#payment{
     background: #d3ecdb;
     text-align: center;
     text-transform: uppercase;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     border: none;
     display:none;
 }
@@ -3983,7 +4134,7 @@ li#payment{
     background: #d3ecdb;
     text-align: center;
     text-transform: uppercase;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     border: none;
     margin-top:20px;
 }
@@ -4023,7 +4174,7 @@ li#payment{
     color: #3c3c3c;
     text-align: center;
     text-transform: uppercase;
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     padding: 3% 0;
     height:110px;
     vertical-align: top;
@@ -4046,7 +4197,7 @@ li#payment{
     display: inline-block;
     padding-left: 15px;
     color: #3c3c3c;
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     font-size: 1.7rem;
 }
 #iwd_opc_review_items>.iwd_opc_review_item>.iwd_opc_review_item_cell>.iwd_opc_review_item_options> .iwd_opc_review_item_option>.iwd_opc_review_item_option_value{
@@ -4055,7 +4206,7 @@ li#payment{
     text-align: right;
     padding-right: 25px;
     color: #3c3c3c;
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     font-size: 1.7rem;
 }
 #iwd_opc_review_totals .iwd_opc_grand_total{
@@ -4070,7 +4221,7 @@ li#payment{
     color: #3c3c3c;
     text-align: center;
     text-transform: uppercase;
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     padding: 3% 0;
 }
 #iwd_opc_review_totals .iwd_opc_review_total{
@@ -4084,7 +4235,7 @@ li#payment{
     display: inline-block;
     width: auto;
     color: #3c3c3c;
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     font-size: 1.5rem;
 }
 #iwd_opc_review_totals .iwd_opc_review_total>.iwd_opc_review_total_cell:nth-child(2){
@@ -4098,12 +4249,12 @@ li#payment{
 #iwd_opc_review_totals .iwd_opc_grand_total>.iwd_opc_review_total_cell{
     width: 100%;
     text-align: center;
-    font-family: NeutraText-LightAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     font-weight:100;
     font-size: 2.5rem;
 }
 #iwd_opc_review_totals .iwd_opc_grand_total>.iwd_opc_review_total_cell:nth-child(2){
-    font-family: NeutraText-BookAlt,serif;
+    font-family:SourceSansPro-Regular,serif;
     font-size: 2.5rem;
     text-align: center;
     padding: 0;
@@ -4218,7 +4369,7 @@ body{
     background: #eef2f5!important;
     border: none!important;
     text-transform: uppercase!important;
-    font-family: NeutraText-LightAlt, serif!important;
+    font-family:SourceSansPro-Regular, serif!important;
 }
 #checkout-payment-method-load>.items.payment-methods>.field .iwd_opc_select_container{
     border-radius: 0!important;
@@ -4243,7 +4394,7 @@ body{
     color: #3c3c3c!important;
     background: #d3ecdb!important;
     border: none!important;
-    font-family: NeutraText-LightAlt, serif!important;
+    font-family:SourceSansPro-Regular, serif!important;
     text-transform: uppercase!important;
 }
 .navigation-sections-dropdown{
@@ -4303,7 +4454,7 @@ body{
 }
 
 .custom-full-container .homepage-container{
-    height: 81vh;
+    height: 82.9vh;
     width: 100%;
 }
 
@@ -4357,7 +4508,91 @@ background: #ececec;
 .catalog-product-view .product-info-main>.page-title-wrapper.product>.page-title{
     padding-left: 0;
 }
+
+.checkout-cart-main .page-title-wrapper{
+    max-width: 1140px;
+    text-align: left;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.checkout-cart-main .page-title-wrapper .page-title{
+    padding: 30px 0 20px 10px!important;
+    margin-bottom: 0!important;
+}
+.checkout-cart-main .page-title-wrapper .page-title span{
+    font-family: SourceSansPro-Regular,serif;
+    font-size: 40px;
+    color: #999999;
+    text-transform: uppercase;
+}
+
+#block-summary #shipping-zip-form{
+    margin-top: 20px;
+}
+.wrapper-post-column #maincontent{
+    max-width: none;
+    padding-left: 0;
+}
+.wrapper-post-column #maincontent .post-view-image{
+    width: 100vw;
+    height: 70vh;
+}
+.wrapper-post-column #maincontent .mpcss{
+    max-width: 1200px;
+    margin: auto;
+}
+iframe.mfp-iframe html{
+    overflow: hidden!important;
+}
 /*media start*/
+@media (max-width: 1200px) {
+    #shopping-cart-table>thead>tr>.col{
+        padding: 5px 35px!important;
+    }
+    .checkout-cart-index .item-info>.col{
+        border-top: none;
+    }
+    .cart-container.container #form-validate #shopping-cart-table thead{
+        border-bottom: 1px solid #c7c7c7;
+    }
+    .checkout-cart-main .page-title-wrapper {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 992px) {
+    .checkout-cart-main .page-title-wrapper{
+        max-width: 720px;
+    }
+    #shopping-cart-table>thead>tr>.col{
+        padding: 5px 44px!important;
+    }
+    .cart-container #form-validate{
+        width: 100%!important;
+    }
+    .cart-summary{
+        width: 100%!important;
+    }
+    .cart.main.actions{
+        margin-bottom: 20px;
+    }
+    #block-discount{
+        width: 100%;
+        margin-top: 0;
+    }
+    .control-promo-code{
+        width: 80%!important;
+    }
+}
+
+@media (max-width: 768px) {
+    .checkout-cart-main .page-title-wrapper{
+        max-width: 540px;
+    }
+}
+
+
 @media (max-width: 1050px){
     .nav-sections-custom, .sections{
         display: inline-block;
@@ -4401,7 +4636,7 @@ background: #ececec;
     .text-dec{
         font-weight: 100;
         font-size: 10px;
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
     }
     .logo{
         width: 100px;
@@ -4509,6 +4744,38 @@ background: #ececec;
 }
 /*media phone*/
 @media (max-width: 767.98px) {
+    .catalog-product-view .column.main.container #product_addtocart_form .field.qty{
+        margin-top: -45px;
+    }
+    .products.wrapper.grid.products-grid>.products.list.items.product-items>.item.product.product-item{
+        width: 100%;
+        text-align: center;
+        padding-right: 20px;
+    }
+    .page-products .product-item-info:hover a>.product-image-container, .page-products .product-item-info:focus a>.product-image-container, .page-products .product-item-info:active a>.product-image-container{
+        opacity: 1;
+    }
+    .weltpixel-quickview.weltpixel_quickview_button_v1{
+        display: none!important;
+    }
+    .product.details.product-item-details{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .wrapper-post-column .page-header{
+        margin-bottom: 0;
+    }
+    .mpcss>#sharing>.share-col-left{
+        margin-right: 0;
+    }
+    .col.item > .product-item-details .item-options{
+        display: flex;
+        justify-content: center;
+    }
+    .checkout-cart-main .page-title-wrapper .page-title{
+        text-align: center;
+    }
     #shopping-cart-table > thead > tr > .col:first-child {
         display: none;
     }
@@ -4541,7 +4808,7 @@ background: #ececec;
         margin-bottom: 0;
     }
     .mp-sidebar.product.info.detailed .product.data.items{
-        width: 96%;
+        width: 100%;
     }
     .mpcss>#sharing>.post-view-image{
         width: 90vw;
@@ -4634,7 +4901,7 @@ background: #ececec;
     }
     /*footer end*/
     .item-info > .col:before {
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 18px;
         font-weight: 100 !important;
     }
@@ -4765,8 +5032,11 @@ background: #ececec;
 
     .mpcss > #sharing > .share-col-right {
         width: 100%;
+        padding: 0 3%;
     }
-
+    .block-blog-related.blog-comment{
+        padding: 0 3%;
+    }
     /*blog mobile*/
     .mpblog-post-index .page-wrapper #maincontent .page-title-wrapper,
     .mpblog-post-index .page-wrapper #maincontent .mp-sidebar.mpcss {
@@ -5141,7 +5411,7 @@ background: #ececec;
         right: 0;
         top: 30px;
         color: #fff;
-        font-family: NeutraText-LightAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         padding: 10px 20px;
         font-size: 30px;
         border: 5px solid #fff;
@@ -5326,7 +5596,7 @@ background: #ececec;
 .dashboard .three-block-holder .first-block {
     background: #eef2f5;
     font-size: 2.3rem;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     margin-top: 6rem;
     position: relative;
     color: #555456;
@@ -5335,7 +5605,7 @@ background: #ececec;
 .dashboard .three-block-holder .second-block{
     background: #d3ecdb;
     font-size: 2.3rem;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     margin-top: 6rem;
     position: relative;
     color: #555456;
@@ -5343,7 +5613,7 @@ background: #ececec;
 .dashboard .three-block-holder .third-block {
     background: #efe5eb;
     font-size: 2.3rem;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     margin-top: 6rem;
     position: relative;
     color: #555456;
@@ -5374,7 +5644,7 @@ background: #ececec;
 .dashboard .three-block-holder-mobile .first-block {
     background: #eef2f5;
     font-size: 2.6rem;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     position: relative;
     color: #555456;
     margin: 0 auto;
@@ -5382,7 +5652,7 @@ background: #ececec;
 .dashboard .three-block-holder-mobile .second-block {
     background: #d3ecdb;
     font-size: 2.6rem;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     position: relative;
     color: #555456;
     margin: 0 auto;
@@ -5391,7 +5661,7 @@ background: #ececec;
 .dashboard .three-block-holder-mobile .third-block {
     background: #efe5eb;
     font-size: 2.6rem;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     position: relative;
     color: #555456;
     margin: 0 auto;
@@ -5475,13 +5745,13 @@ background: #ececec;
     color: #555456;
     font-size: 4rem;
     margin-top: 5rem;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
 }
 .update-your-acc {
     text-align: center;
     color: #555456;
     font-size: 1.6rem;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
 }
 /** END Dashboard **/
 
@@ -5515,7 +5785,7 @@ background: #ececec;
 
 .all-wishlist .all-wishes .container-product .wish .product-name a {
     color: #555456;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 1.2rem;
     vertical-align: top;
     padding-top: 1.5vw;
@@ -5528,21 +5798,21 @@ background: #ececec;
     padding-top: 0.6vw;
     text-decoration: line-through;
     color: #b6b6b7;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 1.2vw;
     display: inline-block;
     padding-left: 0.3vw;
 }
 .all-wishlist .all-wishes .container-product .wish .actual-price {
     color: #555456;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 1.2vw;
     display: inline-block;
 }
 .all-wishlist .all-wishes .container-product .wish .remove a {
     padding-top: 0.6vw;
     color: #555456;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 1.2rem;
     vertical-align: top;
     position: relative;
@@ -5556,7 +5826,7 @@ background: #ececec;
 .all-wishlist .all-wishes .container-product .wish .add-to-cart {
     margin-top: 1.7vw;
     color: #5e5f61;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 1.2vw;
     z-index: 1;
     width: 12vw;
@@ -5602,7 +5872,7 @@ background: #ececec;
     }
     .all-wishlist .all-wishes .container-product .wish .product-name a {
         color: #555456;
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 1.5rem;
         vertical-align: top;
         padding-top: 1.5vw;
@@ -5613,21 +5883,21 @@ background: #ececec;
         padding-top: 0.6vw;
         text-decoration: line-through;
         color: #b6b6b7;
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 3vw;
         display: inline-block;
         padding-left: 0.3vw;
     }
     .all-wishlist .all-wishes .container-product .wish .actual-price {
         color: #555456;
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 3vw;
         display: inline-block;
     }
     .all-wishlist .all-wishes .container-product .wish .remove a {
         padding-top: 0.6vw;
         color: #555456;
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 1.5rem;
         vertical-align: top;
         position: relative;
@@ -5638,7 +5908,7 @@ background: #ececec;
     .all-wishlist .all-wishes .container-product .wish .add-to-cart {
         margin-top: 3.5vw;
         color: #5e5f61;
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 2.2vw;
         z-index: 1;
         width: 30vw;
@@ -5671,7 +5941,7 @@ background: #ececec;
     display: block;
     font-size: 2vw;
     text-align: center;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     width: 50%;
     position: absolute;
     top: 27%;
@@ -5682,7 +5952,7 @@ background: #ececec;
 .order-history.container .row .col-md-4 .status {
     display: inline-block;
     font-size: 1.3vw;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     color: #444446;
     padding-top: 1.3vw;
     padding-bottom: 1.3vw;
@@ -5691,7 +5961,7 @@ background: #ececec;
 .order-history.container .row .col-md-4 .status > div {
     display: inline-block;
     font-size: 1.3vw;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     color: #444446;
     background: #efe5eb;
     text-align: center;
@@ -5726,7 +5996,7 @@ background: #ececec;
 .order-history-item .order-date,
 .order-history-item .order-total {
     font-size: 1.1vw;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     color: #5e5f61;
 }
 .order-history .limiter {
@@ -5778,7 +6048,7 @@ background: #ececec;
         display: block;
         font-size: 5vw;
         text-align: center;
-        font-family: NeutraText-LightAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         width: 50%;
         position: absolute;
         top: 27%;
@@ -5789,7 +6059,7 @@ background: #ececec;
     .order-history.container .row .col-md-4 .status {
         display: inline-block;
         font-size: 3.3vw;
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         color: #444446;
         padding-top: 1.3vw;
         padding-bottom: 1.3vw;
@@ -5797,7 +6067,7 @@ background: #ececec;
     .order-history.container .row .col-md-4 .status .status-pending {
         display: inline-block;
         font-size: 3.3vw;
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         color: #444446;
         background: #efe5eb;
         text-align: center;
@@ -5806,7 +6076,7 @@ background: #ececec;
     .order-history.container .row .col-md-4 .status .status-complited {
         display: inline-block;
         font-size: 3.3vw;
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         color: #444446;
         background: #d3ecdb;
         width: 16vw;
@@ -5817,7 +6087,7 @@ background: #ececec;
     .order-history-item .order-date,
     .order-history-item .order-total {
         font-size: 3vw;
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         color: #5e5f61;
     }
 }
@@ -5841,14 +6111,14 @@ div.post-hidden {
     margin-left: 1.2vw;
 }
 .order-status, .order-date {
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 1.2vw;
     color: #444446;
     margin-bottom: 0;
 }
 .status-pending {
     display: inline-block;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 1.2vw;
     background: #efe5eb;
     color: #444446;
@@ -5857,7 +6127,7 @@ div.post-hidden {
 .back-to-orders {
     float: right;
     width: 14vw;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: center;
     font-size: 1vw;
     background: #eef2f5;
@@ -5878,7 +6148,7 @@ div.post-hidden {
 
 .buttons .justify-content-start .options {
     width: 14vw;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: center;
     font-size: 1vw;
     padding: 0;
@@ -5929,7 +6199,7 @@ div.post-hidden {
 }
 .order-details-items .nav li a {
     width: 14vw;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: center;
     font-size: 1vw;
     padding: 0;
@@ -5962,13 +6232,13 @@ div.post-hidden {
 .text-order-note {
     margin-left: 1vw;
     margin-top: 0.9vw;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 1vw;
     color: #444446;
 }
 .submit-btn {
     width: 13vw;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: center;
     font-size: 1vw;
     padding: 0;
@@ -5985,7 +6255,7 @@ div.post-hidden {
 }
 .order-review {
     display: inline-block;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: left;
     font-size: 1.6vw;
     padding: 0;
@@ -5996,7 +6266,7 @@ div.post-hidden {
 .col-3.product {
     display: inline-block;
     position: relative;
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: left;
     font-size: 1vw;
     color: #444446;
@@ -6031,7 +6301,7 @@ div.post-hidden {
 }
 .product-description-my-orders {
     color: #444446;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 1.2vw;
     vertical-align: middle;
     height: auto;
@@ -6051,19 +6321,19 @@ div.post-hidden {
     font-size: 1.5vw;
     text-align: right;
     color: #444446;
-    font-family: NeutraText-BookAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     padding-right: 0;
     height: 25%;
 }
 .price-components .col-3.offset-7 {
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 1vw;
     color: #444446;
     margin-top: 2vw;
     text-align: left;
 }
 .price-components .col-2.components {
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 1vw;
     color: #444446;
     margin-top: 2vw;
@@ -6071,7 +6341,7 @@ div.post-hidden {
     padding-right: 0;
 }
 .total-price .col-2.offset-7 {
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 2.5vw;
     color: #444446;
     margin-top: 2vw;
@@ -6080,7 +6350,7 @@ div.post-hidden {
 }
 
 .total-price .col-3.all-price {
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     font-size: 2.5vw;
     color: #444446;
     margin-top: 2vw;
@@ -6088,7 +6358,7 @@ div.post-hidden {
     padding-right: 0;
 }
 #shipping-address {
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: left;
     font-size: 1.6vw;
     color: black;
@@ -6099,7 +6369,7 @@ div.post-hidden {
     margin-top: 0.7vw;
 }
 #method-shipping {
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: left;
     font-size: 1.6vw;
     color: black;
@@ -6126,7 +6396,7 @@ div.post-hidden {
 }
 
 #customer-address {
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: left;
     font-size: 1vw;
     color: #444446;
@@ -6136,7 +6406,7 @@ div.post-hidden {
     margin-bottom: 0;
 }
 #description-shipping {
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: left;
     font-size: 1vw;
     color: #444446;
@@ -6158,7 +6428,7 @@ div.post-hidden {
 }
 
 #billing-address {
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: left;
     font-size: 1.6vw;
     color: black;
@@ -6169,7 +6439,7 @@ div.post-hidden {
     margin-bottom: 1.2vw;
 }
 #payment-method {
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: left;
     font-size: 1.6vw;
     color: black;
@@ -6193,7 +6463,7 @@ div.post-hidden {
 }
 
 #add-for-bills {
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: left;
     font-size: 1vw;
     color: #444446;
@@ -6203,7 +6473,7 @@ div.post-hidden {
     margin-bottom: 0;
 }
 #cart-for-payment {
-    font-family: NeutraText-LightAlt, serif;
+    font-family:SourceSansPro-Regular, serif;
     text-align: left;
     font-size: 1vw;
     color: #444446;
@@ -6229,7 +6499,7 @@ div.post-hidden {
         display: block;
     }
     .order-status, .order-date {
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 2.7vw;
         color: #444446;
         margin-bottom: 0;
@@ -6237,7 +6507,7 @@ div.post-hidden {
     }
     .status-pending {
         display: inline-block;
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 2.7vw;
         background: #efe5eb;
         color: #444446;
@@ -6247,7 +6517,7 @@ div.post-hidden {
 
         display: block;
         width: 24vw;
-        font-family: NeutraText-LightAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         text-align: center;
         font-size: 2vw;
         background: #eef2f5;
@@ -6267,7 +6537,7 @@ div.post-hidden {
 
     .buttons .justify-content-start .options {
         width: 24vw;
-        font-family: NeutraText-LightAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         text-align: center;
         font-size: 2vw;
         color: #444446;
@@ -6303,13 +6573,13 @@ div.post-hidden {
     .text-order-note {
         margin-left: 1vw;
         margin-top: 0.9vw;
-        font-family: NeutraText-LightAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 2vw;
         color: #444446;
     }
     .submit-btn {
         width: 24vw;
-        font-family: NeutraText-LightAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         text-align: center;
         font-size:2vw;
         padding: 0;
@@ -6327,7 +6597,7 @@ div.post-hidden {
     }
     .order-review {
         display: inline-block;
-        font-family: NeutraText-LightAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         text-align: left;
         font-size: 3.4vw;
         padding: 0;
@@ -6339,7 +6609,7 @@ div.post-hidden {
     .col-3.product {
         display: inline-block;
         position: relative;
-        font-family: NeutraText-LightAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         text-align: left;
         font-size: 2.7vw;
         color: #444446;
@@ -6379,7 +6649,7 @@ div.post-hidden {
     }
     #product-description-my-orders {
         color: #444446;
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 2.2vw;
         text-align: left;
         margin-top: 4vw;
@@ -6401,7 +6671,7 @@ div.post-hidden {
         text-align: left;
         color: #444446;
         margin-top: 2vw;
-        font-family: NeutraText-BookAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         padding-left: 1.2vw;
         height: 25%;
     }
@@ -6412,7 +6682,7 @@ div.post-hidden {
         flex-wrap: wrap;
     }
     .all-about-price .price-components .offset-7 {
-        font-family: NeutraText-LightAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 1.6vw;
         color: #444446;
         margin-top: 1vw;
@@ -6427,7 +6697,7 @@ div.post-hidden {
 
     .all-about-price .price-components .components {
 
-        font-family: NeutraText-LightAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 1.6vw;
         color: #444446;
         margin-top: 1vw;
@@ -6438,7 +6708,7 @@ div.post-hidden {
     }
 
     .total-price .col-2.offset-7 {
-        font-family: NeutraText-LightAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 2.7vw;
         color: #444446;
         margin-top: 2vw;
@@ -6449,7 +6719,7 @@ div.post-hidden {
     }
 
     .total-price .col-3.all-price {
-        font-family: NeutraText-LightAlt, serif;
+        font-family:SourceSansPro-Regular, serif;
         font-size: 2.7vw;
         color: #444446;
         margin-top: 2vw;

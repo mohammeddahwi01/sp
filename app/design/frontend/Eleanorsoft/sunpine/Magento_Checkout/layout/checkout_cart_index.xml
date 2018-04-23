@@ -8,6 +8,9 @@
             </action>
         </referenceBlock>
         <referenceContainer name="columns" htmlClass="columns container" />
-        <referenceContainer name="main.content" htmlClass="page-main custom-main" />
+        <referenceContainer name="main.content" htmlClass="page-main custom-main checkout-cart-main" />
+        <referenceContainer name="checkout.cart.container" htmlTag="div" htmlClass="cart-container container"/>
+        <move element="checkout.cart.form" destination="checkout.cart.container" before="cart.summary" />
+        <move element="checkout.cart.coupon" destination="checkout.cart.container" after="-"/>
     </body>
 </page>

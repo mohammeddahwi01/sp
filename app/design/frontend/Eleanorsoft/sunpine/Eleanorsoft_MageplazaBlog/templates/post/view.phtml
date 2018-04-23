@@ -20,12 +20,12 @@ $modifierName = $modifier !== null ? $modifier->getName() : '';
 <?php if ($helper->getBlogConfig('share/enabled')): ?>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $helper->getBlogConfig('share/pubid_id') ?>" async="async"></script>
 <?php endif; ?>
+<?php if ($_post->getImage()) : ?>
+    <div class="post-view-image col-xs-12" style="background-image: url(<?php echo $block->getImageUrl($_post->getImage()); ?>); background-size: cover; background-position: center center;">
+    </div>
+<?php endif; ?>
 <div class="mpcss">
     <div id="sharing">
-        <?php if ($_post->getImage()) : ?>
-        <div class="post-view-image col-xs-12" style="background-image: url(<?php echo $block->getImageUrl($_post->getImage()); ?>); background-size: cover; background-position: center center;">
-        </div>
-        <?php endif; ?>
         <div class="share-col-left">
 <div class="mp-blog-view">
     <div class="mpcss post-view" id="mpblog-list-container">
