@@ -108,7 +108,29 @@ class Item extends Template
      */
     public function getPostImageUrl($post)
     {
+        $file = $post->getImage();
+        if (is_null($file)) {
+            return $this->getDefaultImageUrl();
+        }
         return $this->helperData->getImageHelper()
-            ->getMediaUrl($post->getImage());
+            ->getMediaUrl($file);
+    }
+
+    /**
+     * @param $date
+     * @param bool $monthly
+     * @return false|string
+     */
+    public function getDateFormat($date, $monthly = false)
+    {
+        return $this->helperData->getDateFormat($date, $monthly);
+    }
+
+    /**
+     * get default image url
+     */
+    public function getDefaultImageUrl()
+    {
+        return $this->getViewFileUrl('Mageplaza_Blog::media/images/mageplaza-logo-default.png');
     }
 }

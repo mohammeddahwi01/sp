@@ -21,6 +21,14 @@ $canUsePostCollection = $postCollection && $postCollection->getSize();
 <?php if ($canUsePostCollection) : ?>
 <script>
     requirejs(['jquery'], function ($) {
+        $(document).on('click', '.dropdown-blog-categories-menu li', function () {
+            var category = jQuery(this).text();
+            $('div.dropdown-blog-categories span').text(category);
+        })
+    });
+</script>
+<script>
+    requirejs(['jquery'], function ($) {
         $.fn.imagesLoaded = function () {
             var $imgs = this.find('img[src!=""]');
             if (!$imgs.length) {return $.Deferred().resolve().promise();}
@@ -112,6 +120,7 @@ $canUsePostCollection = $postCollection && $postCollection->getSize();
 
                 return $.get(actionUrl, {pageSize: pageSize, curPage: ++currentPage})
                     .done(function (html) {
+                        console.log(html);
                         globalPostsHtml += html;
 
                         callback(html);

@@ -11,7 +11,7 @@ $postCategory = $block->getPostFirstCategory($post);
         </div>
         <div class="post-list-item-description">
             <div class = "post-name"><?php echo $block->escapeHtml($post->getName()); ?></div>
-            <span class = "post-date"><?php echo $block->escapeHtml($post->getPublishDate()); ?></span>
+            <span class = "post-date"><?php echo $block->escapeHtml($block->getDateFormat($post->getPublishDate())); ?></span>
             <span class = "post-category-name">, in: <?php echo $block->escapeHtml($postCategory->getName()); ?></span>
         </div>
     </a>
