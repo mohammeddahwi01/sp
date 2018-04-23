@@ -1175,6 +1175,7 @@ label.label{
 }
 .container-item-help{
     margin-bottom: 30px;
+    margin-top: 30px;
 }
 .hide-par-link{
     font-size: 16px;
@@ -3055,11 +3056,20 @@ li#payment{
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.catalog-product-view .box-tocart .product-options-wrapper {
+    width:60%;
+    display:inline-block;
+    float:left;
+    margin-top:0px;
+}
+.page-product-configurable.catalog-product-view .box-tocart .product-options-wrapper{
+    margin-top: 150px;
+}
 .catalog-product-view #product_addtocart_form>.product-options-bottom{
     margin-top: -75px;
 }
 .weltpixel-quickview-catalog-product-view #product_addtocart_form>.product-options-bottom{
-    margin-top: 0;
+    margin-top: 50px;
 }
 .catalog-product-view .product-info-main{
     margin-top: 0;
@@ -3126,7 +3136,7 @@ li#payment{
     border-bottom:1px solid #E8E8E8;
 }
 .catalog-product-view .product-info-main > .product-add-form {
-    margin-top:15px;
+    margin-top:-60px;
 }
 .weltpixel-quickview-catalog-product-view .fotorama__nav-wrap{
     height: auto!important;
@@ -3186,18 +3196,17 @@ li#payment{
 .mfp-iframe-scaler iframe,.mfp-iframe-scaler iframe{
     box-shadow: none!important;
 }
-.catalog-product-view .box-tocart .product-options-wrapper {
-    width:60%;
-    display:inline-block;
-    float:left;
-    margin-top:0;
-}
+
 .catalog-product-view .column.main.container #product_addtocart_form .field.qty>.label{
     display: none;
 }
 .catalog-product-view .column.main.container #product_addtocart_form .field.qty{
-    margin-top:-125px;
+    margin-top:-40px;
 }
+.page-product-configurable.catalog-product-view .column.main.container #product_addtocart_form .field.qty{
+    margin-top: -125px;
+}
+
 .weltpixel-quickview-catalog-product-view .column.main.container #product_addtocart_form .field.qty{
     margin-top: 0;
 }
@@ -3792,7 +3801,7 @@ li#payment{
 /*price checkbox end*/
 .product-options-bottom .swatch-attribute-label {
     display:block;
-    font-family: SourceSansPro-Regular;
+    font-family: SourceSansPro-Regular,serif;
     font-size: 15px;
 }
 .product-options-bottom .swatch-attribute-selected-option {
@@ -4445,7 +4454,7 @@ body{
 }
 
 .custom-full-container .homepage-container{
-    height: 81vh;
+    height: 82.9vh;
     width: 100%;
 }
 
@@ -4533,7 +4542,9 @@ background: #ececec;
     max-width: 1200px;
     margin: auto;
 }
-
+iframe.mfp-iframe html{
+    overflow: hidden!important;
+}
 /*media start*/
 @media (max-width: 1200px) {
     #shopping-cart-table>thead>tr>.col{
