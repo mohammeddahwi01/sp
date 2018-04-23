@@ -3058,6 +3058,9 @@ li#payment{
 .catalog-product-view #product_addtocart_form>.product-options-bottom{
     margin-top: -75px;
 }
+.weltpixel-quickview-catalog-product-view #product_addtocart_form>.product-options-bottom{
+    margin-top: 0;
+}
 .catalog-product-view .product-info-main{
     margin-top: 0;
 }
@@ -3144,9 +3147,9 @@ li#payment{
     padding-bottom:30px;
     margin-bottom:30px;
 }*/
-#product-options-wrapper .swatch-opt>.swatch-attribute.size,#product-options-wrapper .swatch-opt>.swatch-attribute.color{
+/*#product-options-wrapper .swatch-opt>.swatch-attribute.size,#product-options-wrapper .swatch-opt>.swatch-attribute.color{
     height: 40px;
-}
+}*/
 .product-options-bottom .field.qty>.control{
     height: 40px;
 }
@@ -3489,7 +3492,7 @@ li#payment{
     float:left;
 }
 .share-col-right .post-sharing-button .block.newsletter{
-    width:96%;
+    width:100%;
     margin-bottom: 20px;
 }
 .share-col-right .post-sharing-button .block.newsletter .content .field.newsletter{
@@ -3788,7 +3791,9 @@ li#payment{
 }
 /*price checkbox end*/
 .product-options-bottom .swatch-attribute-label {
-    display:none;
+    display:block;
+    font-family: SourceSansPro-Regular;
+    font-size: 15px;
 }
 .product-options-bottom .swatch-attribute-selected-option {
     display:none;
@@ -4728,9 +4733,13 @@ background: #ececec;
 }
 /*media phone*/
 @media (max-width: 767.98px) {
+    .catalog-product-view .column.main.container #product_addtocart_form .field.qty{
+        margin-top: -45px;
+    }
     .products.wrapper.grid.products-grid>.products.list.items.product-items>.item.product.product-item{
         width: 100%;
         text-align: center;
+        padding-right: 20px;
     }
     .page-products .product-item-info:hover a>.product-image-container, .page-products .product-item-info:focus a>.product-image-container, .page-products .product-item-info:active a>.product-image-container{
         opacity: 1;
@@ -4788,7 +4797,7 @@ background: #ececec;
         margin-bottom: 0;
     }
     .mp-sidebar.product.info.detailed .product.data.items{
-        width: 96%;
+        width: 100%;
     }
     .mpcss>#sharing>.post-view-image{
         width: 90vw;
@@ -5012,8 +5021,11 @@ background: #ececec;
 
     .mpcss > #sharing > .share-col-right {
         width: 100%;
+        padding: 0 3%;
     }
-
+    .block-blog-related.blog-comment{
+        padding: 0 3%;
+    }
     /*blog mobile*/
     .mpblog-post-index .page-wrapper #maincontent .page-title-wrapper,
     .mpblog-post-index .page-wrapper #maincontent .mp-sidebar.mpcss {
