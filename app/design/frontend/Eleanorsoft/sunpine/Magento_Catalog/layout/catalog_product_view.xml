@@ -22,6 +22,6 @@
         <move element="shipping_returns" destination="product.info.overview" />
         <referenceBlock name="product.info.details" remove="true" />
         <move element="product.info.options.wrapper" destination="product.info.addtocart.additional" before="-" />
-        <move element="product.price.final" destination="product.info.addtocart.additional" after="-" />
+        <move element="product.price.final"  destination="product.info.addtocart.additional" after="-"/>
     </body>
 </page>
