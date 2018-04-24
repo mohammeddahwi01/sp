@@ -4594,8 +4594,11 @@ iframe.mfp-iframe html{
     padding: 40px 0;
     background: #ececec;
 }
-.blog-footer-container .load-btn-container .load-post-btn{
-
+.customer-account-logoutsuccess .column.main .container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }
 /*media start*/
 @media (max-width: 1200px) {
@@ -4796,6 +4799,9 @@ iframe.mfp-iframe html{
 }
 /*media phone*/
 @media (max-width: 767.98px) {
+    .customer-account-logoutsuccess .column.main .container{
+        margin-top: 20px;
+    }
     tbody.cart.item{
         display: table;
         width: 100%;
