@@ -3339,6 +3339,9 @@ li#payment{
     margin-bottom: 0!important;
     max-width: 1140px;
     margin: 0 auto;
+    font-family: SourceSansPro-Regular,serif;
+    font-size: 40px;
+    padding-left: 0;
 }
 #mpblog-list-container .post-list-item {
     border:1px solid #ececec;
@@ -3349,7 +3352,7 @@ li#payment{
 }
 #mpblog-list-container .post-list-item .img-container-post-list{
     width: 100%;
-    height:350px;
+    height:100%;
     display: block;
 }
 #mpblog-list-container .post-list-item .img-container-post-list>img{
@@ -3401,7 +3404,7 @@ li#payment{
 }
 .mp-sidebar.mpcss{
     float: right;
-    margin: 50px 75px 0 0;
+    margin: 50px 100px 0 0;
     text-align: right;
 }
 .mp-sidebar.mpcss>.row>.col-xs-12{
@@ -4582,6 +4585,18 @@ iframe.mfp-iframe html{
     margin-top: 15px;
     width: 39%;
 }
+.blog-footer-container{
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+}
+.blog-footer-container .load-btn-container{
+    padding: 40px 0;
+    background: #ececec;
+}
+.blog-footer-container .load-btn-container .load-post-btn{
+
+}
 /*media start*/
 @media (max-width: 1200px) {
     #shopping-cart-table>thead>tr>.col{
@@ -4784,6 +4799,12 @@ iframe.mfp-iframe html{
     tbody.cart.item{
         display: table;
         width: 100%;
+    }
+    .blog-footer-container{
+        bottom: 50px;
+    }
+    .blog-page-wrapper .page-header{
+        margin-bottom: 0;
     }
     .cart.main.actions .action.update{
         display: block;
@@ -5089,12 +5110,20 @@ iframe.mfp-iframe html{
         padding: 0 3%;
     }
     /*blog mobile*/
-    .mpblog-post-index .page-wrapper #maincontent .page-title-wrapper,
-    .mpblog-post-index .page-wrapper #maincontent .mp-sidebar.mpcss {
+    .mpblog-post-index .page-wrapper #maincontent .page-title-wrapper{
         display: none;
     }
+    .mpblog-post-index .page-wrapper #maincontent .mp-sidebar.mpcss{
+        display: block;
+        width: 30%;
+        float: none;
+        margin: 20px auto;
+    }
+    .dropdown.dropdown-blog-categories{
+        width: auto;
+        margin-top: 0;
 
-
+    }
 
     #mpblog-list-container .post-list-item{
         height: auto;

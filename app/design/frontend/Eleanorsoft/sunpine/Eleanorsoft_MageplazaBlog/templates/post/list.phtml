@@ -11,7 +11,6 @@ $canUsePostCollection = $postCollection && $postCollection->getSize();
             <div class="clearfix"></div>
         </div>
         <img id="ajax-loader" src="<?php echo $block->getViewFileUrl('images/loader-2.gif'); ?>" alt="ajax loader" style="visibility: hidden;">
-        <button class="load-post-btn">load more</button>
     <?php else: ?>
         <?php echo __('There are no posts at this moment'); ?>
     <?php endif; ?>
