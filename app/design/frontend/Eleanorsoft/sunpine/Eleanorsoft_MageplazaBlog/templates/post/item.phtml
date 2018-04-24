@@ -7,7 +7,7 @@ $postCategory = $block->getPostFirstCategory($post);
 <div class="post-list-item post-hidden" data-category="<?php echo $postCategory->getId(); ?>" data-post="<?php echo $block->getPostIndex(); ?>">
     <a href="<?php echo $block->escapeHtml($post->getUrl()); ?>">
         <div class="img-container-post-list">
-        <img src="<?php echo $block->escapeHtml($block->getPostImageUrl($post)); ?>" alt="<?php echo $block->escapeHtml($post->getName()); ?>">
+        <img src="<?php echo $block->escapeHtml($block->resizeImage($post, 600, 600)); ?>" alt="<?php echo $block->escapeHtml($post->getName()); ?>">
         </div>
         <div class="post-list-item-description">
             <div class = "post-name"><?php echo $block->escapeHtml($post->getName()); ?></div>
