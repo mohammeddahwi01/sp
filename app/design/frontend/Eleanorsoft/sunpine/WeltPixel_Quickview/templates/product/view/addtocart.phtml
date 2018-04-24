@@ -41,8 +41,9 @@
             <?php
             /** @var \Eleanorsoft\AddThis\Block\Widget $addThisWidget */
             $addThisWidget = $block->getChildBlock('addthis.widget');
-
-            echo $addThisWidget->getWidgetHtml();
+            if ($addThisWidget) {
+                echo $addThisWidget->getWidgetHtml();
+            }
             ?>
         </div>
     </div>
