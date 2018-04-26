@@ -11,11 +11,11 @@
 <div class="checkout-success">
     <?php if ($block->getOrderId()):?>
         <?php if ($block->getCanViewOrder()) :?>
-            <p><?php echo __('Your order # is: <span>%1</span>.', sprintf('<a href="%s" class="order-number">%s</a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?></p>
+            <p><?php echo __('Your order # is: <span>%1</span>.', sprintf('<a href="%s" class="order-number">%s</a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?> have been received!</p>
         <?php  else :?>
-            <p><?php echo __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?></p>
+            <p><?php echo __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?> have been received!</p>
         <?php endif;?>
-            <p><?php /* @escapeNotVerified */ echo __('We\'ll email you an order confirmation with details and tracking info.') ?></p>
+            <p><?php /* @escapeNotVerified */ echo __('You will receive an order confirmation email with details of your order. Do you have a concern about your order – Click Here') ?></p>
     <?php endif;?>
 
     <?php echo $block->getAdditionalInfoHtml() ?>
@@ -28,6 +28,13 @@
 
     <?php echo $block->getChildHtml('checkout.registration'); ?>
 
+    <?php
+    /** @var \Eleanorsoft\AddThis\Block\Widget $addThisWidget */
+    $addThisWidget = $block->getChildBlock('addthis.widget');
+
+    echo $addThisWidget->getWidgetHtml();
+    ?>
+
     <?php if ($block->getOrderId()):?>
         <?php
             /** @var \Eleanorsoft\ShopOtherCategories\Block\Order\UpSellProduct $upSellProductsBlock */
@@ -38,10 +45,5 @@
             echo $upSellProductsBlock->toHtml();
         ?>
     <?php endif;?>
-    <?php
-    /** @var \Eleanorsoft\AddThis\Block\Widget $addThisWidget */
-    $addThisWidget = $block->getChildBlock('addthis.widget');
 
-    echo $addThisWidget->getWidgetHtml();
-    ?>
 </div>
