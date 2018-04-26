@@ -930,8 +930,7 @@ a.forgot-link:hover,a.forgot-link:active{
     width: 100%;
     float:right;
     border:none;
-    padding-top: 15px;
-    padding-bottom: 10px;
+    padding: 2%;
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
 }
@@ -975,6 +974,8 @@ a.forgot-link:hover,a.forgot-link:active{
     border: none!important;
     background: #f0f0f0;
     text-transform: none;
+    font-size: 15px;
+    padding-top: 10px;
 }
 .cart.main.actions .action.continue,
 .cart.main.actions .action.clear{
@@ -1361,6 +1362,8 @@ label.label{
     cursor:auto;
     display: flex;
     flex-direction: row;
+    padding-left: 0!important;
+    padding-right: 10px!important;
 }
 
 .cart.item{
@@ -1504,6 +1507,8 @@ label.label{
     font-size: 25px;
     color: #333;
     text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 .cart-summary .block.shipping .title{
     border-top: 2px solid #fff;
@@ -2477,8 +2482,7 @@ select.select-qty-quickview{
 }
 #co-shipping-method-form .fieldset.rate label.label{
     font-family: SourceSansPro-Regular,serif;
-    font-size: 24px;
-
+    font-size: 18px;
 }
 #block-shipping>#block-summary>#co-shipping-method-form{
     display: block;
@@ -4635,7 +4639,7 @@ background: #ececec;
     padding-right: 20px;
 }
 .checkout-cart-main .page-title-wrapper .page-title{
-    padding: 30px 0 20px 10px!important;
+    padding: 30px 0 20px 0!important;
     margin-bottom: 0!important;
 }
 .checkout-cart-main .page-title-wrapper .page-title span{
@@ -4742,6 +4746,47 @@ iframe.mfp-iframe html{
     background: url(../images/preloader/preloader_btn.gif) center center no-repeat;
     background-size: cover;
 }
+
+/*shipping-methiod radio*/
+#co-shipping-method-form .fieldset.rate input.radio{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    margin: 10px 0 0 7px;
+}
+#co-shipping-method-form .fieldset.rate input.radio + label {
+    position: relative;
+    padding: 6px 0 0 35px;
+    cursor: pointer;
+}
+#co-shipping-method-form .fieldset.rate input.radio + label:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 27px;
+    height: 26px;
+    border: 1px solid #CDD1DA;
+    border-radius: 50%;
+    background: #999;
+}
+#co-shipping-method-form .fieldset.rate input.radio + label:after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 8px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0;
+    transition: .2s;
+}
+#co-shipping-method-form .fieldset.rate input.radio:checked + label:after {
+    opacity: 1;
+}
+/*shipping method ratiod end*/
+
 /*media start*/
 @media (max-width: 1200px) {
     #shopping-cart-table>thead>tr>.col{
@@ -4943,6 +4988,9 @@ iframe.mfp-iframe html{
 @media (max-width: 767.98px) {
     .customer-account-logoutsuccess .column.main .container{
         margin-top: 20px;
+    }
+    .cart-empty{
+        text-align: center;
     }
     #mpblog-list-container .post-list-item .img-container-post-list>img{
         width: 100%;
