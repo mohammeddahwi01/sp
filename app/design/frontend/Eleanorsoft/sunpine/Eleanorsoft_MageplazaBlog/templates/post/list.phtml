@@ -176,7 +176,7 @@ $canUsePostCollection = $postCollection && $postCollection->getSize();
                 getNewPosts(function (html) {
                     addNewPostsToDom(html);
                     if (!makeRequest) {
-                        $('.load-post-btn').css("display","none");
+                        $('.blog-footer-container').css("display","none");
                     }
                     $('.load-post-btn').removeClass("active");
                     $('.load-post-btn').removeAttr("disabled");
