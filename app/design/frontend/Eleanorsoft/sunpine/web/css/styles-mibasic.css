@@ -6815,15 +6815,17 @@ div.post-hidden {
     font-family:SourceSansPro-Regular, serif;
     text-align: center;
     font-size: 1vw;
-    background: #eef2f5;
+    background: #fff;
     color: #444446;
     height: 3.5vw;
     position: relative;
     margin-top: -5vw;
-    border: none;
+    border: 1px solid #ececec;
 }
-.back-to-orders:hover {
-    background: #fff;
+.back-to-orders:hover,
+.back-to-orders:focus,
+.back-to-orders:active{
+    background: #eef2f5;
     border: 1px solid #ececec;
 }
 .line-between {
@@ -6881,7 +6883,12 @@ div.post-hidden {
     border-color: lightgray;
     text-align: left;
     margin-top: 2.2vw;
+    font-size: 18px;
 }
+.order-details-items textarea::placeholder{
+    color: #333333;
+}
+
 .order-details-items .nav li a {
     width: 14vw;
     font-family:SourceSansPro-SemiBold, serif;
@@ -6889,20 +6896,21 @@ div.post-hidden {
     font-size: 18px;
     padding: 0;
     color: #444446;
-    height: 3.5vw;
+    height: 50px;
     border: 0;
     background: #eef2f5;
     margin-top: 1vw;
     position: relative;
     margin-right:10px;
     text-transform: uppercase;
-    line-height:3.5vw;
+    line-height:50px;
     display: inline-block;
     text-decoration-line: none;
 }
 .order-details-items .nav li a.active,
 .order-details-items .nav li a:hover {
-    background: #fff;
+    background: #999999;
+    color: #fff;
     border: 1px solid #ececec;
     text-decoration-line: none;
 }
@@ -6945,15 +6953,16 @@ div.post-hidden {
     text-align: center;
     font-size: 1vw;
     padding: 0;
-    color: #444446;
-    height: 3.5vw;
+    color: #fff;
+    height: 50px;
     border: 0;
-    background: rgb(211, 236, 219);;
+    background: #fcd566;
     margin-top: 1vw;
     text-transform: uppercase;
 }
 .submit-btn:hover {
-    background: #efe5eb;
+    background: #fcb938;
+    color: #fff;
     border: none;
 }
 .order-review {
@@ -7260,9 +7269,9 @@ div.post-hidden {
         font-family:SourceSansPro-Regular, serif;
         text-align: center;
         font-size: 2vw;
-        background: #eef2f5;
+        background: #fff;
         color: #333;
-        border: none;
+        border: 1px solid #ececec;
         height: 6vw;
         position: relative;
         margin-top: 1vw;
@@ -7271,8 +7280,7 @@ div.post-hidden {
         padding: 0;
     }
     .back-to-orders:hover {
-        background: #fff;
-        border: 1px solid #ececec;
+        background: #ececec;
     }
     .product-description-my-orders{
         text-align: center;
@@ -7299,6 +7307,7 @@ div.post-hidden {
         line-height: 40px;
         display: inline-block;
         text-decoration-line: none;
+        margin-bottom: 1vw;
     }
     .order-details-items .nav li a{
         color: #333333;
@@ -7352,16 +7361,17 @@ div.post-hidden {
         text-align: center;
         font-size:2vw;
         padding: 0;
-        color: #444446;
+        color: #fff;
         height: 6vw;
         border: 0;
-        background: rgb(211, 236, 219);;
+        background: #fcd566;
         margin-top: 2vw;
         margin-left: 1.2vw;
 
     }
     .submit-btn:hover {
-        background: #efe5eb;
+        background: #fcbb3d;
+        color: #fff;
         border: none;
     }
     .order-review {
@@ -7518,6 +7528,7 @@ div.post-hidden {
     color: #999999;
 }
 /** END Order details **/
+
 @media screen and (max-width: 768px) {
 .col-3.subtotal{
         display: block;
