@@ -2906,6 +2906,11 @@ fieldset.field.street>legend.label{
     text-transform: uppercase;
     color: #999;
 }
+.checkout-success>p:first-child>a,
+.checkout-success>p:first-child>a:active{
+    text-decoration: none;
+    color: #999!important;
+}
 .checkout-success>p{
     text-align: center;
     font-size: 16px;
@@ -6541,8 +6546,11 @@ input#shipping-save-in-address-book:checked + label:before {
 /** END Wishlist **/
 
 /** Order history **/
+.sales-order-history .page-title{
+    color: #999999!important;
+}
 .order-history.container .row .col-md-4 a {
-    height: 18vw;
+    height: auto;
     display: table-cell;
     vertical-align: middle;
     position: relative;
@@ -6556,67 +6564,72 @@ input#shipping-save-in-address-book:checked + label:before {
 
 .order-history.container .row .col-md-4:hover:after {
     content: "view order";
-    color: black;
+    color: #fff;
+    background: #999;
+    text-transform: uppercase;
     display: block;
-    font-size: 2vw;
+    font-size: 16px;
     text-align: center;
-    font-family:SourceSansPro-Regular, serif;
+    font-family: SourceSansPro-Regular, serif;
     width: 50%;
     position: absolute;
     top: 27%;
     left: 25%;
-    height: 100px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 100;
 }
 
 .order-history.container .row .col-md-4 .status {
     display: inline-block;
-    font-size: 1.3vw;
-    font-family:SourceSansPro-Regular, serif;
+    font-size: 20px;
+    font-family:SourceSansPro-SemiBold, serif;
     color: #444446;
     padding-top: 1.3vw;
-    padding-bottom: 1.3vw;
+    text-transform: uppercase;
+    padding-bottom: 15px;
     text-align: center;
 }
 .order-history.container .row .col-md-4 .status > div {
     display: inline-block;
-    font-size: 1.3vw;
-    font-family:SourceSansPro-Regular, serif;
-    color: #444446;
-    background: #efe5eb;
+    font-size: 1em;
+    font-family:SourceSansPro-SemiBold, serif;
+    color: #999999;
     text-align: center;
     padding:0 5px;
 }
 .order-history.container .row .col-md-4 .status .status-pending {
-    background: #efe5eb;
+    color: #999999;
 }
 .order-history.container .row .col-md-4 .status .status-pending_payment {
-    background: #efe5eb;
+    color: #efe5eb;
 }
-.order-history.container .row .col-md-4 .status .status-processing {
-    background: #efe5eb;
-}
+/*.order-history.container .row .col-md-4 .status .status-processing {
+    background: none;
+}*/
 .order-history.container .row .col-md-4 .status .status-complete {
-    background: #d3ecdb;
+    color: #79c34c;
 }
 .order-history.container .row .col-md-4 .status .status-closed {
-    background: #dedeed;
+    color: #dedeed;
 }
 .order-history.container .row .col-md-4 .status .status-canceled {
-    background: #efc6c4;
+    color: #efc6c4;
+}
+
+.order-history.container .row .col-md-4 .status .status-payment_review {
+    color: #c4c0ef;
 }
 .order-history.container .row .col-md-4 .status .status-holded {
-    background: #efe9cb;
-}
-.order-history.container .row .col-md-4 .status .status-payment_review {
-    background: #c4c0ef;
+    color: #efe9cb;
 }
 
 .order-history-item .order-number,
 .order-history-item .order-date,
 .order-history-item .order-total {
-    font-size: 1.1vw;
+    font-size: 20px;
     font-family:SourceSansPro-Regular, serif;
-    color: #5e5f61;
+    color: #333;
 }
 .order-history .limiter {
     display:none;
