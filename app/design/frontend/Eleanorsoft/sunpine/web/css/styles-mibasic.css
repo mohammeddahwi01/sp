@@ -3400,6 +3400,9 @@ fieldset.field.street>legend.label{
 .catalog-product-view .box-tocart {
     margin-top:0;
 }
+.checkout-cart-index .cart-summary .shipping-button{
+    display: none;
+}
 .catalog-product-view .box-tocart .price-box{
     height: 40px;
     padding-top:25px;
@@ -5409,6 +5412,18 @@ input#shipping-save-in-address-book:checked + label:before {
 @media (max-width: 767.98px) {
     .sales-order-view .page-header{
         margin-top: 0;
+    }
+    .opc-estimated-wrapper .minicart-wrapper{
+        margin-top: 0;
+        margin-right: -30px!important;
+    }
+    .opc-estimated-wrapper .minicart-wrapper button.action.showcart{
+        width: 40px;
+        height: 40px;
+    }
+    .opc-estimated-wrapper .minicart-wrapper button.action.showcart:before{
+        margin-left: 0;
+        transform: translate(-55%,13%);
     }
     .account-content-wrapper select,.account-content-wrapper .fieldset > .field:not(.choice) > .control{
         width: 100%;
