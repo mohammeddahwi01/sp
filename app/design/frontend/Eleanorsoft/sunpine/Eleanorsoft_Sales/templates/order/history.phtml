@@ -18,7 +18,7 @@
                     <div class="status">
                         <?= __('Status:'); ?>
                         <div class="status-<?= $block->escapeHtml($_order->getStatus()); ?>">
-                            <?= __('Pending'); ?>
+                            <?= $block->escapeHtml($_order->getStatusLabel()); ?>
                         </div>
                     </div>
                     <div class="order-number">
