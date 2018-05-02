@@ -442,7 +442,7 @@ label.label span{
 .fieldset > .field.required > .label:after, .fieldset > .fields > .field.required > .label:after, .fieldset > .field._required > .label:after, .fieldset > .fields > .field._required > .label:after{
     color: #3c3c3e !important;
     font-size: 16px;
-    margin-left: -2px;
+    /*margin-left: -2px;*/
 }
 
 .left-side-btn{
@@ -3130,14 +3130,14 @@ fieldset.field.street>legend.label{
 
 .account-content-wrapper {
     padding-left:15px;
-    font-family:NeutraText-LightAlt, serif;
-    font-size:1.5rem;
+    font-family:SourceSansPro-Regular, serif;
+    font-size:15px;
     font-weight:normal;
 }
 .account-content-wrapper h3 {
     text-transform: uppercase;
-    font-family:NeutraText-LightAlt, serif;
-    font-size:2.5rem;
+    font-family:SourceSansPro-Regular, serif;
+    font-size:25px;
     margin-top:30px;
     margin-bottom:15px;
 }
@@ -3152,6 +3152,9 @@ fieldset.field.street>legend.label{
 }
 .account-content-wrapper .actions {
     margin-top:15px;
+    font-family: SourceSansPro-Regular,serif;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
 .account-content-wrapper .actions > div {
     margin-bottom:5px;
@@ -3163,10 +3166,24 @@ fieldset.field.street>legend.label{
 .account-content-wrapper .actions a:hover {
     text-decoration: none;
 }
+.account .current-password input,
+.account .password input,
+.account .password-confirmation input{
+    color: #999999!important;
+    font-size: 20px!important;
+    font-family: SourceSansPro-Regular,serif;
+    letter-spacing: 3px;
+}
+.account-content-wrapper .actions a#credit-cart-edit{
+    text-transform: uppercase;
+}
 .account-content-wrapper .fieldset > .field:not(.choice) > .label {
     display: block;
     float: none;
     text-align: left;
+    margin-bottom: 5px;
+    margin-top: 0!important;
+    padding-top: 0;
 }
 .account-content-wrapper .fieldset > .field:not(.choice) > .control {
     float:none;
@@ -3174,31 +3191,55 @@ fieldset.field.street>legend.label{
 }
 .account-content-wrapper .fieldset input {
     height:43px;
+    box-shadow: none!important;
+    border-color: #c7c7c7!important;
+    font-family: SourceSansPro-Regular,serif;
+    font-size: 14px;
+}
+.account-content-wrapper .fieldset input:hover{
+    cursor: pointer;
+}
+.account-content-wrapper .fieldset input:active,
+.account-content-wrapper .fieldset input:focus{
+    cursor: auto;
+    border: 2px solid #c7c7c7;
 }
 .account-content-wrapper .fieldset {
     margin-bottom:20px;
 }
-.account-content-wrapper .primary .submit {
-    background: #d3ecdb !important;
+.account .account-content-wrapper .primary .submit {
+    background: #fcd566 !important;
     border: none;
-    color: #3c3c3e;
-    font-family:SourceSansPro-Regular, serif;
+    color: #fff;
+    font-family:SourceSansPro-SemiBold, serif;
     text-transform: uppercase;
     width: auto !important;
-    font-size: 1.75rem;
+    font-size: 16px;
     font-weight: normal;
-    padding: 15px 40px;
+    padding: 10px 40px;
+}
+.account .account-content-wrapper .primary .submit:hover,
+.account .account-content-wrapper .primary .submit:active,
+.account.account-content-wrapper .primary .submit:focus{
+    background: #fcb231!important;
 }
 .account-content-wrapper select {
     width:50%;
     height:40px;
     font-size:14px;
+    box-shadow: none!important;
+    border-color: #c7c7c7;
+    font-family: SourceSansPro-Regular,serif;
+}
+.account-content-wrapper select:focus,
+.account-content-wrapper select:active{
+    border: 2px solid #c7c7c7;
 }
 .account-content-wrapper .control select {
     width:100%;
 }
 .account-content-wrapper .add-link {
-    background: #efe5eb;
+    background: #999999;
     border-radius: 50%;
     width: 30px;
     display: inline-block;
@@ -3209,10 +3250,18 @@ fieldset.field.street>legend.label{
     margin-top:30px;
     position: relative;
 }
+.account-content-wrapper .add-link:hover,
+.account-content-wrapper .add-link:active,
+.account-content-wrapper .add-link:focus{
+    background: #fcd566;
+    cursor: pointer;
+}
 .account-content-wrapper .add-link span {
     position: absolute;
+    color: #fff;
     left: 50%;
     top: 50%;
+    font-size: 15px;
     transform: translate(-50%, -50%);
 }
 
@@ -4501,6 +4550,10 @@ fieldset.field.street>legend.label{
     margin-bottom:0;
     margin-top:25px;
 }
+.account #creditcart .fieldset > .legend{
+    margin-top: 0;
+    margin-bottom: 20px;
+}
 #creditcart .note {
     display:none;
 }
@@ -5357,6 +5410,12 @@ input#shipping-save-in-address-book:checked + label:before {
     .sales-order-view .page-header{
         margin-top: 0;
     }
+    .account-content-wrapper select,.account-content-wrapper .fieldset > .field:not(.choice) > .control{
+        width: 100%;
+    }
+    .account-content-wrapper .add-link{
+        margin-top: 0;
+    }
     .opc-estimated-wrapper #maincontent{
         padding-top: 0;
     }
@@ -6011,9 +6070,11 @@ input#shipping-save-in-address-book:checked + label:before {
     .abs-margin-for-forms-desktop, .fieldset .legend, .column:not(.sidebar-main) form .actions-toolbar, .column:not(.sidebar-additional) form .actions-toolbar, .login-container .fieldset:after {
         margin: 0 auto !important;
     }
-
+    .account #creditcart .fieldset > .legend{
+        margin-bottom: 20px!important;
+    }
     .about-main-image {
-        margin-left: 0px !important;
+        margin-left: 0 !important;
         max-width: 100% !important;
     }
 
@@ -7525,7 +7586,7 @@ div.post-hidden {
     }
 }
 .account .page-title-wrapper .page-title{
-    color: #999999;
+    color: #999999!important;
 }
 /** END Order details **/
 
