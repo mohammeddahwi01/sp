@@ -3247,7 +3247,7 @@ fieldset.field.street>legend.label{
     text-align: center;
     font-size: 2.8rem;
     font-weight: bold;
-    margin-top:30px;
+    margin-top:10px;
     position: relative;
 }
 .account-content-wrapper .add-link:hover,
@@ -6077,7 +6077,15 @@ input#shipping-save-in-address-book:checked + label:before {
         margin-left: 0 !important;
         max-width: 100% !important;
     }
-
+    .account .page-header{
+        margin-bottom: 0;
+    }
+    .account .columns>.container.mgt50{
+        margin-top: 20px;
+    }
+    .account #maincontent{
+        padding-top: 0;
+    }
     .mg-img-left {
         margin-left: 0% !important;
     }
