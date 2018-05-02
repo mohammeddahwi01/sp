@@ -17,14 +17,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 
 	public function __construct(
         \Magento\Framework\App\Helper\Context $context,
-		\Magento\Store\Model\System\Store $systemStore,
-        \Psr\Log\LoggerInterface $logger
+		\Magento\Store\Model\System\Store $systemStore
 	) {
 		$this->_systemStore = $systemStore;
 
         parent::__construct($context);
 
-        self::$logger = $logger;
+        self::$logger = $context->getLogger();
 
         if (self::$loggerQueue) {
             foreach (self::$loggerQueue as $logMessage)

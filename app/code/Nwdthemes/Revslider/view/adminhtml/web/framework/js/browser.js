@@ -5,7 +5,6 @@
 /*jshint browser:true jquery:true*/
 define([
     "jquery",
-    "tinymce",
     "Magento_Ui/js/modal/prompt",
     "Magento_Ui/js/modal/confirm",
     "Magento_Ui/js/modal/alert",
@@ -13,7 +12,7 @@ define([
     "jquery/ui",
     "jquery/jstree/jquery.jstree",
     "mage/mage"
-], function($, tinyMCEm, prompt, confirm, alert){
+], function($, prompt, confirm, alert){
 
     MediabrowserUtility = {
         windowId: 'modal_dialog_message',
@@ -200,6 +199,7 @@ define([
                 context: this,
                 showLoader: true
             }).done($.proxy(function(data) {
+                data = data.replace(/(\r\n|\n|\r)/gm, "").trim();
                 this.onInsert(data, Base64.encode(data));
                 MediabrowserUtility.closeDialog();
             }, this));

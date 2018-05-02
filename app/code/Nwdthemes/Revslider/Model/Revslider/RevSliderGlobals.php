@@ -9,7 +9,7 @@ namespace Nwdthemes\Revslider\Model\Revslider;
 
 class RevSliderGlobals {
 
-    const SLIDER_REVISION = '5.4.7.1';
+    const SLIDER_REVISION = '5.4.7.2';
     const PLUGIN_SLUG = 'revslider_magento';
 
 	const TABLE_SLIDERS_NAME = "nwdthemes_revslider_sliders";

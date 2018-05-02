@@ -8,6 +8,7 @@ use \Magento\Framework\App\Filesystem\DirectoryList;
 class Plugin extends \Magento\Framework\App\Helper\AbstractHelper {
 
 	const WP_PLUGIN_DIR = 'revslider/plugins/';
+	const MAX_FAILS = 5;
 
     protected $_optionsHelper;
     protected $_storeManager;
@@ -196,7 +197,13 @@ class Plugin extends \Magento\Framework\App\Helper\AbstractHelper {
         if ( ! $this->_pluginsLoaded) {
 
             if ($failed_plugin = $this->_optionsHelper->getOption('try_load_plugin')) {
-                $this->deactivatePlugin($failed_plugin);
+                $fails_count = $this->_optionsHelper->getOption('fails_count', 0);
+                if ($fails_count >= self::MAX_FAILS) {
+                    $this->deactivatePlugin($failed_plugin);
+                    $this->_optionsHelper->updateOption('fails_count', 0);
+                } else {
+                    $this->_optionsHelper->updateOption('fails_count', $fails_count + 1);
+                }
                 $this->_optionsHelper->updateOption('try_load_plugin', false);
             }
 
@@ -204,6 +211,9 @@ class Plugin extends \Magento\Framework\App\Helper\AbstractHelper {
                 if (file_exists(self::getPluginDir() . $plugin)) {
                     $this->_optionsHelper->updateOption('try_load_plugin', $plugin);
                     $frameworkHelper->includeFile(self::getPluginDir() . $plugin);
+                    if ($failed_plugin == $plugin) {
+                        $this->_optionsHelper->updateOption('fails_count', 0);
+                    }
                     $this->_optionsHelper->updateOption('try_load_plugin', false);
                 }
             }

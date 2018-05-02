@@ -924,8 +924,8 @@ public static function parseCustomAnimationByArray($animArray, $is = 'start', $f
 				self::updateStaticCss($contentCSS);
 			}
 		}
-		$contentCSS = self::$framework->get_option('revslider-static-css', '');
-		return($contentCSS);
+		$contentCSS = preg_replace('/([{};\/])([n \t]+)/', "$1\n", self::$framework->get_option('revslider-static-css', ''));
+        return($contentCSS);
 	}
 
 /**

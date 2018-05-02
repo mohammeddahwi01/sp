@@ -46,7 +46,7 @@ abstract class Revslider extends \Magento\Backend\App\Action {
         foreach ( (array) $array as $k => $v ) {
             if ( is_array( $v ) ) {
                 $array[$k] = $this->_add_magic_quotes( $v );
-            } else {
+            } elseif (is_string($v)) {
                 $array[$k] = addslashes( $v );
             }
         }

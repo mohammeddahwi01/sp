@@ -457,14 +457,16 @@ class RevSliderSlide extends \Nwdthemes\Revslider\Model\Revslider\Framework\RevS
         $this->postData = $this->_framework->apply_filters('revslider_slide_initByInstagram_pre', $this->postData, $sliderID, $this);
         
 		//set some slide params
-		$this->id = RevSliderFunctions::getVal($this->postData, 'id');
+        $this->id = $this->postData['node']->id;
 		
-		$caption = RevSliderFunctions::getVal($this->postData, 'caption');
+        $caption = $this->postData['node']->edge_media_to_caption->edges ? $this->postData['node']->edge_media_to_caption->edges[0]->node->text : '';
 		
-		$this->params["title"] = RevSliderFunctions::getVal($caption, 'caption');
+        $this->params["title"] = $caption ;
 		
-		$link = RevSliderFunctions::getVal($this->postData, 'link');
+        $link = 'https://www.instagram.com/p/' . $this->postData['node']->shortcode;
 		
+        $this->params["link"] = $link;
+
 		if(isset($this->params['enable_link']) && $this->params['enable_link'] == "true" && isset($this->params['link_type']) && $this->params['link_type'] == "regular"){
 			$this->params["link"] = str_replace(array("%link%", '{{link}}'), $link, $this->params["link"]);
 		}
@@ -472,25 +474,12 @@ class RevSliderSlide extends \Nwdthemes\Revslider\Model\Revslider\Framework\RevS
 		$this->params["state"] = "published";
 		
 		if($this->params["background_type"] == 'trans' || $this->params["background_type"] == 'image' || $this->params["background_type"] == 'streaminstagram' || $this->params["background_type"] == 'streaminstagramboth'){ //if image is choosen, use featured image as background
-			$img_sizes = RevSliderBase::get_all_image_sizes('instagram');
-			
-			$imgResolution = RevSliderFunctions::getVal($this->params, 'image_source_type', reset($img_sizes));
-			if(!isset($img_sizes[$imgResolution])) $imgResolution = key($img_sizes);
-			
-			$this->imageID = RevSliderFunctions::getVal($this->postData, 'id');
-			$imgs = RevSliderFunctions::getVal($this->postData, 'images', array());
-			$is = array();
-			foreach($imgs as $k => $im){
-				$is[$k] = $im->url;
-			}
 
-            if(isset($is[$imgResolution])){
-                $this->imageUrl = $is[$imgResolution];
-                $this->imageThumb = $is['thumbnail'];
-            }
-            else {
-                $this->imageUrl = RevSliderFunctions::getVal($this->postData, 'display_src');
-                $this->imageThumb = RevSliderFunctions::getVal($this->postData, 'thumbnail_src');
+            if(empty($this->postData['node']->display_url)){
+                $this->imageUrl = Framework::$RS_PLUGIN_URL.'public/assets/assets/sources/ig.png';
+            } else {
+                $this->imageUrl = $this->postData['node']->display_url;
+                $this->imageThumb = $this->postData['node']->thumbnail_src;
             }
 
             if(empty($this->imageUrl)){
@@ -504,14 +493,14 @@ class RevSliderSlide extends \Nwdthemes\Revslider\Model\Revslider\Framework\RevS
 			$this->imageFilename = basename($this->imageUrl);
 		}
 		
-		$videos = RevSliderFunctions::getVal($this->postData, 'videos');
+        $videos = RevSliderFunctions::getVal($this->postData['node'], 'videos');
 		
 		if(!empty($videos) && isset($videos->standard_resolution) && isset($videos->standard_resolution->url)){
 			$this->params["slide_bg_instagram"] = $videos->standard_resolution->url; //set video for background video
 			$this->params["slide_bg_html_mpeg"] = $videos->standard_resolution->url; //set video for background video
 		}
 		
-        $this->postData = $this->_framework->apply_filters('revslider_slide_initByInstagram_post', $this->postData, $sliderID, $this);
+        $this->postData = $this->_framework->apply_filters('revslider_slide_initByInstagram_post', $this->postData['node'], $sliderID, $this);
 		
 		//replace placeholders in layers:
 		$this->setLayersByStreamData($sliderID, 'instagram');	
@@ -892,8 +881,6 @@ class RevSliderSlide extends \Nwdthemes\Revslider\Model\Revslider\Framework\RevS
 			break;
 			case 'youtube':
 			case 'vimeo':
-				//$text = str_replace(array('%image_url_'.$img_handle.'%', '{{image_url_'.$img_handle.'}}'), @$attr['img_urls'][$img_handle]['url'], $text);
-				//$text = str_replace(array('%image_'.$img_handle.'%', '{{image_'.$img_handle.'}}'), @$attr['img_urls'][$img_handle]['tag'], $text);
 			case 'twitter':
 			case 'instagram':
 			case 'flickr':
@@ -1039,23 +1026,22 @@ class RevSliderSlide extends \Nwdthemes\Revslider\Model\Revslider\Framework\RevS
 				}
 			break;
 			case 'instagram':
-				$caption = RevSliderFunctions::getVal($this->postData, 'caption');
-                $user = RevSliderFunctions::getVal($this->postData, 'owner');
+				$caption = $this->postData->edge_media_to_caption->edges ? $this->postData->edge_media_to_caption->edges[0]->node->text : '';
+					
+				$user = isset($this->postData->user_info) ? $this->postData->user_info : '';
 
                 $attr['title'] = $caption;
                 $attr['content'] = $caption;
-                $attr['link'] = 'https://www.instagram.com/p/' . RevSliderFunctions::getVal($this->postData, 'code');
-                $attr['date'] = RevSliderFunctions::getVal($this->postData, 'date');
+                $attr['link'] = 'https://www.instagram.com/p/' . $this->postData->shortcode;
+                $attr['date'] = $this->postData->taken_at_timestamp;
                 $attr['date'] = $this->_framework->date_i18n($this->_framework->get_option('date_format').' '.$this->_framework->get_option('time_format'), $attr['date']);
 
-                $attr['author_name'] = $user->id;
+                $attr['author_name'] = $user;
                 $attr['author_name'] = empty($attr['author_name']) ? "" : $attr['author_name'];
 				
-				$likes_raw = RevSliderFunctions::getVal($this->postData, 'likes');
-				$attr['likes'] = RevSliderFunctions::getVal($likes_raw, 'count');
+                $attr['likes'] = $this->postData->edge_liked_by->count;
 				
-				$comments_raw = RevSliderFunctions::getVal($this->postData, 'comments');
-				$attr['num_comments'] = RevSliderFunctions::getVal($comments_raw, 'count');
+                $attr['num_comments'] = $this->postData->edge_media_to_comment->count;
 				
 				$inst_img = RevSliderFunctions::getVal($this->postData, 'images', array());
 				foreach($inst_img as $key => $img){

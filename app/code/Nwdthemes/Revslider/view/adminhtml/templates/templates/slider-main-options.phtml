@@ -4329,17 +4329,6 @@ if (isset($linksEditSlides)) {
                                 </div>
 							</div>
 							<div id="problem-troubleshooting" style="display:none;">
-								<div id="label_jquery_noconflict" class="label" origtitle="<?php echo __("Turns on / off jquery noconflict mode. Try to enable this option if javascript conflicts exist on the page.");?>"><?php echo __("JQuery No Conflict Mode");?> </div>
-								<input type="checkbox" class="tp-moderncheckbox withlabel" id="jquery_noconflict" name="jquery_noconflict" data-unchecked="off" <?php $framework->checked(RevSliderFunctions::getVal($arrFieldsParams, "jquery_noconflict", "off"), "on");?>>
-								<div class="clear"></div>
-
-								<div id="label_output_type" class="label" origtitle="<?php echo __("Activate a protection against wordpress output filters that adds html blocks to the shortcode output like P and BR.");?>"><?php echo __("Output Filters Protection");?> </div>
-								<select id="output_type" name="output_type" style="max-width:105px" class="withlabel">
-									<option value="none" <?php $framework->selected(RevSliderFunctions::getVal($arrFieldsParams, "output_type", "none"), "none");?>><?php echo __("None");?></option>
-									<option value="compress" <?php $framework->selected(RevSliderFunctions::getVal($arrFieldsParams, "output_type", "none"), "compress");?>><?php echo __("By Compressing Output");?></option>
-									<option value="echo" <?php $framework->selected(RevSliderFunctions::getVal($arrFieldsParams, "output_type", "none"), "echo");?>><?php echo __("By Echo Output");?></option>
-								</select>
-								<div class="clear"></div>
 
 								<div id="label_jquery_debugmode" class="label phandlingstitle" origtitle="<?php echo __("Turns on / off visible Debug Mode on Front End.");?>"><?php echo __("Debug Mode");?> </div>
 								<input type="checkbox" class="tp-moderncheckbox withlabel" id="jquery_debugmode" name="jquery_debugmode" data-unchecked="off" <?php $framework->checked(RevSliderFunctions::getVal($arrFieldsParams, "jquery_debugmode", "off"), "on");?>>

@@ -490,7 +490,13 @@ require(['jquery', 'themepunchTools'], function($, punchgs) {
                 });
 
                 if (loadit) {
-                    require([vimeoPlayerUrl], function(vimeoPlayer) {
+                    var _isMinified = true;
+                    jQuery.each(document.getElementsByTagName('script'), function(key, item) {
+                        if (item.src.length != 0 && item.src.indexOf('.min.js') == -1) {
+                            _isMinified = false;
+                        }
+                    }); 
+                    require([_isMinified ? 'vimeoPlayer' : vimeoPlayerUrl], function(vimeoPlayer) {
                         window['Vimeo'] = {Player: vimeoPlayer};
                     });
                 }
