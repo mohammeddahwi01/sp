@@ -127,7 +127,7 @@ $captchaHelper = $block->getData(\Eleanorsoft\Lib\Helper\Captcha::HELPER_FIELD_N
                     "component": "Eleanorsoft_Contact/js/contact",
                     "beforeSend": "function () { return true; /* return false to prevent default action */ }",
                     "onSendError": "function () { return true; /* return false to prevent default action */ }",
-                    "onSendSuccess": "function () { $('#contact-form-modal-link').click(); }",
+                    "onSendSuccess": "function () { $('#contact-form-modal-link').click(); return false; }",
                     "formSelector": "#form-contact",
                     "captchaSiteKey": "<?php echo $captchaHelper->getCaptchaSiteKey(); ?>",
                     "captchaRenderSelectorId": "contact-form-modal"

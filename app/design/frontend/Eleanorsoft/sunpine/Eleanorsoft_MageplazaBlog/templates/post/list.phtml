@@ -4,14 +4,13 @@ $postCollection = $block->getPostCollection();
 $canUsePostCollection = $postCollection && $postCollection->getSize();
 ?>
 
-<div class="post-list-content" id="mpblog-list-container">
+<div class="post-list-content container" id="mpblog-list-container">
     <?php if ($canUsePostCollection) : ?>
         <div class="post-list-body">
             <?php echo $block->getPostItemsHtml($postCollection); ?>
             <div class="clearfix"></div>
         </div>
         <img id="ajax-loader" src="<?php echo $block->getViewFileUrl('images/loader-2.gif'); ?>" alt="ajax loader" style="visibility: hidden;">
-        <button class="load-post-btn">load more</button>
     <?php else: ?>
         <?php echo __('There are no posts at this moment'); ?>
     <?php endif; ?>
@@ -19,6 +18,14 @@ $canUsePostCollection = $postCollection && $postCollection->getSize();
 </div>
 
 <?php if ($canUsePostCollection) : ?>
+<script>
+    requirejs(['jquery'], function ($) {
+        $(document).on('click', '.dropdown-blog-categories-menu li', function () {
+            var category = jQuery(this).text();
+            $('div.dropdown-blog-categories span').text(category);
+        })
+    });
+</script>
 <script>
     requirejs(['jquery'], function ($) {
         $.fn.imagesLoaded = function () {
@@ -112,6 +119,7 @@ $canUsePostCollection = $postCollection && $postCollection->getSize();
 
                 return $.get(actionUrl, {pageSize: pageSize, curPage: ++currentPage})
                     .done(function (html) {
+                        console.log(html);
                         globalPostsHtml += html;
 
                         callback(html);
@@ -168,14 +176,13 @@ $canUsePostCollection = $postCollection && $postCollection->getSize();
                 getNewPosts(function (html) {
                     addNewPostsToDom(html);
                     if (!makeRequest) {
-                        $('.load-post-btn').css("display","none");
+                        $('.blog-footer-container').css("display","none");
                     }
                     $('.load-post-btn').removeClass("active");
                     $('.load-post-btn').removeAttr("disabled");
                 });
             }
         });
-
 
         $('[data-category-id]').click(function () {
             currentCategoryId = $(this).data('category-id');

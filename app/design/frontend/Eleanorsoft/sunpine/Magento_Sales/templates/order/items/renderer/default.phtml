@@ -23,12 +23,12 @@ $image = $imageBuilder->setProduct($product)
 ?>
 <div class="container product-order" id="order-item-row-<?php /* @escapeNotVerified */ echo $_item->getId() ?>">
     <div class="row justify-content-between">
-        <div class="col-4" id="col-prod-photo">
+        <div class="col-md-4 col-sm-12" id="col-prod-photo">
             <a href="<?= $block->escapeHtml($url); ?>" class="pic-of-order-my-orders">
                 <?= $image->toHtml(); ?>
             </a>
         </div>
-        <div class="col-5 product-description-my-orders">
+        <div class="col-md-5 col-sm-12 product-description-my-orders">
             <a href="<?= $block->escapeHtml($url); ?>"><?php echo $block->escapeHtml($_item->getName()) ?></a>
             <?php if ($_options = $block->getItemOptions()): ?>
                 <dl class="item-options">
@@ -57,7 +57,7 @@ $image = $imageBuilder->setProduct($product)
             <?php endif; ?>
             <?php echo $block->escapeHtml($_item->getDescription()) ?>
         </div>
-        <div class="col-2 order-price-my-orders">
+        <div class="col-md-2 col-sm-12 order-price-my-orders">
             <?php echo $block->getItemRowTotalHtml(); ?>
         </div>
     </div>

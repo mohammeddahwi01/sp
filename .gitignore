@@ -51,11 +51,13 @@ atlassian*
 !/vendor/.htaccess
 
 /*.*
-!/.htaccess
+!/.htaccess.dev
+!/.htaccess.live
 !/.gitignore
 !/.esconfigs
 !/composer.json
 !/composer.lock
+!/README.md
 /dev
 /bin
 /lib

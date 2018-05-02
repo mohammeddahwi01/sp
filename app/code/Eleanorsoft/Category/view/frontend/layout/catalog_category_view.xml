@@ -8,7 +8,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="columns.top">
-            <block class="Eleanorsoft\Category\Block\Category" name="es_category" template="Eleanorsoft_Category::product/category.phtml" />
+            <block class="Eleanorsoft\Category\Block\Category" name="es_category" template="Eleanorsoft_Category::subcategory.phtml" />
         </referenceContainer>
     </body>
 </page>

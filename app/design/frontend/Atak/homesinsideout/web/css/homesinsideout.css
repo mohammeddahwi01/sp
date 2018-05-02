@@ -1660,16 +1660,16 @@ textarea {
 .weltpixel-quickview-catalog-product-view .product-info-main .box-tocart .field.qty .label {
   margin-right: 15px;
 }
-.weltpixel-quickview-catalog-product-view .product-info-main .box-tocart .action.tocart {
+.product-info-main .box-tocart .action.tocart {
   min-width: 215px;
   width: auto;
 }
-.weltpixel-quickview-catalog-product-view .product-addto-links {
+.product-addto-links {
   display: inline-block;
   vertical-align: middle;
   margin: 0 0 0 10px;
 }
-.weltpixel-quickview-catalog-product-view .product-addto-links .action.towishlist {
+ .product-addto-links .action.towishlist {
   background-color: transparent;
   color: #356dba;
   display: inline-block;
@@ -1681,16 +1681,16 @@ textarea {
   border: 1px solid #ececec;
   font-size: 15px;
 }
-.weltpixel-quickview-catalog-product-view .product-addto-links .action.towishlist:before {
+.product-addto-links .action.towishlist:before {
   content: '\e804';
   font-family: 'fontello', sans-serif;
 }
-.weltpixel-quickview-catalog-product-view .product-addto-links .action.towishlist:hover {
+ .product-addto-links .action.towishlist:hover {
   color: #000;
   border-color: #000;
   text-decoration: none;
 }
-.weltpixel-quickview-catalog-product-view .product-addto-links .action.towishlist span {
+ .product-addto-links .action.towishlist span {
   display: none;
 }
 /* Product page
@@ -1828,16 +1828,16 @@ textarea {
 .product-info-main .box-tocart .actions {
   padding-top: 0;
 }
-.product-info-main .box-tocart .action.tocart {
-  font-size: 20px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-@media (min-width: 992px) {
-  .product-info-main .box-tocart .action.tocart {
-    min-width: 266px;
-  }
-}
+/*.product-info-main .box-tocart .action.tocart {*/
+  /*font-size: 20px;*/
+  /*padding-top: 12px;*/
+  /*padding-bottom: 12px;*/
+/*}*/
+/*@media (min-width: 992px) {*/
+  /*.product-info-main .box-tocart .action.tocart {*/
+    /*min-width: 266px;*/
+  /*}*/
+/*}*/
 .product-info-main .box-tocart .paypal.checkout {
   display: none;
 }
@@ -3823,4 +3823,8 @@ body {
 }
 .column.main .est-description p {
   margin-bottom:0;
+}
+
+.product-options-bottom .product-addto-links, .product-info-main .product-addto-links {
+  margin: 0;
 }

@@ -1163,13 +1163,6 @@ define(
                     return false;
                 });
 
-
-
-                /*jQuery('#form-import-online-slider-local').submit(function(evt){
-
-                 });*/
-
-
                 jQuery('body').on('click', '.template_slider_item_reimport_package, .install_template_slider_package', function(){
 
                     if(jQuery(this).hasClass('deny_download')){
@@ -1213,8 +1206,6 @@ define(
                             import_template_online_slider(mdata, 'false');
                         }
                     }else{
-                        //jQuery('.rs-package').val('false');
-
                         alert(rev_lang.this_feature_only_if_activated);
                     }
 
@@ -1255,8 +1246,8 @@ define(
                         rs_install_slider = {};
                         rs_install_ids = [];
 
-                        for(var i in slider_package_uids[mdata.uid]){
-                            for(var ki in slider_package_uids[mdata.uid][i]){
+                        for(var i in slider_package_uids[mdata.uid]) if (slider_package_uids[mdata.uid].hasOwnProperty(i)) {
+                            for(var ki in slider_package_uids[mdata.uid][i]) if (slider_package_uids[mdata.uid][i].hasOwnProperty(ki)) {
                                 rs_install_slider[i] = {
                                     uid: slider_package_uids[mdata.uid][i][ki],
                                     sid: ki,
@@ -3198,11 +3189,7 @@ define(
                         minWidth:1224,
                         minHeight:600,
                         closeOnEscape:true,
-                        create:function(ui) {
-                        },
-                        open:function () {
-                            jQuery(this).closest(".ui-dialog").addClass("tp-css-editor-dialog").addClass("tp-depricated-dialog");
-                        },
+                        dialogClass:"tpdialogs tp-css-editor-dialog tp-depricated-dialog",
                         buttons:{
                             'Empty Global Styles': function(){
                                 if(!confirm(rev_lang.really_clear_global_styles)){

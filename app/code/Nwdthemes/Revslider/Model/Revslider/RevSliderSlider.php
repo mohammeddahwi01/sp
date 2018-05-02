@@ -113,12 +113,12 @@ class RevSliderSlider extends \Nwdthemes\Revslider\Model\Revslider\Framework\Rev
 		$this->title = $arrData["title"];
 		$this->alias = $arrData["alias"];
 		
-		$settings = $arrData["settings"] ?? '';
+		$settings = isset($arrData["settings"]) ? $arrData["settings"] : '';
 		$settings = (array)json_decode($settings);
 		
 		$this->settings = $settings;
 		
-		$params = $arrData["params"] ?? '';
+		$params = isset($arrData["params"]) ? $arrData["params"] : '';
 		$params = (array)json_decode($params);
 		$params = RevSliderBase::translate_settings_to_v5($params);
 		
@@ -847,8 +847,14 @@ class RevSliderSlider extends \Nwdthemes\Revslider\Model\Revslider\Framework\Rev
                     }
                 }
             }
-        }
 
+			$d = array('usedSVG' => $usedSVG, 'usedImages' => $usedImages, 'usedVideos' => $usedVideos);
+			$d = $this->_framework->apply_filters('revslider_exportSlider_usedMedia', $d, $cfw, $sliderParams, $useDummy); //  $arrSlides, $arrStaticSlide, 
+			
+			$usedSVG = $d['usedSVG'];
+			$usedImages = $d['usedImages'];
+			$usedVideos = $d['usedVideos'];
+        }
 		
 		$arrSliderExport = array("params"=>$sliderParams,"slides"=>$arrSlides);
 		if(!empty($arrStaticSlide))

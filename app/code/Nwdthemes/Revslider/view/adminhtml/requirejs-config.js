@@ -29,11 +29,12 @@ var config = {
         CSSPlugin:              'Nwdthemes_Revslider/public/assets/js/tools/CSSPlugin',
         SplitText:              'Nwdthemes_Revslider/public/assets/js/tools/SplitText',
         waitForImages:          'Nwdthemes_Revslider/public/assets/js/tools/waitForImages',
-        themepunchTools:        'Nwdthemes_Revslider/public/assets/js/jquery.themepunch.tools',
+        themepunchTools:        'Nwdthemes_Revslider/public/assets/js/jquery.themepunch.tools.min',
         themepunchRevolution:   'Nwdthemes_Revslider/public/assets/js/jquery.themepunch.revolution.min',
         tpColorPicker:          'Nwdthemes_Revslider/public/assets/js/tp-color-picker.min',
         'jquery/file-uploader': 'jquery/fileUploader/jquery.fileupload-fp',
-        prototype:              'legacy-build.min'
+        prototype:              'legacy-build.min',
+        vimeoPlayer:            'Nwdthemes_Revslider/public/assets/js/vimeo.player.min'
     },
     shim: {
         admin: {
@@ -112,26 +113,8 @@ var config = {
         wpUtil: {
             deps: ['jquery', 'underscore']
         },
-        themepunchGS: {
-            exports: 'punchgsSandbox'
-        },
-        TweenLite: {
-            deps: ['themepunchGS']
-        },
-        TimelineLite: {
-            deps: ['themepunchGS']
-        },
-        EasePack: {
-            deps: ['themepunchGS']
-        },
-        CSSPlugin: {
-            deps: ['themepunchGS']
-        },
-        SplitText: {
-            deps: ['themepunchGS']
-        },
         themepunchTools: {
-            deps: ['TweenLite', 'TimelineLite', 'EasePack', 'CSSPlugin', 'SplitText', 'waitForImages', 'touchSwipe', 'perfectScrollbar'],
+            deps: ['themepunchGS', 'TweenLite', 'TimelineLite', 'EasePack', 'CSSPlugin', 'SplitText', 'waitForImages', 'touchSwipe', 'perfectScrollbar'],
             exports: 'punchgs'
         },
         themepunchRevolution: {

@@ -7,16 +7,16 @@ $root_url = $current_category->getUrl();
 
 $categories = $block->getCategories($id);
 ?>
-<div>
-    <ul>
+<div class = "subcategory-container">
+    <ul class = "subcategory-ul-container">
         <?php if ($categories->getSize()) {?>
-            <li>
-                <a class="btn btn-primary" href="<?= $root_url?>"><?= htmlspecialchars(__('ALL'));?></a>
+            <li class = "subcategory-list-field">
+                <a class="btn btn-subcategory-field" href="<?= $root_url?>"><?= htmlspecialchars(__('ALL'));?></a>
             </li>
         <?php } ?>
         <?php foreach ($categories as $category) { /** @var $category Magento\Catalog\Model\Category */?>
-            <li>
-                <a class="btn btn-primary" href="<?= $category->getUrl()?>"><?= htmlspecialchars($category->getName());?></a>
+            <li class = "subcategory-list-field">
+                <a class="btn btn-subcategory-field" href="<?= $category->getUrl()?>"><?= htmlspecialchars($category->getName());?></a>
             </li>
         <?php } ?>
     </ul>

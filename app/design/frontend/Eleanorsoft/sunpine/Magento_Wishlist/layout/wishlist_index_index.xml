@@ -22,7 +22,7 @@
         <referenceBlock name="customer.wishlist.actions" remove="true" />
         <move element="customer.wishlist.item.remove"
               destination="customer.wishlist.item.inner"
-              before="customer.wishlist.item.cart" />
+              after="customer.wishlist.item.cart" />
         <referenceContainer name="main" htmlClass="column main col-md-9 col-sm-12" />
         <move element="customer_account_navigation" destination="left.sidebar" />
         <move element="main" destination="account.wrapper" />
