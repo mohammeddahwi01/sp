@@ -18,7 +18,7 @@
         <referenceContainer name="product.info.price" remove="true"/>
         <move element="page.main.title" destination="product.info.main" before="-"/>
         <move element="product.spec" destination="product.info.overview" />
-        <move element="product.info.overview" destination="product.info.main" after="page.main.title"/>
+        <move element="product.info.overview" destination="product.info.main" after="-"/>
         <move element="shipping_returns" destination="product.info.overview" />
         <referenceBlock name="product.info.details" remove="true" />
         <move element="product.info.options.wrapper" destination="product.info.addtocart.additional" before="-" />
