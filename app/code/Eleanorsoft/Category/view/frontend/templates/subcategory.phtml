@@ -1,0 +1,24 @@
+<?php
+/**@var Eleanorsoft\Category\Block\Category $block*/
+
+$current_category = $block->getCurrentCategory();
+$id = $current_category->getData('entity_id');
+$root_url = $current_category->getUrl();
+
+$categories = $block->getCategories($id);
+?>
+<div>
+    <ul>
+        <?php if ($categories->getSize()) {?>
+            <li>
+                <a class="btn btn-primary" href="<?= $block->escapeHtml($root_url); ?>"><?= $block->escapeHtml(__('ALL'));?></a>
+            </li>
+        <?php } ?>
+        <?php foreach ($categories as $category) { /** @var $category Magento\Catalog\Model\Category */?>
+            <li>
+                <a class="btn btn-primary" href="<?= $block->escapeHtml($category->getUrl()); ?>"><?= $block->escapeHtml($category->getName());?></a>
+            </li>
+        <?php } ?>
+    </ul>
+</div>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Partner With Us</title>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title" remove="true" />
+        <referenceContainer name="content">
+            <block cacheable="false" class="Eleanorsoft\PartnerWithUs\Block\PartnerWithUsForm" name="partnerWithUsForm" template="Eleanorsoft_PartnerWithUs::form.phtml"/>
+        </referenceContainer>
+         <referenceContainer name="columns" htmlClass="columns container" />
+         <referenceContainer name="main" htmlClass="column main row pd-lr-20" />
+    </body>
+</page>

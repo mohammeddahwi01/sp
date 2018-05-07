@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="columns" htmlClass="columns custom-sub-container" />
+        <referenceContainer name="main" htmlClass="column main custom-class" />
+        <referenceContainer name="main.content" htmlClass="page-main catalog-category-view" />
+        <referenceBlock name="category.product.type.details.renderers" remove="true"/>
+        <referenceBlock name="category.image" remove="true" />
+        <referenceBlock name="category.description" remove="true" />
+        <referenceBlock name="sidebar.main" remove="true" />
+        <!--<referenceBlock name="page.main.title" remove="true" />-->
+    </body>
+</page>

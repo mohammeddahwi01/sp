@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name = "page.wrapper" htmlClass = "page-wrapper blog-page-wrapper" />
+        <referenceBlock name="mpblog.post.list">
+            <block class="Eleanorsoft\MageplazaBlog\Block\Post\Item" name="mpblog_post_item" template="post/item.phtml"/>
+            <action method="setPostPerPageCount">
+                <argument name="postPerPageCount" xsi:type="string">6</argument>
+            </action>
+        </referenceBlock>
+        <move element="page.main.title" destination="page.wrapper" as="page.title.blog" after="header.container" />
+    </body>
+</page>

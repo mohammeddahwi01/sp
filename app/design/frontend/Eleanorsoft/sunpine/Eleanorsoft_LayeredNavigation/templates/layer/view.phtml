@@ -1,0 +1,160 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Eleanorsoft\LayeredNavigation\Block\Navigation
+ */
+?>
+
+<?php if ($block->canShowBlock()): ?>
+    <div class="subcategory-btn-cont-close">
+        <button class = "subcategory-filter-btn-close">Filter results<span class="sub-filter-arrow-close">
+        <img class = "sub-arrow-img-close" src="<?php echo $this->getViewFileUrl('images/subcategory/sub-arrow.png'); ?>"></span>
+        </button>
+    </div>
+    <div class="block filter">
+        <div class="block-title filter-title">
+            <strong><?php /* @escapeNotVerified */ echo __('Shop By') ?></strong>
+        </div>
+
+        <div class="block-content filter-content">
+            <?php echo $block->getChildHtml('state') ?>
+
+            <?php if ($block->getTempLayer()->getState()->getFilters()): ?>
+                <div class="block-actions filter-actions">
+                    <a href="<?php /* @escapeNotVerified */ echo $block->getClearUrl() ?>" class="action clear filter-clear"><span><?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
+                </div>
+            <?php endif; ?>
+            <?php $wrapOptions = false; ?>
+            <?php foreach ($block->getTempLayerFilters() as $filter): ?>
+        <?php if (!$wrapOptions): ?>
+            <strong role="heading" aria-level="2" class="block-subtitle filter-subtitle"><?php /* @escapeNotVerified */ echo __('Shopping Options') ?></strong>
+            <dl class="filter-options" id="narrow-by-list">
+                <?php $wrapOptions = true; endif; ?>
+                <?php if ($filter->getItemsCount()): ?>
+                    <dt role="heading" aria-level="3" class="filter-options-title"><?php echo $block->escapeHtml(__($filter->getName())) ?></dt>
+                    <dd class="filter-options-content">
+                        <?php echo /* @escapeNotVerified */ $block->getFilterHtml($filter); ?>
+                    </dd>
+                <?php endif; ?>
+                <?php endforeach; ?>
+                <?php if ($wrapOptions): ?>
+            </dl>
+        <?php endif; ?>
+        </div>
+    </div>
+    <div class="subcategory-btn-apply">
+        <button id="apply-filters-button" class="sub-apply">apply</button>
+    </div>
+<?php endif; ?>
+<script>
+    requirejs(['jquery'], function ($) {
+        var filterData = [],
+            getUrlWithFilters = function () {
+                var filterCode = null,
+                    filterUrl = document.URL;
+
+                filterUrl = filterUrl.substring(0, filterUrl.indexOf('?')) + '?';
+
+                for (filterCode in filterData) {
+                    if (filterCode === 'price') {
+                        filterUrl += filterCode + '=' + filterData[filterCode] + '&';
+
+                        continue;
+                    }
+
+                    $.each(filterData[filterCode], function (index, value) {
+                        filterUrl += filterCode + '[]=' + value + '&';
+                    });
+                }
+
+                return filterUrl.slice(0, -1);
+            },
+            addFilterToFilterData = function (filterValue, filterCode) {
+                var index = null;
+
+                if (!filterValue) {
+                    delete filterData[filterCode];
+
+                    return;
+                }
+
+                if (filterCode === 'price') {
+                    filterData[filterCode] = filterValue;
+
+                    return;
+                }
+
+                if (!(filterCode in filterData)) {
+                    filterData[filterCode] = [];
+                }
+
+                index = filterData[filterCode].indexOf(filterValue);
+
+                if (index === -1) {
+                    filterData[filterCode].push(filterValue);
+
+                    return;
+                }
+
+                filterData[filterCode].splice(index, 1);
+
+                if (filterData[filterCode].length === 0) {
+                    delete filterData[filterCode];
+                }
+            };
+
+        $('#apply-filters-button').click(function () {
+            location.href = getUrlWithFilters();
+        });
+
+        $('.filter-container')
+            .on('change', 'input', function (event) {
+                addFilterToFilterData(
+                    $(this).data('filter-value'),
+                    $(event.delegateTarget).data('filter-code')
+                );
+            })
+            .each(function (index) {
+                var filterCode = $(this).data('filter-code');
+
+                $(this).find('input:checked').each(function (index) {
+                    addFilterToFilterData(
+                        $(this).data('filter-value'),
+                        filterCode
+                    );
+                })
+            });
+    });
+</script>
+<script>
+    requirejs(['jquery'], function ($) {
+            var columnHeight = $(".custom-sub-container>.column.main.custom-class").height();
+            var sideHeight =  $(".page-layout-2columns-left .sidebar-main").height();
+
+        $(".subcategory-btn-cont").click(function(event) {
+            $(".subcategory-btn-cont").hide();
+
+            $(".sidebar-main").show(400, function () {
+                $('body').height(Math.max($(".page-layout-2columns-left .sidebar-main").height()+450,$("body").height()+450));
+            });
+            $("html, body").animate(
+                { scrollTop: "150px" }
+            );
+        });
+        $(".subcategory-btn-cont-close").click(function(event) {
+            $(".sidebar-main").hide();
+            $("body").height('auto');
+            $(".subcategory-btn-cont").show("fast");
+        });
+    });
+</script>

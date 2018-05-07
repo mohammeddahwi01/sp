@@ -1,0 +1,49 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+use Magento\Catalog\Model\Product\ProductList\Toolbar;
+?>
+<div class="toolbar-sorter sorter">
+    <label class="sorter-label" for="sorter"><?php /* @escapeNotVerified */ echo __('Price') ?></label>
+    <select id="sorter" data-role="sorter" class="sorter-options">
+        <?php $direction = $block->getCurrentDirection(); ?>
+        <option value="price" <?php echo $direction == 'asc' ? 'selected="selected"' : ''; ?> data-direction-value="asc">
+            <?php echo $block->escapeHtml(__('low to high')) ?>
+        </option>
+        <option value="price" <?php echo $direction == 'desc' ? 'selected="selected"' : ''; ?> data-direction-value="desc">
+            <?php echo $block->escapeHtml(__('high to low')) ?>
+        </option>
+    </select>
+    <?php if ($direction == 'desc'): ?>
+        <a title="<?php /* @escapeNotVerified */ echo __('Set Ascending Direction') ?>" href="#" class="action sorter-action sort-desc" data-role="direction-switcher" data-value="asc">
+            <span><?php /* @escapeNotVerified */ echo __('Set Ascending Direction') ?></span>
+        </a>
+    <?php else: ?>
+        <a title="<?php /* @escapeNotVerified */ echo __('Set Descending Direction') ?>" href="#" class="action sorter-action sort-asc" data-role="direction-switcher" data-value="desc">
+            <span><?php /* @escapeNotVerified */ echo __('Set Descending Direction') ?></span>
+        </a>
+    <?php endif; ?>
+</div>
+<script type="text/javascript">
+    requirejs(['jquery'], function ($) {
+        $('#sorter').change(function (event) {
+            event.stopImmediatePropagation();
+
+            var direction = $('option:selected', this).data('direction-value');
+
+            $('a.sorter-action[data-value=' + direction + ']').click();
+        });
+    });
+</script>

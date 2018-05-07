@@ -1,0 +1,208 @@
+<?php /** @var \Eleanorsoft\MageplazaBlog\Block\Frontend $block */ ?>
+<?php
+$postCollection = $block->getPostCollection();
+$canUsePostCollection = $postCollection && $postCollection->getSize();
+?>
+
+<div class="post-list-content container" id="mpblog-list-container">
+    <?php if ($canUsePostCollection) : ?>
+        <div class="post-list-body">
+            <?php echo $block->getPostItemsHtml($postCollection); ?>
+            <div class="clearfix"></div>
+        </div>
+        <img id="ajax-loader" src="<?php echo $block->getViewFileUrl('images/loader-2.gif'); ?>" alt="ajax loader" style="visibility: hidden;">
+    <?php else: ?>
+        <?php echo __('There are no posts at this moment'); ?>
+    <?php endif; ?>
+    <?php echo $this->getChildHtml('additional');?>
+</div>
+
+<?php if ($canUsePostCollection) : ?>
+<script>
+    requirejs(['jquery'], function ($) {
+        $(document).on('click', '.dropdown-blog-categories-menu li', function () {
+            var category = jQuery(this).text();
+            $('div.dropdown-blog-categories span').text(category);
+        })
+    });
+</script>
+<script>
+    requirejs(['jquery'], function ($) {
+        $.fn.imagesLoaded = function () {
+            var $imgs = this.find('img[src!=""]');
+            if (!$imgs.length) {return $.Deferred().resolve().promise();}
+
+            var dfds = [];
+            $imgs.each(function(){
+
+                var dfd = $.Deferred();
+                dfds.push(dfd);
+                var img = new Image();
+                img.onload = function(){dfd.resolve();};
+                img.onerror = function(){dfd.resolve();};
+                img.src = this.src;
+
+            });
+
+            return $.when.apply($,dfds);
+        };
+    });
+</script>
+<script>
+    requirejs(['jquery', 'mage/loader'], function ($, loader) {
+        var jWindow = $(window),
+            jDocument = $(document),
+            hiddenClass = 'post-hidden',
+            ajaxLoader = $('#ajax-loader'),
+            currentCategoryId = -1,
+            currentPage = 1,
+            makeRequest = true,
+            postListContainerDomModified = false,
+            isMakeRequestNow = false,
+            pageSize = <?php echo $block->getPostPerPageCount(); ?>,
+            actionUrl = '<?php echo $block->getAjaxUrl(); ?>',
+            postListContainer = $('.post-list-body'),
+            globalPostsHtml = postListContainer.html().replace('<div class="clearfix"></div>',''),
+            addNewPostsToDom = function (html) {
+                if (html === '') {
+                    makeRequest = false;
+
+                    return;
+                }
+
+                var promises = [],
+                    jTempPost = null;
+
+                postListContainerDomModified = true;
+
+                postListContainer.find('.clearfix').before(html);
+
+                postListContainerDomModified = false;
+
+                if (currentCategoryId == -1) {
+                    jTempPost = postListContainer.find('.post-list-item:hidden');
+                } else {
+                    jTempPost = postListContainer.find('.post-list-item[data-category=' + currentCategoryId + ']:hidden');
+
+                    postListContainer.find('.post-list-item[data-category!=' + currentCategoryId + ']:hidden').each(function () {
+                        $(this).addClass(hiddenClass);
+                    });
+                }
+
+                jTempPost.each(function() {
+                    var deferred = $.Deferred();
+
+                    $(this).show({
+                        duration: 300,
+                        easing: 'easeInOutQuart',
+                        complete: function () {
+                            deferred.resolve();
+                            $(this).removeClass(hiddenClass);
+                        }
+                    });
+
+                    promises.push(deferred);
+                });
+
+                $.when.apply($, promises).then(function () {
+                    postListContainer.imagesLoaded().then(addAdditionalPosts);
+                });
+            },
+            getNewPosts = function (callback) {
+                if (!makeRequest) {
+                    return;
+                }
+
+                isMakeRequestNow = true;
+
+                ajaxLoader.css('visibility', 'visible');
+
+                return $.get(actionUrl, {pageSize: pageSize, curPage: ++currentPage})
+                    .done(function (html) {
+                        console.log(html);
+                        globalPostsHtml += html;
+
+                        callback(html);
+                    })
+                    .fail(function (error) {
+                        console.log(error);
+                    })
+                    .always(function () {
+                        isMakeRequestNow = false;
+
+                        ajaxLoader.css('visibility', 'hidden');
+                    });
+            },
+            addAdditionalPosts = function () {
+                if ((postListContainer.height() + postListContainer.offset().top) < jWindow.height()) {
+                    getNewPosts(function (html) {
+                        addNewPostsToDom(filterCategoryPosts(html));
+                    });
+                }
+            },
+            filterCategoryPosts = function (html) {
+                if (currentCategoryId == -1) {
+                    return html;
+                }
+
+                return $('<div>').html(html).find('.post-list-item[data-category=' + currentCategoryId + ']');
+            },
+            clearPage = function () {
+                $('.post-list-body').html('<div class="clearfix"></div>');
+            },
+            loadCategoryPostItems = function (categoryId) {
+                clearPage();
+                addNewPostsToDom(filterCategoryPosts(globalPostsHtml));
+            };
+
+        $(function () {
+            jDocument.find('.post-list-item:hidden').show('slow', function () {
+                $(this).removeClass(hiddenClass);
+            }).promise().done(function () {
+                jDocument.imagesLoaded().then(addAdditionalPosts)
+            });
+        });
+
+        // jWindow.scroll(function() {
+        //     if (makeRequest && !isMakeRequestNow && jWindow.scrollTop() === (jDocument.height() - jWindow.height())) {
+        //         getNewPosts(addNewPostsToDom);
+        //     }
+        // });
+
+        $(".load-post-btn").click(function () {
+            if (makeRequest && !isMakeRequestNow) {
+                $(this).addClass("active");
+                $(this).attr("disabled",true);
+                getNewPosts(function (html) {
+                    addNewPostsToDom(html);
+                    if (!makeRequest) {
+                        $('.blog-footer-container').css("display","none");
+                    }
+                    $('.load-post-btn').removeClass("active");
+                    $('.load-post-btn').removeAttr("disabled");
+                });
+            }
+        });
+
+        $('[data-category-id]').click(function () {
+            currentCategoryId = $(this).data('category-id');
+
+            loadCategoryPostItems(currentCategoryId);
+        });
+
+        postListContainer.bind('DOMSubtreeModified', function () {
+            var iterator = 1;
+
+            if (postListContainerDomModified) {
+                $(this).find('.post-list-item').each(function () {
+                    $(this).attr('data-post', iterator++);
+
+                    if (iterator > pageSize) {
+                        iterator = 1;
+                    }
+                });
+            }
+        });
+    });
+</script>
+<?php endif; ?>

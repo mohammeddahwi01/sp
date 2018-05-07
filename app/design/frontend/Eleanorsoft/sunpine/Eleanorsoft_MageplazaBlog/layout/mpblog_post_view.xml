@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.wrapper" htmlClass ="page-wrapper wrapper-post-column" />
+        <referenceBlock name="page.main.title"  remove="true"/>
+        <referenceBlock name="mpblog.post.view">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Eleanorsoft_MageplazaBlog::post/view.phtml</argument>
+            </action>
+            <container name="es.blog.sidebar.main" as="es_sidebar_main" label="Sidebar Main">
+                <block class="Magento\Newsletter\Block\Subscribe" name="es.form.subscribe" template="subscribe.phtml"/>
+                <block class="Mageplaza\Blog\Block\Sidebar\Mostview" name="mpblog.sidebar.recentview" template="sidebar/mostview.phtml"/>
+            </container>
+        </referenceBlock>
+        <referenceBlock name="mpblog.sidebar.category" remove="true"/>
+    </body>
+</page>

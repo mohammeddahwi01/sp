@@ -1,0 +1,71 @@
+<div class="container mg-sitemap">
+    <div class="row ">
+        <div class="col-md-2">
+            <div class="sitemap-cont">
+                <h4 class="sitemap-head head-design-1"><span>navigation</span></h4>
+                <ul class="list-sitemap">
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">About Us</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Partner With Us</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Careers</li></a>
+                    <a class = "no-design-link" href="#"> <li class="list-field-sitemap">Blog</li></a>
+                </ul>
+            </div>
+            <div class="sitemap-cont">
+                <h4 class="sitemap-head head-design-1"><span>my account</span></h4>
+                <ul class="list-sitemap">
+                    <a class = "no-design-link" href="#"> <li class="list-field-sitemap">Sign In</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Register</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Dashboard</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Personal Data</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Order History</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Wishlist</li></a>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="sitemap-cont">
+                <h4 class="sitemap-head head-design-1"><span>customer care</span></h4>
+                <ul class="list-sitemap">
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Contact Us</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Returns</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Shipping &amp; Delivery</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Terms &amp; Conditions</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">FAQs</li></a>
+                </ul>
+            </div>
+        </div>
+    <div class="col-md-2">
+            <div class="sitemap-cont">
+                <h4 class="sitemap-head head-design-1"><span>RUSTIC</span></h4>
+                <ul class="list-sitemap">
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Living Room</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Bedroom</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Dining Room</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Outdoors</li></a>
+                </ul>
+            </div>
+        </div>
+    <div class="col-md-2">
+            <div class="sitemap-cont">
+                <h4 class="sitemap-head head-design-1"><span>TRADITIONAL</span></h4>
+                <ul class="list-sitemap">
+                     <a class = "no-design-link" href="#"><li class="list-field-sitemap">Living Room</li></a>
+                     <a class = "no-design-link" href="#"><li class="list-field-sitemap">Bedroom</li></a>
+                     <a class = "no-design-link" href="#"><li class="list-field-sitemap">Dining Room</li></a>
+                     <a class = "no-design-link" href="#"><li class="list-field-sitemap">Outdoors</li></a>
+                </ul>
+            </div>
+        </div>
+    <div class="col-md-2">
+            <div class="sitemap-cont">
+                <h4 class="sitemap-head head-design-1"><span>INDUSTRIAL</span></h4>
+                <ul class="list-sitemap">
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Living Room</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Bedroom</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Dining Room</li></a>
+                    <a class = "no-design-link" href="#"><li class="list-field-sitemap">Outdoors</li></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

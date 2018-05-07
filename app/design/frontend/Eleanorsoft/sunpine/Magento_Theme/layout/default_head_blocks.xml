@@ -1,0 +1,9 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="css/styles-mibasic.css" />
+        <css src="css/bootstrap.min.css" />
+        <css src="css/selectric.css" />
+        <css src="css/styles-mibasic-3.css" />
+
+    </head>
+</page>
