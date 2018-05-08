@@ -20,4 +20,12 @@
         </div>
     </div>
 </div>
-    {{widget type="Magento\Cms\Block\Widget\Block" template="widget/link/link_block.phtml" block_id="21" anchor_text="" title="" page_id=""}}
+
+===================
+
+1 cloumn
+
+layout update
+<referenceContainer name="content">
+   <block class="Eleanorsoft\Instagram\Block\Widget" name="mibasics.instagram.about" after="-"/>
+</referenceContainer>

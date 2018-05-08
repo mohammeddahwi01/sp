@@ -1,79 +1,55 @@
 <?php
 /** @var \Magento\Customer\Block\Account\Dashboard\Info $block */
 ?>
-<div class="container dashboard">
+
+<div class="container account-dasboard">
     <div class="hello-client">
-       <?= sprintf(__('hello, %s'), $block->escapeHtml($block->getName())); ?>
+        <?= sprintf(__('hello, %s'), $block->escapeHtml($block->getName())); ?>
     </div>
     <div class="update-your-acc" >
-    <?= __('View a snapshot of your recent account activity and update your account information through your Dashboard.'); ?>
+        <?= __('View a snapshot of your recent account activity and update your account information through your Dashboard.'); ?>
     </div>
-    <div class="three-block-holder d-md-block d-none">
-        <div class="first-block">
-           <div class="accountanchor">
-               <a href="<?= $block->getUrl('addressbook/address'); ?>" > </a>
-           </div> 
-           <div class="text-on-anchors"> ACCOUNT<br>INFO 
-           </div>
-           <div class="pic-in-block">          
-                 <img src="<?= $block->getViewFileUrl('images/dashboard/logo-first-block.png'); ?>" alt=""/>
-           </div> 
-         </div>
-                             
-        <div class="second-block">
-           <div class="accountanchor">
-               <a href="<?= $block->getUrl('sales/order/history'); ?>" > </a>
-           </div> 
-           <div class="text-on-anchors"> ORDER<br>HISTORY
-           </div>
-           <div class="pic-in-block">          
-              <img src="<?= $block->getViewFileUrl('images/dashboard/logo-second-block.png'); ?>" alt=""/>
-           </div>
-        </div>
-        
-        <div class="third-block">   
-           <div class="accountanchor">
-               <a href="<?= $block->getUrl('wishlist'); ?>" > </a>
-           </div>
-           <div class="text-on-anchors">MY<br>WISHLIST
-           </div>
-           <div class="pic-in-block">          
-              <img src="<?= $block->getViewFileUrl('images/dashboard/logo-third-block.png'); ?>" alt=""/>
-           </div>
-        </div>
-    </div>
-    
-    <div class="three-block-holder-mobile d-md-none">
-        <div class="first-block">
-            <div class="account-anchor-mobile">
-                <a href="<?= $block->getUrl('customer/address'); ?>" > </a>
-            </div>
-            <div class="text-on-anchors-mobile">ACCOUNT<br>INFO 
-            </div>
-            <div class="pic-in-block">
-                <img src="<?= $block->getViewFileUrl('images/dashboard/logo-first-block.png'); ?>" alt=""/>
+    <div class="row justify-content-between dashboard">
+        <div class="col-4 elements">
+            <div class="diamond account-info-element">
+                <a href="<?= $block->getUrl('addressbook/address'); ?>" ></a>
+                <div class="text-element">
+                    <?= __('ACCOUNT<br>INFO'); ?>
+                </div>
+                <div class="image-logo">
+                    <img src="<?= $block->getViewFileUrl('images/account-info-logo.png'); ?>" class="no-act-block" alt="">
+                </div>
+                <div class="image-logo-2">
+                    <img src="<?= $block->getViewFileUrl('images/logo-first-block.png'); ?>" class="act-block" alt="">
+                </div>
             </div>
         </div>
-        
-        <div class="second-block">
-            <div class="account-anchor-mobile">
-                <a href="<?= $block->getUrl('sales/order/history'); ?>" > </a>
-            </div>
-            <div class="text-on-anchors-mobile">ORDER<br>HISTORY
-            </div>
-            <div class="pic-in-block">
-                <img src="<?= $block->getViewFileUrl('images/dashboard/logo-second-block.png'); ?>" alt=""/>
+        <div class="col-4 elements">
+            <div class="diamond order-history-element">
+                <a href="<?= $block->getUrl('sales/order/history'); ?>" ></a>
+                <div class="text-element">
+                    <?= __('ORDER<br>HISTORY'); ?>
+                </div>
+                <div class="image-logo">
+                    <img src="<?= $block->getViewFileUrl('images/order-history-non-active.png'); ?>" class="no-act-block" alt="">
+                </div>
+                <div class="image-logo-2">
+                    <img src="<?= $block->getViewFileUrl('images/order-history-logo.png'); ?>" class="act-block" alt="">
+                </div>
             </div>
         </div>
-        
-        <div class="third-block">   
-            <div class="account-anchor-mobile">
-                <a href="<?= $block->getUrl('wishlist'); ?>" > </a>
-            </div>
-            <div class="text-on-anchors-mobile">MY<br>WISHLIST
-            </div>
-            <div class="pic-in-block">
-                <img src="<?= $block->getViewFileUrl('images/dashboard/logo-third-block.png'); ?>" alt=""/>
+        <div class="col-4 elements">
+            <div class="diamond my-wishlist-element">
+                <a href="<?= $block->getUrl('wishlist'); ?>" ></a>
+                <div class="text-element">
+                    <?= __('MY<br>WISHLIST'); ?>
+                </div>
+                <div class="image-logo">
+                    <img src="<?= $block->getViewFileUrl('images/my-whishlist-logo.png'); ?>" class="no-act-block" alt="">
+                </div>
+                <div class="image-logo-2">
+                    <img src="<?= $block->getViewFileUrl('images/logo-third-block.png'); ?>" class="act-block" alt="">
+                </div>
             </div>
         </div>
     </div>

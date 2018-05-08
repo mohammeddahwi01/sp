@@ -6329,180 +6329,206 @@ input#shipping-save-in-address-book:checked + label:before {
 
 
 /** Dashboard **/
-.dashboard .three-block-holder {
-    text-align: center;
-}
-.dashboard .three-block-holder > div {
-    width:17vw;
-    height:17vw;
-    max-width:100%;
-    display:inline-block;
-    margin-right:3rem;
-
-}
-.dashboard .three-block-holder > div:last-child {
-    margin-right:0;
-}
-
-.dashboard .three-block-holder .first-block {
-    background: #eef2f5;
-    font-size: 2.3rem;
-    font-family:SourceSansPro-Regular, serif;
-    margin-top: 6rem;
-    position: relative;
-    color: #555456;
-
-}
-.dashboard .three-block-holder .second-block{
-    background: #d3ecdb;
-    font-size: 2.3rem;
-    font-family:SourceSansPro-Regular, serif;
-    margin-top: 6rem;
-    position: relative;
-    color: #555456;
-}
-.dashboard .three-block-holder .third-block {
-    background: #efe5eb;
-    font-size: 2.3rem;
-    font-family:SourceSansPro-Regular, serif;
-    margin-top: 6rem;
-    position: relative;
-    color: #555456;
-
-}
-
-.pic-in-block {
-    max-width: 16%;
-    position: absolute;
-    bottom: 3rem;
-    left: 0;
-    right: 0;
-    margin:0 auto;
-
-}
-
-.dashboard .three-block-holder-mobile {
-    text-align: center;
-}
-.dashboard .three-block-holder-mobile div {
-    width: 25rem;
-    height: 25rem;
-    max-width: 100%;
-    display: block;
-    margin-top: 5rem;
-
-}
-.dashboard .three-block-holder-mobile .first-block {
-    background: #eef2f5;
-    font-size: 2.6rem;
-    font-family:SourceSansPro-Regular, serif;
-    position: relative;
-    color: #555456;
-    margin: 0 auto;
-}
-.dashboard .three-block-holder-mobile .second-block {
-    background: #d3ecdb;
-    font-size: 2.6rem;
-    font-family:SourceSansPro-Regular, serif;
-    position: relative;
-    color: #555456;
-    margin: 0 auto;
-    margin-top: 2rem;
-}
-.dashboard .three-block-holder-mobile .third-block {
-    background: #efe5eb;
-    font-size: 2.6rem;
-    font-family:SourceSansPro-Regular, serif;
-    position: relative;
-    color: #555456;
-    margin: 0 auto;
-    margin-top: 2rem;
-}
-.dashboard .three-block-holder-mobile .first-block .pic-in-block {
-    max-width: 18%;
-    position: relative;
-    bottom: 37rem;
-    left: 0;
-    right: 0;
-    margin:0 auto;
-    z-index: 1;
-
-}
-.dashboard .three-block-holder-mobile .second-block .pic-in-block {
-    max-width: 18%;
-    position: relative;
-    bottom: 37rem;
-    left: 0;
-    right: 0;
-    margin:0 auto;
-
-}
-.dashboard .three-block-holder-mobile .third-block .pic-in-block {
-    max-width: 18%;
-    position: relative;
-    bottom: 37rem;
-    left: 0;
-    right: 0;
-    margin:0 auto;
-}
-
-.dashboard .three-block-holder .first-block:hover {
-    background: #cbd9e0;
-}
-.dashboard .three-block-holder .second-block:hover {
-    background: #c1e4cc;
-}
-.dashboard .three-block-holder .third-block:hover {
-    background: #e5d5df;
-}
-.dashboard .three-block-holder-mobile .first-block:hover {
-    background: #cbd9e0;
-}
-.dashboard .three-block-holder-mobile .second-block:hover {
-    background: #c1e4cc;
-}
-.dashboard .three-block-holder-mobile .third-block:hover {
-    background: #e5d5df;
-}
-
-
-.accountanchor a {
-    display: block;
-    height: 17vw;
-    z-index: 2;
-    position: relative;
-}
-.text-on-anchors {
-    z-index: 1;
-    position: relative;
-    bottom: 17vw;
-    margin-top: 4vw;
-}
-.account-anchor-mobile a {
-    display: block;
-    height: 25rem;
-    z-index: 2;
-    position: relative;
-}
-.text-on-anchors-mobile {
-    z-index: 1;
-    position: relative;
-    bottom: 23rem;
-    margin-top: 3.9rem;
-}
 .hello-client {
-    text-transform: lowercase;
-    text-align: center;
-    color: #555456;
-    font-size: 4rem;
-    margin-top: 5rem;
-    font-family:SourceSansPro-Regular, serif;
+    color: #999999;
+    font-family: Source Sans Pro;
+    text-transform: uppercase;
+    font-size: 3em;
+    text-align:center;
+    margin-top:50px;
 }
 .update-your-acc {
+    color: #333333;
+    font-size: .7em;
+    text-align:center;
+}
+.diamond {
+    margin: 0 auto;
+    background: #ececec;
+    padding-top: 100%;
+    position: relative;
+    width: 100%;
+    background:linear-gradient(-135deg, transparent 50%, #ececec 0) top right,
+    linear-gradient(135deg, transparent 50%, #ececec 0) top left,
+    linear-gradient(-45deg, transparent 50%, #ececec 0) bottom right,
+    linear-gradient(45deg, transparent 50%, #ececec 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+.col-4.elements a:hover {
+    text-decoration: none;
+}
+.col-4.elements {
+    margin:3vw 0 0 0;
+    padding: 1vw;
+}
+.diamond:hover {
+    background: #fcd566;
+    background:linear-gradient(-135deg, transparent 50%, #fcd566 0) top right,
+    linear-gradient(135deg, transparent 50%, #fcd566 0) top left,
+    linear-gradient(-45deg, transparent 50%, #fcd566 0) bottom right,
+    linear-gradient(45deg, transparent 50%, #fcd566 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+.text-element {
+    position: absolute;
+    font-size: 2vw;
     text-align: center;
-    color: #555456;
-    font-size: 1.6rem;
-    font-family:SourceSansPro-Regular, serif;
+    top: 8vw;
+    width: 100%;
+}
+.no-act-block,
+.act-block {
+    position: relative;
+    max-width: 5vw;
+    bottom:9vw;
+}
+.image-logo,
+.image-logo-2 {
+    width:100%;
+    position: absolute;
+    text-align: center;
+}
+.image-logo-2 {
+    opacity: 0;
+}
+.diamond:hover .image-logo-2 {
+    opacity: 1;
+}
+.diamond:hover .image-logo {
+    opacity: 0;
+}
+.diamond a {
+    position: absolute;
+    height:72%;
+    width: 72%;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+    -ms-transform-origin: 0 100%;
+    -o-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    top: -8rem;
+    z-index: 10;
+}
+@media screen and (max-width:1199px) {
+    .diamond a {
+        top: -7rem;
+        height:73%;
+        width: 73%;
+    }
+}
+@media screen and (max-width:992px) {
+    .text-element {
+        top: 6vw;
+    }
+
+    .diamond a {
+        top: -5rem;
+    }
+
+    .hello-client {
+        font-size: 2.8em;
+    }
+
+    .update-your-acc {
+        font-size: .7em;
+    }
+}
+@media screen and (max-width:887px) {
+    .text-element {
+        top:8vw;
+    }
+}
+@media screen and (max-width:767px)  {
+    .col-4.elements {
+        max-width: 50%;
+    }
+    .row.justify-content-between.dashboard {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+    }
+    .text-element {
+        top:10vw;
+        font-size: 2.5vw;
+    }
+    .no-act-block,
+    .act-block {
+        bottom:12vw;
+        max-width: 6vw;
+    }
+    .diamond a {
+        top: -6rem;
+    }
+}
+@media screen and (max-width:721px) {
+    .text-element {
+        top:11vw;
+        font-size: 2.8vw;
+    }
+}
+@media screen and (min-width:480px)and (max-width:622px) {
+    .text-element {
+        top:13vw;
+        font-size: 2rem;
+    }
+    .no-act-block,
+    .act-block {
+        bottom:15vw;
+        max-width: 7vw;
+    }
+    .diamond a {
+        top: -6rem;
+    }
+}
+@media screen and (max-width:542px) {
+    .diamond a {
+        top: -5.5rem;
+    }
+}
+@media screen and (max-width:492px) {
+    .diamond a {
+        top: -5rem;
+    }
+    .text-element {
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width:440px) {
+    .diamond a {
+        top: -4.5rem;
+    }
+    .text-element {
+        font-size: 1.8rem;
+    }
+}
+@media screen and (max-width:402px) {
+    .diamond a {
+        top: -4rem;
+    }
+    .text-element {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width:348px) {
+    .diamond a {
+        top: -3.5rem;
+    }
+}
+@media screen and (max-width:310px) {
+    .diamond a {
+        top: -3rem;
+    }
+    .text-element {
+        font-size: 1.3rem;
+    }
 }
 /** END Dashboard **/
 
