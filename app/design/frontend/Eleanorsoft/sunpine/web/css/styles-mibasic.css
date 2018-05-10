@@ -1645,6 +1645,7 @@ label.label{
 }
 .cart-container #form-validate{
     width: 65%;
+    float: left;
 }
 .cart-container.container #form-validate #shopping-cart-table,
 .cart-container.container #form-validate #shopping-cart-table thead{
@@ -5410,6 +5411,9 @@ input#shipping-save-in-address-book:checked + label:before {
 }
 /*media phone*/
 @media (max-width: 767.98px) {
+    #gift-options-cart{
+        display: none;
+    }
     .sales-order-view .page-header{
         margin-top: 0;
     }
