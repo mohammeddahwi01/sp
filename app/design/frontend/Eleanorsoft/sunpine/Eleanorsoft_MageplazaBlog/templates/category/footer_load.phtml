@@ -1,3 +1,11 @@
+<?php /** @var \Eleanorsoft\MageplazaBlog\Block\Frontend $block */ ?>
+<?php
+$postCollection = $block->getCollection();
+$canUsePostCollection = $postCollection->getSize();
+?>
+
+<?php if ($canUsePostCollection > 6) {?>
 <div class="load-btn-container">
     <button class="load-post-btn">load more</button>
 </div>
+<?php }?>

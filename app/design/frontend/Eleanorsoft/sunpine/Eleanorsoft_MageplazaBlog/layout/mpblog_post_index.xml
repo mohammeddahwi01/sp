@@ -9,5 +9,10 @@
             </action>
         </referenceBlock>
         <move element="page.main.title" destination="page.wrapper" as="page.title.blog" after="header.container" />
+        <referenceContainer name="content">
+            <container name="container.blog.load.btn" htmlTag="div" htmlClass="blog-footer-container" after="mpblog.post.list">
+                <block class="Eleanorsoft\MageplazaBlog\Block\Frontend" name="blog_container_loadbtn" template="Eleanorsoft_MageplazaBlog::category/footer_load.phtml"/>
+            </container>
+        </referenceContainer>
     </body>
 </page>

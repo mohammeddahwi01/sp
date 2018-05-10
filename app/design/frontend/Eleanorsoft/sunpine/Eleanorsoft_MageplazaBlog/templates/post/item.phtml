@@ -2,6 +2,10 @@
 <?php
 $post = $block->getPost();
 $postCategory = $block->getPostFirstCategory($post);
+$categoryName = '';
+if ($postCategory->getName()){
+    $categoryName = ', in: ' . $block->escapeHtml($postCategory->getName());
+}
 ?>
 
 <div class="post-list-item post-hidden" data-category="<?php echo $postCategory->getId(); ?>" data-post="<?php echo $block->getPostIndex(); ?>">
@@ -11,7 +15,7 @@ $postCategory = $block->getPostFirstCategory($post);
         </div>
         <div class="post-list-item-description">
             <div class = "post-name"><?php echo $block->escapeHtml($post->getName()); ?></div>
-            <span class = "post-date"><?php echo $block->escapeHtml($block->getDateFormat($post->getPublishDate())); ?></span><span class = "post-category-name">, in: <?php echo $block->escapeHtml($postCategory->getName()); ?></span>
+            <span class = "post-date"><?php echo $block->escapeHtml($block->getDateFormat($post->getPublishDate())); ?></span><span class = "post-category-name"><?php echo $categoryName ?></span>
         </div>
     </a>
 </div>
