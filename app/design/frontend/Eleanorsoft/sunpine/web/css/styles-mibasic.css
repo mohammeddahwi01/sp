@@ -4468,7 +4468,7 @@ fieldset.field.street>legend.label{
 #iwd_opc_review_items>.iwd_opc_review_item>.iwd_opc_review_item_cell>.iwd_opc_review_item_qty,
 #iwd_opc_review_items>.iwd_opc_review_item>.iwd_opc_review_item_cell>.iwd_opc_review_item_subtotal{
     display: inline-block;
-    width: 32.6%;
+    width: 32.4%;
     color: #3c3c3c;
     text-align: center;
     text-transform: uppercase;
@@ -4665,7 +4665,7 @@ body{
     border-top: 1px solid #ececec;
 }
 #iwd_opc_review_totals .iwd_opc_grand_total{
-    transform: translateY(-90%);
+    transform: translateY(-50%);
 }
 .iwd_opc_small_button{
     background: #eef2f5!important;
@@ -5454,6 +5454,7 @@ input#shipping-save-in-address-book:checked + label:before {
 }
 /*media phone*/
 @media (max-width: 767.98px) {
+
     .eleanorsoft-clients-index-index .page-header,
     .eleanorsoft-project-index-index .page-header{
         margin: 0;
@@ -5731,6 +5732,14 @@ input#shipping-save-in-address-book:checked + label:before {
 
     #shipping-new-address-form > .field {
         margin-bottom: 7px !important;
+    }
+    #maincontent{
+        padding-left: 0;
+    }
+    #checkout{
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     #checkout .iwd_opc_column {
@@ -6382,6 +6391,9 @@ input#shipping-save-in-address-book:checked + label:before {
         margin-left: 10px !important;
         color: #444446 !important;
         transform: translate(-15%,35%);
+    }
+    .onepage-index-index .page-footer{
+        margin-bottom: 0;
     }
 }
 
