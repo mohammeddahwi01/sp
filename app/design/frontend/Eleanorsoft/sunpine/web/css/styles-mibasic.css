@@ -5606,7 +5606,7 @@ input#shipping-save-in-address-book:checked + label:before {
         overflow: hidden;
     }
     .page-footer{
-        margin-bottom: -40px;
+        margin-bottom: -70px;
     }
     #maincontent{
         margin-bottom: 50px;
