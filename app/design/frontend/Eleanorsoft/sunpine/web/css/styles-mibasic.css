@@ -3585,8 +3585,9 @@ fieldset.field.street>legend.label{
     border:1px solid #ececec;
     height: auto;
     width: 30%;
+    min-width: 331px;
     float: left;
-    margin: 15px;
+    margin: 7px;
 }
 #mpblog-list-container .post-list-item .img-container-post-list{
     width: 331px;
@@ -6393,7 +6394,7 @@ input#shipping-save-in-address-book:checked + label:before {
         transform: translate(-15%,35%);
     }
     .onepage-index-index .page-footer{
-        margin-bottom: 0;
+        margin-bottom: -70px;
     }
 }
 
