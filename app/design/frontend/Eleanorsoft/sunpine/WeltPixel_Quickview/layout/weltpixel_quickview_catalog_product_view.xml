@@ -5,7 +5,7 @@
     </head>
     <body>
         <referenceContainer name="main" htmlClass = "column main simple-product-quickview"/>
-        <move element="product.info.addtocart" destination="product.info.form.options" before="-"/>
+        <!--<move element="product.info.addtocart" destination="product.info.main" before="-"/>-->
         <move element="product.price.final" destination="product.info.addtocart.additional" after="-" />
         <move element="page.main.title" destination="product.info.main" before="-" />
         <move element="product.info.media" destination="main" before="-" />
