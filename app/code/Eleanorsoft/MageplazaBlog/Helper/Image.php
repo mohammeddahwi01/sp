@@ -44,7 +44,7 @@ class Image extends BaseImage
                     $_imageSrcHeight = $imageResize->getOriginalHeight();
 
                     $corners = $this->getCornersSquare($_imageSrcWidth, $_imageSrcHeight);
-                    $imageResize->constrainOnly(true);
+                    $imageResize->constrainOnly(false);
                     $imageResize->keepTransparency(true);
                     $imageResize->keepFrame(true);
                     $imageResize->keepAspectRatio(true);
@@ -63,7 +63,6 @@ class Image extends BaseImage
 
                     $image = $imageFile;
                 } catch (\Exception $e) {
-                    var_dump($e->getMessage());die;
                     $this->objectManager->get(LoggerInterface::class)->critical($e->getMessage());
                 }
             } else {
