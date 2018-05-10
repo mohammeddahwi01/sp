@@ -3,9 +3,7 @@
     <body>
         <referenceBlock name="footer_links" remove="true"/>
         <referenceContainer name="div.sidebar.main" remove="true"/>
-        <container name="container.blog.load.btn" htmlTag="div" htmlClass="blog-footer-container">
-         <block class="Magento\Framework\View\Element\Template" name="blog_container_loadbtn" template="Eleanorsoft_MageplazaBlog::category/footer_load.phtml"/>
-        </container>
+
         <move element="container.blog.load.btn" destination="page.wrapper" after="-"/>
         <move element="mpblog.sidebar.category" destination="columns.top" before="page.messages"/>
     </body>
