@@ -76,3 +76,7 @@ atlassian*
 /generated
 error_log
 /ai-bolit
+/app/cms-pages-folder/404
+/app/cms-pages-folder/aboutus
+/app/cms-pages-folder/faq
+/app/cms-pages-folder/returns
