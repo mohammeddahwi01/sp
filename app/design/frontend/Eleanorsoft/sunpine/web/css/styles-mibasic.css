@@ -1330,7 +1330,8 @@ label.label{
 .error-404-container{
     position: absolute!important;
     top:50%;
-    transform: translateY(-50%);
+    left:50%;
+    transform: translate(-50%,-50%);
 }
 .btn-error{
     margin-top: 50px!important;
@@ -2227,7 +2228,7 @@ label.label{
 }
 .insta-box{
     width: 96vw!important;
-    margin-left: -17vw!important;
+    max-width: 1966px;
     overflow: hidden;
 }
 .connect-insta{
@@ -4767,6 +4768,11 @@ body{
     display: flex;
     height: 100%;
 }
+.custom-full-container .homepage-container .homepage-list a{
+    color: inherit!important;
+    flex-basis: 100vw;
+    text-decoration-line: none!important;
+}
 .custom-full-container .homepage-container .homepage-list .homepage-list-field{
     height: 100%;
     flex-basis: 100vw;
@@ -5236,6 +5242,18 @@ input#shipping-save-in-address-book:checked + label:before {
 .iwd_opc_review_item_cell .iwd_opc_review_item_subtotal{
     display: none!important;
 }
+.eleanorsoft-clients-index-index #wholesale-form-container,
+.eleanorsoft-project-index-index #wholesale-form-container{
+    margin-top: 30px;
+}
+.eleanorsoft-clients-index-index .partner-with-us-abs,
+.eleanorsoft-project-index-index .partner-with-us-abs{
+    left:0;
+}
+.eleanorsoft-clients-index-index .partner-img-main,
+.eleanorsoft-project-index-index .partner-img-main{
+    margin-left: -25%;
+}
 /*media start*/
 @media (max-width: 1200px) {
     #shopping-cart-table>thead>tr>.col{
@@ -5435,6 +5453,14 @@ input#shipping-save-in-address-book:checked + label:before {
 }
 /*media phone*/
 @media (max-width: 767.98px) {
+    .eleanorsoft-clients-index-index .page-header,
+    .eleanorsoft-project-index-index .page-header{
+        margin: 0;
+    }
+    .eleanorsoft-clients-index-index .page-footer,
+    .eleanorsoft-project-index-index .page-footer{
+        margin-bottom: -50px;
+    }
     #gift-options-cart{
         display: none;
     }
@@ -5562,6 +5588,7 @@ input#shipping-save-in-address-book:checked + label:before {
         height: auto;
         display: block;
     }
+
     .custom-full-container .homepage-container .homepage-list .homepage-list-field{
         height: 100vh;
         margin-bottom: 0;
@@ -5589,7 +5616,6 @@ input#shipping-save-in-address-book:checked + label:before {
         overflow-x:hidden;
     }
     .insta-box{
-        margin-left: 0!important;
         overflow: hidden;
     }
     .mg-img-left{
@@ -6116,6 +6142,9 @@ input#shipping-save-in-address-book:checked + label:before {
     }
     .account #creditcart .fieldset > .legend{
         margin-bottom: 20px!important;
+    }
+    .cms-about-us .page-footer{
+        margin-bottom: -100px;
     }
     .about-main-image {
         margin-left: 0 !important;

@@ -1,0 +1,3 @@
+<referenceContainer name="page.wrapper">
+   <block class="Eleanorsoft\Instagram\Block\Widget" name="mibasics.instagram.about" before="mibasic.footer"/>
+</referenceContainer>

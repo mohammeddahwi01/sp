@@ -7,7 +7,6 @@ $renderPhoto = function ($photo) {
     <?php
 };
 ?>
-
 <div class="container-fluid insta-box no-pd">
     <div class="row">
         <div class="col-12 no-pd text-center connect-insta"><a href="#">connect with us on instagram @miBasics</a></div>
@@ -28,7 +27,7 @@ $renderPhoto = function ($photo) {
                 </div>
             <?php } ?>
             <?php if (isset($photos[3])) { ?>
-                <div class=" insta-sect no-pd">
+                <div class=" insta-sect-inner no-pd">
                     <a href="<?php print $this->escapeHtml($photos[3]->getLink()); ?>">
                         <div style="border:5px solid #fff;width:100%;height:100% !important;background: url('<?php print $this->escapeHtml($photos[3]->getStandardResolutionUrl()); ?>');"></div>
                     </a>
