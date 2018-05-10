@@ -2235,8 +2235,9 @@ label.label{
     margin: 10px 0;
 }
 .connect-insta>a,.connect-insta>a:hover{
-    color: #3c3c3e;
+    color: #999;
     font-size: 40px;
+    text-transform: uppercase;
     text-decoration: none;
     font-family:SourceSansPro-Regular, serif;
     font-weight: 100;
@@ -5459,7 +5460,7 @@ input#shipping-save-in-address-book:checked + label:before {
     }
     .eleanorsoft-clients-index-index .page-footer,
     .eleanorsoft-project-index-index .page-footer{
-        margin-bottom: -50px;
+        margin-bottom: -90px;
     }
     #gift-options-cart{
         display: none;
