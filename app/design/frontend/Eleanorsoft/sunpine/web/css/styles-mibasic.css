@@ -4682,6 +4682,7 @@ body{
     list-style: none;
     padding: 10px;
     background: #222;
+    cursor: pointer;
 }
 .sections-dropdown-container{
     align-self: center;
