@@ -2545,7 +2545,7 @@ select.select-qty-quickview{
     width: 100%;
     display: inline-block;
     margin-right: 0;
-    margin-bottom: 0!important;
+    margin-bottom: 3px!important;
 }
 [name="shippingAddress.lastname"],
 #iwd_opc_top{
@@ -2555,7 +2555,9 @@ select.select-qty-quickview{
 [name="shippingAddress.street.1"]{
     float:right;
 }
-
+.field[name="billingAddresscheckmo.company"]{
+    margin-bottom: 20px!important;
+}
 #customer-email-fieldset>.field>.label{
     padding: 0 25px 0 0;
 }
@@ -2593,6 +2595,7 @@ select.select-qty-quickview{
 }
 #shipping-new-address-form>.field.street{
     width: 100%;
+    margin-top: 15px;
 }
 #shipping-new-address-form>.field>.control{
     width: 100%;
@@ -2604,6 +2607,7 @@ select.select-qty-quickview{
 .field.street>.control>.field{
     width: 100%;
     display: inline-block;
+    margin-bottom: 0;
 }
 #shipping-new-address-form>.field>.control>.field.additional{
     width: 100%;
@@ -2611,6 +2615,12 @@ select.select-qty-quickview{
 }
 [name="shippingAddress.city"],[name="shippingAddress.company"]{
     width: 100%!important;
+}
+[name="shippingAddress.company"]{
+    margin-top: 5px;
+}
+[name="shippingAddress.postcode"],[name="shippingAddress.country_id"]{
+    margin-bottom: 5px!important;
 }
 [name="shippingAddress.postcode"],[name="shippingAddress.telephone"]{
     float:right
@@ -2889,6 +2899,7 @@ fieldset.field.street>legend.label{
 #billing-new-address-form>.street>.control>.additional{
     width: 100%;
     float:right;
+    margin-top: 5px;
 }
 .field.street.admin__control-fields.required>.control{
     margin-top: -13px;
@@ -4225,7 +4236,7 @@ fieldset.field.street>legend.label{
     border: 1px solid #c7c7c7;
     box-shadow: none;
     padding: 0 0 0 7px;
-    margin: 0;
+    margin:0;
 }
 #co-shipping-form>#shipping-new-address-form>.field>.control>.input-text:hover{
     cursor: pointer;
@@ -4312,14 +4323,19 @@ fieldset.field.street>legend.label{
 }
 .iwd_opc_universal_wrapper>.iwd_opc_button.active,.iwd_opc_universal_wrapper>.iwd_opc_button{
     border-radius: 0!important;
-    color: #3c3c3c!important;
-    font-family:SourceSansPro-Regular;
+    color: #fff!important;
+    font-family:SourceSansPro-Regular,sans-serif;
     text-transform: uppercase;
     border: none!important;
     font-size: 18px!important;
     line-height: 25px!important;
     height: 40px;
-    background: #d3ecdb!important;
+    background: #fcd566!important;
+}
+.iwd_opc_universal_wrapper>.iwd_opc_button.active:hover,.iwd_opc_universal_wrapper>.iwd_opc_button:hover,
+.iwd_opc_universal_wrapper>.iwd_opc_button.active:active,.iwd_opc_universal_wrapper>.iwd_opc_button:active,
+.iwd_opc_universal_wrapper>.iwd_opc_button.active:focus,.iwd_opc_universal_wrapper>.iwd_opc_button:focus{
+    background: #fcd566!important;
 }
 .checkout-cart-index .iwd_opc_column_content>.iwd_opc_universal_wrapper.iwd_opc_empty_cart_info{
     padding: 0!important;
@@ -4365,6 +4381,8 @@ fieldset.field.street>legend.label{
     font-family:SourceSansPro-Regular,serif;
     border-radius: 0;
     border-color: #707070;
+    background: #fcd566!important;
+
 }
 #discount-form{
     display: block;
@@ -4372,17 +4390,20 @@ fieldset.field.street>legend.label{
 #discount-form>.iwd_opc_universal_wrapper.iwd_opc_small_button_container>button{
     border-radius: 0;
 }
-#discount-form>.iwd_opc_universal_wrapper.iwd_opc_small_button_container>.iwd_opc_small_button.active{
-    background: #eef2f5;
+#discount-form>.iwd_opc_universal_wrapper.iwd_opc_small_button_container>.iwd_opc_small_button.active,
+#discount-form>.iwd_opc_universal_wrapper.iwd_opc_small_button_container>.iwd_opc_small_button{
+    background: #fcd566!important;
     font-weight: 600;
     font-family:SourceSansPro-Regular, serif!important;
-    color: #3c3c3c;
+    color: #fff!important;
     border:none;
 }
 #discount-form>.iwd_opc_universal_wrapper.iwd_opc_small_button_container>.iwd_opc_small_button.active:hover,
-#discount-form>.iwd_opc_universal_wrapper.iwd_opc_small_button_container>.iwd_opc_small_button.active:focus{
-    color: #2a2a2a;
-    background: #dde1e4;
+#discount-form>.iwd_opc_universal_wrapper.iwd_opc_small_button_container>.iwd_opc_small_button.active:focus,
+#discount-form>.iwd_opc_universal_wrapper.iwd_opc_small_button_container>.iwd_opc_small_button:hover,
+#discount-form>.iwd_opc_universal_wrapper.iwd_opc_small_button_container>.iwd_opc_small_button:focus{
+    color: #fff;
+    background: #fc9f24 !important;;
 }
 #discount-form>.field{
     width: 100%;
@@ -4407,7 +4428,6 @@ fieldset.field.street>legend.label{
     font-weight: 100;
     font-size: 1.5rem;
     color: #3c3c3c;
-    background: #d3ecdb;
     text-align: center;
     text-transform: uppercase;
     font-family:SourceSansPro-Regular, serif;
@@ -5212,6 +5232,9 @@ input#shipping-save-in-address-book:checked + label:before {
 }
 .container.all-about-price .row.total-price .col-md-3.col-5.all-price.grand_total{
     text-align: right;
+}
+.iwd_opc_review_item_cell .iwd_opc_review_item_subtotal{
+    display: none!important;
 }
 /*media start*/
 @media (max-width: 1200px) {
