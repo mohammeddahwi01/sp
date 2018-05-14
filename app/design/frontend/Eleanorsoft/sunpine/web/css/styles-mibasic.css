@@ -3661,7 +3661,8 @@ fieldset.field.street>legend.label{
     border: 1px solid #c7c7c7;
     background: #fff;
     margin-top: -125px;
-    width: 11vw;
+    min-width: 11vw;
+    width: auto;
     padding: 10px 20px;
     font-size: 15px;
     font-family: SourceSansPro-Regular, serif;
@@ -6349,6 +6350,11 @@ input#shipping-save-in-address-book:checked + label:before {
     }
 }
 @media (max-width: 420px){
+    #mpblog-list-container .post-list-item{
+        width: 100%;
+        margin: 5vw 0;
+        min-width: 295px;
+    }
     .logo{
         width: 130px;
         margin-top: 30px!important;
