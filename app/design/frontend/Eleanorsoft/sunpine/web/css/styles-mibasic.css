@@ -5257,6 +5257,14 @@ input#shipping-save-in-address-book:checked + label:before {
 .eleanorsoft-project-index-index .partner-img-main{
     margin-left: -25%;
 }
+.customer-account-create .block.social-login-authentication-channel.account-social-login, .customer-account-login .block.social-login-authentication-channel.account-social-login{
+    display: none;
+}
+.customer-account-create .page-title-wrapper, .customer-account-login .page-title-wrapper{
+    position: relative;
+    text-align: center;
+    margin-top: 150px;
+}
 /*media start*/
 @media (max-width: 1200px) {
     #shopping-cart-table>thead>tr>.col{
