@@ -5352,6 +5352,7 @@ input#shipping-save-in-address-book:checked + label:before {
     }
     .block-search{
         width: 57%!important;
+        z-index: 999999;
     }
     .block-search .action.search{
         /*left: 58vw!important;*/
@@ -7780,5 +7781,9 @@ div.post-hidden {
     .block-search{
         top: 44px;
         width: 58%!important;
+        z-index: 99999999;
+    }
+    .block-search input{
+        z-index: 999999;
     }
 }
