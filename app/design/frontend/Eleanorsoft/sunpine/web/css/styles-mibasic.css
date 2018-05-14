@@ -5268,6 +5268,10 @@ input#shipping-save-in-address-book:checked + label:before {
 #signin-header-popup{
     text-align: center;
 }
+.new-customer-text span{
+    cursor: pointer;
+    color: #999999;
+}
 /*media start*/
 @media (max-width: 1200px) {
     #shopping-cart-table>thead>tr>.col{
