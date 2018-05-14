@@ -5265,6 +5265,9 @@ input#shipping-save-in-address-book:checked + label:before {
     text-align: center;
     margin-top: 150px;
 }
+#signin-header-popup{
+    text-align: center;
+}
 /*media start*/
 @media (max-width: 1200px) {
     #shopping-cart-table>thead>tr>.col{
@@ -7747,5 +7750,31 @@ div.post-hidden {
     .account .row.shipping>div,.account .row.user-address>div,
     .account .row.payment>div{
         font-size: 16px!important;
+    }
+}
+@media (max-width: 350px) {
+    .flex-right-top-menu{
+        position: absolute;
+        top: 45px;
+        right: 0;
+    }
+    .panel.header{
+        height: 150px;
+    }
+    .right-top-field>a:first-child{
+        right: 50px;
+    }
+    .right-top-field>span{
+        right: 40px;
+    }
+    .right-top-field>a:nth-child(4){
+        right: 0;
+    }
+    .sections-dropdown-container{
+        margin-top: -50px;
+    }
+    .block-search{
+        top: 44px;
+        width: 58%!important;
     }
 }
