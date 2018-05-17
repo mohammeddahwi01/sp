@@ -2,14 +2,8 @@
 
 namespace Eleanorsoft\MageplazaBlog\Block;
 
-use Magento\Cms\Model\Template\FilterProvider;
-use Magento\Customer\Api\CustomerRepositoryInterface;
-use Magento\Framework\View\Element\Template\Context;
 use Mageplaza\Blog\Block\Frontend as BaseBlock;
 use Eleanorsoft\MageplazaBlog\Block\Post\Item as PostItem;
-use Mageplaza\Blog\Helper\Data as HelperData;
-use Mageplaza\Blog\Model\CommentFactory;
-use Mageplaza\Blog\Model\LikeFactory;
 use Mageplaza\Blog\Model\ResourceModel\Post\Collection as ResourceCollection;
 
 /**
@@ -22,12 +16,6 @@ use Mageplaza\Blog\Model\ResourceModel\Post\Collection as ResourceCollection;
  */
 class Frontend extends BaseBlock
 {
-
-    public function __construct(Context $context, FilterProvider $filterProvider, CommentFactory $commentFactory, LikeFactory $likeFactory, CustomerRepositoryInterface $customerRepository, HelperData $helperData, array $data = [])
-    {
-        parent::__construct($context, $filterProvider, $commentFactory, $likeFactory, $customerRepository, $helperData, $data);
-    }
-
     /**
      * Get post collection.
      *
@@ -37,6 +25,10 @@ class Frontend extends BaseBlock
     public function getPostCollection()
     {
         $collection = parent::getPostCollection();
+
+        if (!$this->helperData->isModuleEnabled()) {
+            return $collection;
+        }
 
         return $collection
             ->setPageSize($this->getPostPerPageCount())
@@ -121,15 +113,5 @@ class Frontend extends BaseBlock
         }
 
         return $html;
-    }
-
-    /**
-     * Override this function to apply collection for each type
-     *
-     * @return \Mageplaza\Blog\Model\ResourceModel\Post\Collection
-     */
-    public function getCollection()
-    {
-        return $this->helperData->getPostCollection();
     }
 }
