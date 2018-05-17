@@ -7,8 +7,14 @@ define([
 
     return Component.extend({
         initialize: function (config) {
+            this.captchaEnabled = false;
+
             this._super();
             this.prepareFunctions(config);
+
+            if (config.captchaSiteKey) {
+                this.enableCaptcha(config);
+            }
         },
 
         afterSend: function (jForm) {
@@ -25,6 +31,42 @@ define([
 
         onSendSuccess: function () {
             return true;
+        },
+
+        validateForm: function (jForm) {
+            return jForm.validation() && jForm.validation('isValid');
+        },
+
+        showErrorMessage: function (jForm, message) {
+            this.showMessage(jForm, message, 'error');
+        },
+
+        showSuccessMessage: function (jForm, message) {
+            this.showMessage(jForm, message, 'success');
+        },
+
+        showMessage: function (jForm, message, type) {
+            var jMessage = jForm.find('.message'),
+                cssClass = 'message message-' + type + ' ' + type;
+
+            jMessage.find('div').html(message);
+            jMessage.removeClass();
+            jMessage.addClass(cssClass);
+            $('.page.messages').show();
+        },
+
+        enableCaptcha: function (config) {
+            var self = this,
+                jForm = $(config.formSelector);
+
+            grecaptcha.render(config.captchaRenderSelectorId, {
+                'sitekey': config.captchaSiteKey,
+                'callback': function(token) {
+                    self.captchaEnabled = true;
+
+                    self.submitForm(jForm);
+                }
+            });
         },
 
         prepareFunctions: function (config) {
@@ -45,85 +87,60 @@ define([
             }
         },
 
-        validateForm: function (jForm) {
-            return jForm.validation() && jForm.validation('isValid');
-        },
-
-        getFormValues: function (jForm) {
-            var values = {};
-
-            $.each(jForm.serializeArray(), function(i, field) {
-                if (field.name in values) {
-                    if (!Array.isArray(values[field.name])) {
-                        var firstValue = values[field.name];
-
-                        values[field.name] = [];
-
-                        values[field.name].push(firstValue);
-                        values[field.name].push(field.value);
-                    } else {
-                        values[field.name].push(field.value);
-                    }
-                } else {
-                    values[field.name] = field.value;
-                }
-            });
-
-            return values;
-        },
-
         submitForm: function (form) {
             var self = this,
-                jForm = $(form),
-                jSubmit = jForm.find(':submit');
+                jForm = $(form);
 
             if (self.beforeSend(jForm) !== false && this.validateForm(jForm)) {
-                jSubmit.prop('disabled', true);
+                jForm.find(':submit').prop('disabled', true);
+                self.makeRequest(jForm);
+            }
 
-                $.post(jForm.attr('action'), this.getFormValues(jForm), function (rawResponse) {
-                    var response = (typeof rawResponse !== 'object') ? JSON.parse(rawResponse) : rawResponse,
-                        isSuccess = response.success,
-                        firstMessage = response.messages[0];
-
-                    if (isSuccess) {
-                        if (self.onSendSuccess() !== false) {
-                            self.showSuccessMessage(jForm, firstMessage);
-                        }
-                    } else {
-                        if (self.onSendError() !== false) {
-                            self.showErrorMessage(jForm, firstMessage);
-                        }
-                    }
-                }).fail(function (error) {
-                    if (self.onSendError() !== false) {
-                        self.showErrorMessage(jForm, error.responseText);
-                    }
-                }).always(function () {
-                    jSubmit.prop('disabled', false);
-
-                    if (self.afterSend(jForm)) {
-                        jForm.find('[type=password]').val('');
-                    }
-                });
+            if (self.captchaEnabled) {
+                grecaptcha.reset();
             }
         },
 
-        showErrorMessage: function (jForm, message) {
-            this.showMessage(jForm, message, 'error');
+        processFailResponse: function (jForm, error) {
+            if (this.onSendError() !== false) {
+                this.showErrorMessage(jForm, error.responseText);
+            }
         },
 
-        showSuccessMessage: function (jForm, message) {
-            this.showMessage(jForm, message, 'success');
+        processAfterResponse: function (jForm) {
+            jForm.find(':submit').prop('disabled', false);
+
+            if (this.afterSend(jForm)) {
+                jForm.find('[type=password]').val('');
+            }
         },
 
-        showMessage: function (jForm, message, type) {
-            var jMessage = jForm.find('.message'),
-                cssClass = 'message message-' + type + ' ' + type;
+        makeRequest: function (jForm) {
+            var self = this;
 
-            jMessage.find('div').html(message);
-            jMessage.removeClass();
-            jMessage.addClass(cssClass);
-            $('.page.messages').show();
+            $.post(jForm.attr('action'), jForm.serialize(), function (rawResponse) {
+                self.processResponse(jForm, rawResponse);
+            }).fail(function (error) {
+                self.processFailResponse(jForm, error);
+            }).always(function () {
+                self.processAfterResponse(jForm);
+            });
+        },
+
+        processResponse: function (jForm, rawResponse) {
+            var response = (typeof rawResponse !== 'object') ? JSON.parse(rawResponse) : rawResponse,
+                isSuccess = response.success,
+                firstMessage = response.messages[0];
+
+            if (isSuccess) {
+                if (this.onSendSuccess() !== false) {
+                    this.showSuccessMessage(jForm, firstMessage);
+                }
+            } else {
+                if (this.onSendError() !== false) {
+                    this.showErrorMessage(jForm, firstMessage);
+                }
+            }
         }
     });
 });
