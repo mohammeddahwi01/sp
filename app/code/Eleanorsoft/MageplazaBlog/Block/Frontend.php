@@ -114,4 +114,14 @@ class Frontend extends BaseBlock
 
         return $html;
     }
+	
+	/**
+     * Override this function to apply collection for each type
+     *
+     * @return \Mageplaza\Blog\Model\ResourceModel\Post\Collection
+     */
+    public function getCollection()
+    {
+        return $this->helperData->getPostCollection();
+    }
 }
