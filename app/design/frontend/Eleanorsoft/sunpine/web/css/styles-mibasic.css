@@ -5282,6 +5282,16 @@ input#shipping-save-in-address-book:checked + label:before {
 .weltpixel-quickview-catalog-product-view .fotorama__stage{
     margin: 0 auto;
 }
+.page-products .column.main.custom-class{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.catalogsearch-result-index .column.main{
+    width: 100%!important;
+}
+.catalogsearch-result-index .page-title{
+    padding-left: 80px;
+}
 /*media start*/
 @media (max-width: 1200px) {
     #shopping-cart-table>thead>tr>.col{
