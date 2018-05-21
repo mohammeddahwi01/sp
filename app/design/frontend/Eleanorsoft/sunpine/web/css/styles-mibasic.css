@@ -5272,6 +5272,16 @@ input#shipping-save-in-address-book:checked + label:before {
     cursor: pointer;
     color: #999999;
 }
+.weltpixel-quickview-catalog-product-view .column.main{
+    padding-right: 0;
+}
+.weltpixel-quickview-catalog-product-view .page-wrapper .page-main{
+    padding-left: 0;
+    padding-top: 20px;
+}
+.weltpixel-quickview-catalog-product-view .fotorama__stage{
+    margin: 0 auto;
+}
 /*media start*/
 @media (max-width: 1200px) {
     #shopping-cart-table>thead>tr>.col{
