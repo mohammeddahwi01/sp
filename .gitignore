@@ -72,6 +72,7 @@ atlassian*
 /app/*.*
 /app/etc
 /app/code/Eleanorsoft/DiCompile
+/app/design/frontend/Eleanorsoft/sunpine/web/js/kofaq.js
 /log
 /generated
 error_log
