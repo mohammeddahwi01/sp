@@ -18,10 +18,11 @@
 // @codingStandardsIgnoreFile
 
 ?>
+<?php $_product = $block->getProduct() ?>
 <div class="addthis_toolbox">
     <div class="custom_images">
-        <a class="action share facebook" title="Share to Facebook"><span class="icon-facebook"></span></a>
-        <a class="action share twitter" title="Share to Facebook"><span class="icon-twitter"></span></a>
+        <a style="width: 40px;" class="addthis_button_facebook action share facebook" title="Share to Facebook"><span class="icon-facebook"></span></a>
+        <a style="width: 40px;" class="addthis_button_twitter action share twitter" title="Share to Twitter"><span class="icon-twitter"></span></a>
         <a href="javascript:window.print()" class="action print"><span class="icon-print"></span></a>
         <?php if ($block->canEmailToFriend()): ?>
             <a href="<?php /* @escapeNotVerified */ echo $this->helper('Magento\Catalog\Helper\Product')->getEmailToFriendUrl($_product) ?>"
