@@ -1690,7 +1690,8 @@ label.label{
     font-family:SourceSansPro-Regular, serif; }
 
 .products.wrapper.grid.products-grid>.products.list.items.product-items>.item.product.product-item{
-    width: 31.6%;
+    width: 30%;
+    margin-left: 3%;
 }
 
 .page-products .product-item-info{

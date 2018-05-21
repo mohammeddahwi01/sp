@@ -7,11 +7,14 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="columns">
-            <block class="Magento\Framework\View\Element\Template"
-                   name="layered.navigation.opener"
-                   before="-"
-                   template="Eleanorsoft_LayeredNavigation::layer/opener.phtml" />
-        </referenceContainer>
+            <referenceContainer name="page.wrapper">
+                <block class="Magento\Framework\View\Element\Template"
+                       name="layered.navigation.opener"
+                       before="-"
+                       template="Eleanorsoft_LayeredNavigation::layer/opener.phtml" />
+                <container name="layered.filters.custom" htmlTag="div" htmlClass="sidebar-main" />
+            </referenceContainer>
+            <move element="catalogsearch.leftnav" destination="layered.filters.custom" />
+        <referenceContainer name="sidebar.main" remove="true"/>
     </body>
 </page>
