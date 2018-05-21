@@ -2,7 +2,18 @@
 
 namespace Eleanorsoft\MageplazaBlog\Helper;
 
+use Mageplaza\Blog\Model\TagFactory;
+use Mageplaza\Blog\Model\PostFactory;
+use Mageplaza\Blog\Model\TopicFactory;
+use Mageplaza\Blog\Model\AuthorFactory;
+use Mageplaza\Blog\Model\CategoryFactory;
+use Magento\Framework\Filter\TranslitUrl;
+use Magento\Framework\App\Helper\Context;
+use Magento\Framework\ObjectManagerInterface;
 use Mageplaza\Blog\Helper\Data as BaseHelper;
+use Magento\Store\Model\StoreManagerInterface;
+use Magento\Framework\Stdlib\DateTime\DateTime;
+use Eleanorsoft\Lib\Helper\Data as ModuleHelper;
 
 /**
  * Class Data
@@ -18,6 +29,67 @@ class Data extends BaseHelper
      * Frontend route.
      */
     const FRONTEND_ROUTE = 'es_mpblog';
+
+    /**
+     * Module name config path.
+     */
+    const MODULE_NAME_CONFIG_PATH = 'eleanorsoft_mageplaza_blog';
+
+    /**
+     * @var ModuleHelper
+     */
+    protected $moduleHelper;
+
+    public function __construct(
+        Context $context,
+        DateTime $dateTime,
+        TagFactory $tagFactory,
+        PostFactory $postFactory,
+        TranslitUrl $translitUrl,
+        ModuleHelper $moduleHelper,
+        TopicFactory $topicFactory,
+        AuthorFactory $authorFactory,
+        CategoryFactory $categoryFactory,
+        StoreManagerInterface $storeManager,
+        ObjectManagerInterface $objectManager
+    ) {
+        $this->moduleHelper = $moduleHelper;
+
+        $this->_construct();
+        parent::__construct(
+            $context,
+            $objectManager,
+            $storeManager,
+            $postFactory,
+            $categoryFactory,
+            $tagFactory,
+            $topicFactory,
+            $authorFactory,
+            $translitUrl,
+            $dateTime
+        );
+    }
+
+    /**
+     * Pseudo constructor for additional configuration.
+     *
+     * @author Eugene Polischuk <eugene.polischuk@eleanorsoft.com>
+     */
+    public function _construct()
+    {
+        $this->moduleHelper->setModuleName(self::MODULE_NAME_CONFIG_PATH);
+    }
+
+    /**
+     * Get if module is enabled.
+     *
+     * @return bool
+     * @author Eugene Polischuk <eugene.polischuk@eleanorsoft.com>
+     */
+    public function isModuleEnabled()
+    {
+        return $this->moduleHelper->isModuleEnabled();
+    }
 
     /**
      * Get post first category.

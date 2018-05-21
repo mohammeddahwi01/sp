@@ -47,6 +47,10 @@ class Widget extends BaseBlock
      */
     public function getCategoryTreeHtml($tree)
     {
+        if (!$this->helperData->isModuleEnabled()) {
+            return parent::getCategoryTreeHtml($tree);
+        }
+
         if (!$tree) {
             return __('No Categories.');
         }

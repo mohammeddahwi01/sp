@@ -28,12 +28,6 @@
 
         <div class="block-content filter-content">
             <?php echo $block->getChildHtml('state') ?>
-
-            <?php if ($block->getTempLayer()->getState()->getFilters()): ?>
-                <div class="block-actions filter-actions">
-                    <a href="<?php /* @escapeNotVerified */ echo $block->getClearUrl() ?>" class="action clear filter-clear"><span><?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
-                </div>
-            <?php endif; ?>
             <?php $wrapOptions = false; ?>
             <?php foreach ($block->getTempLayerFilters() as $filter): ?>
         <?php if (!$wrapOptions): ?>

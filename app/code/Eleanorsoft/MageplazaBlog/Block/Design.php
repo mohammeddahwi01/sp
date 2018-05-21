@@ -20,7 +20,9 @@ class Design extends BaseBlock
      */
     protected function _prepareLayout()
     {
-        $this->setTemplate('design.phtml');
+        if ($this->helperData->isModuleEnabled()) {
+            $this->setTemplate('design.phtml');
+        }
 
         return parent::_prepareLayout();
     }

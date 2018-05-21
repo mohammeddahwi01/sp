@@ -25,6 +25,20 @@ class Data extends AbstractHelper
     static $IS_ENABLED_FIELD = 'enabled';
 
     /**
+     * Module name.
+     *
+     * @var string
+     */
+    protected $moduleName;
+
+    /**
+     * Default config group.
+     *
+     * @var string
+     */
+    protected $defaultGroup;
+
+    /**
      * @var BackendHelper
      */
     protected $backendHelper;
@@ -57,7 +71,19 @@ class Data extends AbstractHelper
         $this->backendHelper = $backendHelper;
         $this->reinitableConfig = $reinitableConfig;
 
+        $this->_construct();
         parent::__construct($context);
+    }
+
+    /**
+     * Pseudo constructor for additional configuration.
+     *
+     * @author Eugene Polischuk <eugene.polischuk@eleanorsoft.com>
+     */
+    public function _construct()
+    {
+        $this->setDefaultGroup('general');
+        $this->setModuleName('eleanorsoft_lib');
     }
 
     /**
@@ -197,7 +223,18 @@ class Data extends AbstractHelper
      */
     public function getDefaultGroup()
     {
-        return 'general';
+        return $this->defaultGroup;
+    }
+
+    /**
+     * Set default config group.
+     *
+     * @param string $defaultGroup
+     * @author Eugene Polischuk <eugene.polischuk@eleanorsoft.com>
+     */
+    public function setDefaultGroup($defaultGroup)
+    {
+        $this->defaultGroup = $defaultGroup;
     }
 
     /**
@@ -208,6 +245,17 @@ class Data extends AbstractHelper
      */
     public function getModuleName()
     {
-        return 'eleanorsoft_lib';
+        return $this->moduleName;
+    }
+
+    /**
+     * Set module name.
+     *
+     * @param string $moduleName
+     * @author Eugene Polischuk <eugene.polischuk@eleanorsoft.com>
+     */
+    public function setModuleName($moduleName)
+    {
+        $this->moduleName = $moduleName;
     }
 }
