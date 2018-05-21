@@ -5,6 +5,7 @@ namespace Eleanorsoft\AddThis\Block;
 use Magento\Framework\Registry;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
+use Magento\Store\Model\ScopeInterface;
 
 /**
  * Class Widget
@@ -16,6 +17,8 @@ use Magento\Framework\View\Element\Template\Context;
  */
 class Widget extends Template
 {
+
+    const ADDTHIS_WIDGET = '//s7.addthis.com/js/300/addthis_widget.js#pubid=';
     /**
      * @var Registry
      */
@@ -48,10 +51,8 @@ class Widget extends Template
     public function _construct()
     {
         parent::_construct();
-
-        $this->setScriptUrl(
-            '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5aa77e77c76cf772'
-        );
+        $account_id = self::ADDTHIS_WIDGET . $this->_scopeConfig->getValue('addthis/options/account_id', ScopeInterface::SCOPE_STORE);
+        $this->setScriptUrl($account_id);
     }
 
     /**
@@ -126,6 +127,23 @@ class Widget extends Template
     {
         $html = $this->getWidgetRendererHtml();
 
+        if (!$this->isScriptAlreadyLoaded()) {
+            $this->setScriptAlreadyLoaded();
+
+            $html .= '<script type="text/javascript" src="' . $this->getScriptUrl() . '"></script>';
+        }
+
+        return $html;
+    }
+
+    /**
+     * Get widget script html.
+     *
+     * @return string
+     */
+    public function getWidgetScript()
+    {
+        $html = '';
         if (!$this->isScriptAlreadyLoaded()) {
             $this->setScriptAlreadyLoaded();
 
