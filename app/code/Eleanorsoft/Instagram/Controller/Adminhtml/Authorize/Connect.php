@@ -53,8 +53,13 @@ class Connect extends Action
      */
     public function execute()
     {
+        $this->moduleConfig->setStoreId(
+            $this->getRequest()->getParam('store')
+        );
+
         $this->moduleConfig->deleteError();
         $this->moduleConfig->deleteToken();
+
         $this->moduleConfig->setClientIdValue(
             $this->getRequest()->getParam('client_id')
         );

@@ -54,6 +54,31 @@ class AuthorizeButton extends Field
     }
 
     /**
+     * Block pseudo construct.
+     *
+     * @author Eugene Polischuk <eugene.polischuk@eleanorsoft.com>
+     */
+    protected function _construct()
+    {
+        parent::_construct();
+
+        $this->moduleConfig->setStoreId(
+            $this->getSelectedStoreId()
+        );
+    }
+
+    /**
+     * Get selected in switcher store id.
+     *
+     * @return string
+     * @author Eugene Polischuk <eugene.polischuk@eleanorsoft.com>
+     */
+    public function getSelectedStoreId()
+    {
+        return $this->getRequest()->getParam('store');
+    }
+
+    /**
      * Remove scope label.
      *
      * @param  AbstractElement $element

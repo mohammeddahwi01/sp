@@ -6,19 +6,19 @@
             <label>Instagram</label>
             <tab>general</tab>
             <resource>Eleanorsoft_Instagram::instagram_config</resource>
-            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Configuration</label>
-                <field id="client_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="client_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client ID</label>
                 </field>
-                <field id="client_secret" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="client_secret" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
-                <field id="is_enabled" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="is_enabled" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Module Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="authorize" translate="label" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="authorize" translate="label" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
                     <frontend_model>Eleanorsoft\Instagram\Block\System\Config\Form\AuthorizeButton</frontend_model>
                 </field>
             </group>

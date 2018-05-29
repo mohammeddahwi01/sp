@@ -59,7 +59,10 @@ class Index extends Action
      */
     public function execute()
     {
+        $storeId = $this->getRequest()->getParam('store');
         $oAuthCode = $this->getRequest()->getParam('code');
+
+        $this->moduleConfig->setStoreId($storeId);
 
         if (isset($oAuthCode)) {
             $data = $this->instagramApi->getOAuthToken($oAuthCode);
@@ -93,7 +96,11 @@ class Index extends Action
         return $this->resultFactory->create(ResultFactory::TYPE_REDIRECT)
             ->setUrl(
                 $this->_url->getUrl(
-                    'adminhtml/system_config/edit/section/' . ModuleConfig::SECTION
+                    'adminhtml/system_config/edit',
+                    [
+                        'section' => ModuleConfig::SECTION,
+                        'store' => $storeId
+                    ]
                 )
             );
     }

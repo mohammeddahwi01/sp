@@ -6,6 +6,7 @@ use \Magento\Store\Model\ScopeInterface;
 use \Magento\Framework\App\Helper\Context;
 use \Magento\Framework\App\Helper\AbstractHelper;
 use \Magento\Backend\Helper\Data as BackendHelper;
+use \Magento\Framework\App\Config\ScopeConfigInterface;
 use \Magento\Framework\App\Config\Storage\WriterInterface;
 use \Magento\Framework\App\Config\ReinitableConfigInterface;
 
@@ -60,6 +61,16 @@ class Config extends AbstractHelper
     const SECTION = 'eleanorsoft_instagram';
 
     /**
+     * @var string
+     */
+    protected $storeId;
+
+    /**
+     * @var string
+     */
+    protected $storeScope;
+
+    /**
      * @var BackendHelper
      */
     protected $backendHelper;
@@ -93,6 +104,53 @@ class Config extends AbstractHelper
         $this->reinitableConfig = $reinitableConfig;
 
         parent::__construct($context);
+        $this->_construct();
+    }
+
+    /**
+     * Helper pseudo construct.
+     *
+     * @author Eugene Polischuk <eugene.polischuk@eleanorsoft.com>
+     */
+    public function _construct()
+    {
+        $this->setStoreId(null);
+    }
+
+    /**
+     * Get store id.
+     *
+     * @return string
+     * @author Eugene Polischuk <eugene.polischuk@eleanorsoft.com>
+     */
+    public function getStoreId()
+    {
+        return $this->storeId;
+    }
+
+    /**
+     * Get store scope.
+     *
+     * @return string
+     * @author Eugene Polischuk <eugene.polischuk@eleanorsoft.com>
+     */
+    public function getStoreScope()
+    {
+        return $this->storeScope;
+    }
+
+    /**
+     * Set store id.
+     *
+     * @param $storeId
+     * @author Eugene Polischuk <eugene.polischuk@eleanorsoft.com>
+     */
+    public function setStoreId($storeId)
+    {
+        $this->storeId = $storeId;
+        $this->storeScope = $this->getStoreId() ?
+            ScopeInterface::SCOPE_STORES :
+            ScopeConfigInterface::SCOPE_TYPE_DEFAULT;
     }
 
     /**
@@ -314,13 +372,12 @@ class Config extends AbstractHelper
      * Get config value.
      *
      * @param $path
-     * @param string $scope
      * @return mixed
      * @author Eugene Polischuk <eugene.polischuk@eleanorsoft.com>
      */
-    public function getValue($path, $scope = ScopeInterface::SCOPE_STORE)
+    public function getValue($path)
     {
-        return $this->scopeConfig->getValue($path, $scope);
+        return $this->scopeConfig->getValue($path, $this->getStoreScope(), $this->getStoreId());
     }
 
     /**
@@ -332,7 +389,7 @@ class Config extends AbstractHelper
      */
     public function setValue($path, $value)
     {
-        $this->configWriter->save($path, $value);
+        $this->configWriter->save($path, $value, $this->getStoreScope(), $this->getStoreId());
     }
 
     /**
@@ -343,7 +400,7 @@ class Config extends AbstractHelper
      */
     public function deleteByPath($path)
     {
-        $this->configWriter->delete($path);
+        $this->configWriter->delete($path, $this->getStoreScope(), $this->getStoreId());
     }
 
     /**
@@ -378,9 +435,7 @@ class Config extends AbstractHelper
      */
     public function getClearedString($string)
     {
-        $string = trim($string);
-
-        return $string;
+        return trim($string);
     }
 
     /**
@@ -405,7 +460,9 @@ class Config extends AbstractHelper
         $url = $this->backendHelper->getUrl(self::MODULE_NAME . '/authorize/index');
 
         $urlParts = explode('key', $url);
+        $resultUrl = reset($urlParts);
+        $resultUrl .= 'store/' . $this->getStoreId();
 
-        return reset($urlParts);
+        return $resultUrl;
     }
 }

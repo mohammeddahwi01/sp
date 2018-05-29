@@ -67,6 +67,20 @@ class Widget extends Template
     }
 
     /**
+     * Block pseudo construct.
+     *
+     * @author Eugene Polischuk <eugene.polischuk@eleanorsoft.com>
+     */
+    protected function _construct()
+    {
+        parent::_construct();
+
+        $this->moduleConfig->setStoreId(
+            $this->_storeManager->getStore()->getId()
+        );
+    }
+
+    /**
      * Get Instagram photos count.
      *
      * @return int
