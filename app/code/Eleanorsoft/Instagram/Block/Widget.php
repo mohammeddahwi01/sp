@@ -21,7 +21,7 @@ class Widget extends Template
     /**
      * Default photos count.
      */
-    const DEFAULT_PHOTOS_COUNT = 5;
+    const DEFAULT_PHOTOS_COUNT = 7;
 
     /**
      * Instagram photos count.

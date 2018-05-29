@@ -1,0 +1,68 @@
+<?php /** @var \Eleanorsoft\Instagram\Block\Widget $block */ ?>
+<?php $photos = $block->getPhotos(); ?>
+<?php
+$renderPhoto = function ($photo) {
+    ?>
+    <a href="<?php print $this->escapeHtml($photo->getLink()); ?>"><img src="<?php print $this->escapeHtml($photo->getStandardResolutionUrl()); ?>" alt="" /></a>
+    <?php
+};
+?>
+<div class="container-fluid insta-box no-pd">
+    <div class="row">
+        <div class="col-12 no-pd text-center connect-insta"><a href="#">connect with us on instagram @mibasic</a></div>
+        <?php if ($photos): ?>
+            <?php if (isset($photos[0])) { ?>
+                <div class=" insta-sect-inner no-pd">
+                    <a href="<?php print $this->escapeHtml($photos[0]->getLink()); ?>">
+                        <div style="border:5px solid #fff;width:100%;height:100% !important;background: url('<?php print $this->escapeHtml($photos[0]->getStandardResolutionUrl()); ?>');"></div>
+                    </a>
+                </div>
+            <?php } ?>
+            <?php if (isset($photos[1])) { ?>
+                <div class=" insta-sect-inner2 no-pd">
+                    <?php $renderPhoto($photos[1]); ?>
+                    <?php if (isset($photos[2])) { ?>
+                        <?php $renderPhoto($photos[2]); ?>
+                    <?php } ?>
+                </div>
+            <?php } ?>
+            <?php if (isset($photos[3])) { ?>
+                <div class=" insta-sect-inner no-pd">
+                    <a href="<?php print $this->escapeHtml($photos[3]->getLink()); ?>">
+                        <div style="border:5px solid #fff;width:100%;height:100% !important;background: url('<?php print $this->escapeHtml($photos[3]->getStandardResolutionUrl()); ?>');"></div>
+                    </a>
+                </div>
+            <?php } ?>
+            <?php if (isset($photos[4])) { ?>
+                <div class=" insta-sect-inner2 no-pd">
+                    <?php $renderPhoto($photos[4]); ?>
+                    <?php if (isset($photos[5])) { ?>
+                        <?php $renderPhoto($photos[5]); ?>
+                    <?php } ?>
+                </div>
+            <?php } ?>
+            <?php if (isset($photos[6])) { ?>
+                <div class=" insta-sect-inner no-pd">
+                    <a href="<?php print $this->escapeHtml($photos[6]->getLink()); ?>">
+                        <div style="border:5px solid #fff;width:100%;height:100% !important;background: url('<?php print $this->escapeHtml($photos[6]->getStandardResolutionUrl()); ?>');"></div>
+                    </a>
+                </div>
+            <?php } ?>
+
+            <?php /*foreach($block->getPhotos() as $photo): ?>
+                <?php
+                    $url = $photo->getStandardResolutionUrl();
+                    $link = $photo->getLink();
+                    $type = $photo->getStandardResolutionType();
+                    $width = $photo->getStandardResolutionWidth();
+                    $height = $photo->getStandardResolutionHeight();
+                ?>
+                <a class="instagram_photo_link" href="<?php echo $link; ?>" target="_blank">
+                    <img class="instagram_photo_<?php echo $type; ?>" src="<?php echo $url; ?>" height="<?php echo $height; ?>" width="<?php echo $width; ?>"/>
+                </a>
+            <?php endforeach;*/ ?>
+        <?php else: ?>
+            <?php echo __('No image available.'); ?>
+        <?php endif; ?>
+    </div>
+</div>
