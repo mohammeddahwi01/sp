@@ -12,7 +12,8 @@ define(['jquery', 'uiComponent', 'ko','Eleanorsoft_AjaxEntityLoader/js/send-requ
             updateEntityLoader: function () {
                 var self = this;
                  result().then(function () {
-                     self.endResult  = arguments[0];
+                     self.endResult  = arguments;
+                     console.log(arguments);
                      console.log(self.endResult);
                 });
             }
