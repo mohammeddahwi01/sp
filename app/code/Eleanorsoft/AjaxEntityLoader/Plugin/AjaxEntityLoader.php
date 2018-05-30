@@ -66,9 +66,9 @@ abstract class AjaxEntityLoader
      */
     public function afterExecute($subject, $page)
     {
-        $page = $this->_request->getParam('p');
+        $current_page = $this->_request->getParam('p');
         $qty = $this->_request->getParam('qty');
-        if ($page && $qty && $this->_request->isAjax()) {
+        if ($current_page && $qty && $this->_request->isAjax()) {
 
 
             $resultJson = $this->resultFactory->create(ResultFactory::TYPE_JSON);
@@ -78,10 +78,10 @@ abstract class AjaxEntityLoader
 
             $size = (int)ceil($collection->getSize() / $qty);
 
-            if ($page > $size) {
+            if ($current_page > $size) {
                 return $resultJson->setData(new \stdClass());
             }
-            $collection->setPage($page, $qty);
+            $collection->setPage($current_page, $qty);
 
             return $resultJson->setData($collection);
         }
