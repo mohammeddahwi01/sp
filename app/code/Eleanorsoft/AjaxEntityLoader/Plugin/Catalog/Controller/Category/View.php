@@ -70,7 +70,7 @@ class View
     {
         $data = $this->_request->getParams();
         if ($data && $this->_request->isAjax()) {
-                var_dump($data);
+                var_dump($data);die;
             $resultLayout = $this->resultFactory->create(ResultFactory::TYPE_LAYOUT);
             $resultJson = $this->resultFactory->create(ResultFactory::TYPE_JSON);
 
