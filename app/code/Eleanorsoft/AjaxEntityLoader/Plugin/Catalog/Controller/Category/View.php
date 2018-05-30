@@ -78,7 +78,7 @@ class View
             $resultRow->setHttpResponseCode($httpBadRequestCode);
         }
 
-//        if ($data && $this->_request->isAjax()) {
+        if ($data && $this->_request->isAjax()) {
 
             $resultLayout = $this->resultFactory->create(ResultFactory::TYPE_LAYOUT);
             $resultJson = $this->resultFactory->create(ResultFactory::TYPE_JSON);
@@ -86,10 +86,11 @@ class View
 
             $block = $resultLayout->getLayout()->getBlock('category.products.list');
             $collection = $block->getLoadedProductCollection(); /** @var $collection AbstractCollection */
-            $collection->setPage(3, 2);
-            var_dump($collection->getData());die;
+
+            $collection->setPage(7, 9);
+
             return $resultJson->setData($collection);
-//        }
-//        return $page;
+        }
+        return $page;
     }
 }

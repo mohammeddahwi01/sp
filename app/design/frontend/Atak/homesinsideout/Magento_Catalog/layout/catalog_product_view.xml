@@ -49,8 +49,8 @@
 				<block class="Magento\Framework\View\Element\Template" as="default"/>
 			</block>
 		</referenceBlock>
-		<referenceBlock name="product.info.share">
-			<block class="Eleanorsoft\AddThis\Block\Widget" name="addthis.widget"/>
-		</referenceBlock>
+			<referenceBlock name="product.info.share">
+				<block class="Eleanorsoft\AddThis\Block\Widget" name="addthis.widget"/>
+			</referenceBlock>
     </body>
 </page>
