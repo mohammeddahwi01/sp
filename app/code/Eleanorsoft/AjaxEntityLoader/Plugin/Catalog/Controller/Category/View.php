@@ -68,18 +68,9 @@ class View
      */
     public function afterExecute(BaseView $subject, $page)
     {
-        $data = null;
-        $httpBadRequestCode = 400;
-        $resultRow = $this->resultFactory->create(ResultFactory::TYPE_RAW);
-
-        try {
-            $data = $this->helper->jsonDecode($this->_request->getContent());
-        } catch (\Exception $exception) {
-            $resultRow->setHttpResponseCode($httpBadRequestCode);
-        }
-
+        $data = $this->_request->getParams();
         if ($data && $this->_request->isAjax()) {
-
+                var_dump($data);
             $resultLayout = $this->resultFactory->create(ResultFactory::TYPE_LAYOUT);
             $resultJson = $this->resultFactory->create(ResultFactory::TYPE_JSON);
 
@@ -87,6 +78,11 @@ class View
             $block = $resultLayout->getLayout()->getBlock('category.products.list');
             $collection = $block->getLoadedProductCollection(); /** @var $collection AbstractCollection */
 
+            $size = (int)ceil($collection->getSize() / 9);
+
+            if ($size > 3) {
+                return $resultJson->setData(new \stdClass());
+            }
             $collection->setPage(7, 9);
 
             return $resultJson->setData($collection);
