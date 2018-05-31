@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Eleanorsoft\AjaxEntityLoader\Block\Loader" template="Eleanorsoft_AjaxEntityLoader::ajax/loader.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="es-ajax-loader" xsi:type="array">
+                                <item name="component" xsi:type="string">Eleanorsoft_AjaxEntityLoader/js/ajax/loader</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Eleanorsoft_AjaxEntityLoader/view/ajax/loader</item>
+                                    <item name="qty" xsi:type="string">9</item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
