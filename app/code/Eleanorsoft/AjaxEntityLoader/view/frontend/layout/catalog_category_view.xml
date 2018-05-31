@@ -8,7 +8,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Eleanorsoft\AjaxEntityLoader\Block\Loader" template="Eleanorsoft_AjaxEntityLoader::ajax/loader.phtml">
+            <block class="Eleanorsoft\AjaxEntityLoader\Block\Loader" after="-" template="Eleanorsoft_AjaxEntityLoader::ajax/loader.phtml">
                 <arguments>
                     <argument name="jsLayout" xsi:type="array">
                         <item name="components" xsi:type="array">

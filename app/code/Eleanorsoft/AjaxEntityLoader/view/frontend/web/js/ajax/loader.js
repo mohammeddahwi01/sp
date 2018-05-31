@@ -25,15 +25,13 @@ define(['jquery', 'uiComponent', 'ko', 'mage/storage'], function ($, Component, 
             updateEntityLoader: function () {
                 var self = this;
                 this.getProducts().then(function () {
-                    if (!Object.keys(arguments[0]).length) {
-                        self.canMakeRequest = false;
+                    /*if (!Object.keys(arguments[0]).length) {
+                        self.canMakeRequest = false;*/
                         console.log('canMakeRequest then',self.canMakeRequest);
-                    }
+                    // }
+                        self.endResult.push(arguments[0]);
+                        console.log(self.endResult());
 
-                    $.each(arguments[0], function (key,value) {
-                        self.endResult.push(value);
-                    });
-                    console.log(self.endResult());
                 }).catch(
                     function (e) {
                         console.log(e);
