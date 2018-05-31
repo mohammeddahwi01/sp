@@ -1,0 +1,12 @@
+<?php /** @var  \Eleanorsoft\AjaxEntityLoader\Block\Loader $block */ ?>
+
+<div id="es-loader" data-bind="scope:'es-ajax-loader'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+    {
+        "#es-loader": {
+            "Magento_Ui/js/core/app": <?php /* @escapeNotVerified */ print $block->getJsLayout()?>
+        }
+    }
+    </script>
+</div>
