@@ -26,9 +26,13 @@ abstract class AjaxEntityLoader
     protected $resultFactory;
 
     /**
+     * @var \Magento\Framework\App\RequestInterface
+     */
+    protected $_request;
+
+    /**
      * Index constructor.
      * @param Context $context
-     * @param Data $helper
      */
     public function __construct
     (
@@ -36,6 +40,7 @@ abstract class AjaxEntityLoader
     )
     {
         $this->resultFactory = $context->getResultFactory();
+        $this->_request = $context->getRequest();
     }
 
     /**
