@@ -21,9 +21,9 @@ abstract class AjaxEntityLoader
 {
 
     /**
-     * @var Data
+     * @var \Magento\Framework\Controller\ResultFactory
      */
-    protected $helper;
+    protected $resultFactory;
 
     /**
      * @var \Magento\Framework\App\RequestInterface
@@ -31,30 +31,16 @@ abstract class AjaxEntityLoader
     protected $_request;
 
     /**
-     * @var \Magento\Framework\App\ResponseInterface
-     */
-    protected $_response;
-
-    /**
-     * @var \Magento\Framework\Controller\ResultFactory
-     */
-    protected $resultFactory;
-
-    /**
      * Index constructor.
      * @param Context $context
-     * @param Data $helper
      */
     public function __construct
     (
-        Context $context,
-        Data $helper
+        Context $context
     )
     {
-        $this->helper = $helper;
-        $this->_request = $context->getRequest();
-        $this->_response = $context->getResponse();
         $this->resultFactory = $context->getResultFactory();
+        $this->_request = $context->getRequest();
     }
 
     /**
@@ -66,41 +52,58 @@ abstract class AjaxEntityLoader
      */
     public function afterExecute($subject, $page)
     {
-        $current_page = $this->_request->getParam('p');
-        $qty = $this->_request->getParam('qty');
-        if ($current_page && $qty && $this->_request->isAjax()) {
 
+        if ($this->_request->isAjax()) {
+            $resultRaw = $this->resultFactory->create(ResultFactory::TYPE_RAW);
 
-            $resultJson = $this->resultFactory->create(ResultFactory::TYPE_JSON);
+            $title_block = $this->getTitleBlock();
+            $block = $this->getBlock($title_block);
+            $layout = $this->getLayout();
 
-            $block = $this->getBlock('category.products.list');
-            $collection = $this->getCollection($block);/** @var $collection AbstractCollection */
+            $layout->unsetElement('product_list_toolbar');
+            $this->beforeHtml();
 
-            $size = (int)ceil($collection->getSize() / $qty);
-
-            if ($current_page > $size) {
-                return $resultJson->setData(new \stdClass());
-            }
-            $collection->setPage($current_page, $qty);
-
-            return $resultJson->setData($collection);
+            $output = $block->toHtml();
+            return $resultRaw->setContents($output);
         }
         return $page;
     }
 
-    private function getBlock($title)
+    /**
+     * Init layout
+     *
+     * @return mixed
+     */
+    private function getLayout()
     {
         $resultLayout = $this->resultFactory->create(ResultFactory::TYPE_LAYOUT);
-        $block = $resultLayout->getLayout()->getBlock($title);
+        $layout = $resultLayout->getLayout();
+
+        return $layout;
+    }
+    /**
+     * Init block
+     *
+     * @param $title
+     * @return mixed
+     */
+    protected function getBlock($title)
+    {
+        $layout = $this->getLayout();
+        $block = $layout->getBlock($title);
 
         return $block;
     }
 
     /**
-     * Init collection
+     * Get name block
      *
-     * @param $block
-     * @return mixed
+     * @return string
      */
-    protected abstract function getCollection($block);
+    protected abstract function getTitleBlock();
+
+
+    protected function beforeHtml()
+    {
+    }
 }

@@ -17,7 +17,6 @@
                                 <item name="config" xsi:type="array">
                                     <item name="template" xsi:type="string">Eleanorsoft_AjaxEntityLoader/view/ajax/loader</item>
                                     <item name="qty" xsi:type="string">9</item>
-                                    <item name="url" xsi:type="string">catalog/</item>
                                 </item>
                             </item>
                         </item>
