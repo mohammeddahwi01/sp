@@ -7,4 +7,8 @@
                 type="Eleanorsoft\AjaxEntityLoader\Plugin\Catalog\Controller\Category\View"/>
     </type>
 
+    <type name="Magento\CatalogSearch\Controller\Result\Index">
+        <plugin name="es_catalogsearch_result_index_ajax"
+                type="Eleanorsoft\AjaxEntityLoader\Plugin\CatalogSearch\Controller\Result\Index"/>
+    </type>
 </config>

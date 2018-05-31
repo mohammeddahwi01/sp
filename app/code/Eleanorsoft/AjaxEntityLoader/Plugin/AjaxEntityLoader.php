@@ -53,20 +53,18 @@ abstract class AjaxEntityLoader
     public function afterExecute($subject, $page)
     {
 
-        if ($this->_request->isAjax()) {
+//        if ($this->_request->isAjax()) {
             $resultRaw = $this->resultFactory->create(ResultFactory::TYPE_RAW);
 
             $title_block = $this->getTitleBlock();
             $block = $this->getBlock($title_block);
-            $layout = $this->getLayout();
 
-            $layout->unsetElement('product_list_toolbar');
             $this->beforeHtml();
 
             $output = $block->toHtml();
             return $resultRaw->setContents($output);
-        }
-        return $page;
+//        }
+//        return $page;
     }
 
     /**
@@ -74,7 +72,7 @@ abstract class AjaxEntityLoader
      *
      * @return mixed
      */
-    private function getLayout()
+    public function getLayout()
     {
         $resultLayout = $this->resultFactory->create(ResultFactory::TYPE_LAYOUT);
         $layout = $resultLayout->getLayout();

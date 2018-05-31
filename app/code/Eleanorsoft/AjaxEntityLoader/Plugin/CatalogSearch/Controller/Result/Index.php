@@ -1,6 +1,6 @@
 <?php
 
-namespace Eleanorsoft\AjaxEntityLoader\Plugin\Catalog\Controller\Category;
+namespace Eleanorsoft\AjaxEntityLoader\Plugin\CatalogSearch\Controller\Result;
 use Eleanorsoft\AjaxEntityLoader\Plugin\AjaxEntityLoader;
 
 
@@ -13,25 +13,25 @@ use Eleanorsoft\AjaxEntityLoader\Plugin\AjaxEntityLoader;
  * @copyright Copyright (c) 2018 Eleanorsoft (https://www.eleanorsoft.com/)
  */
 
-class View extends AjaxEntityLoader
+class Index extends AjaxEntityLoader
 {
 
     /**
-     * Name block
+     * Get name block
      *
      * @return string
      */
     protected function getTitleBlock()
     {
-        return 'category.products.list';
+        return 'search_result_list';
     }
 
     protected function beforeHtml()
     {
-        $layout = $this->getLayout();
-        $layout->unsetElement('product_list_toolbar');
-
-        $block = $this->getBlock('product_list_toolbar');
-        $block->setTemplate('');
+//        $layout = $this->getLayout();
+//        $layout->unsetElement('product_list_toolbar');
+//
+//        $block = $this->getBlock('product_list_toolbar');
+//        $block->setTemplate('');
     }
 }
