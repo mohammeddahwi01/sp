@@ -26,14 +26,4 @@ class Index extends AjaxEntityLoader
         return 'search_result_list';
     }
 
-    protected function beforeHtml()
-    {
-//        $layout = $this->getLayout();
-//        $layout->unsetElement('product_list_toolbar');
-//
-//        $block = $this->getBlock('product_list_toolbar');
-//
-//        var_dump($block->getData());
-//        $block->setTemplate('');
-    }
 }

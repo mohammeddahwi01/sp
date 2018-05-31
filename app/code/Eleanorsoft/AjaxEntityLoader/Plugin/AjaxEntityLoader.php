@@ -2,11 +2,9 @@
 
 namespace Eleanorsoft\AjaxEntityLoader\Plugin;
 
-use Magento\Eav\Model\Entity\Collection\AbstractCollection;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\ResultFactory;
-use Magento\Framework\Json\Helper\Data;
 
 /**
  * Class AjaxEntityLoader
@@ -54,14 +52,24 @@ abstract class AjaxEntityLoader
     {
 
         if ($this->_request->isAjax()) {
+
             $resultRaw = $this->resultFactory->create(ResultFactory::TYPE_RAW);
 
             $title_block = $this->getTitleBlock();
             $block = $this->getBlock($title_block);
+            $toolbar = $block->getToolbarBlock();
 
             $this->beforeHtml();
 
             $output = $block->toHtml();
+
+            $lastPageNum = $toolbar->getLastPageNum();
+            $current_page = $toolbar->getCurrentPage();
+
+            if ($current_page > $lastPageNum) {
+                $output = '';
+            }
+        
             return $resultRaw->setContents($output);
         }
         return $page;
@@ -99,7 +107,6 @@ abstract class AjaxEntityLoader
      * @return string
      */
     protected abstract function getTitleBlock();
-
 
     protected function beforeHtml()
     {

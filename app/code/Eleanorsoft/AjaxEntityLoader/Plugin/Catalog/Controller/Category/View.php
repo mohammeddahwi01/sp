@@ -26,12 +26,4 @@ class View extends AjaxEntityLoader
         return 'category.products.list';
     }
 
-    protected function beforeHtml()
-    {
-        $layout = $this->getLayout();
-        $layout->unsetElement('product_list_toolbar');
-
-        $block = $this->getBlock('product_list_toolbar');
-        $block->setTemplate('');
-    }
 }
