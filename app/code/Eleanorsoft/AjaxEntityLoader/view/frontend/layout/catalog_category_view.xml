@@ -16,6 +16,7 @@
                                 <item name="component" xsi:type="string">Eleanorsoft_AjaxEntityLoader/js/ajax/loader</item>
                                 <item name="config" xsi:type="array">
                                     <item name="template" xsi:type="string">Eleanorsoft_AjaxEntityLoader/view/ajax/loader</item>
+                                    <item name="qty" xsi:type="string">9</item>
                                 </item>
                             </item>
                         </item>
