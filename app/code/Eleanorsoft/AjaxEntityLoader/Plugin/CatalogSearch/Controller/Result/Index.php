@@ -32,6 +32,8 @@ class Index extends AjaxEntityLoader
 //        $layout->unsetElement('product_list_toolbar');
 //
 //        $block = $this->getBlock('product_list_toolbar');
+//
+//        var_dump($block->getData());
 //        $block->setTemplate('');
     }
 }

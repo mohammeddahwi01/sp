@@ -53,7 +53,7 @@ abstract class AjaxEntityLoader
     public function afterExecute($subject, $page)
     {
 
-//        if ($this->_request->isAjax()) {
+        if ($this->_request->isAjax()) {
             $resultRaw = $this->resultFactory->create(ResultFactory::TYPE_RAW);
 
             $title_block = $this->getTitleBlock();
@@ -63,8 +63,8 @@ abstract class AjaxEntityLoader
 
             $output = $block->toHtml();
             return $resultRaw->setContents($output);
-//        }
-//        return $page;
+        }
+        return $page;
     }
 
     /**
