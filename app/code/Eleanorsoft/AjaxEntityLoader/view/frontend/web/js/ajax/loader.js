@@ -12,13 +12,11 @@ define
 
         return Component.extend({
             defaults: {
-                qty: null,
                 urlProducts: null
             },
 
             initialize: function () {
                 this._super();
-                alert(this.urlProducts);
                 // this.getProducts();
 
             },

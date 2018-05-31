@@ -17,14 +17,18 @@ class View extends AjaxEntityLoader
 {
 
     /**
-     * Init collection
+     * Name block
      *
-     * @param $block
-     * @return mixed
+     * @return string
      */
-    protected function getCollection($block)
+    protected function getTitleBlock()
     {
-        $collection = $block->getLoadedProductCollection();
-        return $collection;
+        return 'category.products.list';
+    }
+
+    protected function beforeHtml()
+    {
+        $block = $this->getBlock('product_list_toolbar');
+        $block->setTemplate('');
     }
 }
